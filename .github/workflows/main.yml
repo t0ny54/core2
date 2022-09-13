@@ -2,14 +2,9 @@ name: CI
 
 # Controls when the action will run. 
 on:
-  push:
-    # Match all pushes
-  pull_request:
-    # Match all pull requests
-  schedule:
-    - cron: "0 6 * * *"
-  # Allows you to run this workflow manually from the Actions tab
+  repository_dispatch:
   workflow_dispatch:
+  push:
     paths-ignore:
     - '.github/**'
     - 'lists/**'
@@ -21,6 +16,8 @@ on:
     - '*.py'
     - '*.json'
     - 'README.md'
+  schedule:
+    - cron: '0 6 * * *'
 
 jobs:
   build:
@@ -35,7 +32,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: 'Convert Lists'
-        run: python ./convertlists.py lists.json /converted/
+        run: python ./convertlists.py lists.json
       - name: 'Build Repo'
         run: |
           git config user.name github-actions
