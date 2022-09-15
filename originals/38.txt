@@ -561,6 +561,7 @@ reddit.com#@#.ADBAR
 !#safari_cb_affinity
 !
 ! Add same rules to the Admiral section of Tracking Protection filter
+||shakysurprise.com^$third-party
 ||cosmosjackson.com^$third-party
 ||afraidlanguage.com^$third-party
 ||meatydime.com^$third-party
@@ -681,6 +682,7 @@ reddit.com#@#.ADBAR
 !
 ! SECTION: Anti-adblock - Regular rules
 ! Do not forget about '!#safari_cb_affinity' section for exclusions
+18comic.org#%#//scriptlet("set-constant", "nerverblock_callback", "noopFunc")
 multiup.eu,multiup.org#?#.content-body > .text-center:has(> a[href*="list_adblock.txt&"])
 ||cdn.iphoneincanada.ca/wp-content/themes/iphone/js/JDAB.js
 craftpip.github.io#%#//scriptlet('set-local-storage-item', 'adsok', 'true')
@@ -2313,7 +2315,6 @@ zkillboard.com#@#.adsbygoogle
 @@||fireman.club/wp-content/themes/fireclub/ads/banner.gif$domain=fireman.club
 @@||fjhsjkfhwqeirusdfjkh.azureedge.net/ads/ads.js
 @@||fjhsjkfhwqeirusdfjkh.azureedge.net/adv/ads.js
-@@||flightsim.to/doubleserve.js
 @@||flyertalk.com/ad.min.js
 @@||forum.lesarnaques.com/advertisement.js
 @@||forum.pokemobbot.com^$generichide
@@ -3338,6 +3339,7 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 ||borgan.ru^$third-party
 ||cdn*.pdmntn.com^$third-party
 ||cdn-library.su/plusonet/lib/$domain=~pluso.net
+||cdn-promote.weebly.com/js/dist/lead-form.js$third-party
 ||cdn.pn.vg^$third-party
 ||cdn.swellrewards.com^$third-party
 ||chat.whatsappx.xyz^$third-party
@@ -3413,6 +3415,9 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 !
 ! SECTION: Popups - Regular rules
 !
+customfw.xyz#%#//scriptlet('set-cookie', 'support-ukraine', 'true')
+woman.chintai#$#.agent-e.appeal-modal { display: none !important }
+woman.chintai#$#.agent-no-scroll { position: static !important; width: auto !important; height: auto !important; }
 ch3plus.com##.home-lightbox
 auspost.com.au###auspost-nps-survey
 fotor.com###rootPopup
@@ -4947,7 +4952,6 @@ vizita.si#%#document.cookie="popup=9999999999999; path=/;";
 archive.vanityfair.com##.shared_footer_cta_primary
 archive.vanityfair.com##.shared_footer_cta_basic
 vanityfair.com##aside[class^="PaywallBarWrapper-"]
-markandgraham.com,pbteen.com,potterybarn.com,potterybarnkids.com,rejuvenation.com,westelm.com,williams-sonoma.com#%#//scriptlet('prevent-setInterval', 'showCampaignOverlay')
 derstandard.at,derstandard.de##.dstpiano-container
 dmax-shop.de##.dasPopup
 revolutionrace.de#$?#body > div[id^="vue-portal-target-"]:has(> div.modal-layer div.newsletter-block) { display: none!important; }
@@ -6148,7 +6152,6 @@ fastweb.it###stdSticky
 fastweb.it###stdLightbox
 fastweb.it###stdLightboxBg
 kibriswebhaber.com##.chip.ctc-analytics
-rejuvenation.com##div[id^="email-signup-flyin"]
 hbr-russia.ru##.sticky-message
 goldsilver.com#$?#body > div[style]:has(> div[id^="zmodal"]) { display: none !important; }
 goldsilver.com#$#body { overflow: visible !important; }
@@ -9905,6 +9908,11 @@ aol.com#$#.banner-active { margin-top: 0 !important; }
 !
 ! SECTION: Push notifications - Allowlist
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/129633
+!+ NOT_PLATFORM(windows, mac, android)
+||cdn.onesignal.com/sdks/OneSignalSDK.js$script,redirect=noopjs,domain=sammobile.com
+!+ PLATFORM(ios, ext_android_cb, ext_safari)
+@@||cdn.onesignal.com/sdks/OneSignalSDK.js$domain=sammobile.com
 ! https://github.com/AdguardTeam/AdguardFilters/issues/126988
 @@||cdn.onesignal.com/sdks/amp/amp-helper-frame.js$domain=lelum.pl
 ! https://github.com/AdguardTeam/AdguardFilters/issues/121072
@@ -10027,6 +10035,11 @@ turkuazgazetesi.net,yenialanya.com,mansetaydin.com,seskocaeli.com,kocaelibarisga
 !
 ! SECTION: Subscriptions - Regular rules
 !
+pbteen.com,potterybarn.com,potterybarnkids.com,westelm.com,williams-sonoma.com#%#//scriptlet('set-constant', 'WSI.contentPersonalization.hideEmailCaptureOverlay', 'true')
+markandgraham.com#$##join-email-campaign { display: none !important; }
+markandgraham.com#$#body { overflow: auto !important; }
+rejuvenation.com##div[id^="email-signup-flyin"]
+kommersant.uk#?#main > section + div.container:has(> article.subscription__form)
 huffingtonpost.kr###letter-form
 bookmaker-ratings.ru##div[class^="sc-"] > section[class^="sc-"] + div:not([class]):not([id])
 bloomberg.com###expandableBanner
@@ -12169,9 +12182,6 @@ architecturaldigest.com##.homepage__newsletter-row
 architecturaldigest.com##.ticker-wrapper
 nytimes.com##div[id*="_MAIN_CONTENT_"][data-testid="region"]
 gq.com##.consumer-marketing-unit--cm-footer
-potterybarn.com#$#body.modal-open { overflow: auto !important; }
-potterybarn.com#$##join-email-campaign { display: none !important; }
-markandgraham.com,pbteen.com,potterybarnkids.com,rejuvenation.com,westelm.com,williams-sonoma.com###join-email-campaign
 gazeta.ru##.b_telegram
 babista.de,impressionen.de##div[data-entd-teaser="banderolenteaser"]
 m.timesofindia.com##.newsletter_placeholder
@@ -12334,7 +12344,7 @@ odia.ig.com.br##.container_newsletter
 sensorstechforum.com##.subscribe_form_widget
 ria.ru###subscriber
 globo.com##.newsletterMCWrapper
-foxnews.com##.item-newsletter
+laprovence.com,foxnews.com##.item-newsletter
 odishabytes.com##.single-container > div.better-studio-shortcode
 odishabytes.com##.bs-subscribe-newsletter
 lionsroar.com##.our-newsletter
@@ -13024,7 +13034,7 @@ pult.ru##div[id^="subscription"]
 pult.ru##.s-main-news-subscribe
 readovka.news##.block-community-zen
 dinos.co.jp,supermagnete.de,lampenwelt.de,oxfordlearning.com,caseking.de,lidyana.com,officedepot.co.cr##.footer-newsletter
-ouest-france.fr##.bloc-newsletter
+laprovence.com,ouest-france.fr##.bloc-newsletter
 trendus.com###SideBar-Newsletter
 portal.lviv.ua##.subscribe_social
 engadget.com##div[data-component="NewsletterCard"]
