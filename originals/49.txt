@@ -1199,14 +1199,9 @@
 ! Bad: ||ad.doubleclick.net^ (should be in adservers.txt)
 !
 !
-!--- Temporary
-! https://github.com/AdguardTeam/AdguardForiOS/issues/255
-@@||m.beautypageants.in^$elemhide
-!---
 ! Rules for AdFender to block injected ads when AdGuard DNS is active
 !+ PLATFORM(ios, ext_android_cb)
 ||chefkoch.de/magazin/sites/default/files/styles/*/public/media/image/*/*_*x*.jpg
-!
 ! https://github.com/AdguardTeam/AdguardFilters/issues/127712
 erozine.jp#%#//scriptlet("set-constant", "mobiles", "")
 !#if (adguard_app_ios || adguard_ext_android_cb)
@@ -1322,6 +1317,8 @@ westseattleblog.com#@#.header-ad
 ! Bad: example.org##main > div.ad (should be in specific.txt)
 !
 !
+finance.yahoo.co.jp#?#header + main > div[id="app"] ~ div[class]:has(> div[id^="ad"])
+finance.yahoo.co.jp#?#header + main > div[id="app"] ~ div[class]:has(> div[id^="ad"]) + div[class]
 unsplash.com#?#div[style^="--column-gutter:"] > div[style^="--row-gutter:"] > div:first-child:has(> figure a + div > span)
 unsplash.com#?#div[data-test="search-photos-route"] div[style^="--column-gutter:"] > div[class] > figure + div:has(> div + footer)
 daretoku-eromanga.info#?##header ~ div.side_col:has(> div.textwidget > div.center)
@@ -1711,12 +1708,11 @@ rambler.ru#?#main > div[class] ~ div[class] > div[class] div[class] > a[href^="h
 !-------------------
 !-------JS----------
 !-------------------
-!### TEMPORARY ###
+!
 ! https://forum.adguard.com/index.php?threads/12443/
 pornhub.com,pornhubthbh7ap3u.onion#%#AG_onLoad(function() { if (typeof redirect !== 'function') return; var str = redirect.toString(); var m = str.match(/\'(\/view.*)\'/); if (m.length != 2) return; var link = m[1]; window.location.href = m[1]; });
-!#################
-!
-!
+! https://github.com/AdguardTeam/AdguardFilters/issues/129754
+healthshots.com#%#//scriptlet('hide-in-shadow-dom', 'div[class^="storyBlock"]:not(.trackWidget), .storyAd')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/126016
 m.viptube.com#%#//scriptlet("set-constant", "player.postitialTimeout", "0")
 ! https://github.com/AdguardTeam/AdguardFilters/issues/126103
@@ -2407,18 +2403,6 @@ yandex.by,yandex.com,yandex.com.tr,yandex.fr,yandex.kz,yandex.ru$$div[class="ser
 ! Bad:  @@||example.org^$stealth (should be in AdGuard Base - allowlist_stealth.txt)
 !
 !
-! ##### TEMPORARY START #####
-!
-! https://github.com/AdguardTeam/AdguardForAndroid/issues/1916
-! https://github.com/AdguardTeam/AdguardFilters/issues/17808
-@@||xda-cdn.com
-! https://github.com/AdguardTeam/AdguardFilters/issues/3707
-@@||tf-robots.nl^$elemhide,jsinject,content
-! https://github.com/AdguardTeam/AdguardForAndroid/issues/3080
-@@||yohalabs.com^
-!
-! ##### TEMPORARY END #####
-!
 !
 ! https://github.com/AdguardTeam/AdguardForAndroid/issues/4235
 @@||ads-interfaces.sc-cdn.net^$domain=ads.snapchat.com
@@ -2857,6 +2841,9 @@ pixiv.net,cartoonpornvideos.com,m.economictimes.com,beethovenmaster.com,m.mistrz
 ! ##.ad
 rakuraku-info.jp,sugoren.com,dailynewsonline.jp,yakuji.co.jp,asahi.com,m.winporn.com,slate.com,sankei.com,gameranbu.jp,seiga.nicovideo.jp,m.arukikata.co.jp,setn.com,hateblo.jp,hatenablog.com,hatenablog.jp,hatenadiary.com,hatenadiary.jp,hatenadiary.org,syosetu.org##.ad
 !
+uraaka-joshi.com##.grid-cell-non-hover
+weather.goo.ne.jp##div[style^="min-height:calc"][style*="min-width:320px;"]
+healthshots.com##.footerstickyad
 tryboobs.com###spotsTop
 svethuawei.eu###mobile-pop-up-ad
 pornone.com##div[class^="flex-initial"]

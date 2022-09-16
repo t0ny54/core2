@@ -21686,11 +21686,6 @@ _tracking.php?b=
 ! Good: example.org###counter; ||tracker.org/stats/
 ! Bad: example.org#$##rek { display: none !important; } (for instance, should be in general_extensions.txt); ||tracker.org^$third-party (should be in tracking_servers.txt)
 !
-! Temporary
-! https://github.com/easylist/easylist/issues/1719
-! https://github.com/AdguardTeam/AdguardFilters/issues/22746
-||ci.phncdn.com/www-static/js/ph-tracking.js$important
-!
 ! index.ru alternative way of loading (loads index.ru first, then /tnc.js from the same domain, see roem.ru for example)
 /tnc.js?h=
 !
@@ -21736,6 +21731,7 @@ _tracking.php?b=
 /analytics.js$domain=freexcafe.com|rusvideos.tv|nakubani.ru|lun.com|songsara.net|newsmax.com|bolgehastanesi.com|ewtc.de|newsdig.tbs.co.jp|imore.com|city.kushiro.lg.jp|emeraldbridal.com.au|emarat-news.ae
 ||assets.adobedtm.com^$domain=mcclatchydc.com|elnuevoherald.com|bellinghamherald.com|sacbee.com|charlotteobserver.com|newsobserver.com|miamiherald.com|ef.ru|algida.com.tr|bmw-motorrad.co.uk|cif.com.tr|clearhaircare.com|domestos.com|dove.com|elidor.com.tr|f1sport.autorevue.cz|geico.com|hellmanns.com.tr|herkessofraya.com|johnsonsbaby.com.tr|lipton.com|lnk.to|lux.com|magnumicecream.com|neutrogena.com.tr|omo.com|rexona.com|samsung.com|sap.com|schwarzkopf.com.tr|signalturkiye.com|msnbc.com|nbcnews.com|kbb.com|eurosport.ru|timgate.it|intermiles.com|oxfordmail.co.uk|spiegel.de|hp.com
 !
+||baidu.com/*/track.gif?$image,redirect=1x1-transparent.gif
 ||chaynikam.info/php/*pagestat.phtml
 ||log.cognativex.com/pixel.
 ||player.hdgay.net/cdn-cgi/trace
@@ -22439,7 +22435,6 @@ textologia.ru##.bot_right
 ||netflix.com/msl/playapi/cadmium/logblob/
 ||netflix.com/api/ftl/probe?monotonic=
 ||daisomall.co.kr/collect.php
-||cam.ink/eye.gif?
 ||adobe.io/system/log
 ||contents-search-windows.com/api/v1/x^
 ||sobaka.ru/assets/*/countersApi.js
@@ -25643,6 +25638,7 @@ $app=com.miui.analytics
 ||int.vlancaa.fun^
 ||tok.vaicore.xyz^
 !
+||d.reddit.com^
 ||splendapps.com/aid.php
 ||clog.mirrativ.com^
 ||teleport.soom.la^
@@ -26350,13 +26346,13 @@ $app=com.miui.analytics
 !### Temporary ###
 ! https://github.com/AdguardTeam/AdguardFilters/issues/125637
 ! TODO: remove after fixing https://github.com/AdguardTeam/Scriptlets/issues/233
+! checked 15.09.2022
 @@||googletagmanager.com/gtm.js$domain=expressvpn.com
 @@||google-analytics.com/analytics.js$script,redirect=google-analytics,domain=expressvpn.com
 ! https://github.com/AdguardTeam/AdguardFilters/issues/125637
 ! TODO: remove after fixing https://github.com/AdguardTeam/Scriptlets/issues/233
+! checked 15.09.2022
 @@||google-analytics.com/analytics.js$script,redirect=google-analytics,domain=nordvpn.com,important
-! https://github.com/AdguardTeam/CoreLibs/issues/1306
-||rover.ebay.$image,object,script,badfilter
 !#################
 !
 !
@@ -26372,6 +26368,13 @@ $app=com.miui.analytics
 !#endif
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/129813
+@@||googletagmanager.com/gtm.js$domain=pccomponentes.com
+@@||pccomponentes.tt.omtrdc.net/rest/v*/delivery?$domain=pccomponentes.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/129795
+@@||gomediago.baidu.com/api/bidder/$domain=jump2.bdimg.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/129756
+ouminews.net#@#img[width="88"][height="31"]
 ! https://github.com/AdguardTeam/AdguardFilters/issues/129640
 @@||alternativeto.net/_next/data/*/*.json
 ! https://github.com/AdguardTeam/AdguardFilters/issues/129682
@@ -28942,8 +28945,6 @@ kizi.com#%#window.google_trackConversion = function() {};
 ! https://github.com/AdguardTeam/AdguardFilters/issues/5347
 @@||c.newsinc.com/getids^$domain=washingtonexaminer.com
 @@||newsinc.com^*/getPlacements.js?pid=$domain=washingtonexaminer.com
-! Temporary fix for Samsung internet
-@@||google-analytics.com/analytics.js$domain=cgv.co.kr
 ! novayagazeta.ru - fixing page loading
 @@||static.criteo.net/js/ld/publishertag.js$domain=novayagazeta.ru
 ! airbnb.ru - fixing the map
