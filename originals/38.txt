@@ -1263,8 +1263,8 @@ nextinpact.com##img[src^="assets/images/autopromo-adblock-"]
 nmac.to##div[class$="alert fade in alert-error "]
 nmac.to##div[style="text-align: center; width: 100%;"] > div.alert
 nmac.to#$#div[class$="alert fade in alert-error "] { position: absolute!important; left: -3000px!important; }
-nnmclub.ro,nnm-club.t0r.xyz,nnm-club-me.appspot.com,nnm-club.lib,nnm-club.me,nnmclub.to##body > div.request
-nnmclub.ro,nnm-club.t0r.xyz,nnm-club-me.appspot.com,nnm-club.lib,nnm-club.me,nnmclub.to##body > div[class="request"]
+nnmclub.ro,nnm-club.t0r.xyz,nnmclub.to##body > div.request
+nnmclub.ro,nnm-club.t0r.xyz,nnmclub.to##body > div[class="request"]
 noadsradio.ru##.no-adb
 nodecraft.com###intercom-warning
 nosalty.hu##.a2blck-layer
@@ -2827,6 +2827,13 @@ web.de,gmx.net,gmx.at,gmx.ch,gmx.com#$##abd-container { display: block !importan
 !
 !
 ! SECTION: Anti-adblock - Grouped rules for specific sites
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/130229
+weather.com#%#//scriptlet("abort-on-property-read", "setNptTechAdblockerCookie")
+!#safari_cb_affinity(general)
+@@||securepubads.g.doubleclick.net/pagead/ppub_config$domain=weather.com
+@@||weather.com/daybreak-today/assets/peel1.ext.df9c55.js$domain=weather.com
+!#safari_cb_affinity
 ! https://github.com/AdguardTeam/AdguardFilters/issues/74570
 goodfon.ru#$#.ad-text.adBanner.adbanner.adBlock.adContent.adSense.Adsense.AdSense.pub_300x250m.pub_728x90.text-ad.text-ad-links.text-ads.text_ad.text_ads.TextAd.textAd.textad.textad { display: block !important; }
 !#if (adguard_ext_safari || adguard_app_ios || adguard_ext_android_cb)
@@ -3421,6 +3428,10 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 !
 ! SECTION: Popups - Regular rules
 !
+wawel-service.pl##.fixed--buttons > a.email
+forbes.com#?#body > div.tp-modal:has(> div.tp-iframe-wrapper > iframe[id^="offer_"])
+technopat.net##ul[data-type="bottom_fixer"]
+evrimagaci.org###user-call-info-card
 mein-mmo.de###dailymotion-pip-large-viewport
 search.brave.com###discussions .callout
 desktopnexus.com##[id^="pb-ad-iframe"]
@@ -3451,7 +3462,6 @@ theepochtimes.com#$#body { overflow: auto !important; }
 theepochtimes.com##.soft_stikcy
 tripadvisor.com###lithium-root > div[style="top: 110px;"]
 zwischengas.com##.fixed-bottom
-/wp-content/plugins/easy-social-share-buttons$domain=dr-farfar.com
 pixlr.com#?#.modal:has(> div.news-dialog)
 pixlr.com#$#.blur { filter: none !important; }
 pixlr.com##a[href="/pricing/"][style^="display:flex;padding:0px 30px;gap:30px;justify-content:center;align-items: center;height:80px;width:100%;z-index:99;position:absolute"]
@@ -3725,7 +3735,7 @@ nordbayern.de#$#.tp-active { display: none !important; }
 nordbayern.de##.piano_bottom_ribbon
 cryptotabbrowser.com###downloadPopup
 cryptotabbrowser.com##.top-notification-black
-affiliatefix.com##.u-bottomFixer
+gmod.fusion-rp.ru,usingenglish.com,affiliatefix.com##.u-bottomFixer
 bmw-yanase.com##.kotei_column_bnr
 beauty.biglobe.ne.jp###staticBalloonContent
 search.brave.com##.callout.svelte-10n95qb
@@ -7156,7 +7166,6 @@ yogatrain.ru###reallike_div
 myjane.ru###moon-calendar
 myjane.ru##.popup-thirdclick
 fmovies.cab##.feedback-icon
-gmod.fusion-rp.ru##.u-bottomFixer
 fremdwort.de###openModal
 itemci.com#$#body { overflow: visible!important; }
 itemci.com#$#html { overflow: visible!important; }
@@ -9010,7 +9019,7 @@ zlavomat.sk#@##credential_picker_container
 ||pt.appirits.com^
 ||cleverpush.com^$third-party,domain=~app.bsdex.de
 ||sdk.push7.jp^$third-party,domain=~secret2.cygames.co.jp
-||widget.intercom.io^$third-party,domain=~app.rezi.io|~intercom.com|~backerclub.co|~quidco.com|~green.energy
+||widget.intercom.io^$third-party,domain=~app.rezi.io|~intercom.com|~backerclub.co|~quidco.com|~green.energy|~artisthub.io
 ||a.trstplse.com^$third-party
 ||abcnewspro.com^
 ||accengage.net^$third-party
@@ -10072,6 +10081,12 @@ turkuazgazetesi.net,yenialanya.com,mansetaydin.com,seskocaeli.com,kocaelibarisga
 !
 ! SECTION: Subscriptions - Regular rules
 !
+thestar.co.uk##div[class^="NewsletterSignup__"]
+ted.com##aside[class^="css-"] > div[class^="pt-6"] > div > div.hidden
+fintolk.pro##.articles-telegram
+oann.com##.ctct-flyout-form
+bqprime.com##.pn-boilerplate--newsletter
+oggusto.com##.subscription-form-lg
 auto-swiat.pl##.googleNewsBanner
 newsgeorgia.ge##.custom_html-23
 kapook.com##.likepage
