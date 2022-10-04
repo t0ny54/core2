@@ -1,9 +1,9 @@
 ![Adblock Plus 2.0]
-! Checksum: hMUbA99SH69cLT6FBdYQqg
+! Checksum: O50jUNMlyThRpLyHD+y9qA
 ! Title: AdGuard German filter (Optimized)
 ! Description: EasyList Germany + AdGuard German filter. Filter list that specifically removes ads on websites in German language.
-! Version: 2.0.29.97
-! TimeUpdated: 2022-10-02T11:40:01+00:00
+! Version: 2.0.29.99
+! TimeUpdated: 2022-10-03T12:39:20+00:00
 ! Expires: 4 days (update frequency)
 ||oddsserve.com^$third-party
 ||widget.marktjagd.de^
@@ -791,6 +791,7 @@ gload.to#?#.tm-main-top > .uk-width-1-1 > .widget_custom_html:has(> .textwidget 
 fitbook.de#?#.pb--three-small > .teaser--b:has(>a[href^="https://secure.adnxs.com/"])
 bayern-reporter.com#?#.entry-content > p:has(> .adsbygoogle)
 ruhr24.de#?#.ob-widget-items-container > .ob-dynamic-rec-container:has(> a[onmousedown^="this.href='https://paid.outbrain.com"])
+prepaid-wiki.de#?#.pull-right > .generated-sidebar > h3:contains(/^Anzeige$/)
 halle365.de#?#.view-events > div.view-content > div.views-row:not([class*="views-row-odd"]):not([class*="views-row-even"]):has(> [about*="banner"])
 bildschirmarbeiter.com#?##col1_content > .plug:has(> a[href*="://www.amazon.de/"][target="_blank"])
 bildschirmarbeiter.com#?##col2_content > .sidebox:has(> a[href*="://www.amazon.de/"][target="_blank"])
@@ -957,7 +958,6 @@ gload.to##+js(abort-on-property-write, bullads)
 !+ NOT_PLATFORM(windows, mac, android, ext_ff)
 tele5.de##+js(json-prune, testhide)
 movie-blog.tv,movie-blog.sx,movie-blog.to##+js(abort-on-property-read, vavpo)
-player.glomex.com##+js(set-constant, Object.prototype._getSalesHouseConfigurations, noopFunc)
 pornoente.tv##+js(set-constant, vpUsePreRoll, false)
 ddl-music.to##+js(abort-current-script, $, ddlpop)
 bs.to##+js(remove-attr, onclick, body)
@@ -1032,6 +1032,8 @@ drwindows.de,wiesbadenaktuell.de,rauchmeldungen.de,simfans.de,wn.de,cosmopolitan
 vergleich.focus.de,chip.de,gutefrage.net,reisefrage.net,motorradfrage.net,autofrage.net,sportlerfrage.net,computerfrage.net,gesundheitsfrage.net,gutefrage.net,finanzfrage.net##.Ad
 3c.web.de,thueringen24.de,pfaffenhofen-today.de,holidaycheck.de,berlin.de,fuw.ch,allgemeine-zeitung.de,schlaukopf.de,schwarzwaelder-bote.de,aachener-zeitung.de,hamburg.de,sat1.de,abendzeitung-muenchen.de,dfb.de,gamestar.hu,ikz-online.de,nrz.de,stimme.de,waz.de,wiesbadener-kurier.de,wiesbadener-tagblatt.de,wp.de,wr.de##.ad
 winfuture.de,netzwelt.de,quoka.de,farmeramania.de,bravofly.de,computerbild.de,digitalfernsehen.de,hl-live.de,chinamobilemag.de,focus.de,pcwelt.de##.adsbygoogle
+firstname.de##.mod_footer_werbung
+firstname.de##iframe[src^="https://api.heise.de/svc/pvg-widget/"]
 immowelt.de##div[class^="BillboardBanner"]
 kurier.de,np-coburg.de,frankenpost.de##a[data-tags*="Advertorial"]
 kurier.de,np-coburg.de,frankenpost.de##div[data-b-title^="HCSB - HTML"]
@@ -1383,7 +1385,6 @@ sol.de###support-box-main
 alfelder-zeitung.de##.horizontal_center
 all-in.de##.bannerslot-centered
 lecker.de###ads_pb
-prad.de##div[data-tpl="Flat_box_horizontal_prad"]
 badische-zeitung.de##div[class$="-ad-holder"]
 kachelmannwetter.com##.dkpw-billboard-margin-fixed
 bz-berlin.de,weser-kurier.de###banner
@@ -2125,6 +2126,7 @@ winsoftware.de##.box300ad
 lecker.de##.col-3.aside > section:nth-child(-n+2)
 praktikumsstellen.de##.col-9-12 > .teaserLine:not(.stelle_P)
 tvspielfilm.de##.desktop_banner_any
+seatforum.de##.ffwidget_sidebar
 sueddeutsche.de##.flexible-teaser--ad
 bmw-syndikat.de##.forum_show_main_banner_left
 wieistmeineip.ch,wieistmeineip.at,wieistmeineip.de##.google-adsense-label
@@ -2192,6 +2194,7 @@ jumk.de,welt-zeit-uhr.de,rechneronline.de##div[style="font-size:10px;margin-top:
 ||winfuture.de/css/images/
 bild.de##a[class$="mark"]
 bild.de##div[class$="rectangle ad-mark"]
+pcgameshardware.de##.contentFrameEddie
 ||durchblicker.at/iframes^$third-party
 wetter24.de###ads_placeholder
 pcwelt.de##.idgGoogleAdTag
@@ -2335,6 +2338,7 @@ rtl.de#@#.rtlde-medium-rectangle
 /bannerwerbung-
 /bilder/ads/*
 /bilder/werbung_
+/cms/werbung/*
 /grafik/ads/*
 /hier_werben.
 /images/werbung.
@@ -2379,7 +2383,6 @@ rtl.de#@#.rtlde-medium-rectangle
 /WerbungPlatzhalter/*
 /Widgets/Werbung/*
 /wrbg.js?
-_Bannerwerbung.
 _werbeanzeigen/
 _werbebanner.
 _werbebanner/
@@ -2462,7 +2465,6 @@ _werbung.php
 ##.ads-anzeige
 ##.ads_bueroklammer
 ##.ads_rechts
-##.anzeigenwerbung
 ##.artikelinlinead
 ##.b-werbung
 ##.bannergroup_werbung
@@ -2707,7 +2709,6 @@ wetter.com#@#div[id^="div-gpt-"]
 ||fastad.beepworld.de^
 ||financeads.net/tb.php$third-party
 ||funke.code.outtra.com/outtra-
-||goldsilbershop.de/widgets/$third-party
 ||gpaf.net/b/$third-party
 ||imaxcdn.com/promotool/banner/$third-party
 ||imgur.com/0OkYj6J.png$domain=mmnews.de
@@ -3031,8 +3032,6 @@ $stylesheet,subdocument,third-party,xmlhttprequest,domain=canna-power.to|canna.t
 ||wbbanner.mrn-news.de^
 ||websingles.at/pages/site/de/images/logos/
 ||webwiki.de/images/seobility_
-||webwork-magazin.net/wp-content/uploads/*/sul-banner-
-||webwork-magazin.net/wp-content/uploads/*/webdesign-printdesign.gif
 ||werbemanager.w24.at^
 ||wetter.at/mowis/cpc_teaser/
 ||wetteronline.de/mdr/p_adplace/
@@ -3340,7 +3339,6 @@ t-online.de,www-t--online-de.cdn.ampproject.org##.Tsshopst2 + .Tmm
 gartenjournal.net##._gartenjournal_billboard
 appgefahren.de,automatentest.de,autorevue.at,gameswirtschaft.de,gartenjournal.net,googlewatchblog.de,justnetwork.eu,kabel-blog.de,medienkuh.de,nachbelichtet.com,nat-games.de,pocketpc.ch,stadt-bremerhaven.de,technikshavo.de##.aawp
 com-magazin.de##.abo
-salue.de##.action-item > * > .ad
 abendblatt.de,adz.ro,ak-kurier.de,architektenwelt.com,azonline.de,beruhmte-zitate.de,bike-magazin.de,bildderfrau.de,boote-exclusiv.com,bos-fahrzeuge.info,chefkoch.de,dastelefonbuch.de,dwdl.de,eatsmarter.de,echo-online.de,erf.de,futurezone.de,gmx.net,gq-magazin.de,icasa.ch,idowa.de,juedische-allgemeine.de,klassikradio.de,lahrer-zeitung.de,macwelt.de,mann.tv,metager.de,modell-fahrzeug.com,modhoster.de,mybike-magazin.de,nau.ch,netzwelt.de,online-webradio.com,paradisi.de,pcwelt.de,pfaffenhofen-today.de,primavera24.de,selbermachen.de,spektrum.de,stadtradio-goettingen.de,sueddeutsche.de,sup-mag.de,surf-magazin.de,tellows.at,tellows.ch,tellows.de,tennisnet.com,tour-magazin.de,vfb.de,vogue.com,wallstreet-online.de,web.de,webwiki.de,wissen.de,wmn.de,wn.de,yacht.de,zeit.de##.ad
 gebraucht-kaufen.de,mixed.de,raetsel-hilfe.de,spieletipps.de,swissmom.ch,watchtime.net,zeit.de##.ad-container
 hallo-minden.de##.ad-info
@@ -3725,6 +3723,7 @@ frauporno.com##.sz_300_250
 duden.de##.tabloid__side-column-top
 golem.de##.tags
 bitreporter.de,elliniki-gnomi.eu,literaturwelt.com,oscar-am-freitag.de,pfalz-echo.de,pi-news.net,prad.de##.td-a-rec
+bestattungen.de##.tdp
 wort.lu##.teaser--sponsored
 watson.ch##.teaser_type_paid_content
 analsexporno.net,deutsche-sexfilme.net,pornomonster.com##.tf-de
@@ -3759,6 +3758,7 @@ aerotelegraph.com##.widget--marktplatz
 wp-koenigin.de##.widget__image--banner
 gameswirtschaft.de,haus-garten-magazin.de##.widget_aawp_widget_bestseller
 gameswirtschaft.de##.widget_aawp_widget_box
+bueroblog.ch,computerfachmagazin.de,office-roxx.de##.widget_metaslider_widget
 delamar.de##.wk
 regensburg-digital.de##.wk-slideshow
 zeno.org##.zenoLSInnerProductTableRightAmazon
@@ -4002,7 +4002,6 @@ outdoor-magazin.com#?#.v-A_-topteaser__rotationbox__item:-abp-has(.v-A_-teaser__
 outdoor-magazin.com#?#.v-A_-white__tile:-abp-has(.v-A_-teaser__tag--ad)
 pc-magazin.de#?#.teaser:-abp-has(.teaser__promolabel)
 pcwelt.de#?#div.box:-abp-has(span.banner-text + h4:-abp-contains(/Partner-Angebot|Angebote/))
-pollenflug.de#?#.services-item:-abp-contains(bei Amazon)
 promobil.de#?#.v-A_-teaser__halfcol__listitem:-abp-has(.v-A_-teaser__tag--ad)
 roadbike.de#?#.v-A_-white__tile:-abp-has(.v-A_-teaser__tag--ad)
 saechsische.de#?#.article-box:-abp-has(> .article-box__text > .article-box__info > span.article-badge--ad)
@@ -4072,7 +4071,6 @@ zwischengas.com#?#.row.mt-0.mb-3.d-print-none:-abp-has(.fa-ad)
 @@||vox.de^$generichide
 @@||welect.de/$document,subdocument
 @@||welt.de^$generichide
-@@||werbebanner24.de/templates/_wb24/_assets/images/$image,domain=werbebanner24.de
 @@||windowspro.de^$~third-party,xmlhttprequest
 @@||www.t-online.de^$generichide
 @@||g.doubleclick.net/gampad/ads?$script,xmlhttprequest,domain=brigitte.de|eltern.de
