@@ -79,6 +79,8 @@
 ! Bad: example.org###rek (should be in specific.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/131034
+imdb.com#%#//scriptlet("set-constant", "doWithAds", "noopFunc")
 ! This rule is for suppressing Google Topics.
 ! Read more about it here:
 ! https://developer.chrome.com/docs/privacy-sandbox/topics/
@@ -372,6 +374,7 @@ journal-plaza.net#?#.rightside div.block.bnavi[-ext-has="h3.dtitle:contains(Сч
 !||i.snssdk.com/log/*
 !||i.snssdk.com/slardar/sdk.js
 !
+||testingmetriksbre.ru^$third-party
 ||t.ssp.hinet.net^
 ||bb8.aotter.net^
 ||dmkt.point-ad-game.com^
@@ -424,7 +427,6 @@ journal-plaza.net#?#.rightside div.block.bnavi[-ext-has="h3.dtitle:contains(Сч
 ||brt.studylabs.cn^
 ||effirst.com^$third-party
 ||klickly.com^$third-party
-||alexatracker.com^
 ||accanalyze.com^$third-party
 ||splitbee.io^$third-party
 ||log.dzen.ru^
@@ -5300,6 +5302,7 @@ nethunt.com/api/v1/track/email/$image
 ! Blocking piwik analytics subdomain(for DNS filtering)
 |piwik.
 !
+||stats.landingi.com^
 ||trek.powtoon.com^
 ||biv.gazeta.pl^
 ||analytics.ngs55.ru^
@@ -31244,6 +31247,8 @@ _tracking.php?b=
 /analytics.js$domain=freexcafe.com|rusvideos.tv|nakubani.ru|lun.com|songsara.net|newsmax.com|bolgehastanesi.com|ewtc.de|newsdig.tbs.co.jp|imore.com|city.kushiro.lg.jp|emeraldbridal.com.au|emarat-news.ae
 ||assets.adobedtm.com^$domain=mcclatchydc.com|elnuevoherald.com|bellinghamherald.com|sacbee.com|charlotteobserver.com|newsobserver.com|miamiherald.com|ef.ru|algida.com.tr|bmw-motorrad.co.uk|cif.com.tr|clearhaircare.com|domestos.com|dove.com|elidor.com.tr|f1sport.autorevue.cz|geico.com|hellmanns.com.tr|herkessofraya.com|johnsonsbaby.com.tr|lipton.com|lnk.to|lux.com|magnumicecream.com|neutrogena.com.tr|omo.com|rexona.com|samsung.com|sap.com|schwarzkopf.com.tr|signalturkiye.com|msnbc.com|nbcnews.com|kbb.com|eurosport.ru|timgate.it|intermiles.com|oxfordmail.co.uk|spiegel.de|hp.com
 !
+||redditmedia.com/gtm/
+||webapi.depop.com/*/collector
 ||baotintuc.vn/scripts/log.js
 ||v20.cnnd.vn/index2.html
 ||dest.modestsunf.com/tag/corejs/ATMG*.js$domain=vtv.vn
@@ -34305,13 +34310,18 @@ link.gmapp*.net$image
 !------------------------------
 ! NOTE: Cookies specific
 !
+! depop.com
+||depop.com^$cookie=_px2
+||depop.com^$cookie=_pxvid
+||depop.com^$cookie=pxcts
+||depop.com^$cookie=ACTIVITY_TRACKER_PERSISTENT_SESSION_ID
 ! https://github.com/AdguardTeam/AdguardFilters/issues/131068
 ||nu.nl^$cookie=temptation-id
-! Cognativex
-||campaigns-serving.cognativex.com^$xmlhttprequest,removeparam=history_postids
-||campaigns-serving.cognativex.com^$xmlhttprequest,removeparam=device_code
-||campaigns-serving.cognativex.com^$xmlhttprequest,removeparam=exc_ads
-||campaigns-serving.cognativex.com^$xmlhttprequest,removeparam=history_adids
+! https://github.com/AdguardTeam/AdguardFilters/issues/130723
+||zoom.us^$cookie=_zm_fingerprint
+||zoom.us^$cookie=_zm_ssid
+||zoom.us^$cookie=_zm_visitor_guid
+||zoom.us^$cookie=_zm_ctaid
 ! https://github.com/AdguardTeam/AdguardFilters/issues/128820
 ||stripchat.com^$cookie=stripchat_com_affiliateId
 ||stripchat.com^$cookie=stripchat_com_guestId
@@ -35900,6 +35910,10 @@ $app=com.miui.analytics
 !#endif
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/131494
+@@||scdn.cxense.com/cx.js$domain=nippon.com
+@@||api.cxense.com/public/widget/$domain=nippon.com
+@@||api.cxense.com/persisted/execute$domain=nippon.com
 ! https://github.com/AdguardTeam/AdguardFilters/issues/131243
 !+ PLATFORM(ios, ext_android_cb, ext_safari)
 @@||app.tirelocator.ca/static/scripts/google-analytics.js
@@ -38695,6 +38709,8 @@ epicwow.com#@#img[width="88"][height="31"]
 @@||pixel.facebook.com/ajax/gigaboxx/endpoint/UpdateLastSeenTime.php?$image
 @@||pixel.facebook.com/ajax/notifications/mark_read.php?*&alert_ids%$image
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/131581
+@@||googletagmanager.com/gtm.js$domain=juffing.at
 ! https://github.com/AdguardTeam/AdguardFilters/issues/20945
 !+ PLATFORM(ios, ext_safari, ext_android_cb)
 @@||static.chartbeat.com/js/chartbeat_mab.js$domain=tampabay.com
