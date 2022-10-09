@@ -454,6 +454,13 @@
 ! Bad: ||ad.doubleclick.net^ (should be in adservers.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/131648
+||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$script,redirect=googlesyndication-adsbygoogle,domain=helpsupport.blog.fc2.com,important
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=helpsupport.blog.fc2.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/131650
+||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$script,redirect=googlesyndication-adsbygoogle,domain=tabtter.jp,important
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=tabtter.jp
+tabtter.jp#@##googlead
 ! https://github.com/uBlockOrigin/uAssets/issues/15126
 kledgeb.blogspot.com#%#//scriptlet("abort-current-inline-script", "document.getElementById", "_0x")
 @@||kledgeb.github.io/UbuntuKledgeb/JavaScript/GoogleAnalytics.js$domain=kledgeb.blogspot.com
@@ -540,8 +547,6 @@ musenboya.com#%#//scriptlet('prevent-setTimeout', '/location\.href|document\./')
 @@||ssp-bidapi.i-mobile.co.jp/api/v1/spot.ashx?$domain=musenboya.com
 @@||spnativeapi-tls.i-mobile.co.jp/api/ad_spot.ashx?$domain=musenboya.com
 !#endif
-! https://github.com/AdguardTeam/AdguardFilters/issues/95723
-tabtter.jp#@##googlead
 ! health.joyplot.com anti-adb
 ||health.joyplot.com/HealthWordsWiki/skin/foradblock.
 ! https://github.com/AdguardTeam/AdguardFilters/issues/90462
@@ -885,6 +890,9 @@ otonasalone.jp,sumaiweb.jp#?#._popIn_infinite_page > a._popIn_recommend_article_
 !
 !
 !
+match.com#?#div[style] > div[class^="css-"]:has(> div[id^="gpt_"])
+eromazofu.com#?#blockquote:has(> p > a[href^="https://nxcount.com"])
+blog55.fc2.com#?#div[class$="_outline"] > div > div.plugin-freearea > ins.adsbygoogle:upward(3)
 plaza.rakuten.co.jp#?##content-sticky > table:has(div.rcardImg)
 plaza.rakuten.co.jp#?##content-sticky > table:has(td[style="padding-right: 16px;"] > div.side_lo > div#RGPT_Rak_Blog_User_SideBanner)
 asahi.com##.Section > div.Ad:upward(1)
@@ -1755,6 +1763,8 @@ avgle.com#%#//scriptlet('abort-current-inline-script', '__htapop')
 !-------CSS---------
 !-------------------
 !
+! https://twitter.com/Wataru_Nanase/status/1578703643767083008
+dq-dai.com#$##lower section.character ul.character_list li.standby { opacity: 1 !important; }
 ! https://egg.5ch.net/test/read.cgi/software/1659969958/142
 !+ NOT_PLATFORM(ext_ublock)
 tver.jp#$?#.vjs-text-track-display > div:matches-css(background-color: rgb(0, 0, 0)) { background: none !important; }
@@ -2023,6 +2033,9 @@ kuruma-news.jp,magmix.jp,trafficnews.jp$$div[data-history="photo_extra"]
 /wp-content/plugins/amazonjs/*
 !
 ! Malware/Phishing
+.xyz/net/vwc/cca_lg_eu_nets/login/m/one|$document
+://www.eki-net.*.shop/personal/login|$document
+://connecct-login.*.com/login.php?token=|$document
 /^http:\/\/[0-9a-z]{1,4}\.[a-z]{5}\.com\/chrome\.apk$/$document
 ://mizunho*.cyou/client/index.php|$document
 .cn/Personal/member/Login/index.php?oneTimeAccessID=$document
@@ -2036,10 +2049,8 @@ kuruma-news.jp,magmix.jp,trafficnews.jp$$div[data-history="photo_extra"]
 -smbc.com/client/index.php|$document
 ://eki-net.*/login.php|$document
 /_ap/signin?scid=s_kwa_2021fas_*&icm_acid=$document
-://www2.ameericanxsexpresss.com.*.top/logn.php?token=$document
 /\.(?:bar|icu|id|rest|shop|top|xyz)\/[0-9A-Za-z]{8,10}\/page1\.php$/$document
 ://www.eki-nett.*.top/dist/$document
-://www-yodubash-com.*/pc/login.php?yc/login/index.html?returnUrl=$document
 ://www2.myjcb.com.jp.*.cn/pc/issmyjcb_login.php|$document
 /_ap/signin?_encoding=UTF8&openid.assoc_handle=jpflex&openid.claimed_id=&action=sign-in&path=home&ref_=nav_Account&signIn=1&useRedirectOnSuccess=1|$document
 /KDDI%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3.apk^$document
@@ -5772,8 +5783,8 @@ yaraon-blog.com###single_content_sidebar
 afpbb.com##div[id^="_popIn_recommend"]
 life-n.jp##li[id^="native-"]
 life-n.jp##div[class^="ad_area"]
-renote.jp##.ad__bit
-renote.jp##div[class*="__ad__container"]
+renote.*##.ad__bit
+renote.*##div[class$="ad__container"]
 ||blogimg.jp/lucky2507/imgs/*/*.png$domain=koko-de-lunch.blog.jp
 ||gundam-futab.info/wp-content/themes/matome/rss/rss.html
 gundam-futab.info###sidebar-widget > .widget_pc_text:first-child
