@@ -1718,6 +1718,11 @@ teleboy.ch#@#.adWrapper
 ! Good: example.org#?#main > div.row:has(> div.ad)
 ! Bad: example.org##main > div.ad (should be in specific.txt)
 !
+! t-online.de ad in article and cleanup
+t-online.de#?#div[data-testid="StageLayout.CompanionItem"]:has(> div[data-commercial-format])
+t-online.de#?#div[data-testid="StageLayout.CompanionItem"]:has(> div[class] > div[class] > div[data-testid="StageNetflix.VariantTonline"])
+t-online.de#?#div[data-article-bottom] > div[class]:has(> div[data-taboola-placement])
+t-online.de#?#div[data-article-bottom] > div[class]:has(> div[data-external-nativendo])
 ! manager-magazin.de - ad in article and main page
 manager-magazin.de#?#.relative:has(> section[style="display: none !important;"])
 manager-magazin.de#?#section[data-area="contentbox"]:has(> div[class] > span:contains(ANZEIGE))
@@ -1922,7 +1927,7 @@ mademyday.com#?##container > div.widget:not([data-mode="gallery"]):has(a[href="#
 tonspion.de#?##secondary > .widget div[id^="div-gpt-ad-"]:upward(.widget)
 ! bild.de - gutschein ads
 bild.de#?#.main-content > section.block:has(> .block__layout-wrapper > .layout > .taboola)
-bild.de#?#.main-content ~ .mtl--footer:has(> h4 > .anchor--external)
+bild.de#?#.main-content ~ .mtl--footer:has(> * > .anchor--external)
 ! gamestar.de - ad on main page
 gamestar.de#?#.scroll-container > div > .content-item-medium:has(> data[value="Deal"])
 gamestar.de#?#.scroll-container > div > div:has(> div[id] > .info:contains(Anzeige))
@@ -3020,6 +3025,8 @@ vergleich.focus.de,chip.de,gutefrage.net,reisefrage.net,motorradfrage.net,autofr
 ! ##.adsbygoogle
 winfuture.de,netzwelt.de,quoka.de,farmeramania.de,bravofly.de,computerbild.de,digitalfernsehen.de,hl-live.de,chinamobilemag.de,focus.de,pcwelt.de##.adsbygoogle
 !
+stol.it##div[class^="AdSuperBanner"]
+blick.de##div[id^="CAD"]
 infranken.de##.mj-pf-widget
 eispop.com##.footer_partner_container_wrapper
 eispop.com##.vjs-toolbar[style]
@@ -6025,6 +6032,8 @@ tagesspiegel.de###urban-teaser1
 ! Good: ||example.org/video-links$replace=/vast":/vast_":/
 ! Bad:  ||example.org/video-links (should be in specific.txt)
 !
+! https://github.com/AdguardTeam/CoreLibs/issues/1671
+||imi-online.de^$replace=/(<html xmlns="http:.*?" lang=".*?")/\$1>/,document
 ! Glomex video ads - kabeleins.de,prosieben.de,prosiebenmaxx.de,ran.de,sat1.de,sat1gold.de,sixx.de,the-voice-of-germany.de,wetter.com
 ! https://github.com/AdguardTeam/AdguardFilters/issues/21525
 config.player.p7s1.io/sat1-de.js$replace=/"adScheduler":\{"cobra":\{"advertiser":"[\s\S]*?_[\s\S]*?"/"adScheduler":\{"cobra":\{"advertiser":"x"/,important
@@ -7216,6 +7225,7 @@ wetter.com#@#div[id^="div-gpt-"]
 ||finative.eu^$third-party
 ||firstsponsor.de^$third-party
 ||flatad.de^$third-party
+||flymangoo.com^$third-party
 ||forced-layer.de^$third-party
 ||frvfrv.com^$third-party
 ||gamesaffiliate.de^$third-party
@@ -7327,6 +7337,7 @@ wetter.com#@#div[id^="div-gpt-"]
 ||sunnysales.biz^$third-party
 ||superclix.de^$third-party
 ||superpromo24.de^$third-party
+||symplr.de^$third-party
 ||szene-traffic.com^$third-party
 ||textklicks.de^$third-party
 ||tfppp.com^$third-party
@@ -7867,6 +7878,7 @@ $stylesheet,subdocument,third-party,xmlhttprequest,domain=canna-power.to|canna.t
 ||chip-secured-download.de/tmp/free-service-hotline.png$domain=chip.de
 ||cine4home.de^*/HKA-C4Hb.gif
 ||clap-club.de/wp-content/uploads/oeckl_Adress-Service_
+||classicwin.de/mybannerview.php
 ||climbing.de/fileadmin/banner/
 ||cloudfront.net^$domain=hd-streams.org
 ||code.bergsteigen.com^
@@ -9089,6 +9101,7 @@ testedich.ch,testedich.de###banner-top-all-viewports
 kriminalpolizei.de###banner-wrapper-right-v3
 kriminalpolizei.de###banner-wrapper-top-v1
 altertuemliches.at###banner5
+erotik.quoka.de###bannerResultRegio
 nrhz.de###banner_container_rc
 geemag.de###banner_content
 saiten.ch###banner_leaderboard
@@ -9283,6 +9296,8 @@ juraforum.de###jf-stroer-sky
 juraforum.de###jf-stroer-superbanner
 local.ch###js-banner
 ostfriesischer-kurier.de###jsn-pos-user-top
+klamm.de###klamm\.de_forum_1
+klamm.de###klamm\.de_forum_3
 laborjournal.de###kratzer
 mein-wetter.com###labelpub
 abload.de###layerleft
