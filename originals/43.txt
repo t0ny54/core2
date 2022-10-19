@@ -1080,7 +1080,6 @@ lecker.de#@#.adContent
 lecker.de#@#.adBlock
 lecker.de#@#.adBanner
 lecker.de#@#.ad-text
-lecker.de#%#//scriptlet("abort-on-property-read", "window.xcelAdblockDetect")
 ! https://github.com/AdguardTeam/AdguardFilters/issues/115907
 proplanta.de###body_opacity_overlay
 proplanta.de###DivdetectorContainer
@@ -1305,6 +1304,7 @@ rtv.de#@#.AD300
 wiwo.de#@#.ad-placement
 @@||amazonaws.com/prod.iqdcontroller.iqdigital/*/live/iqadcontroller.js.gz$domain=wiwo.de
 !#if (adguard_app_ios || adguard_ext_safari)
+@@||wiwo.de^$generichide
 wiwo.de#$?#body > div[data-command*="\"adBlocker\""] { display: none !important; }
 wiwo.de#$?#body { overflow: auto !important; }
 !#endif
@@ -1717,6 +1717,8 @@ teleboy.ch#@#.adWrapper
 ! Good: example.org#?#main > div.row:has(> div.ad)
 ! Bad: example.org##main > div.ad (should be in specific.txt)
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/132504
+blick.ch#?#article > div.unblurred:has(> div:contains(Werbung))
 ! t-online.de ad in article and cleanup
 t-online.de#?#div[data-testid="StageLayout.CompanionItem"]:has(> div[data-commercial-format])
 t-online.de#?#div[data-testid="StageLayout.CompanionItem"]:has(> div[class] > div[class] > div[data-testid="StageNetflix.VariantTonline"])
@@ -3026,6 +3028,9 @@ vergleich.focus.de,chip.de,gutefrage.net,reisefrage.net,motorradfrage.net,autofr
 ! ##.adsbygoogle
 winfuture.de,netzwelt.de,quoka.de,farmeramania.de,bravofly.de,computerbild.de,digitalfernsehen.de,hl-live.de,chinamobilemag.de,focus.de,pcwelt.de##.adsbygoogle
 !
+spiegel.de##.sm\:min-h-400
+spiegel.de##.sm\:min-h-600
+stern.de##.page__ad-element
 welt.de##li[data-content="CommercialFallbackSwitcher.Commercial"]
 swp.de##.edge-ad
 swp.de###parent-adbox-superbanner
@@ -4742,7 +4747,7 @@ deraktionaer.de##.teaserItem div[style*="font-size:10px; color:#999999"]
 ||web.de/image/180/32817180,pd=1.gif
 wallstreet-online.de###nativendo-nachrichten-unterhalb
 wallstreet-online.de##.comdirectAd
-hardwareluxx.de###leaderboard
+szbz.de,hardwareluxx.de###leaderboard
 frustfrei-lernen.de##.contentBody > .contentlabel + div[style="display:block; height:260px;"]
 immobilienscout24.de###sidebar > div > div.margin-bottom-xl[style="height:267px"]:not([id])
 urlaubstracker.de##div[id^="adup"]
@@ -10810,6 +10815,7 @@ tippscout.de##div[id^="tipps-"]
 wochenblick.at##div[id^="woche-"]
 20min.ch##div[id^="zentralschweiz__inside-"]
 20min.ch##div[id^="zuerich__inside-"]
+android-hilfe.de##div[style$=";min-height:250px;min-width:300px;"]
 weristdeinfreund.de##div[style*="display: block ! important"]
 kinderspiele-welt.de##div[style*="height:250px"]
 custombike.de##div[style*="width: 300px; height: 300px;"]
@@ -10817,8 +10823,6 @@ lerntippsammlung.de##div[style*="width:300px;height:250px;"]
 go2android.de##div[style="border: 1px solid #000; padding: 5px; margin-bottom: 15px; background: url(https://www.go2android.de/wp-content/plugins/amazonsimpleadmin/img/amazon_DE_small.gif) right bottom no-repeat #ffffff;"]
 oekotest.de##div[style="clear: both; min-height: 300px;"]
 oekotest.de##div[style="clear: both; min-height: 640px;"]
-android-hilfe.de##div[style="float: left;padding-right:0px;padding-top:3px;min-height:250px;min-width:300px;"]
-android-hilfe.de##div[style="float: left;padding-right:0px;padding-top:3px;min-height:260px;min-width:300px;"]
 wirtschaftslexikon24.com##div[style="float:left;clear:left;height:620px;width:180px;padding-top:15px;"]
 breakpoint.untergrund.net##div[style="float:right; width: 110px; margin-left: 15px; margin-top: 12px; margin-bottom: 15px; padding: 2px 6px; text-align: center; border: 1px solid black; background:white; line-height: 2em; color: black;"]
 pixelio.de##div[style="float:right; width: 300px; height: 250px"]
