@@ -591,9 +591,14 @@ nordot.app#%#//scriptlet('abort-current-inline-script', 'document.createElement'
 ! https://github.com/AdguardTeam/AdguardFilters/issues/85641
 modalina.jp#%#//scriptlet('abort-on-property-read', 'AdBlockLimitation')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/116093
-realtime-chart.info#$#div[style="top:378px;width:120px;line-height:1.1;"] div[data-href^="https://a.r10.to"] > b.rakuten { background: none !important; }
-sekai-kabuka.com#%#//scriptlet('remove-attr', 'data-ih', '', 'stay')
-realtime-chart.info#%#//scriptlet('remove-attr', 'onclick', 'div[onclick="JumpDataHref(this)"][data-href]', 'stay')
+sekai-kabuka.com##div[style="height: 20px;width:272px;top: 567px;line-height:1;background:#800;color:#fff;z-index:0;margin: 0 0 0 -374px;position: absolute;font-size: 22px;"]
+sekai-kabuka.com#$#div[data-ih] { font-size: 0 !important; }
+sekai-kabuka.com#%#//scriptlet('remove-attr', 'onclick', 'div[data-js][style*="background"]', 'stay')
+realtime-chart.info#$#img[src*="/clip_"] + b { background: none !important; font-size: 0 !important; }
+realtime-chart.info,sekai-kabuka.com#$#div[data-js] { background: none !important; cursor: default !important; }
+realtime-chart.info#%#//scriptlet('remove-attr', 'href', 'a[href^="https://a.r10.to/"]')
+realtime-chart.info#%#//scriptlet('remove-attr', 'href', 'a[href^="https://px.a8.net/svt/ejp?"]')
+realtime-chart.info#%#//scriptlet('remove-attr', 'onclick', 'div[onclick*="JumpDataHref(this)"][data-href]', 'stay')
 @@||realtime-chart.info^$generichide
 @@||sekai-kabuka.com^$generichide
 realtime-chart.info,sekai-kabuka.com#%#//scriptlet("set-constant", "alert", "noopFunc")
@@ -1818,6 +1823,8 @@ avgle.com#%#//scriptlet('abort-current-inline-script', '__htapop')
 !-------CSS---------
 !-------------------
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/134147
+games.yahoo.co.jp#$#.isJack { margin-top: 0!important; }
 ! placeholder
 lesson.golfdigest.co.jp,score.golfdigest.co.jp#$##wholeHeaderPane { height: auto !important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/132595
@@ -2159,6 +2166,9 @@ hentai-covers.site,109cinemas.net,4545.to,bunshun.jp,eikaiwa.dmm.com,gizmodo.jp,
 !
 !
 !
+games.yahoo.co.jp###jack
+games.yahoo.co.jp###floating_banner
+finance.yahoo.co.jp##.NRqdNbNt
 gumitan-com.hatenablog.com##h3[id*="ランキング"]
 gumitan-com.hatenablog.com##h3[id*="商品"]
 womanlife.online##.widget-single-content-bottom
@@ -5001,15 +5011,7 @@ aniplexplus.com##.hotentry
 ||x.sekai-kabuka.com/nandemo1.gif
 ||x.sekai-kabuka.com/gneko$image
 ||x.sekai-kabuka.com/http/$image
-||amazon-adsystem.com/widgets/$important,domain=realtime-chart.info|mashlife.doorblog.jp|lamsect.blog112.fc2.com|blog.domesoccer.jp|neo-blood.co.jp|katuru2ch.blog12.fc2.com|azurlanesokuhou.blog.jp
-realtime-chart.info##img#nyantama1.amazoom2
-realtime-chart.info##img#nyantama2.amazoom31
-realtime-chart.info##[href$="/clock.html"] div#clock_a1[style^="width: 160px; height: 600px"]
-realtime-chart.info##div[style="top:378px;width:120px;line-height:1.1;"] div[data-href^="https://amzn.to"]
-realtime-chart.info##div[style="top:1421px"] a[href^="https://a.r10.to"]
-realtime-chart.info##a[href^="https://px.a8.net/svt/ejp?"]
-sekai-kabuka.com##img#nyanta
-sekai-kabuka.com##div[style="height: 179px;width:153px;top: 467px;line-height:2;background:#fff;color:#000;z-index:-1;margin: 0 0 0 -374px;position: absolute;font-size: 22px;"]
+||amazon-adsystem.com/widgets/$important,domain=realtime-chart.info|mashlife.doorblog.jp|lamsect.blog112.fc2.com|blog.domesoccer.jp|neo-blood.co.jp|katuru2ch.blog12.fc2.com|azurlanesokuhou.blog.jp|ima.goo.ne.jp
 realtime-chart.info,sekai-kabuka.com###neko_ad
 koukouseishinbun.jp##.ad-col2
 hana3939.com,baseballchannel.jp###text-13
@@ -5339,7 +5341,7 @@ bike-news.jp##.left.box300
 cazual.tv##.bnr_wd_wrap
 3751chat.com###chatroom_ad_header
 3751chat.com###chatroom_right
-gogo.gs##.ad4
+jpon.xyz,gogo.gs##.ad4
 1048s.com##.first.fblock
 1048s.com##.last.fblock
 biz.hino-tama.com##span.lastChild.small_letter[style^="position:absolute;right:10px;"]
