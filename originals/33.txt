@@ -79,6 +79,13 @@
 ! Bad: example.org###rek (should be in specific.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/134220
+6play.fr#%#//scriptlet('set-local-storage-item', 'gdprTracking', 'false')
+6play.fr#%#//scriptlet('set-local-storage-item', 'gdprPersonalization', 'false')
+6play.fr#%#//scriptlet('set-local-storage-item', 'gdprAdTargeting', 'false')
+6play.fr#%#//scriptlet('set-local-storage-item', 'gdprMultiDeviceMatching', 'false')
+6play.fr#%#//scriptlet('set-local-storage-item', 'gdprUserHasInteracted', '0')
+6play.fr#%#//scriptlet('set-local-storage-item', 'localDeviceId', '0')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/131034
 imdb.com#%#//scriptlet("set-constant", "doWithAds", "noopFunc")
 ! This rule is for suppressing Google Topics.
@@ -382,6 +389,8 @@ journal-plaza.net#?#.rightside div.block.bnavi[-ext-has="h3.dtitle:contains(Сч
 !||i.snssdk.com/log/*
 !||i.snssdk.com/slardar/sdk.js
 !
+||trackad.cz^$third-party
+||segmenthub.com^$third-party
 ||tracking-api.hotmart.com^
 ||tag.statshop.fr^
 ||analytics.contentexchange.me^
@@ -1906,7 +1915,6 @@ journal-plaza.net#?#.rightside div.block.bnavi[-ext-has="h3.dtitle:contains(Сч
 ||affilae.com^$third-party
 ||affiliateedge.eu^$third-party
 ||affiliates-pro.com^$third-party
-||affiliatly.com^$third-party
 ||affinesystems.com^$third-party
 ||affinitymatrix.com^$third-party
 ||affistats.com^$third-party
@@ -5340,6 +5348,11 @@ nethunt.com/api/v1/track/email/$image
 ! Blocking piwik analytics subdomain(for DNS filtering)
 |piwik.
 !
+||servo-report.dvdfab.at^
+||servo-report.dvdfab.cn^
+||servo-report.dvdfab.co.jp^
+||servo-report.dvdfab.fr^
+||static.affiliatly.com^$third-party
 ||client-analytics.mts.ru^
 ||analytics-wcms.joins.net^
 ||as.tarnkappe.info^
@@ -5405,8 +5418,6 @@ nethunt.com/api/v1/track/email/$image
 ||core.airbridge.io^
 ||metrics.biletino.com^
 ||analytics.afirstsoft.cn^
-||analytics-api.dvdfab.co.jp^
-||analytics-api.dvdfab.fr^
 ||ef.fanatical.com^
 ||analytics.kurocore.com^
 ||metricus.artlebedev.ru^
@@ -5572,6 +5583,9 @@ nethunt.com/api/v1/track/email/$image
 ||analytic.piri.net^
 ||analytic20.detik.com^
 ||analyticapi.piri.net^
+||analytics-api.dvdfab.at^
+||analytics-api.dvdfab.co.jp^
+||analytics-api.dvdfab.fr^
 ||analytics-api.dvdfab.cn^
 ||analytics-api.smzdm.com^
 ||analytics-ingress-global.bitmovin.com^
@@ -36221,7 +36235,8 @@ _tracking.php?b=
 !
 !
 ! TODO: check the allowlist file from time to time to remove unnecessary exceptions
-||mc.yandex.ru/metrika/tag.js$script,redirect=metrika-yandex-tag
+! https://github.com/AdguardTeam/Scriptlets/issues/253#issuecomment-1308957501 - do not remove `~id.x5.ru`
+||mc.yandex.ru/metrika/tag.js$script,redirect=metrika-yandex-tag,domain=~id.x5.ru
 ||mc.yandex.ru/metrika/watch.js$script,redirect=metrika-yandex-watch
 ! TODO: replace `~domain.com` by exclusions after ext4.0 release
 ! https://github.com/AdguardTeam/AdguardForWindows/issues/3973
@@ -36252,6 +36267,8 @@ _tracking.php?b=
 /analytics.js$domain=freexcafe.com|rusvideos.tv|nakubani.ru|lun.com|songsara.net|newsmax.com|bolgehastanesi.com|ewtc.de|newsdig.tbs.co.jp|imore.com|city.kushiro.lg.jp|emeraldbridal.com.au|emarat-news.ae|imobie.jp
 ||assets.adobedtm.com^$domain=mcclatchydc.com|elnuevoherald.com|bellinghamherald.com|sacbee.com|charlotteobserver.com|newsobserver.com|miamiherald.com|ef.ru|algida.com.tr|bmw-motorrad.co.uk|cif.com.tr|clearhaircare.com|domestos.com|dove.com|elidor.com.tr|f1sport.autorevue.cz|geico.com|hellmanns.com.tr|herkessofraya.com|johnsonsbaby.com.tr|lipton.com|lnk.to|lux.com|magnumicecream.com|neutrogena.com.tr|omo.com|rexona.com|samsung.com|sap.com|schwarzkopf.com.tr|signalturkiye.com|msnbc.com|nbcnews.com|kbb.com|eurosport.ru|timgate.it|intermiles.com|oxfordmail.co.uk|spiegel.de|hp.com
 !
+||cdn.nwl1.megaknihy.cz/tr.js
+||amazon.*/*/track_framework_metrics?
 ||vicodes.com/tag/load-*.js
 ||arms-retcode-sg.aliyuncs.com/r.png?
 ||app.turbobiyt.net/js/analytics/index.js
@@ -39935,8 +39952,9 @@ $cookie=clRequestId
 ! nbcuniversal.com
 $cookie=adEdition
 !
-! ads.stickyadstv.com
+! StickyADStv
 $cookie=/^uid-bp-\d+/
+$cookie,domain=ads.stickyadstv.com
 !
 ! gemius.com
 ! Used to limit the number of times you see an advertisement as well as help measure the effectiveness of the advertising campaign
@@ -40991,6 +41009,7 @@ $app=com.miui.analytics
 !@@||mc.yandex.ru/metrika/watch.js$domain=
 !
 ! id.x5.ru - fix receiving an sms code
+!+ PLATFORM(android)
 @@||mc.yandex.ru/metrika/tag.js$domain=id.x5.ru
 !
 ! https://github.com/AdguardTeam/AdguardFilters/issues/133161
@@ -41003,6 +41022,8 @@ $app=com.miui.analytics
 !#endif
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/134220
+@@||partner-api.sddan.com/api/*/segment-access|$domain=6play.fr
 ! https://github.com/AdguardTeam/AdguardFilters/issues/133937
 @@||go2stream.net/stream/live/track/view/Tracking.php$domain=go2stream.net
 ! https://github.com/AdguardTeam/AdguardFilters/issues/134331

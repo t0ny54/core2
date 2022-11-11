@@ -11978,10 +11978,9 @@ berliner-kurier.de,berliner-zeitung.de##.dm_ad-container
 ! https://github.com/NanoMeow/QuickReports/issues/1021
 eplfootballmatch.com##+js(set, document.bridCanRunAds, true)
 
-! https://github.com/NanoMeow/QuickReports/issues/1011
 ! https://github.com/uBlockOrigin/uAssets/issues/14827
 !#if env_firefox
-@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,domain=webmail.email.it
+webmail.email.it##+js(no-fetch-if, googlesyndication)
 !#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/5364
@@ -14458,9 +14457,7 @@ secretsdujeu.com##+js(acis, document.getElementById, adsrefresh)
 @@||otakusave.com^$ghide
 
 ! https://github.com/NanoMeow/QuickReports/issues/3098
-cruisin.me##+js(nostif, show)
-@@||cruisin.me^$ghide
-cruisin.me##.adsbygoogle
+cruisingearth.com##+js(nostif, show)
 @@/wutime$script,1p
 
 ! https://github.com/NanoMeow/QuickReports/issues/1738
@@ -16014,8 +16011,10 @@ upzone.cc##+js(acis, document.getElementById, undefined)
 
 ! https://github.com/NanoMeow/QuickReports/issues/2453
 ! https://github.com/olegwukr/polish-privacy-filters/issues/67
-player.pl##+js(json-prune, movie.advertising.ad_server)
-@@||cdntvn.pl/*/advert.js$xhr,domain=player.pl
+!player.pl##+js(json-prune, movie.advertising.ad_server)
+@@||cdntvn.pl^$script,domain=player.pl
+@@||player.pl^$cname
+/ad.xml$xhr,badfilter
 
 ! https://github.com/NanoMeow/QuickReports/issues/2318
 @@||jbzd.com.pl^$ghide
