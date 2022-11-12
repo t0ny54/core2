@@ -712,6 +712,8 @@ reddit.com#@#.ADBAR
 ! SECTION: Anti-adblock - Regular rules
 ! Do not forget about '!#safari_cb_affinity' section for exclusions
 !
+dtf.ru,vc.ru,tjournal.ru#?#.layout__right-column > div[class][style] > div[class*=" "]:has(> div:only-child)
+gohatori.com#%#//scriptlet('abort-current-inline-script', 'setTimeout', 'none')
 kunststoffe.de##.adBlocker
 kunststoffe.de##.adBlocker + div[class*=" bg-opacity-"]
 lesnumeriques.com##.ln__a-in-notif
@@ -999,7 +1001,6 @@ drawnstories.ru###mdl_adb
 dressupmix.com###adblock_popup
 drnasserelbatal.com#%#//scriptlet("set-constant", "canRunAds", "true")
 drtuber.com###abmessage
-dtf.ru,vc.ru,tjournal.ru#?#.layout__right-column > div[class][style] > div[class*=" "]:if-not(div[class] > svg[class])
 dumpert.nl#%#//scriptlet('prevent-setTimeout', 'AdBlockerCheck')
 dzone.com,amgreatness.com###adtoniq-msgr-bar
 ebookbb.com##.special-message-wrapper
@@ -2001,6 +2002,15 @@ uwaterloo.ca##div[aria-label="Ad Blocker Detected"]
 ! SECTION: Anti-adblock - Common '!#safari_cb_affinity(general)' directive
 !#safari_cb_affinity(general)
 !
+@@||public.slidesharecdn.com/v2/javascripts/assets/ads/detection.*.js
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=slideshare.net
+||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=slideshare.net,redirect=googlesyndication-adsbygoogle,important
+slideshare.net#@#.textads
+slideshare.net#@#.banner_ads
+slideshare.net#@#.banner-ads
+slideshare.net#@#.ad-zone
+slideshare.net#@#.ad-unit
+gohatori.com#@##adframe:not(frameset)
 @@||nexusmods.com/Contents/Scripts/banger.js
 @@||asadcdn.com/adlib/pages/sport1.js$domain=sport1.de
 op.gg#@#.AdSense
@@ -2114,7 +2124,6 @@ lequipe.fr#@#.text_ad
 lequipe.fr#@#.text_ads
 lequipe.fr#@#.textAd
 libgen.io#@#.adsbygoogle
-list-org.com#@#div[id^="google_ads_iframe_"]
 malekal.com#@#.adsbygoogle
 mc-at.org#@#.showads
 mctop.su#@#.adsbygoogle
@@ -3042,7 +3051,6 @@ pornreactor.cc,joyreactor.cc,reactor.cc##div[id="content"][style^="text-align: c
 ! wetteronline.de#@##ads-bot
 ! wetteronline.de#@##ADInterest
 ! wetteronline.de#@##SponsoredAd
-! wetteronline.de#@#div[id^="google_ads_iframe_"]
 ! wetteronline.de#@##adzerk
 ! wetteronline.de#@#.SideAds
 ! wetteronline.de#@##BannerAd
@@ -3108,7 +3116,7 @@ utsports.com##body > div[class][aria-label="Ad Blocker Detected"]
 !
 ! https://github.com/AdguardTeam/AdguardFilters/issues/100714
 !+ NOT_PLATFORM(ext_ff)
-||akamaihd.net/static/build/*/main.*.es6.min.js$replace=/Air\.import\("module\.page"\)/Air\.import\(""\)/,domain=dtf.ru|vc.ru|tjournal.ru
+||akamaihd.net/static/build/*/main.*.es6.min.js$replace=/Air\.import\("module\.page"\)/Air\.import\(""\)/,domain=dtf.ru|vc.ru
 !
 postimees.ee#$#body { overflow: visible !important; }
 postimees.ee#$#.cookie-paywall { display: none !important; }
@@ -3442,6 +3450,7 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 !
 ! SECTION: Popups - Regular rules
 !
+sun-sentinel.com##.met-footer-toast
 c-c-j.com##.p-pageFootAddBtns
 magokoro-care-shoku.com#$#.popup_outer { display : none !important; }
 magokoro-care-shoku.com#$#html.popup_hide { overflow: auto !important; }
@@ -5491,7 +5500,7 @@ mindtools.com#$##propositionModal { display: none !important; }
 mindtools.com#$?#html { overflow: auto !important; }
 collegedunia.com#?#.modal:has(> div[class] div.media-body > h3:contains(/^Register Now/))
 collegedunia.com#$#.modal-backdrop { display: none !important; }
-tjournal.ru,dtf.ru,vc.ru##.dstr-fl
+dtf.ru,vc.ru##.dstr-fl
 goimports.com.br###btnwhatsapp
 boohooman.com,boohoo.com##.js-floating-promo
 mailbrew.com#$#body > div[style^="position: fixed; top: 0px; left: 0px; width: 100%;"] { display: none !important; }
@@ -6686,7 +6695,7 @@ nejm.org#$#html { overflow: visible !important; }
 coronavirus-control.ru##.tg-notification
 delfi.lv#$##trySubscriptionIntroductionPopup { display: none !important; }
 delfi.lv#$#.modal-backdrop { display: none !important; }
-delfi.lv#$#body { overflow: visible !important; padding-right: 0 !important; }
+delfi.lv#$#body { overflow: auto !important; padding-right: 0 !important; }
 walmart.com###hf-feedback-bubble-fixed-link
 italianbarber.com###springmail_wrapper
 italianbarber.com##.springmail-overlay
@@ -9961,7 +9970,6 @@ estadao.com.br##.push
 ||static.shopback.net/tags/plugins/shoppush.js
 rbc.ru##.js-push-allow
 ||s.nwsfl.net/push/sbscr.js
-tjournal.ru##.push_offer
 la-croix.com###batchsdk-ui-alert-container
 autocentrum.pl##.web-push-box
 diets.ru,povarenok.ru###web-push-sub
@@ -10020,7 +10028,6 @@ ndtv.com###___ndtvpushdiv
 ndtv.com##.overlay__side-nav
 evidea.com###pa-push-notification-subscription
 ceptetamir.com##.frizbit-prompt
-tjournal.ru##.push_subscribe
 finam.ru##.subScribeModalWrapper
 finam.ru##.subScribeModal
 sputniknewslv.com##.globalFade
@@ -10246,6 +10253,8 @@ technologyreview.com,inews.co.uk,nordbayern.de,thelocal.ch,morgenpost.de,waz.de,
 !
 ! SECTION: Subscriptions - Regular rules
 !
+||blink.net/iframe.html
+npu.gov.ua##.digest-home
 sport24.ua##app-google-subscribe
 korrespondent.net#?#.post-item__text > p:has(> em > a[href="https://t.me/korrespondentnet"])
 elgato.com##.newsletter-popup-on-scroll-version
@@ -10527,7 +10536,6 @@ rejuvenation.com##div[id^="email-signup-flyin"]
 kommersant.uk#?#main > section + div.container:has(> article.subscription__form)
 huffingtonpost.kr###letter-form
 bookmaker-ratings.ru##div[class^="sc-"] > section[class^="sc-"] + div:not([class]):not([id])
-bloomberg.com###expandableBanner
 mywebpc.ru##img[src$="/baner-mywebpc.png"]
 galeriakrakowska.pl###newsletter-bar
 web.dev##.gc-analytics-event[data-label="view-subscribe"]
@@ -12602,7 +12610,7 @@ ahrefs.com##.subscr-fright
 thehill.com###block-thehill-blocks-footer-signup
 vesti.ua##.subscribeLine
 rollingstone.com,stetson.com,fdpbt.de,webmd.com,thepostmillennial.com,designmodo.com##.newsletter-wrapper
-freemodapks.com,krebsonsecurity.com,mikrotiklab.ru,newsmaker.md,edtimes.in,appwrk.com,theinternetpatrol.com,pocketwanderings.com,thedronegirl.com###custom_html-2
+heizsparer.de,freemodapks.com,krebsonsecurity.com,mikrotiklab.ru,newsmaker.md,edtimes.in,appwrk.com,theinternetpatrol.com,pocketwanderings.com,thedronegirl.com###custom_html-2
 makezine.com,deepsense.ai,lawenforcementtoday.com,anime7.download,telekritika.ua###custom_html-3
 faqpda.ru,cancanlah.com,tokion.jp,thescholarshipsystem.com,blogs.perficient.com,copyblogger.com,gotoadm.ru###custom_html-4
 b-g.by,learnmech.com,winaero.com###custom_html-5
@@ -13910,7 +13918,7 @@ gamesrepacks.com###nksub_sidebar
 gamesrepacks.com##.nksub_tab
 portativ.ua##.page-account-subscribe-block
 portativ.ua##.yt-channel-container
-vc.ru,dtf.ru,tjournal.ru##.email_subscribe
+vc.ru,dtf.ru##.email_subscribe
 net4energy.com,gurmeajanda.com##.leadinModal
 pluggedin.com##div[data-pi-newsletter]
 povarenok.ru#?#.content-md-sub > div.bl:has(> span:contains(Наши рассылки))
@@ -14090,7 +14098,7 @@ pi-shop.hu###module_newsletter_subscribe_wrapper
 motorsport.com###motorsport_insider_form
 scmagazine.com###newsLetterAsset
 m.economictimes.com###newsWidgetSection
-zonaturistica.com,cphpost.dk,lodzkisport.pl,xetra-gold.com,karamangundem.com,lidskae.by,gibchess.com,cinestaan.com,mpbrinquedos.com.br,ladenzeile.at,thewordfinder.com,pbs.org,creditcards.com,antyweb.pl,master-and-more.de,frag-mutti.de,eurowag.com,picmix.com,bloggif.com,asgoodasnew.de,haber50.com,forumsamochodowe.pl###newsletter
+heizsparer.de,zonaturistica.com,cphpost.dk,lodzkisport.pl,xetra-gold.com,karamangundem.com,lidskae.by,gibchess.com,cinestaan.com,mpbrinquedos.com.br,ladenzeile.at,thewordfinder.com,pbs.org,creditcards.com,antyweb.pl,master-and-more.de,frag-mutti.de,eurowag.com,picmix.com,bloggif.com,asgoodasnew.de,haber50.com,forumsamochodowe.pl###newsletter
 ilrestodelcarlino.it###newsletter--mailupform
 stackexchange.com,stackoverflow.com###newsletter-ad
 bicycling.com,runnersworld.com,womenshealthmag.com###newsletter-block
@@ -14609,7 +14617,7 @@ latimes.com##.trb_ar_page > aside.trb_em[data-content-type="blurb"] > .trb_em_bl
 ctnow.com##.trb_bnn
 dailypress.com,latimes.com##.trb_nls_c
 tageskarte.io##.tx-registeraddress
-dtf.ru,tjournal.ru,vc.ru##.vacancies_widget
+dtf.ru,vc.ru##.vacancies_widget
 gamerant.com##.w-newsletter-signup
 dailytelegraph.com.au,heraldsun.com.au##.w_newsletter-signup
 tutsplus.com##.weekly-digest-subscription
@@ -14693,7 +14701,6 @@ techradar.com##body section.newsletter-signup
 ohmymag.de##body.omm .larger.button-subscribe
 iodine.com##button[aria-label*="newsletter"]
 chip.com.tr#?#.altbolum:has(> div > div > .newslettergroup)
-tjournal.ru##div[air-module="module.subscribe"]
 qz.com##div[aria-labelledby="subscribe-bar-primary-text"]
 rawstory.com##div[class$="-email-signup-container"]
 androidauthority.com##div[class*="-sidebar"] div[id^="aa_subscribe-"]
