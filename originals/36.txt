@@ -2034,6 +2034,7 @@ google.ad,google.ae,google.al,google.am,google.as,google.at,google.az,google.ba,
 ! For the sites with '$generichide' exclusions
 !   SECTION: Cookies - Specific rules ($generichide)
 !
+tea.ru##.blog__cookie
 japannews.yomiuri.co.jp###consentModal
 smarturl.it#$#div[aria-describedby="lnk-c-cta__description"] { display: none !important; }
 zuckerjagdwurst.com#$?##gatsby-focus-wrapper > div[class^="index-module--wrapper"]:has(div:contains(/^Wir verwenden Cookies!$/)) { display: none!important; }
@@ -10489,7 +10490,7 @@ askmen.com##.privacy_popup__container
 lieferando.de,lieferservice.at,lieferservice.ch,pizza.fr,pizza.lu,pizza.pt,pyszne.pl,takeaway.com,thuisbezorgd.nl,vietnammm.com##.privacybanner_notice
 tommy.com##.privacypolicymessagebox_header_cookies
 etstur.com,mngkargo.com.tr##.protectionOfData
-evokemotorcycles.com,realspeaker.net##.s-cookie-notification-bar
+kingrinder.com,evokemotorcycles.com,realspeaker.net##.s-cookie-notification-bar
 forsvarsmakten.se##.s-cookies
 sport1.de###s1-cookie-banner
 sport1.de##.s1-cookie-banner
@@ -12512,6 +12513,9 @@ m.timesofindia.com,m-timesofindia-com.cdn.ampproject.org$$amp-consent
 ! @@||cdn.cookielaw.org/scripttemplates/otSDKStub.js
 @@||cdn.cookielaw.org/scripttemplates/otSDKStub.js$domain=nintendo.*|mtv.com|ryobitools.eu|cc.com|3sat.de|zdf.de|costco.com|giantbomb.com|glovoapp.com|rte.ie|digitaltrends.com|spiele.bild.de|spiele.stern.de|vanityfair.com|saarbruecker-zeitung.de|olympics.com|dziendobry.tvn.pl|bergfreunde.de|oe24.at|epicgames.com|toteraz.pl|natgeotv.com|midomi.com|volksfreund.de|kawasaki.com|foxchannels.com.tr|ga.de|shop.mango.com|kralmuzik.com.tr|westernunion.com|roastmarket.de|new.cappex.com|vimeo.com|heute.at|ntv.com.tr|wargaming.net|metacritic.com|gq-magazine.co.uk|viafree.dk|viafree.fi|viafree.no|viafree.se|glamour.de|cbsnews.com|worldoftanks.ru|vg247.com|newyorker.com|games.miamiherald.com|eurogamer.es|eurogamer.de|bet.com|ikonpass.com|mcdelivery.de|id.trimble.com|skateboarding.transworld.net|newegg.com|docs.vmware.com|udemy.com|olx.pl|usmagazine.com|uefa.com|milwaukeetool.eu|muscleandfitness.com|20min.ch|ted.com|elisa.fi|nhl.com
 !
+! https://github.com/uBlockOrigin/uAssets/issues/15653
+@@||consent.trustarc.com/notice$domain=tripit.com
+@@||consent.trustarc.com/asset/$domain=tripit.com
 ! Required for apps only
 ! When request is blocked then there is an error "Unexpected token / in JSON at position 0"
 ! It's loaded by cdn.cookielaw.org/scripttemplates/otSDKStub.js, so it should be only unblocked on websites for which this script is unblocked
@@ -24463,6 +24467,8 @@ kurashiru.com#$#html.dly-modal-active { overflow: auto!important; }
 !
 !--- Allowlist
 ! SECTION: Popups - Allowlist
+! https://github.com/uBlockOrigin/uAssets/issues/15647
+@@||popup.wisepops.com/my-wisepop$domain=bluecinema.ch
 ! https://github.com/AdguardTeam/AdguardFilters/issues/126265
 @@||celloworld.com/wp-content/plugins/popup-maker/assets/js/vendor/mobile-detect.min.js
 ! https://github.com/AdguardTeam/AdguardFilters/issues/118320
@@ -25639,6 +25645,8 @@ technologyreview.com,inews.co.uk,nordbayern.de,thelocal.ch,morgenpost.de,waz.de,
 !
 ! SECTION: Subscriptions - Regular rules
 !
+tea.ru##.feedback-wrapper
+tea.ru##.blog__subscribe
 ||blink.net/iframe.html
 npu.gov.ua##.digest-home
 sport24.ua##app-google-subscribe
@@ -30234,6 +30242,8 @@ tvrain.ru##.menu3__foreign-agent-wrapper
 !
 ! SECTION: Subscriptions - Allowlist
 !
+! https://github.com/uBlockOrigin/uAssets/issues/15647
+@@||loader.wisepops.com/get-loader.js$domain=bluecinema.ch
 ! https://github.com/AdguardTeam/AdguardFilters/issues/134274
 @@||make.activehosted.com/*/embed.php$domain=makezine.com
 ! https://github.com/AdguardTeam/AdguardFilters/issues/129785
@@ -36015,6 +36025,7 @@ businessinsider.de##.ll_partnerexpert
 ! https://github.com/AdguardTeam/AdguardFilters/issues/103381
 animatetimes.com##.c-banner-pc
 ! https://github.com/AdguardTeam/AdguardFilters/issues/102073
+toyokeizai.net##.timeline-bnr
 toyokeizai.net###induction-banner
 ! footer promo on mobile
 smartlog.jp###smlg_footer_ad
@@ -37089,6 +37100,9 @@ theguardian.com##.contributions__adblock
 !
 ! SECTION: Self-promo - Regular rules
 !
+sekai-kabuka.com##ins.adsbygoogle[style="display:inline-block;width:160px;height:600px;position:relative;"]
+sekai-kabuka.com#?#td[align="center"][class] > table > tbody > tr > td > div[style]:has(> ins.adsbygoogle)
+login.account.rakuten.com###omni-container div.s.e > div.hc.cx.s.r.wf.cl.ccy.max-width-760
 gendai.media##.ad-container
 kaspersky.ru##.kasbanner-banner
 ya.ru##.market-banner
@@ -41351,7 +41365,7 @@ zebratechnologies.force.com##.zbrbot-container
 !
 !   NOTE: Allowlist for chat widgets
 ! Unblocking Salesforce support chats only
-@@||service.force.com/embeddedservice/*/esw.min.js$domain=visible.com|playstation.com|cyberpowersystems.com
+@@||service.force.com/embeddedservice/*/esw.min.js$domain=visible.com|playstation.com|cyberpowersystems.com|lego.com
 ! NOTE: Chats end ⬆️
 ! !SECTION: Widgets - Chats
 !
