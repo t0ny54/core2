@@ -445,7 +445,7 @@ snrec.jp#$#body.tp-modal-open { overflow: visible!important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/132814
 ! https://github.com/AdguardTeam/AdguardFilters/issues/132525
 ! Similar site in Base filter: soranews24.com
-rocketnews24.com,youpouch.com#$#div[id^="google_ads_iframe"] { clip-path: circle(1%) !important; }
+rocketnews24.com,youpouch.com#$#div[id^="google_ads_iframe"] { position: absolute !important; left: -3000px !important; }
 @@||tpc.googlesyndication.com/simgad/$xmlhttprequest,domain=rocketnews24.com|youpouch.com
 ||tpc.googlesyndication.com^$image,redirect-rule=1x1-transparent.gif,domain=rocketnews24.com|youpouch.com
 @@||g.doubleclick.net/gampad/ads?$xmlhttprequest,domain=rocketnews24.com|youpouch.com
@@ -2080,10 +2080,11 @@ kuruma-news.jp,magmix.jp,trafficnews.jp$$div[data-history="photo_extra"]
 /wp-content/plugins/amazonjs/*
 !
 ! Malware/Phishing
+://yahoo-jp.*.cn^$document,domain=cn
 /index.php?main_page=product_info&products_id=$document,domain=buzz|life|live|site|store|top|xyz
 ://bk.mufj.jp.*.com/muff/client/index.html|$document
 ://eki-net.com.*.com/Personal/member/Login/index.php?oneTimeAccessID=$document
-://www2.etc-*.com/funccode.php#/login|$document
+://www2.etc-*/funccode.php#/login|$document
 ://o2o.moneykllt.*.com/sony/client/index_sp.html|$document
 .ink/ap/index.php?openid.pape.max_auth_age=0&openid.return_to=$document
 /Softbank%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3.apk^$document
@@ -2162,6 +2163,16 @@ hentai-covers.site,109cinemas.net,4545.to,bunshun.jp,eikaiwa.dmm.com,gizmodo.jp,
 !
 !
 !
+meshinews.blog.jp##.right-container > div.plugin-memo:last-child
+erodou.tousatu.fun##.widget-above-single-content-title
+erodou.tousatu.fun##.widget-below-comment-form:not(.widget_new_entries)
+erodou.tousatu.fun##.widget-single-content-bottom
+||mgstage.com/php/api/widget_affiliate.php
+ero-mag.site###col3
+ero-mag.site###execphp-4
+ero-mag.site,hiwaijosi.net##.erKokMidashi
+hiwaijosi.net##.horizontal-list
+||dmm.co.jp/images/affiliate_banner/$third-party
 kanjitisiki.com##.menu-ads
 xvideo-jp.com###dmmad
 topics.or.jp###_popIn_recommend_text
@@ -5663,8 +5674,9 @@ gyao.yahoo.co.jp##div[class^="timeline-ad_timelineAd__"]
 pokemon-matome.net##.blogparts_freeArea:last-child
 pokemon-matome.net##.basehtml_side
 nordot.app##.page__listPageAd
+beelzeboulxxx.com###extra div.column-inner-2 > div.plugin-memo
+beelzeboulxxx.com###semiFixed > div.plugin-memo > div.sidetitlebody
 beelzeboulxxx.com##.article-body-more > table[width="125"]
-beelzeboulxxx.com##a[href*="//cloud.xaid.jp/"][id]
 ||news4vip.livedoor.biz/rss-test3.html
 blog.livedoor.jp###poweredAdsBy
 ||tezfiles.com/images/i/tz00250x00250-
@@ -6833,6 +6845,15 @@ gtoys.blog.fc2.com###adright
 !
 !
 !
+! fix reward https://www.nehannn.com/artist-detail/697.html
+@@||amazon-adsystem.com/aax2/apstag.js$domain=nehannn.com
+@@||g.doubleclick.net/gampad/ads?$xmlhttprequest,domain=nehannn.com
+@@||g.doubleclick.net/gpt/pubads_impl_$script,domain=nehannn.com
+@@||g.doubleclick.net/tag/js/gpt.js$domain=nehannn.com
+@@||googlesyndication.com/pagead/managed/js/adsense/*/show_ads_impl_$script,domain=nehannn.com
+@@||googlesyndication.com/safeframe/$subdocument,domain=nehannn.com
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=nehannn.com
+nehannn.com#@#[id^="google_ads_iframe"]
 ! https://github.com/AdguardTeam/AdguardFilters/issues/134769
 @@||eisys-bcs.jp/data.json$domain=dlsite.com
 ! fix https://nanpre.adg5.com/reword_get.php?view=ok
