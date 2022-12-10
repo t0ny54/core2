@@ -453,8 +453,8 @@ snrec.jp#$#body.tp-modal-open { overflow: visible!important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/132814
 ! https://github.com/AdguardTeam/AdguardFilters/issues/132525
 ! Similar site in Base filter: soranews24.com
-rocketnews24.com,youpouch.com##a[href^="https://www.googleadservices.com"]
-rocketnews24.com,youpouch.com##a[href^="https://googleads.g.doubleclick.net"]
+rocketnews24.com,youpouch.com#%#//scriptlet("prevent-setTimeout", "getPropertyValue")
+rocketnews24.com,youpouch.com##.ad
 @@||tpc.googlesyndication.com/simgad/$xmlhttprequest,domain=rocketnews24.com|youpouch.com
 ||tpc.googlesyndication.com^$image,redirect-rule=1x1-transparent.gif,domain=rocketnews24.com|youpouch.com
 @@||g.doubleclick.net/gampad/ads?$xmlhttprequest,domain=rocketnews24.com|youpouch.com
@@ -466,6 +466,7 @@ rocketnews24.com,youpouch.com##a[href^="https://googleads.g.doubleclick.net"]
 ||pagead2.googlesyndication.com/pagead/$script,redirect=googlesyndication-adsbygoogle,domain=rocketnews24.com|youpouch.com
 @@||youpouch.com^$generichide
 @@||rocketnews24.com^$generichide
+||googlesyndication.com/safeframe/$subdocument,redirect=noopframe,domain=rocketnews24.com|youpouch.com
 ||fundingchoicesmessages.google.com^$script,redirect-rule=noopjs,domain=rocketnews24.com|youpouch.com
 !#if (adguard_app_windows || adguard_app_mac || adguard_app_android)
 ||youpouch.com/_static/$replace=/(!1|!0!)=?==SCO\.imgLazyLoad/1===1/,script
@@ -473,6 +474,7 @@ rocketnews24.com,youpouch.com##a[href^="https://googleads.g.doubleclick.net"]
 youpouch.com,rocketnews24.com#%#AG_onLoad(function(){const a=document.querySelectorAll("img[data-sco-src]");a.forEach(a=>{const b=a.getAttribute("data-sco-src");a.setAttribute("src",b),a.style.opacity="1"})});
 !#endif
 !#if (adguard_app_ios || adguard_ext_android_cb)
+@@||googlesyndication.com/safeframe/$domain=rocketnews24.com|youpouch.com
 @@||tpc.googlesyndication.com/simgad/$image,domain=rocketnews24.com|youpouch.com
 @@||adservice.google.com/adsid/integrator.js$domain=rocketnews24.com|youpouch.com
 @@||rocketnews24.com/wp-content/themes/rocketnews/js/prebid.js$domain=rocketnews24.com|youpouch.com
@@ -491,8 +493,11 @@ blog-and-destroy.com#%#//scriptlet("abort-current-inline-script", "onload", "ads
 !+ PLATFORM(windows, mac, android, ext_chromium, ext_ublock)
 musenboya.com#%#//scriptlet("abort-current-inline-script", "navigator.brave")
 ! https://github.com/AdguardTeam/AdguardFilters/issues/131648
+helpsupport.blog.fc2.com#$##sp-area-1 { height: 90px !important; position: absolute !important; left: -4000px !important; }
+helpsupport.blog.fc2.com#@#.AdContainer
 ||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$script,redirect=googlesyndication-adsbygoogle,domain=helpsupport.blog.fc2.com,important
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=helpsupport.blog.fc2.com
+@@||helpsupport.blog.fc2.com^$generichide
 ! https://github.com/AdguardTeam/AdguardFilters/issues/131650
 ||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$script,redirect=googlesyndication-adsbygoogle,domain=tabtter.jp,important
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=tabtter.jp
@@ -647,10 +652,6 @@ knshow.com#$#.ads { display: block!important;height: 1px!important; }
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=knshow.com
 knshow.com#@#.adsbygoogle
 !#endif
-! https://github.com/AdguardTeam/AdguardFilters/issues/81515
-helpsupport.blog.fc2.com#%#//scriptlet('prevent-setTimeout', '.hide')
-helpsupport.blog.fc2.com#$#ins.adsbygoogle { width: 1px!important;height: 1px!important; }
-@@||helpsupport.blog.fc2.com^$generichide
 ! https://github.com/AdguardTeam/AdguardFilters/issues/81505
 crefan.jp#%#//scriptlet('prevent-setTimeout', 'objDef.resolve', '3000')
 !+ PLATFORM(ios, ext_android_cb, ext_safari)
@@ -1201,6 +1202,10 @@ nfm.nikkeibp.co.jp#?#.dag_aside_pickup:upward(1)
 nfm.nikkeibp.co.jp#?#.-info:has(> li > div[id^="div-gpt-"])
 cnn.co.jp#?#.pg-container-side div.cb-l1-m2 > div.cb > .OUTBRAIN:upward(2)
 sagatv.co.jp#?#.c-content-main > h2:not([data-bg-pattern]):contains(こちらもおすすめ)
+blog.jp#?#.plugin-memo > div.side > a[href^="https://hb.afl.rakuten.co.jp/hsc/"][target="_blank"][rel="nofollow"][style="word-wrap:break-word;"]:upward(2)
+blog.jp#?#.plugin-memo > div.side > center > ins.adsbygoogle:upward(3)
+blog.jp#?#.plugin-memo > div.side > iframe[src*="//rcm-fe.amazon-adsystem.com"]:upward(2)
+blog.jp#?#.plugin-memo > div.side > script[src^="//z-fe.amazon-adsystem.com"]:upward(2)
 blog.jp#?#.plugin-memo > div.side > img[src*="a8.net/"]:upward(2)
 elog-ch.com#?#.d_line > img[src$="/cat20.gif"]:upward(1)
 elog-ch.com#?##content > h2:contains([PR])
@@ -2103,6 +2108,7 @@ kuruma-news.jp,magmix.jp,trafficnews.jp$$div[data-history="photo_extra"]
 /wp-content/plugins/amazonjs/*
 !
 ! Malware/Phishing
+://paypay-bank.*.doa.php|$document
 .php/?tokne=$document
 ://www.aecen-co-jp.*.top^$document
 -visa-co-jp-*.club/customer/%EF%BC%88%E6%A0%AA%EF%BC%89VISA%E3%82%AB%E3%83%BC%E3%83%89%EF%BD%9CVisa%20Secure.php|$document
@@ -2127,10 +2133,6 @@ kuruma-news.jp,magmix.jp,trafficnews.jp$$div[data-history="photo_extra"]
 ://paldy.*/?o=$document
 ://www2.amazon.co.jp.*.lol/ap/signin|$document
 ://www.amazon.co.jp.*.hair/ap/signin|$document
-.club/nta_ap/signin?_encoding=$document
-://www.smbc-*.icu/client/index.php|$document
-://aplus.index.*.com/#/|$document
-://desir-admin.*.com/webapp/index.php?$document
 -smbc.com/client/index.php|$document
 /_ap/signin?scid=s_kwa_2021fas_*&icm_acid=$document
 /\.(?:bar|icu|id|rest|shop|top|xyz)\/[0-9A-Za-z]{2,10}\/page1\.php$/$document
@@ -2190,6 +2192,7 @@ hentai-covers.site,109cinemas.net,4545.to,bunshun.jp,eikaiwa.dmm.com,gizmodo.jp,
 !
 !
 !
+kasegeru.blog.jp##.article-body-inner > a[href^="https://www.amazon.co.jp/gp/"]
 jumpmatome2ch.biz##div[class^="ad-box"]
 uwakich.com##div[style^="height:350px;"][style*="width:735px;"]
 trilltrill.jp##.sideBar-AffiliateBanner
@@ -3435,7 +3438,8 @@ lulucos-bys.jp##.p-article__recommend
 lulucos-bys.jp##.p-article__adnw
 javstore.net##a[title="Banner"]
 javstore.net##img[title="aaaaa"]
-helpsupport.blog.fc2.com###topview
+helpsupport.blog.fc2.com###sp-area-3 ins.adsbygoogle
+helpsupport.blog.fc2.com###topentry > p[style="width:100%;height:100vh;display: flex;align-items: center;justify-content: center;"]
 ||chat-lab.tokyo/adCode.js
 bamka.info,kaimyou.biz###st_custom_html_widget-14
 bitdays.jp##.adrelated
@@ -6925,6 +6929,8 @@ gtoys.blog.fc2.com###adright
 !
 !
 !
+! https://github.com/uBlockOrigin/uAssets/issues/15959
+@@||tm.r-ad.ne.jp^$script,domain=hpdsp.net
 ! fix reward https://www.nehannn.com/artist-detail/697.html
 @@||amazon-adsystem.com/aax2/apstag.js$domain=nehannn.com
 @@||g.doubleclick.net/gampad/ads?$xmlhttprequest,domain=nehannn.com
