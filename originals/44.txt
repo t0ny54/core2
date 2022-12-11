@@ -437,8 +437,9 @@
 ! Bad: ||ad.doubleclick.net^ (should be in adservers.txt)
 !
 !
-! uma.pure-db.com anti-adb
-@@||uma.pure-db.com/ads.txt$xmlhttprequest,~third-party
+! https://github.com/AdguardTeam/AdguardFilters/issues/137055
+uma.pure-db.com#%#//scriptlet('prevent-fetch', 'pagead2.googlesyndication.com')
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xmlhttprequest,domain=uma.pure-db.com
 ! tters.jp anti-adb
 tters.jp#@#.ad-section
 ! musmus.main.jp anti-adb
@@ -453,8 +454,8 @@ snrec.jp#$#body.tp-modal-open { overflow: visible!important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/132814
 ! https://github.com/AdguardTeam/AdguardFilters/issues/132525
 ! Similar site in Base filter: soranews24.com
-rocketnews24.com,youpouch.com#%#//scriptlet("prevent-setTimeout", "getPropertyValue")
-rocketnews24.com,youpouch.com##.ad
+rocketnews24.com,youpouch.com#%#//scriptlet("prevent-setTimeout", "[native code]")
+rocketnews24.com,youpouch.com#$#.ad { display: none !important; }
 @@||tpc.googlesyndication.com/simgad/$xmlhttprequest,domain=rocketnews24.com|youpouch.com
 ||tpc.googlesyndication.com^$image,redirect-rule=1x1-transparent.gif,domain=rocketnews24.com|youpouch.com
 @@||g.doubleclick.net/gampad/ads?$xmlhttprequest,domain=rocketnews24.com|youpouch.com
@@ -611,7 +612,7 @@ realtime-chart.info#?#td[style="vertical-align: top"] > div[id] > div[id] > div[
 sekai-kabuka.com#$?#table[width="762px"] > tbody > tr > td[class] > div[id][class] > div[style="width: 232px;"]:contains(不具合が) { z-index: -1 !important; }
 sekai-kabuka.com#$?#td[width="160"] > div[style] > div[id][style]:has(> div[class]:contains(定期的に配置が)) { z-index: -1 !important; }
 sekai-kabuka.com#$#ins.adsbygoogle > div[style="width:728px;height:90px;position:absolute;z-index:999;line-height:1.1;display:flex;justify-content:center;align-items:center;"] { height: 1px !important; overflow: auto !important; }
-realtime-chart.info#$#div[style="top:1550px"] > [style*="font-size:"]:is(b, span, a) { font-size: 0 !important; }
+realtime-chart.info#$#div[style="top:1442px"] > [style*="font-size:"]:is(b, span, a) { font-size: 0 !important; }
 realtime-chart.info#%#//scriptlet('remove-attr', 'onclick', '.amazoom1[onclick^="clickcat"][target="_blank"]')
 sekai-kabuka.com#$#div[id][class][style^="position:relative;background:#000;"][style*="width:729px;"][style*="height: 90px;"] { height: 1px !important; }
 realtime-chart.info#$#div[data-i4h] { font-size: 0 !important; }
@@ -928,6 +929,10 @@ otonasalone.jp,sumaiweb.jp#?#._popIn_infinite_page > a._popIn_recommend_article_
 !
 !
 !
+blog.fc2.com#?#div[class$="_outline"] > div > div.plugin-freearea > a[href^="https://www.amazon.co.jp/dp/"][target="_blank"]:not([name]):upward(3)
+blog.fc2.com#?#div[class$="_outline"] > div > div.plugin-freearea > ins.adsbygoogle:upward(3)
+jobcatalog.yahoo.co.jp#?#div[class*="__"] > div[id$="ad1"]:upward(1)
+asobu.blog#?#.ark-block-columns:contains(スポンサードリンク)
 gfoodd.com#?#.code-block > div.sponserdrink:has(+ .ninja-recommend-block)
 gfoodd.com#?#.post > div.singleh4:contains(/いつもありがとうございますＲＳＳ|食べ物ＲＳＳ/)
 bintan.ula.cc##.res1000 li:has(> div[style="height:8px;"]:empty)
@@ -2108,6 +2113,7 @@ kuruma-news.jp,magmix.jp,trafficnews.jp$$div[data-history="photo_extra"]
 /wp-content/plugins/amazonjs/*
 !
 ! Malware/Phishing
+.top/Personal/member/Login/index.php?oneTimeAccessID=$document
 ://paypay-bank.*.doa.php|$document
 .php/?tokne=$document
 ://www.aecen-co-jp.*.top^$document
@@ -2131,13 +2137,10 @@ kuruma-news.jp,magmix.jp,trafficnews.jp$$div[data-history="photo_extra"]
 ://mizu*.cyou/client/index.php|$document
 /\.(?:cn|icu|pro)\/Personal\/member\/Login\/index\.php\?oneTimeAccessID=/$document
 ://paldy.*/?o=$document
-://www2.amazon.co.jp.*.lol/ap/signin|$document
-://www.amazon.co.jp.*.hair/ap/signin|$document
--smbc.com/client/index.php|$document
 /_ap/signin?scid=s_kwa_2021fas_*&icm_acid=$document
 /\.(?:bar|icu|id|rest|shop|top|xyz)\/[0-9A-Za-z]{2,10}\/page1\.php$/$document
 ://www2.myjcb.com.jp.*.cn/pc/issmyjcb_login.php|$document
-/_ap/signin?_encoding=UTF8&openid.assoc_handle=jpflex&openid.claimed_id=&action=sign-in&path=home&ref_=nav_Account&signIn=1&useRedirectOnSuccess=1|$document
+/_ap/signin*?_encoding=UTF8&openid.assoc_handle=jpflex&openid.claimed_id=&action=sign-in&path=home&ref_=nav_Account&signIn=1&useRedirectOnSuccess=1|$document
 /KDDI%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3.apk^$document
 /japanpost.apk^$document
 /^https:\/\/[a-z]{5,6}\.[a-z]{7}\.cn\/recrea\.php$/$document
@@ -2192,6 +2195,7 @@ hentai-covers.site,109cinemas.net,4545.to,bunshun.jp,eikaiwa.dmm.com,gizmodo.jp,
 !
 !
 !
+jobcatalog.yahoo.co.jp###qa-mr-ad1
 kasegeru.blog.jp##.article-body-inner > a[href^="https://www.amazon.co.jp/gp/"]
 jumpmatome2ch.biz##div[class^="ad-box"]
 uwakich.com##div[style^="height:350px;"][style*="width:735px;"]
@@ -3569,7 +3573,7 @@ ssnp.co.jp,weekly-jitsuwa.jp##.bbear-ad
 weekly-jitsuwa.jp##.widget_bbearad
 weekly-jitsuwa.jp##.widget_bbearad-recommend
 weekly-jitsuwa.jp##.widget_bbearad-single-bottom
-twimaru.com,yakusokunosora.com##.aicp
+webcommu.net,twimaru.com,yakusokunosora.com##.aicp
 free-erobooks.*###right-side > div.side-box > div.side-title:first-child
 free-erobooks.*##.open
 purple-novel.com###side > aside.widget
@@ -5139,7 +5143,7 @@ arukikata.co.jp##.ad_top300
 tokyoartbeat.com###homebnrs
 aniplexplus.com##.hotentry
 ||x.sekai-kabuka.com/wond_rect.png
-||x.sekai-kabuka.com/mypro4.png
+||x.sekai-kabuka.com/mypro*.png
 ||x.sekai-kabuka.com/protein.png
 ||x.sekai-kabuka.com/soushin.png
 ||x.sekai-kabuka.com/clip_$image
