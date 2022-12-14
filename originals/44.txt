@@ -437,6 +437,9 @@
 ! Bad: ||ad.doubleclick.net^ (should be in adservers.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/137316
+o-dan.net#%#//scriptlet('remove-class', 'visited', '#oRslt li a.visited', 'stay')
+o-dan.net#%#//scriptlet('prevent-setTimeout', 'oAdChk')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/137055
 uma.pure-db.com#%#//scriptlet('prevent-fetch', 'pagead2.googlesyndication.com')
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xmlhttprequest,domain=uma.pure-db.com
@@ -454,8 +457,10 @@ snrec.jp#$#body.tp-modal-open { overflow: visible!important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/132814
 ! https://github.com/AdguardTeam/AdguardFilters/issues/132525
 ! Similar site in Base filter: soranews24.com
-rocketnews24.com,youpouch.com#$#.ad728x90 { position: relative !important;  z-index: -10000 !important; }
-rocketnews24.com,youpouch.com#$#.ad { position: absolute !important;  z-index: -10000 !important; }
+rocketnews24.com,youpouch.com#%#//scriptlet('remove-attr', 'style|height', 'amp-img')
+rocketnews24.com,youpouch.com#$?#style[amp-custom]  { remove: true; }
+rocketnews24.com,youpouch.com##.ad300x250:not(#div-gpt-ad-)
+rocketnews24.com,youpouch.com###div-gpt-ad-footer
 @@||tpc.googlesyndication.com/simgad/$xmlhttprequest,domain=rocketnews24.com|youpouch.com
 ||tpc.googlesyndication.com^$image,redirect-rule=1x1-transparent.gif,domain=rocketnews24.com|youpouch.com
 @@||g.doubleclick.net/gampad/ads?$xmlhttprequest,domain=rocketnews24.com|youpouch.com
@@ -2166,7 +2171,7 @@ kuruma-news.jp,magmix.jp,trafficnews.jp$$div[data-history="photo_extra"]
 !
 ! For URL shorteners or simple sites with frequently changed ad servers.
 ! Incorrectly blocked domains can be excluded using regex(synchronize this regexp in all filters)
-/^(?!.*(bootstrapcdn.com|cdn.ampproject.org|cloudflare.com|disqus.com|disquscdn.com|dmca.com|ebacdn.com|facebook.net|fastlylb.net|fbcdn.net|fluidplayer.com|fontawesome.com|github.io|google.com|googleapis.com|googletagmanager.com|gstatic.com|jquery.com|jsdelivr.net|jwpcdn.com|jwplatform.com|polyfill.io|recaptcha.net|shrink.pe|twitter.com|ulogin.ru|unpkg.com|userapi.com|vidazoo.com|vk.com|yandex.|yastatic.net|ytimg.com|zencdn.net|player|youtube.com|cackle.me|googleoptimize.com|vuukle.com|chatango.com|twimg.com|google-analytics.com|hcaptcha.com|raincaptcha.com|media-imdb.com|blogger.com|hwcdn.net|instagram.com|wp.com)).*$/$third-party,script,domain=doki1001.com|wiki.ja-jp.nina.az|uraaka-joshi.com
+/^(?!.*(bootstrapcdn.com|cdn.ampproject.org|cloudflare.com|cdn.staticfile.org|disqus.com|disquscdn.com|dmca.com|ebacdn.com|facebook.net|fastlylb.net|fbcdn.net|fluidplayer.com|fontawesome.com|github.io|google.com|googleapis.com|googletagmanager.com|gstatic.com|jquery.com|jsdelivr.net|jwpcdn.com|jwplatform.com|polyfill.io|recaptcha.net|shrink.pe|twitter.com|ulogin.ru|unpkg.com|userapi.com|vidazoo.com|vk.com|yandex.|yastatic.net|ytimg.com|zencdn.net|player|youtube.com|cackle.me|googleoptimize.com|vuukle.com|chatango.com|twimg.com|google-analytics.com|hcaptcha.com|raincaptcha.com|media-imdb.com|blogger.com|hwcdn.net|instagram.com|wp.com)).*$/$third-party,script,domain=doki1001.com|wiki.ja-jp.nina.az|uraaka-joshi.com
 !
 ! ##.pr
 newsoku.blog,nikkan-gendai.com,ceron.jp,kids.gakken.co.jp,5chan.jp,toyokeizai.net,twpf.jp,chunichi.co.jp,tokyo-np.co.jp,db.msin.jp,ladiesfashion.jp,minpo.jp##.pr
@@ -2201,6 +2206,16 @@ hentai-covers.site,109cinemas.net,4545.to,bunshun.jp,eikaiwa.dmm.com,gizmodo.jp,
 !
 !
 !
+mutyun.com##.amazon-auto-links-widget
+kakao-bbs.com,line-bbs.manzoku100.com##.post_datetime_tsuuhou2 > span
+city.bunkyo.lg.jp##.bun-bannerpublicityBox2
+samuraigoal.doorblog.jp##.ninja-recommend-block
+genshin.blog.jp###Amazon_rdm
+pokemon-matome.net###commentbody > div[style^="margin:5px 0px"]
+sports.yahoo.co.jp###cp_bnr
+tochidai.info###Left_AD
+tochidai.info##[class^="AD_"]
+rokemoba.com##.l-mainContent__inner > div[style="padding-bottom: 5%;"]
 sk2ch.net##.ds.first
 etude000.com###thk_ps_widget-40
 etude000.com###thk_ps_widget-68
@@ -2345,7 +2360,7 @@ okinawatimes.co.jp##.ad-bottom-banner
 okinawatimes.co.jp##article > div[style="margin:0px 0;text-align:center;"]
 okinawatimes.co.jp##article > div[style="margin:25px 0;text-align:center;"]
 otakomu.jp###more > a[href^="https://www.amazon.co.jp/"]
-ff14hikasensokuhou.com##a[href^="https://www.amazon.co.jp/"] > img
+iyaaaao.doorblog.jp,ff14hikasensokuhou.com##a[href^="https://www.amazon.co.jp/"] > img
 fukuishimbun.co.jp##.admeasure:not(.textlink-ad)
 fukuishimbun.co.jp##.admeasure + hr
 ||ip.affiliate.dmm.com^$subdocument
@@ -3580,7 +3595,7 @@ withonline.jp##div[style="width:670px ; height:300px;"]
 bm.best-hit.tv,j-baseball.club,j-basketball.club##div[style^="margin-top"] div[style="font-size:0.8em;"]
 fujinkoron.jp##.ad-article-rect
 efight.jp,fujinkoron.jp##.billboard
-sk2ch.net,milk-key.com,fujinkoron.jp##.recommend
+milk-key.com,fujinkoron.jp##.recommend
 mikle.jp,onayamifree.com###sakusaku_admid
 mikle.jp,onayamifree.com##.card_ad
 stockweather.co.jp###hdBnr
@@ -4876,7 +4891,7 @@ map.goo.ne.jp###lnavi_site-cross
 eiga-board.com##.ad_size
 popmaster.jp##.kakomi-maru
 ||moemoeanime.blog.jp/moemoeanime.html
-takegon.jp,moemoeanime.blog.jp##.main-container-ads
+genshin.blog.jp,takegon.jp,moemoeanime.blog.jp##.main-container-ads
 tools4music.info##.ads-related
 hourei.net###facebook
 hourei.net###twitter
@@ -5130,7 +5145,6 @@ kyouryu.info##.top_bottom_contents_box_3
 nikaidou.com##.books-single
 j-cia.com###amazon-products
 edtechzine.jp###AdSpecialContents
-gaugau.futabanet.jp##.r-ad-rectangle
 ||blog.livedoor.jp/skating12345/ad.html
 jprime.jp##.--pr
 jprime.jp##.ad-col2
@@ -5630,6 +5644,9 @@ mag.app-liv.jp##.bnr-related
 mag.app-liv.jp##.topics-ad-area
 moneyforward.com##.mp-fixed-ads-screen
 moneyforward.com###ad-content-bottom
+||reader.futabanet.jp/parts/gamoverlay.js
+reader.futabanet.jp##._popIn_recommend_header
+futabanet.jp##.r-ad-rectangle
 futabanet.jp##.m-ad-rectangle
 futabanet.jp##.ad-rectangle-right
 cyclowired.jp##.field-name-field-amazon-product1
@@ -6009,7 +6026,7 @@ negisoku.com##div[style="position:fixed;bottom:0;right:0;z-index:9999;"]
 negisoku.com###main > div.column-inner > div.column-inner-2 > a[href^="https://e-gaming.g2afse.com/click"]
 negisoku.com###rss-box
 negisoku.com##.article-outer-3 > a[href^="https://e-gaming.g2afse.com/click"]
-nanjde.blog.jp,negisoku.com##.plugin-memo
+genshin.blog.jp,nanjde.blog.jp,negisoku.com##.plugin-memo
 ||wp.com/*.moshimo.com/af-img/
 nekotto-life.com##.al-c[style="text-align: left;"]
 lnews.jp##.connection-post-ad
