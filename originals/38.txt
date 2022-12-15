@@ -716,6 +716,7 @@ reddit.com#@#.ADBAR
 ! SECTION: Anti-adblock - Regular rules
 ! Do not forget about '!#safari_cb_affinity' section for exclusions
 !
+1cloudfile.com###adBlockInfo
 gotxx.net###ebf2
 adventuretime.ru#?##oframeplayerJS pjsdiv:has(> pjsdiv[style^="position: absolute;"]:contains(блокировщик))
 playai.nu##.ab-alert
@@ -3232,7 +3233,7 @@ lapresse.ca,toptenreviews.com#$#body { overflow:visible!important; }
 lapresse.ca,toptenreviews.com#$#html.sp-message-open { overflow:visible!important; position:static!important; }
 !
 ! https://github.com/AdguardTeam/AdguardFilters/issues/51398
-forbes.com#$#body { overflow: visible !important; }
+forbes.com#$#html > body:not(#style_important) { overflow: visible !important; }
 forbes.com#$#.fbs-auth__adblock { display: none !important; }
 !
 forbes.com#$#adblock-modal { display: none !important; }
@@ -3469,6 +3470,7 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 !
 ! SECTION: Popups - Regular rules
 !
+radarbox.com#?#body > div > .modal-component:has(> .content > a[href^="https://twitter.com/intent/follow?"])
 sweetwater.com##.site-contact--verbose
 teknosa.com#%#//scriptlet('remove-class', 'header-infobar-active', 'body')
 ilsole24ore.com##.popout-video--popout
@@ -10423,6 +10425,15 @@ technologyreview.com,inews.co.uk,nordbayern.de,thelocal.ch,morgenpost.de,waz.de,
 !
 ! SECTION: Subscriptions - Regular rules
 !
+windowscentral.com###slice-container-newsletterForm-articleInbodyContent
+thestival.gr##.Google_Publisher
+enuygun.com##div[class^="bankCompareByLoanTypestyle__EmailSubWrapper-"]
+blog.google##.newsletter-homepage-form__section
+hesapkurdu.com#$##js-sign-up-modal { display: none !important; }
+hesapkurdu.com#$#.modal-backdrop { display: none !important; }
+hesapkurdu.com#$#body.modal-open { overflow: auto !important; }
+hesapkurdu.com#%#//scriptlet('remove-attr', 'style', 'body.modal-open')
+hesapkurdu.com##body > div.dfp + div.section.section--gray
 capitalsound.ca##.targetbay_modal
 ilsole24ore.com#?#.main-content > div.container:has(> div.scta figure > a[href$="newsletter"])
 studentuniverse.com##div[oc-lazy-load="suNewsletter"]
