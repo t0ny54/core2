@@ -86,6 +86,8 @@
 ! not for DNS
 ||ias.rakuten.co.jp^$third-party,domain=~rakuten--.co.jp
 !
+||googleailesi.com^$all
+||bartinkizogrenciyurdu.com^$all
 ||js.glossom.jp^$third-party
 ||ratel-ad.com^$third-party
 ||cdn.mixx-ad.net^$third-party
@@ -460,14 +462,9 @@ snrec.jp#$#body.tp-modal-open { overflow: visible!important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/132814
 ! https://github.com/AdguardTeam/AdguardFilters/issues/132525
 ! Similar site in Base filter: soranews24.com
-rocketnews24.com#$##sub-content > ul > li:not(.widget_custom_html) { position: relative !important; z-index: 10000 !important; }
-youpouch.com#$##primary-widgets > li:not(.widget_custom_html) { position: relative !important; z-index: 10000 !important; }
-rocketnews24.com,youpouch.com#$#.ad { position: absolute !important; }
-rocketnews24.com,youpouch.com##.ads-relatedbottom
-rocketnews24.com,youpouch.com###adunit
+rocketnews24.com,youpouch.com##a[href^="https://adclick.g.doubleclick.net/"][href*="&adurl=https://socio-corp.jp/"]
+rocketnews24.com,youpouch.com##a[href^="https://www.googleadservices.com/pagead/aclk?sa="]
 rocketnews24.com,youpouch.com###banner
-rocketnews24.com,youpouch.com###div-gpt-ad-billboard
-rocketnews24.com,youpouch.com###div-gpt-ad-pagebottom
 rocketnews24.com,youpouch.com#%#//scriptlet('remove-attr', 'style|height', 'amp-img')
 @@||tpc.googlesyndication.com/simgad/$xmlhttprequest,domain=rocketnews24.com|youpouch.com
 ||tpc.googlesyndication.com^$image,redirect=1x1-transparent.gif,domain=rocketnews24.com|youpouch.com,important
@@ -516,7 +513,9 @@ helpsupport.blog.fc2.com#@#.AdContainer
 ||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$script,redirect=googlesyndication-adsbygoogle,domain=tabtter.jp,important
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=tabtter.jp
 tabtter.jp#@##googlead
+! https://github.com/AdguardTeam/AdguardFilters/issues/137131
 ! https://github.com/uBlockOrigin/uAssets/issues/15126
+kledgeb.blogspot.com#$#body > div[style="visibility: hidden;"] { visibility: visible !important; }
 kledgeb.blogspot.com#%#//scriptlet("abort-current-inline-script", "document.getElementById", "_0x")
 @@||kledgeb.github.io/UbuntuKledgeb/JavaScript/GoogleAnalytics.js$domain=kledgeb.blogspot.com
 ! https://github.com/AdguardTeam/AdguardFilters/issues/130811
@@ -952,7 +951,7 @@ asobu.blog#?#.ark-block-columns:contains(スポンサードリンク)
 kabushiki.jp#?#ul[class^="top-news--items-"] > li[class^="cmn-summary-"] > div[id^="div-gpt-ad"]:upward(1)
 gfoodd.com#?#.code-block > div.sponserdrink:has(+ .ninja-recommend-block)
 gfoodd.com#?#.post > div.singleh4:contains(/いつもありがとうございますＲＳＳ|食べ物ＲＳＳ/)
-bintan.ula.cc##.res1000 li:has(> div[style="height:8px;"]:empty)
+katsu200.ula.cc,bintan.ula.cc##.res1000 li:has(> div[style="height:8px;"]:empty)
 mathlog.info#?#.sticky-main-top > div.card:has(> div > div.w-100 > a.btn[href^="/amazon_books/"])
 ckworks.jp#?##rightContentsInnerBox > article.articleBox > div.articleSubBox:has(> .listItemGoodsSingleLarge)
 xn--w8jtkjf8c570x.com#?#.post > strong > p > ins.adsbygoogle:upward(1)
@@ -2196,7 +2195,7 @@ sugi9532.com,frozen.analyst.jp,5app-ch.com,genshinnews.apexlegends-leaksnews.com
 ! ##.code-block
 yunikons.com,anitubu.com,coilet.info,happymackeyblog.com,nuki-dokoro.com,usa.wailu.info,eizone.info,cocoseka.gamewiki.jp,spirituabreath.com,travel.spot-app.jp,chietoku.jp,rere.jp,bazurecipe.com,frozen.analyst.jp,entano.jp,mainoriti.com,genshinnews.apexlegends-leaksnews.com,crossbike.biz,comicspoil007.com,yoso-walk.net,poire122.com,automaton-media.com,pontako.com##.code-block
 ! ##.amazon
-ikarishintou.com,dark-soku.blog.jp,onihimechan.com,kinsoku.blog.jp,nandemo-uketori.com,jumpsokuhou.com,birthofblues.livedoor.biz,moeplus.com,copysoku.com,onecall2ch.com,getnews.jp,ebitsu.net,news.2chblog.jp,chomagireko.blog.jp,tarosoku.com,0taku.livedoor.biz,haijin-boys.com,hamusoku.com,ascii2d.net##.amazon
+ysokuhou.blog.jp,carrot.dreamlog.jp,grasoku.com,ikarishintou.com,dark-soku.blog.jp,onihimechan.com,kinsoku.blog.jp,nandemo-uketori.com,jumpsokuhou.com,birthofblues.livedoor.biz,moeplus.com,copysoku.com,onecall2ch.com,getnews.jp,ebitsu.net,news.2chblog.jp,chomagireko.blog.jp,tarosoku.com,0taku.livedoor.biz,haijin-boys.com,hamusoku.com,ascii2d.net##.amazon
 ! ##.adsense
 shinri-mag.info,m3q.jp,anke.jp,shin-shouhin.com,news.biglobe.ne.jp,4ka.net,natsukimemo.com,travelbook.co.jp,cat.sc,battle-one.com,otonasalone.jp##.adsense
 ! ##.banner
@@ -2214,6 +2213,7 @@ hentai-covers.site,109cinemas.net,4545.to,bunshun.jp,eikaiwa.dmm.com,gizmodo.jp,
 !
 !
 !
+carrot.dreamlog.jp##.article-body + div[style="margin: 20px 0;"]
 kahoku.news##.page_hedding
 mutyun.com##.amazon-auto-links-widget
 kakao-bbs.com,line-bbs.manzoku100.com##.post_datetime_tsuuhou2 > span
@@ -2862,7 +2862,7 @@ info.city.tsu.mie.jp##.AdBnrList
 pref.gifu.lg.jp###top_kokoku_bg
 pref.osaka.lg.jp###banner_frame
 rokkasho.jp##.home_bnr_box
-city.ebina.kanagawa.jp,city.tsukuba.lg.jp,city.iruma.saitama.jp,city.fussa.tokyo.jp,city.akita.lg.jp,city.amagasaki.hyogo.jp,city.wakayama.wakayama.jp,city.ise.mie.jp,city.inazawa.aichi.jp,city.toyota.aichi.jp,city.kariya.lg.jp,city.gifu.lg.jp,city.obu.aichi.jp,city.morioka.iwate.jp,pref.iwate.jp###sad
+city.itabashi.tokyo.jp,city.ebina.kanagawa.jp,city.tsukuba.lg.jp,city.iruma.saitama.jp,city.fussa.tokyo.jp,city.akita.lg.jp,city.amagasaki.hyogo.jp,city.wakayama.wakayama.jp,city.ise.mie.jp,city.inazawa.aichi.jp,city.toyota.aichi.jp,city.kariya.lg.jp,city.gifu.lg.jp,city.obu.aichi.jp,city.morioka.iwate.jp,pref.iwate.jp###sad
 city.inzai.lg.jp,city.kyotanabe.lg.jp,city.himeji.lg.jp,city.hirakata.osaka.jp,city.osaka.lg.jp,city.kyoto.lg.jp,city.maizuru.kyoto.jp,city.nagoya.jp,city.iga.lg.jp##.bana
 rallys.online##.widget > a[href][target="_blank"] > img
 rugby-rp.com##div[class*="-adarea-"]
