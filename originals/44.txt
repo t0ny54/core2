@@ -86,6 +86,7 @@
 ! not for DNS
 ||ias.rakuten.co.jp^$third-party,domain=~rakuten--.co.jp
 !
+||boost-next.co.jp^
 ||googleailesi.com^$all
 ||bartinkizogrenciyurdu.com^$all
 ||js.glossom.jp^$third-party
@@ -462,8 +463,8 @@ snrec.jp#$#body.tp-modal-open { overflow: visible!important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/132814
 ! https://github.com/AdguardTeam/AdguardFilters/issues/132525
 ! Similar site in Base filter: soranews24.com
-rocketnews24.com,youpouch.com##a[href^="https://adclick.g.doubleclick.net/"][href*="&adurl=https://socio-corp.jp/"]
-rocketnews24.com,youpouch.com##a[href^="https://www.googleadservices.com/pagead/aclk?sa="]
+rocketnews24.com,youpouch.com##div[data-google-query-id]
+rocketnews24.com,youpouch.com##.amp-animate
 rocketnews24.com,youpouch.com###banner
 rocketnews24.com,youpouch.com#%#//scriptlet('remove-attr', 'style|height', 'amp-img')
 @@||tpc.googlesyndication.com/simgad/$xmlhttprequest,domain=rocketnews24.com|youpouch.com
@@ -951,7 +952,7 @@ asobu.blog#?#.ark-block-columns:contains(スポンサードリンク)
 kabushiki.jp#?#ul[class^="top-news--items-"] > li[class^="cmn-summary-"] > div[id^="div-gpt-ad"]:upward(1)
 gfoodd.com#?#.code-block > div.sponserdrink:has(+ .ninja-recommend-block)
 gfoodd.com#?#.post > div.singleh4:contains(/いつもありがとうございますＲＳＳ|食べ物ＲＳＳ/)
-katsu200.ula.cc,bintan.ula.cc##.res1000 li:has(> div[style="height:8px;"]:empty)
+ula.cc##.res1000 li:has(> div[style="height:8px;"]:empty)
 mathlog.info#?#.sticky-main-top > div.card:has(> div > div.w-100 > a.btn[href^="/amazon_books/"])
 ckworks.jp#?##rightContentsInnerBox > article.articleBox > div.articleSubBox:has(> .listItemGoodsSingleLarge)
 xn--w8jtkjf8c570x.com#?#.post > strong > p > ins.adsbygoogle:upward(1)
@@ -2129,6 +2130,10 @@ kuruma-news.jp,magmix.jp,trafficnews.jp$$div[data-history="photo_extra"]
 /wp-content/plugins/amazonjs/*
 !
 ! Malware/Phishing
+://www.eki-net.*.top/index/index/login.html|$document
+.cc/service.php?parm=$document
+.icu/eki_ap/signin.php?_encoding=$document
+://vapss.scmbc.*.cn/login.php?qscb=$document
 .su/personal/top/index^$document
 .best/Personal/member/wb/Login/Login|$document
 .top/Personal/member/Login/index.php?oneTimeAccessID=$document
@@ -2161,7 +2166,6 @@ kuruma-news.jp,magmix.jp,trafficnews.jp$$div[data-history="photo_extra"]
 /_ap/signin*?_encoding=UTF8&openid.assoc_handle=jpflex&openid.claimed_id=&action=sign-in&path=home&ref_=nav_Account&signIn=1&useRedirectOnSuccess=1|$document
 /KDDI%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3.apk^$document
 /japanpost.apk^$document
-/^https:\/\/[a-z]{5,6}\.[a-z]{7}\.cn\/recrea\.php$/$document
 ://amazon.co.jp.*.com/ap/signin|$document
 ://amazon.*.cn/ap/signin|$document
 
@@ -2213,6 +2217,11 @@ hentai-covers.site,109cinemas.net,4545.to,bunshun.jp,eikaiwa.dmm.com,gizmodo.jp,
 !
 !
 !
+nogizaka46matomenoma.blog.jp##.article-body > div[style="margin-bottom: 10px"][align="center"]
+nogizaka46matomenoma.blog.jp###more > div.t_b ~ a[target="_blank"]
+fuelle.jp###js-overlay
+fuelle.jp##.bn_gpt_box
+||fuelle.jp/assets/js/overlay/
 carrot.dreamlog.jp##.article-body + div[style="margin: 20px 0;"]
 kahoku.news##.page_hedding
 mutyun.com##.amazon-auto-links-widget
@@ -3161,7 +3170,7 @@ phileweb.com###topBanner
 sirabee.com,fumumu.net##.entryBottomBanner
 46matome.net###more > table[border="0"]
 46matome.net##.plugin-twitter_profile + div.plugin-memo
-46matome.net##.right-container > div.plugin-memo:last-of-type
+grasoku.com,46matome.net##.right-container > div.plugin-memo:last-of-type
 dn-voice.info,minto.tech,mupon.net,46matome.net,46room.blog.jp,keyakizaka46matomemory.net##.kaerebalink-box
 46matome.net,keyakizaka46matomemory.net###more > a[href^="https://hb.afl.rakuten.co.jp"]
 keyakizaka46matomemory.net##.plugin-monthly + div.plugin-memo
