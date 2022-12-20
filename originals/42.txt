@@ -4520,12 +4520,10 @@ electric-house.ru#@#.adsbygoogle
 !
 !
 ! sinoptik.ua - ads reinject
-sinoptik.ua#@#div[id^="div-gpt-"]
-sinoptik.ua#@#[id^="div-gpt-ad"]
+@@||sinoptik.ua^$generichide
 !#if (adguard_ext_chromium || adguard_ext_opera)
 *$image,redirect-rule=1x1-transparent.gif,domain=sinoptik.ua
 *$script,redirect-rule=noopjs,domain=sinoptik.ua
-@@||sinoptik.ua^$generichide
 sinoptik.ua#@#.informerTop
 sinoptik.ua#@#div[id^="adsLeftZone"]
 sinoptik.ua#@##left-slot1
@@ -6182,6 +6180,8 @@ livejournal.com#%#//scriptlet("set-constant", "begun_new_callbacks", "undefined"
 !+ NOT_PLATFORM(windows, mac, android, ext_ff)
 ||strm.yandex.ru/get/$script,xmlhttprequest,other,redirect=noopvast-3.0,domain=yastatic.net|kinopoisk.ru|frontend.vh.yandex.ru
 !
+! drive2.ru
+!
 !#if (!adguard_ext_firefox)
 ||dzen.ru/*/*/*_$replace=/^.*"blockId\":\s*\"R-A-.*//,script,xmlhttprequest,other
 ||spletnik.ru/_$script,replace=/\/context_adb.*//
@@ -6717,6 +6717,9 @@ okko.sport#?#div[class]:has(> div[class] > div[class]:contains(/^коэффиц�
 okko.sport#?#button:has(> span:contains(/^прогнозы$/))
 okko.sport##div[class]:has(> iframe[src^="https://clients-static.okko.tv/web/banners/winline/"])
 !
+rbc.ru#?#.js-index-central-column > div.js-index-doscroll > div.item_content-cards-block:has(div[data-yandex-show^="commercial_cards"])
+computerhistory.org#?#div[class^="three-column-grid"] > div[class] > h3:contains(Sign Up)
+computerhistory.org#?#div[class^="three-column-grid"] > div[class] > p:has(> a[href$="/subscribe-aoc"])
 naruto-base.su#?##rightbar > div.block:has(> div.cont_ab)
 smartpress.by#?#.art-content > p:has(> a[href^="https://voka.tv/"])
 focus.ua#?#.o-container > div.o-block:has(> div.o-block__inner > div.u-unwrap > div.nts-ad)
@@ -8224,6 +8227,8 @@ zen.yandex.by,zen.yandex.com,zen.yandex.kz,zen.yandex.ru#?#.zen-page div.feed__r
 !------- JS ------------
 !-----------------------
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/137728
+zb.tabfil.me#$#.wrap { margin-top: 0 !important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/136638
 okminigames.mail.ru#%#//scriptlet('set-constant', 'NO_ADV', '1')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/136511
@@ -11270,6 +11275,10 @@ sobesednik.com,vz.ru,autoparus.by,ctv.by,hightech.plus,vkpress.ru,newstula.ru,pa
 !
 !
 !
+annahelp.ru##a[href*="clickprk.com"]
+annahelp.ru##.consultation
+okino.ua##.preload-banner
+regnum.ru##.slot-article-block
 gameawards.ru##.article-right-suggested-publications-wrapper__sticky
 unian.ua##.article  > div.bordered-block
 myfin.by##div[class^="showcase__container__banner_"]
@@ -21762,6 +21771,7 @@ anime.anidub.life,online.anidub.com##div[style^="width: 240px;height: 400px;"]
 xn--90awu.xn--j1amh##a[href^="/component/banners/"]
 !
 ! autonews.ru,rbc.ru,rbcplus.ru,sportrbc.ru
+rbc.ru##.js-mts-floor-aida-place
 rbc.ru##.simple-promo-card
 rbc.ru##.js-commercial-video-block
 rbc.ru##.deposit-block
