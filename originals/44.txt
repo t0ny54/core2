@@ -629,6 +629,7 @@ nordot.app#%#//scriptlet('abort-current-inline-script', 'document.createElement'
 ! https://github.com/AdguardTeam/AdguardFilters/issues/85641
 modalina.jp#%#//scriptlet('abort-on-property-read', 'AdBlockLimitation')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/116093
+realtime-chart.info#%#//scriptlet('remove-attr', 'onclick', 'td[style] div[style^="top:1"] > div')
 sekai-kabuka.com#%#//scriptlet('prevent-setTimeout', '', '10000')
 realtime-chart.info#%#//scriptlet('remove-attr', 'onmousedown', 'a')
 realtime-chart.info#?#td[style="vertical-align: top"] > div[id] > div[id] > div[id] > div[style="top:1437px"] > div[style="z-index:-1"]:contains(/^広告非表示だと色々と不具合が発生します$/)
@@ -948,6 +949,9 @@ otonasalone.jp,sumaiweb.jp#?#._popIn_infinite_page > a._popIn_recommend_article_
 !
 !
 !
+seesaa.net#?#.module--free > center > a[href^="https://prf.hn"]:upward(2)
+seesaa.net#?#.module--free > center > script[src*="//adm.shinobi.jp"]:upward(2)
+seesaa.net#?#.module--free > center > script[src*="i-mobile.co.jp"]:upward(2)
 nijisenmon.work#?#.widget_st_custom_html_widget > div > div.adsense-wrapper:upward(2)
 to-corona-ex.com#?#div[class^="fluct-unit"]:upward(1)
 cinematoday.jp#$?#.feed-item > div[id^="div-gpt-"]:upward(1) { remove: true; }
@@ -2215,6 +2219,9 @@ hentai-covers.site,109cinemas.net,4545.to,bunshun.jp,eikaiwa.dmm.com,gizmodo.jp,
 !
 !
 !
+parashuto.com###ad-area
+ganref.jp##.adsBox
+||amazonaws.com/affiliate-img.docomo.ne.jp/banner/
 elog-ch.com##.simple-box3
 buhitter.com##aside.row[style="display: flex; justify-content: center;height: 320px;overflow:hidden;margin:8px;"]
 elog.tokyo##.adArticleSideTop300x250
@@ -3182,7 +3189,7 @@ sirabee.com,fumumu.net##.entryBottomBanner
 46matome.net###more > table[border="0"]
 46matome.net##.plugin-twitter_profile + div.plugin-memo
 grasoku.com,46matome.net##.right-container > div.plugin-memo:last-of-type
-dn-voice.info,minto.tech,mupon.net,46matome.net,46room.blog.jp,keyakizaka46matomemory.net##.kaerebalink-box
+ogeji.hatenablog.com,dn-voice.info,minto.tech,mupon.net,46matome.net,46room.blog.jp,keyakizaka46matomemory.net##.kaerebalink-box
 46matome.net,keyakizaka46matomemory.net###more > a[href^="https://hb.afl.rakuten.co.jp"]
 keyakizaka46matomemory.net##.plugin-monthly + div.plugin-memo
 bridge-salon.jp##div[id^="jp_ir_"][style]
@@ -3855,7 +3862,6 @@ q.hatena.ne.jp##.sidebar-banner
 ||manga-mill.com/fanza/
 ||adult-storage.net/ad/$third-party
 ||yomi-mo.com/wp/wp-content/themes/yomimo/ad/fanza_
-manga-mill.com###ai-eroge-lp
 manga-mill.com##.list-inter
 manga-mill.com##.adrectangle
 yomi-mo.com##.fanza
@@ -7015,6 +7021,13 @@ gtoys.blog.fc2.com###adright
 !
 !
 !
+! https://github.com/tofukko/filter/issues/79
+@@||g.doubleclick.net/gpt/pubads_impl_$script,domain=buhitter.com
+@@||g.doubleclick.net/gampad/ads?$xmlhttprequest,domain=buhitter.com
+@@||googlesyndication.com/safeframe/$domain=buhitter.com
+@@||googletagservices.com/tag/js/gpt.js$domain=buhitter.com
+@@||gsspcln.jp/w/ad_format/reward/gnsrwdmod.js$domain=buhitter.com
+buhitter.com#@#[id^="google_ads_iframe"]
 ! unhide popular articles (2nd rule: mobile)
 nijisenmon.work#@#.ad.widget
 nijisenmon.work#@#.st-h-ad
@@ -7092,8 +7105,6 @@ avokazu.com#@#a[href^="http://click.dtiserv2.com/"]
 ! https://github.com/AdguardTeam/AdguardFilters/issues/122491
 !+ PLATFORM(ios, android, ext_android_cb)
 @@||lp.p.pia.jp/feature/rss/ad.xml
-! https://github.com/AdguardTeam/AdguardFilters/issues/122435
-@@||dtg3yjoeemd2c.cloudfront.net/ad-navi/$image,stylesheet,domain=kinro.ntv.co.jp
 ! unhide link to by the goods https://magazine.jp.square-enix.com/top/comics/detail/9784757570801/
 magazine.jp.square-enix.com#@#a[href^="http://ad2.trafficgate.net/"]
 ! https://github.com/AdguardTeam/AdguardFilters/issues/120603
@@ -7125,9 +7136,6 @@ osusume.mynavi.jp#@#.ad-widget
 @@||img-baila.hpplus.jp/common/large/image/ad/$image,~third-party
 ! https://github.com/AdguardTeam/AdguardFilters/issues/110785
 @@||ascii.jp/img/ad/radeon/logo.png
-! https://github.com/AdguardTeam/AdguardFilters/issues/28185
-@@||ntv.co.jp/ad-navi/$stylesheet
-@@||ntv.co.jp/ad-navi/cx/cx_code.js
 ! vector.co.jp - fixing images
 @@||cache.vector.co.jp/img_cache/*/300x250.
 ! ptj.jp - broken pages
