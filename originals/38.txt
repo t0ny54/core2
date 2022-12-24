@@ -399,7 +399,7 @@ fosspost.org,portalvirtualreality.ru,pingvin.pro,bonobono.com,curbsideclassic.co
 ! SECTION: contributor.google.com
 !
 ! generic fix for e.g. class="subadimg footerFullAd pdpads_desktop adkit-advert adline"
-#$#div[class*="ad"][style="width: 1px; height: 1px; position: absolute; left: -10000px; top: -10000px; z-index: -10000;"] { display: block !important; }
+#$#div[class*="ad" i][style="width: 1px; height: 1px; position: absolute; left: -10000px; top: -10000px; z-index: -10000;"] { display: block !important; }
 ! Potentially obsolete rules
 ! TODO: remove commented rules 14.01.23 if new rule will work as expected
 ! Better CSS. Scriptlet does not work on some sites (it's useful for uBO, if 'fundingchoicesmessages.google.com' is blocked).
@@ -970,9 +970,9 @@ coh2.org###top_stripe > div.img2_box.box
 coh2.org##div[id^="portal_ad"]
 coinhub.pw#?#body > center:contains(Turn off your adblocker)
 comnuan.com#%#//scriptlet("set-constant", "cmnnrunads", "true")
-vancouversun.com,calgarysun.com,computerhoy.com,elespanol.com,insider.com#$#div[class="tp-modal"][style="z-index: 300050; display: block;"] { display: none !important; }
-vancouversun.com,calgarysun.com,computerhoy.com,elespanol.com,insider.com#$#div[class="tp-modal"][style="z-index: 300050; display: block;"] ~ div.tp-backdrop { display: none !important; }
-vancouversun.com,calgarysun.com,computerhoy.com,elespanol.com,insider.com#$#html > body.tp-modal-open { overflow: auto !important; }
+calgaryherald.com,calgarysun.com,computerhoy.com,edmontonjournal.com,edmontonsun.com,elespanol.com,insider.com,leaderpost.com,lfpress.com,montrealgazette.com,nationalpost.com,ottawacitizen.com,ottawasun.com,theprovince.com,thestarphoenix.com,torontosun.com,vancouversun.com,windsorstar.com,winnipegsun.com#$#div[class="tp-modal"][style="z-index: 300050; display: block;"] { display: none !important; }
+calgaryherald.com,calgarysun.com,computerhoy.com,edmontonjournal.com,edmontonsun.com,elespanol.com,insider.com,leaderpost.com,lfpress.com,montrealgazette.com,nationalpost.com,ottawacitizen.com,ottawasun.com,theprovince.com,thestarphoenix.com,torontosun.com,vancouversun.com,windsorstar.com,winnipegsun.com#$#div[class="tp-modal"][style="z-index: 300050; display: block;"] ~ div.tp-backdrop { display: none !important; }
+calgaryherald.com,calgarysun.com,computerhoy.com,edmontonjournal.com,edmontonsun.com,elespanol.com,insider.com,leaderpost.com,lfpress.com,montrealgazette.com,nationalpost.com,ottawacitizen.com,ottawasun.com,theprovince.com,thestarphoenix.com,torontosun.com,vancouversun.com,windsorstar.com,winnipegsun.com#$#html > body.tp-modal-open { overflow: auto !important; }
 corneey.com##.information-container
 corriere.it#%#//scriptlet("set-constant", "isAdblockEnable", "false")
 cpu-world.com##div[class="ab_w9"]
@@ -1420,7 +1420,7 @@ macapp.org.cn,picmix.com#%#//scriptlet("abort-on-property-read", "adBlockDetecte
 picmix.com#%#//scriptlet('abort-current-inline-script', 'document.getElementById', '.style.display')
 pikabu.ru##section[data-role="adb-warning"]
 pixiz.com#%#//scriptlet('abort-current-inline-script', 'document.getElementById', 'flex')
-placeburg.com###adbd
+dizipal515.com,ad-manager.cloud,placeburg.com###adbd
 playonlinux.com##.login > div[style*="background-color:#666;"][style*="color:#FFF"]
 playshake.ru#%#fuckAdBlock = function() {};
 playtor.tv###cbea20
@@ -3489,6 +3489,7 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 !
 ! SECTION: Popups - Regular rules
 !
+nationalpost.com##.header-breaking__wrapper
 guitaretab.com##.gt-hats
 ldmnq.com##.aside-advertising-dialog
 moqups.com##div[class^="prompt"]
@@ -3909,7 +3910,8 @@ pisni.org.ua###socialNotifier
 macapp.org.cn##.web_notice
 facebook.com#?#div[role="main"] ~ div[data-nosnippet]:has(a[aria-label="Accessible login button"])
 7k7k.com##.pendant
-wpri.com##.desktop-floating-player
+thehill.com##.ns-block-embed__wrapper > svg.cross-sign
+thehill.com,wpri.com##.desktop-floating-player
 wpri.com##.desktop-video-title-bar
 usccb.org###block-views-block-books-images-popup
 gitee.com##.gitee-stars-main-widget
@@ -9792,6 +9794,8 @@ macwelt.de,pcwelt.de#%#//scriptlet("set-constant", "firebase.messaging", "noopFu
 !
 ! SECTION: Push notifications - Regular rules
 !
+pokemongo-get.com##div[style="border:solid 1px #cecece;padding:2%;margin-bottom:1em"]
+igen.fr###og-banner
 visao.sapo.pt##.webPushSolicitation
 ferplei.com##.notification-subs
 managingmadrid.com##.c-toaster
@@ -9799,7 +9803,6 @@ managingmadrid.com##.c-toaster
 91rb99.com##cloudflare-app[app="welcome-bar"]
 yahoo.com###module-promo
 bosnainfo.ba##.notificationBell
-twitter.com#?#div.css-1dbjc4n[role="group"]:has(> div[data-testid="mask"] ~ div[data-testid="sheetDialog"])
 moroccoworldnews.com###notifVisible
 ||geo.tv/assets/front/js/push_notification.js
 ||megaknihy.cz/modules/*/pushNotifications.js
@@ -10474,6 +10477,11 @@ technologyreview.com,inews.co.uk,nordbayern.de,thelocal.ch,morgenpost.de,waz.de,
 !
 ! SECTION: Subscriptions - Regular rules
 !
+auto.onliner.by##.news-media_condensed
+nationalpost.com###article-counter
+linuxadictos.com##.widget_newsletterwidget
+audioholics.com##body #mail-list-button
+linkedin.com#$##organization_guest_contextual-sign-in { display: none !important; }
 journal.tinkoff.ru###mailing-inside-article-main
 nouvelobs.com#?##ObsMain > div.modal:has(> div.modal__wrapper div.modal-newsletter)
 nouvelobs.com##.follow-us__newsletter
@@ -14853,7 +14861,7 @@ scientificamerican.com,itnews.com.au,kauppalehti.fi##.newsletter-subscribe-conta
 elfinanciero.com.mx,erwinmueller.com,nextpit.com,nextpit.com.br,fivethirtyeight.com,sparwelt.de,androidpit.com.br##.newsletter-subscription
 foodspring.de##.newsletter-subscription-form
 momox.de##.newsletter-trust-element-row
-latribune.fr,financialpost.com,lfpress.com,torontosun.com,montrealgazette.com,schoener-wohnen.de,essen-und-trinken.de,brigitte.de,chip.de,newsletter.co.uk,pcmag.com,portsmouth.co.uk,scotsman.com,sunderlandecho.com##.newsletter-widget
+nationalpost.com,latribune.fr,financialpost.com,lfpress.com,torontosun.com,montrealgazette.com,schoener-wohnen.de,essen-und-trinken.de,brigitte.de,chip.de,newsletter.co.uk,pcmag.com,portsmouth.co.uk,scotsman.com,sunderlandecho.com##.newsletter-widget
 hindenburgresearch.com,l-iz.de,techrepublic.com,zielonyogrodek.pl##.newsletter-wrap
 designmodo.com##.newsletter-wrapper + div[style="clear:both;"] + .sidebar-divider
 theblock.co,gabot.de,geizkragen.de##.newsletterBox
