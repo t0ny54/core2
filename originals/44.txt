@@ -463,20 +463,7 @@ snrec.jp#$#body.tp-modal-open { overflow: visible!important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/132814
 ! https://github.com/AdguardTeam/AdguardFilters/issues/132525
 ! Similar site in Base filter: soranews24.com
-rocketnews24.com,youpouch.com###div-gpt-ad-entrybottom
 rocketnews24.com,youpouch.com#%#//scriptlet('prevent-fetch', 'tpc.googlesyndication.com')
-!#if (adguard_app_windows || adguard_app_mac || adguard_app_android || adguard_ext_firefox)
-||rocketnews24.com/_static/$script,replace=/\w+\.onload=//
-||youpouch.com/_static/$script,replace=/\w+\.onload=//
-!#endif
-youpouch.com###header-main > div.ad
-youpouch.com##.widget_text:first-child
-rocketnews24.com,youpouch.com##amp-ad-exit + div[class*="-banner"]
-rocketnews24.com,youpouch.com##.widget_custom_html:not(#custom_html-2)
-rocketnews24.com,youpouch.com###aw0[onclick="ha('aw0')"]
-rocketnews24.com,youpouch.com###aw0[on="tap:exit-api.exit(target='landingPage',_googClickLocation='2')"]
-rocketnews24.com,youpouch.com##.misc > #div-gpt-ad-header
-rocketnews24.com,youpouch.com#%#//scriptlet('remove-class', 'ads-relatedbottom')
 rocketnews24.com,youpouch.com#%#//scriptlet('remove-attr', 'id', '#div-gpt-ad-sidebottom')
 rocketnews24.com,youpouch.com#%#//scriptlet('remove-attr', 'id', '#div-gpt-ad-footer')
 rocketnews24.com,youpouch.com#%#//scriptlet('remove-attr', 'id', '#div-gpt-ad-pagebottom')
@@ -485,7 +472,6 @@ rocketnews24.com,youpouch.com#%#//scriptlet('remove-attr', 'id', '#div-gpt-ad-re
 ||tpc.googlesyndication.com^$image,redirect=1x1-transparent.gif,domain=rocketnews24.com|youpouch.com,important
 @@||g.doubleclick.net/gampad/ads?$xmlhttprequest,domain=rocketnews24.com|youpouch.com
 ||g.doubleclick.net/gampad/ads?$xmlhttprequest,removeparam=/^(co|eid|eri|ga_|idt|ifi|impl|ohw|oid|ps|ptt|vis|[abdfl-nr-u])/,domain=rocketnews24.com|youpouch.com
-@@||sst.rocketnews24.com/gtm.js$script,~third-party
 @@||g.doubleclick.net/tag/js/gpt.js$domain=rocketnews24.com|youpouch.com
 @@||g.doubleclick.net/gpt/pubads_impl_$script,domain=rocketnews24.com|youpouch.com
 @@||fundingchoicesmessages.google.com^$script,domain=rocketnews24.com|youpouch.com
@@ -494,13 +480,16 @@ rocketnews24.com,youpouch.com#%#//scriptlet('remove-attr', 'id', '#div-gpt-ad-re
 @@||rocketnews24.com^$generichide
 ||googlesyndication.com/safeframe/$subdocument,redirect=noopframe,domain=rocketnews24.com|youpouch.com
 ||fundingchoicesmessages.google.com^$script,redirect-rule=noopjs,domain=rocketnews24.com|youpouch.com
+!#if (adguard_app_windows || adguard_app_mac || adguard_app_android || adguard_ext_firefox)
+||rocketnews24.com/_static/$script,replace=/\w+\.onload=//
+||youpouch.com/_static/$script,replace=/\w+\.onload=//
+!#endif
 !#if (adguard_app_windows || adguard_app_mac || adguard_app_android)
 ||youpouch.com/_static/$replace=/(!1|!0!)=?==SCO\.imgLazyLoad/1===1/,script
 ||rocketnews24.com/_static/$replace=/(!1|!0!)=?==SCO\.imgLazyLoad/1===1/,script
 youpouch.com,rocketnews24.com#%#AG_onLoad(function(){const a=document.querySelectorAll("img[data-sco-src]");a.forEach(a=>{const b=a.getAttribute("data-sco-src");a.setAttribute("src",b),a.style.opacity="1"})});
 !#endif
 !#if (adguard_app_ios || adguard_ext_android_cb)
-@@||amazon-adsystem.com/aax2/apstag.js$domain=rocketnews24.com|youpouch.com
 @@||googlesyndication.com/safeframe/$domain=rocketnews24.com|youpouch.com
 @@||tpc.googlesyndication.com/simgad/$image,domain=rocketnews24.com|youpouch.com
 @@||adservice.google.com/adsid/integrator.js$domain=rocketnews24.com|youpouch.com
@@ -953,6 +942,7 @@ otonasalone.jp,sumaiweb.jp#?#._popIn_infinite_page > a._popIn_recommend_article_
 !
 !
 !
+texal.jp#?#.widget_custom_html > div > ins.adsbygoogle:upward(2)
 appbank.net#?#aside > div.img-row:has(> div.one-half > h5 > a[href^="https://www.amazon.co.jp"])
 blog.nicovideo.jp#?#.l-aside-item-inner > ul.l-aside-prlist:upward(1)
 moeimg.net#?#.widget-area > div.widget-container:has(> div.pr_box)
@@ -2230,6 +2220,15 @@ hentai-covers.site,109cinemas.net,4545.to,bunshun.jp,eikaiwa.dmm.com,gizmodo.jp,
 !
 !
 !
+rocketnews24.com,youpouch.com###div-gpt-ad-entrybottom
+rocketnews24.com,youpouch.com##.ads-relatedbottom:not(.ad300x250)
+rocketnews24.com,youpouch.com##amp-ad-exit + div[class*="-banner"]
+rocketnews24.com,youpouch.com##.widget_custom_html:not(#custom_html-2)
+rocketnews24.com,youpouch.com###aw0[onclick="ha('aw0')"]
+rocketnews24.com,youpouch.com###aw0[on="tap:exit-api.exit(target='landingPage',_googClickLocation='2')"]
+rocketnews24.com,youpouch.com##.misc > #div-gpt-ad-header
+youpouch.com###header-main > div.ad
+youpouch.com##.widget_text:first-child
 bintan.ula.cc##.ol2 > li.tListLI > center
 doope.jp##.amazonbox
 jocr.jp##.article__ads
@@ -2564,6 +2563,8 @@ jumpsokuhou.com##.ad_tb
 jumpsokuhou.com##.plugin-amazon
 jumpsokuhou.com##div[style^="text-align: center; margin-top: 80px;"]
 ||majav.org/Pic/
+asahi.com##.p_infeed_list_wrapper
+asahi.com##div[style="min-height: 270px;"]
 asahi.com##.Section > .Pr
 tokyoupdate.jp##.footer-rbox-b
 tokyoupdate.jp##.side-topad > .side-widgets.widget_text
@@ -6996,11 +6997,6 @@ gaccom.jp##.bukken-list
 gaccom.jp##.realestate-list
 gaccom.jp##.recipe-side-img-area
 !#endif
-! https://github.com/AdguardTeam/AdguardFilters/issues/133738
-!+ PLATFORM(ios, ext_android_cb, ext_safari)
-youpouch.com,rocketnews24.com##.img_ad
-!+ PLATFORM(ext_chromium, ext_ff, ext_edge, ext_opera)
-||a8.net^$image,redirect-rule=1x1-transparent.gif,domain=rocketnews24.com|youpouch.com
 !+ PLATFORM(ext_ublock)
 plala.or.jp##img[width="468"][height="60"]
 !+ NOT_OPTIMIZED
