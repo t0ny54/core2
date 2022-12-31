@@ -372,7 +372,7 @@ indiatimes.com##[href^="https://indiatimes.com/pwafeeds/affiliate_amazon.cms"]
 maharashtratimes.com##.ads-open-close
 navbharattimes.indiatimes.com##.ads-open-close
 vijaykarnataka.com,telugu.samayam.com,malayalam.samayam.com,tamil.samayam.com,eisamay.indiatimes.com,navbharattimes.indiatimes.com,maharashtratimes.com##.minitv-container
-@@||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=navbharattimes.indiatimes.com|eisamay.indiatimes.com|iamgujarat.com|vijaykarnataka.com|tamil.samayam.com|telugu.samayam.com|malayalam.samayam.com
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=navbharattimes.indiatimes.com|eisamay.indiatimes.com|iamgujarat.com|vijaykarnataka.com|tamil.samayam.com|telugu.samayam.com|malayalam.samayam.com,redirect-rule=google-ima.js
 
 ! https://github.com/uBlockOrigin/uAssets/issues/88
 ! https://github.com/uBlockOrigin/uAssets/issues/211
@@ -498,7 +498,7 @@ wetteronline.de###woCsiAdContent
 
 ! https://github.com/uBlockOrigin/uAssets/issues/104
 m.timesofindia.com,m.photos.timesofindia.com##.ad1
-@@||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=m.timesofindia.com
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=m.timesofindia.com,redirect-rule=google-ima.js
 ! https://github.com/uBlockOrigin/uAssets/issues/176
 ! https://github.com/NanoAdblocker/NanoFilters/issues/57
 @@||m.photos.timesofindia.com^$ghide
@@ -1947,14 +1947,16 @@ powerthesaurus.org##+js(aopw, ad_abblock_ad)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/846
 ! https://github.com/jspenguin2017/uBlockProtector/issues/816
+! https://github.com/uBlockOrigin/uAssets/issues/16180
 ! Popups triggered by popads
 mkvcage.*,pahe.*,psarips.*##+js(aopw, _pop)
-animepahe.com,kwik.*##^script:has-text('shift')
-animepahe.com,kwik.*##^script:has-text(\'shift\')
-animepahe.com,kwik.*##+js(acis, String.fromCharCode, 'shift')
-animepahe.com,kwik.*##+js(aopr, open)
-animepahe.com,kwik.*##+js(aopr, PopAds)
+animepahe.*,kwik.*##^script:has-text('shift')
+animepahe.*,kwik.*##^script:has-text(\'shift\')
+animepahe.*,kwik.*##+js(acis, String.fromCharCode, 'shift')
+animepahe.*,kwik.*##+js(aopr, open)
+animepahe.*,kwik.*##+js(aopr, PopAds)
 @@||kwik.*^$script,1p
+||pythoncareens.tech^
 
 ||aristianewr.club^
 
@@ -5653,6 +5655,9 @@ cellmapper.net##+js(set, adTestPass, true)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/phaeom/gaming_adult_ads_not_blocked/
 ! https://github.com/uBlockOrigin/uAssets/issues/12966
+! https://github.com/uBlockOrigin/uAssets/issues/16178
+igg-games.com##+js(acs, navigator, FingerprintJS)
+*$script,3p,domain=igg-games.com|bluemediafile.sbs,denyallow=fastcomments.com|googleapis.com|addtoany.com
 igg-games.com##+js(aopw, btoa)
 igg-games.com##+js(nostif, _0x)
 igg-games.com##+js(ra, srcdoc, iframe)
@@ -5662,6 +5667,7 @@ igg-games.com##[href^="https://tm-offers"]
 @@||igg-games.com^$ghide
 igg-games.com#@#.uk-panel.widget-text
 igg-games.com##.uk-panel.widget-text:style(height: 0px !important; visibility: collapse;)
+||oafschamois.live^
 
 ! https://github.com/uBlockOrigin/uAssets/issues/2458
 pornrabbit.com##+js(nowoif)
@@ -6350,7 +6356,6 @@ lanjutkeun.*##+js(aeld, load, 2000)
 ! https://github.com/uBlockOrigin/uAssets/issues/2713
 xrares.com##+js(acis, decodeURI, decodeURIComponent)
 xrares.com##+js(disable-newtab-links)
-xrares.com##.nva-center
 xrares.com###linkedblok
 xrares.com##.absd-body:not(.row + .well)
 xrares.com##[href^="/plugout.php"]:upward([class^="col-sm"])
@@ -6792,7 +6797,6 @@ linkfinal.com##.blog-content
 ||hotpornfile.org^$popup
 hotpornfile.org##+js(aopw, getIfc)
 hotpornfile.org##+js(aeld, getexoloader)
-hotpornfile.org##+js(aopr, document.dispatchEvent)
 hotpornfile.org##+js(nowoif)
 *$popunder,domain=hotpornfile.org
 @@||hotpornfile.org/17859.js$script
