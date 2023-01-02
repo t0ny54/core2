@@ -490,6 +490,11 @@ rocketnews24.com,youpouch.com#%#//scriptlet('remove-attr', 'id', '#div-gpt-ad-re
 ||rocketnews24.com/_static/$replace=/(!1|!0!)=?==SCO\.imgLazyLoad/1===1/,script
 youpouch.com,rocketnews24.com#%#AG_onLoad(function(){const a=document.querySelectorAll("img[data-sco-src]");a.forEach(a=>{const b=a.getAttribute("data-sco-src");a.setAttribute("src",b),a.style.opacity="1"})});
 !#endif
+!#if (adguard_app_ios || adguard_ext_safari)
+rocketnews24.com,youpouch.com#%#//scriptlet("abort-on-property-read", "document.createElement")
+rocketnews24.com,youpouch.com#$#img[data-sco-src] { display: none !important; }
+rocketnews24.com,youpouch.com#%#AG_onLoad(function(){let a=document.querySelectorAll("img+noscript");let ns=function(b){let f=new DOMParser();let g=f.parseFromString(b.textContent,'text/html');return document.adoptNode(g.querySelector('img'));};for(let b of a){let c=ns(b);b.parentNode.replaceChild(c,b);}});
+!#endif
 !#if (adguard_app_ios || adguard_ext_android_cb)
 @@||googlesyndication.com/safeframe/$domain=rocketnews24.com|youpouch.com
 @@||tpc.googlesyndication.com/simgad/$image,domain=rocketnews24.com|youpouch.com
@@ -5883,7 +5888,7 @@ kurashi-no.jp##.u-bg-dgray.c-section
 ||i-section.net/rakuten_ranklet/$third-party
 ||i-section.net/ranklet/$third-party
 saitama-np.co.jp##.prlist
-maidonanews.jp,oricon.co.jp,htb.co.jp,saitama-np.co.jp##.ad_response
+reader.futabanet.jp,maidonanews.jp,oricon.co.jp,htb.co.jp,saitama-np.co.jp##.ad_response
 recordchina.co.jp##.ad-outer
 recordchina.co.jp##.right-ranking
 kobe-np.co.jp##.bottomPrArea
@@ -7090,9 +7095,9 @@ manpukunews.blog.jp#@#.ads01
 ! https://github.com/AdguardTeam/AdguardFilters/issues/131295
 ! https://github.com/AdguardTeam/AdguardFilters/issues/131221
 ! https://jbbs.shitaraba.net/bbs/read.cgi/internet/25463/1598352715/160
-@@||click.speee-ad.jp/v1/recwid?$script,domain=saitama-np.co.jp|htb.co.jp|oricon.co.jp|maidonanews.jp
-@@||speee-ad.akamaized.net/tag/$script,domain=saitama-np.co.jp|htb.co.jp|oricon.co.jp|maidonanews.jp
-@@||speee-ad.akamaized.net^$image,domain=saitama-np.co.jp|htb.co.jp|oricon.co.jp
+@@||click.speee-ad.jp/v1/recwid?$script,domain=saitama-np.co.jp|htb.co.jp|oricon.co.jp|maidonanews.jp|reader.futabanet.jp
+@@||speee-ad.akamaized.net/tag/$script,domain=saitama-np.co.jp|htb.co.jp|oricon.co.jp|maidonanews.jp|reader.futabanet.jp
+@@||speee-ad.akamaized.net^$image,domain=saitama-np.co.jp|htb.co.jp|oricon.co.jp|reader.futabanet.jp
 ! https://hinative.com/ja part of app banner hidden
 hinative.com#@#.banner_header
 ! https://github.com/AdguardTeam/AdguardFilters/issues/130121
