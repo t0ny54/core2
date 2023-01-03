@@ -321,7 +321,6 @@
 ||sprout-ad.com^$third-party
 ||textad.net^$third-party
 ||trafficstars.com^$third-party
-||valueclick.ne.jp^
 ||valueclick.jp^
 ||valuecommerce.ne.jp^$third-party
 ||yicha.jp^$third-party
@@ -443,9 +442,8 @@
 ! Bad: ||ad.doubleclick.net^ (should be in adservers.txt)
 !
 !
-! https://github.com/AdguardTeam/AdguardFilters/issues/137399
-choge-blog.com#$#body div.fc-ab-root:not(#style_important) { display: none !important; }
-choge-blog.com#$#body { overflow: visible !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/138194
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xmlhttprequest,domain=uma.pure-db.com
 ! https://github.com/AdguardTeam/AdguardFilters/issues/137316
 o-dan.net#%#//scriptlet('remove-class', 'visited', '#oRslt li a.visited', 'stay')
 o-dan.net#%#//scriptlet('prevent-setTimeout', 'oAdChk')
@@ -948,6 +946,7 @@ otonasalone.jp,sumaiweb.jp#?#._popIn_infinite_page > a._popIn_recommend_article_
 !
 !
 !
+4years.asahi.com#$?#ul[class^="panel-article__list"] > li > div[id^="div-gpt-"]:upward(1) { remove: true; }
 picb2.com#?#.forum-information > font:contains(楽天)
 bantyou.livedoor.biz#?#.plugin-memo:has(> div.side > a[href^="http://www.e-nls.com/"])
 seesaawiki.jp#?#.user-area > table#content_block_1:has(a[href^="http://ck.jp.ap.valuecommerce.com/"])
@@ -2145,6 +2144,8 @@ kuruma-news.jp,magmix.jp,trafficnews.jp$$div[data-history="photo_extra"]
 /wp-content/plugins/amazonjs/*
 !
 ! Malware/Phishing
+://www-ucscard-co-jp.*/NetServe/login.php?$document
+://wwworicn.*.com/all/sign.php|$document
 ://eki.net.*.shop/$document
 ://wwwsnbc.*.cn/all/login.php|$document
 /:\/\/www\.eki-net\.[a-z]{6}\.info\/[0-9A-Za-z]{44}$/$document
@@ -2166,12 +2167,9 @@ kuruma-news.jp,magmix.jp,trafficnews.jp$$div[data-history="photo_extra"]
 ://bk.mufj.jp.*.com/muff/client/index.html|$document
 ://eki-net.com.*.com/Personal/member/Login/index.php?oneTimeAccessID=$document
 ://www2.etc-*/funccode.php#/login|$document
-://o2o.moneykllt.*.com/sony/client/index_sp.html|$document
 .ink/ap/index.php?openid.pape.max_auth_age=0&openid.return_to=$document
 /Softbank%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3.apk^$document
-://s.*.icu/ap/signin|$document
 /%E3%81%82%E3%82%93%E3%81%97%E3%82%93%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3.apk^$document
-://www.direct.smbc.co.jp.*.net/aib/$document
 ://www.eki-net.*.*/personal/login|$document
 /^http:\/\/[0-9a-z]{1,4}\.[a-z]{5}\.com\/chrome\.apk$/$document
 ://mizu*.cyou/client/index.php|$document
@@ -2287,6 +2285,13 @@ blog.livedoor.jp##div.t_h   > span[style="color: rgb(255, 0, 0);"] > b
 !
 !
 !
+mart-magazine.com##div[class^="l-adBanner"]
+ray-web.jp##.related_post
+atmos-tokyo.com##.widget-parts
+sumahoinfo.net###pc_text-94
+4years.asahi.com##.sub-recommend
+4years.asahi.com##.recommend-content
+4years.asahi.com##div[class*="ad-area"]
 ||zettai-ero.com/wp-content/uploads/2017/09/nsl.png
 as-web.jp##.contentWrapper aside.banner
 picb2.com##.forum-information > table[border="0"]
@@ -3644,6 +3649,7 @@ sabatech.jp##iframe[style="width:120px;height:240px;"]
 crefan.jp##.wrapper > div.container > div[align="center"]:not([class]):not([id])
 ||cravelweb.com/wp-content/uploads/*-banner.jpg
 ||cravelweb.com/wp-content/uploads/*_banner_336x280.jpg
+keisan.casio.jp###adv_bottom
 keisan.casio.jp##a[id^="honkaku"]
 ura-akiba.jp###rank_goods
 ||apollomaniacs.com/0kk_rak_h_n_large.htm
@@ -4814,7 +4820,7 @@ mizu-trouble.jp##p[style="”font-size:5pt;"] + center
 kantangame.com,kantan.game,yomipo.yomiuri.co.jp,gesoten.com##.ad_super
 traicy.com##.pc-ad-wide
 traicy.com##.sp-header-ad
-hochi.news##.ad[style^="min-width: 300px; min-height: 250px"]
+hochi.news##.ad[style^="min-width: 300px"]
 hochi.news##.ad[style^="width:300px; height:250px"]
 hochi.news##.ad[style^="width:310px; height:250px"]
 hochi.news##div[id][style="width:300px;height:600px;"]
