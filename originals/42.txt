@@ -80,6 +80,7 @@
 ! Bad: ||adssubdomain.legitwebsite.com^ (should be in adservers_firstparty.txt)
 !
 !
+||adwist.ru^$third-party
 ||advertronic.io^$third-party
 ||ieggdijjfccaffgdafb.ru^
 ||temporarympay.com^
@@ -4537,6 +4538,8 @@ sinoptik.ua#%#//scriptlet("abort-on-property-read", "SIN.AdsLoader")
 sinoptik.ua$$script[tag-content="SIN.AdsLoader.adBlockDetector()"][max-length="16000"]
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/138822
+@@||staticmv.mediavitrina.ru/yastatic/ads.js$domain=player.mediavitrina.ru
 ! antiadblock
 yvid.ru#%#//scriptlet('prevent-fetch', 'pagead2.googlesyndication.com')
 !+ PLATFORM(ios, ext_android_cb)
@@ -6728,6 +6731,11 @@ okko.sport#?#div[class]:has(> div[class] > div[class]:contains(/^коэффиц�
 okko.sport#?#button:has(> span:contains(/^прогнозы$/))
 okko.sport##div[class]:has(> iframe[src^="https://clients-static.okko.tv/web/banners/winline/"])
 !
+tvmag.ru#?#.main > div.container:has(> div.smi2)
+tvmag.ru#?#.main > div.container:has(> div.pulse-widget)
+tvmag.ru#?#.main > div.container:has(> div[id*="ScriptRoot"])
+tvmag.ru#?#.list-prev > div.list-prev__item:has(> a._reklama)
+tvmag.ru#?#.list-prev > div.list-prev__item:has(> div[id^="yandex_rtb"])
 lifehacker.ru#?#.footer-widgets__container > section[data-key^="custom_html"]:has(> div > div.single-article__post-content > div.html-widget__title:contains(Рекомендации))
 ukranews.com#?#.article_content > div.apps:has(> ins.adsbygoogle)
 meendoru.net#?#.leftcol > div.box:has(> div.i1 > div.sidebp > center > div > a[href^="/index.php?r=AdRedirect"])
@@ -11280,6 +11288,9 @@ sobesednik.com,vz.ru,autoparus.by,ctv.by,hightech.plus,vkpress.ru,newstula.ru,pa
 !
 !
 !
+tvmag.ru##a[href^="https://cli.co/"] > img
+tvmag.ru##._reklama
+pdalife.to##.feed__item_type_ban
 kvnews.ru##.banner-center-wr > a[data-id]
 kino-teatr.ru##div[class*="_bablo"]
 ||pimpletv.ru/wp-content/uploads/img/melbet-sidebar.png
@@ -11363,7 +11374,7 @@ kinoafisha.info##body div[class^="aka"]
 utorrentfilmi.fun##.full noindex > div
 wtftime.ru##div[style*="min-height: 200px;"]
 stopcor.org##.videoOfDay::after
-||gtorrent.xyz/uploads/ya/
+||gtorrent.*/uploads/ya/
 torrentfilms.org##iframe[src="/pages/banner.html"]
 ||torrentfilms.org/js/spinta*.js
 ||slamdunk.ru/images/tennisibrand/
@@ -11598,7 +11609,7 @@ hosting.timeweb.ru##.timer-promotion-banner
 ||starlight.digital/get-playlist-ad/hls-vod/files/*.mp4/*_AdBlock^$xmlhttprequest,redirect=noopmp4-1s
 nv.ua##.main-wrapper > [id$="_projects"]
 mmr.net.ua##.ujnezkg
-teleprogramma.pro##.dna-adfox-block
+vnimanie.pro,teleprogramma.pro##.dna-adfox-block
 playground.ru##.page-aside > div.sticky
 playground.ru##.mezzanine > div.mezzanine-center > div:not([class])
 ||cdn-b.notsy.io^$domain=obozrevatel.com
@@ -15017,7 +15028,6 @@ ecigtalk.ru##div[style*="text-align:center;"][style*="clear:both;"]
 kurs.if.ua##div[id^="candyplace_"]
 womanel.com,plitkar.com.ua##a[onclick^="trackOutboundLink"] > img
 ||image.dhgate.com/fc/s015/beauty-300x350.jpg
-vgoru.org##.banner-center
 provce.ck.ua##.wp_bn_image
 rst.ua##.rst-page-banner-300x250
 politros.com##.sidebar.blockScrollable
@@ -16271,7 +16281,7 @@ zoon.ru##.banner-bordered
 kinoplex.ru,ntsk.ru,pornburst.xxx,prokazan.ru##.banner-bottom
 arendator.ru,gamebet.news,rusbody.com,unipack.ru##.banner-box
 oblgazeta.ru##.banner-cell
-internetua.com,news.ngs.ru,oren.ru##.banner-center
+vgoru.org,tvmag.ru,internetua.com,news.ngs.ru,oren.ru##.banner-center
 furfur.me##.banner-centering-wrap
 footballua.tv,dp.ru,vctr.media,buro247.ru,afisha.ngs.ru,newsvl.ru,unian.info,unian.net,unian.ua##.banner-container
 ykt.ru##.banner-desktop
