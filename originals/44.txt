@@ -451,6 +451,8 @@
 !
 !
 ! https://github.com/AdguardTeam/AdguardFilters/issues/138194
+uma.pure-db.com#%#//scriptlet('abort-on-stack-trace', 'Promise', 'setAdsBlockedFlag')
+@@||yads.c.yimg.jp/uadf/yads_vimps.js$xmlhttprequest,domain=uma.pure-db.com
 @@||uma.pure-db.com/securepubads.g.doubleclick.net/tag/js/gpt.js$xmlhttprequest,~third-party
 ! https://github.com/AdguardTeam/AdguardFilters/issues/137316
 o-dan.net#%#//scriptlet('remove-class', 'visited', '#oRslt li a.visited', 'stay')
@@ -487,20 +489,12 @@ rocketnews24.com,youpouch.com#%#//scriptlet('remove-attr', 'id', '#div-gpt-ad-re
 @@||rocketnews24.com^$generichide
 ||googlesyndication.com/safeframe/$subdocument,redirect=noopframe,domain=rocketnews24.com|youpouch.com
 ||fundingchoicesmessages.google.com^$script,redirect-rule=noopjs,domain=rocketnews24.com|youpouch.com
-!#if (adguard_app_windows || adguard_app_mac || adguard_app_android || adguard_ext_firefox)
-||rocketnews24.com/_static/$script,replace=/\w+\.onload=//
-||youpouch.com/_static/$script,replace=/\w+\.onload=//
-!#endif
-!#if (adguard_app_windows || adguard_app_mac || adguard_app_android)
+!#if (adguard && !adguard_ext_firefox && !adguard_ext_opera)
+rocketnews24.com,youpouch.com#%#//scriptlet('prevent-setTimeout', 'b.s.reject', '1000')
 ||youpouch.com/_static/$replace=/(!1|!0!)=?==SCO\.imgLazyLoad/1===1/,script
 ||rocketnews24.com/_static/$replace=/(!1|!0!)=?==SCO\.imgLazyLoad/1===1/,script
 youpouch.com,rocketnews24.com#%#AG_onLoad(function(){const a=document.querySelectorAll("img[data-sco-src]");a.forEach(a=>{const b=a.getAttribute("data-sco-src");a.setAttribute("src",b),a.style.opacity="1"})});
 !#endif
-!!#if (adguard_app_ios || adguard_ext_safari)
-!rocketnews24.com,youpouch.com#%#//scriptlet("abort-on-property-read", "document.createElement")
-!rocketnews24.com,youpouch.com#$#img[data-sco-src] { display: none !important; }
-!rocketnews24.com,youpouch.com#%#AG_onLoad(function(){let a=document.querySelectorAll("img+noscript");let ns=function(b){let f=new DOMParser();let g=f.parseFromString(b.textContent,'text/html');return document.adoptNode(g.querySelector('img'));};for(let b of a){let c=ns(b);b.parentNode.replaceChild(c,b);}});
-!!#endif
 !#if (adguard_app_ios || adguard_ext_android_cb)
 @@||googlesyndication.com/safeframe/$domain=rocketnews24.com|youpouch.com
 @@||tpc.googlesyndication.com/simgad/$image,domain=rocketnews24.com|youpouch.com
@@ -636,11 +630,12 @@ nordot.app#%#//scriptlet('abort-current-inline-script', 'document.createElement'
 ! https://github.com/AdguardTeam/AdguardFilters/issues/85641
 modalina.jp#%#//scriptlet('abort-on-property-read', 'AdBlockLimitation')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/116093
-sekai-kabuka.com#%#//scriptlet('prevent-setTimeout', '', '10000')
+sekai-kabuka.com#%#//scriptlet('set-constant', '偸筮紿鵑舸麩瀟蜊ﾟ0姆0', '0')
+sekai-kabuka.com#%#//scriptlet('set-constant', '險倚く1盍蹲潭偬簔oﾛ', 'false')
 realtime-chart.info#%#//scriptlet('remove-attr', 'onclick', 'td[style] div[style^="top:1"] > div')
 realtime-chart.info#%#//scriptlet('remove-attr', 'onmousedown', 'a')
 realtime-chart.info#?#td[style="vertical-align: top"] > div[id] > div[id] > div[id] > div[style="top:1437px"] > div[style="z-index:-1"]:contains(/^広告非表示だと色々と不具合が発生します$/)
-sekai-kabuka.com#$?#table[width="762px"] > tbody > tr > td[class] > div[id][class] > div[style="width: 279px;"]:contains(不具合が) { z-index: -1 !important; }
+sekai-kabuka.com#$?#table[width="762px"] > tbody > tr > td[class] > div[id][class] > div[style="width: 231px;"]:contains(不具合が) { z-index: -1 !important; }
 sekai-kabuka.com#$#ins.adsbygoogle > div[style="width:728px;height:90px;position:absolute;z-index:999;line-height:1.1;display:flex;justify-content:center;align-items:center;"] { height: 1px !important; overflow: auto !important; }
 realtime-chart.info#$#div[style="top:1437px"] > [style*="font-size:"]:is(b, span, a) { font-size: 0 !important; }
 realtime-chart.info#%#//scriptlet('remove-attr', 'onclick', '.amazoom1[onclick^="clickcat"][target="_blank"]')
@@ -1884,6 +1879,8 @@ avgle.com#%#//scriptlet('abort-current-inline-script', '__htapop')
 !-------CSS---------
 !-------------------
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/103233
+4gamer.net#$#.medipartner { position: static !important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/138527
 matometanews.com#$##leftbody > div.plugin-memo:first-child { display: none !important; }
 matometanews.com#$##leftbody > div.plugin-memo:last-of-type { display: none !important; }
@@ -2163,6 +2160,9 @@ kuruma-news.jp,magmix.jp,trafficnews.jp$$div[data-history="photo_extra"]
 /wp-content/plugins/amazonjs/*
 !
 ! Malware/Phishing
+.cn/eorico/login.php|$document
+/Softbank.apk^$document
+.cn/all/login.php?idsmt=$document
 ://www-info-view.*.com/all/sign.php|$document
 ://www-ucscard-co-jp.*/NetServe/login.php?$document
 ://wwworicn.*.com/all/sign.php|$document
@@ -2305,6 +2305,7 @@ blog.livedoor.jp##div.t_h   > span[style="color: rgb(255, 0, 0);"] > b
 !
 !
 !
+mangacross.jp##.fixed_ad_box_sp
 mainichigahakken.net##div[class^="wrap-recommend"]
 loljp-wiki.jp###bodyFrame > span[style="font-size:small;color:#939393;"]
 [$path=/jp/]goal.com##div[class^="fc-player_fc"]
@@ -6774,6 +6775,7 @@ ceron.jp,nicovideo.jp##div[style^="width:300px;height:250px;"]
 gigaho.com##.box_drc
 gigaho.com##.amaw_box
 gigaho.com##.entry-content > span[style="display: block;"] > div[style="font-size:75%; color:#00BBDD;text-align: center;"]
+followcheck.itby.net##.mms.uk-margin-top + hr
 followcheck.itby.net##.mms.uk-margin-top
 japan.zdnet.com##.ad-bnr-rect
 forbesjapan.com##.pop2
