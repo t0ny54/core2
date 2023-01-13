@@ -88,9 +88,7 @@ embed.rtl.hu#%#//scriptlet('set-constant', 'gemiusStream.event', 'noopFunc')
 ! TODO: replace by key removing scriptlet when it will be implemented
 reuters.com#%#//scriptlet('set-local-storage-item', 'ajs_anonymous_id', 'null')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/81513
-m.dcinside.com,upload.dcinside.com#%#//scriptlet('trusted-set-cookie', '_ga', 'a', '1year')
-! TODO: remove when `trusted-set-cookie` will be available in all AdGaurd release verions
-m.dcinside.com#%#document.cookie = `_ga=a; path=/; domain=.dcinside.com; expires=${new Date(new Date().getTime()+1000*60*60*24*365).toGMTString()};`;
+m.dcinside.com,upload.dcinside.com#%#//scriptlet('set-cookie', '_ga', 'OK')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/136436
 cbssports.com#%#(()=>{window.admiral=function(d,a,b){if("function"==typeof b)try{b({})}catch(a){}}})();
 ! https://github.com/AdguardTeam/AdguardFilters/issues/134220
@@ -407,6 +405,7 @@ journal-plaza.net#?#.rightside div.block.bnavi[-ext-has="h3.dtitle:contains(Сч
 !||i.snssdk.com/log/*
 !||i.snssdk.com/slardar/sdk.js
 !
+||fpnpmcdn.net^
 ||loggly.com^$third-party
 ||offer-go.com^$third-party
 ||d2ezz24t9nm0vu.cloudfront.net^
@@ -569,7 +568,6 @@ journal-plaza.net#?#.rightside div.block.bnavi[-ext-has="h3.dtitle:contains(Сч
 ||cdn.mediatradecraft.com^$third-party
 ||wdfl.co^
 ||my.rtmark.net^
-||cdn.stroeerdigitalgroup.de^$third-party
 ||uplift-platform.com^$third-party
 ||lmepbq.com^
 ||cdn.rlets.com^
@@ -5811,7 +5809,6 @@ nethunt.com/api/v1/track/email/$image
 ||analytics.thenest.com^
 ||analytics.thenewslens.com^
 ||analytics.thetab.com^
-||analytics.thevideo.me^
 ||analytics.tio.ch^
 ||analytics.tmonews.com^
 ||analytics.tout.com^
@@ -6572,7 +6569,6 @@ nethunt.com/api/v1/track/email/$image
 ||log.suumo.jp^
 ||log.tbs.qq.com^
 ||log.tf.co.kr^
-||log.thevideo.me^
 ||log.ttbc-hcm.gov.vn^
 ||log.vava.com^
 ||log.vdn.apps.cntv.cn^
@@ -7179,7 +7175,6 @@ nethunt.com/api/v1/track/email/$image
 ||stats.someecards.com^
 ||stats.storify.com^
 ||stats.suite101.com^
-||stats.thevideo.me^
 ||stats.tipser.com^
 ||stats.townnews.com^
 ||stats.travelask.ru^
@@ -33127,7 +33122,7 @@ charlestownwyllie.oaklawnnonantum.com^
 /google-analyticator/*$script
 /oa-tracking?
 /jquery.iframetracker.min.js
-/snowplow.*.js
+/snowplow.*.js$domain=~snowplow.io
 /bpsma.js
 /pv?fe=*&elg=
 /shared/js/ga.js|
@@ -33599,6 +33594,10 @@ _tracking.php?b=
 /analytics.js$domain=freexcafe.com|rusvideos.tv|nakubani.ru|lun.com|songsara.net|newsmax.com|bolgehastanesi.com|ewtc.de|newsdig.tbs.co.jp|imore.com|city.kushiro.lg.jp|emeraldbridal.com.au|emarat-news.ae|imobie.jp
 ||assets.adobedtm.com^$domain=mcclatchydc.com|elnuevoherald.com|bellinghamherald.com|sacbee.com|charlotteobserver.com|newsobserver.com|miamiherald.com|ef.ru|algida.com.tr|bmw-motorrad.co.uk|cif.com.tr|clearhaircare.com|domestos.com|dove.com|elidor.com.tr|f1sport.autorevue.cz|geico.com|hellmanns.com.tr|herkessofraya.com|johnsonsbaby.com.tr|lipton.com|lnk.to|lux.com|magnumicecream.com|neutrogena.com.tr|omo.com|rexona.com|samsung.com|sap.com|schwarzkopf.com.tr|signalturkiye.com|msnbc.com|nbcnews.com|kbb.com|eurosport.ru|timgate.it|intermiles.com|oxfordmail.co.uk|spiegel.de|hp.com|deutschepost.de|thebay.com|s.shufoo.net|tsn.ca|tabelog.com
 !
+||diarioregistrado.com/api/v*/analytics
+||adtonos.com/atr/*/px.gif
+||elpais.com.uy/google-analytics-*.js
+||m1tm.motor1.com/analytics.js
 ||services.themarker.com/ds/impression
 ||img.sputnik.*/min/js/libs/ria.analytics.js
 ||utopia.de/app/themes/utopiamain/assets/js/wecantrack.js
@@ -36456,7 +36455,6 @@ dreamprogs.net##td[width="88"][height="31"]
 ||liverail.com/track/?
 ||livestream.com^*/analytics/
 ||log.liverail.com^
-||log.thevideo.me/logpop^
 ||logger-*.vty.dailymotion.com/dm/
 ||logger.danawa.com/tracker
 ||logger.rm.uol.com.br^
@@ -36814,6 +36812,8 @@ link.gmapp*.net$image
 !------------------------------
 ! NOTE: Cookies specific
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/139907
+||meetup.com^$cookie=MEETUP_BROWSER_ID
 ! https://github.com/AdguardTeam/AdguardFilters/issues/139501
 ||videoseyred.in^$cookie=/^vstrack_ga/
 ! Tripadvisor
@@ -38530,6 +38530,8 @@ $app=com.miui.analytics
 !#endif
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/139866
+@@||googletagmanager.com/gtm.js$domain=shop.sanrio.co.jp
 ! https://github.com/AdguardTeam/AdguardFilters/issues/138797
 @@||device-api.urbanairship.com^$app=com.caribou.caribouapp
 @@||remote-data.urbanairship.com^$app=com.caribou.caribouapp

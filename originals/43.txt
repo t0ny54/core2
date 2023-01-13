@@ -1058,6 +1058,9 @@ urbia.de,essen-und-trinken.de#@#.playerAd
 !
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/139863
+duden.de#$##numero-antiadblocker { display: none !important; }
+duden.de#$#body { overflow: auto !important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/136880
 stadt-bremerhaven.de#$#.fc-ab-root {display: none !important; }
 stadt-bremerhaven.de#$#body { overflow: auto !important; }
@@ -2246,7 +2249,7 @@ rennrad-news.de#?#.js-replyNewMessageContainer > .message--post[data-author="MTB
 ! winfuture-forum.de - ad category
 winfuture-forum.de#?##content > .category_block:has( > #forum_table > .maintitle > .main_forum_title:contains(Anzeige))
 ! https://github.com/AdguardTeam/AdguardFilters/issues/34000
-duden.de#$?#div  > aside:has( > header:contains(Anzeige)) + .vignette { margin: 0px!important; border-top: 0px !important; }
+duden.de#$?#div[class^="js-view-dom-id"] > div.segment  > section.vignette { margin: 0px!important; border-top: 0px !important; }
 duden.de#?#div  > aside:has( > header:contains(Anzeige))
 ! https://github.com/AdguardTeam/AdguardFilters/issues/44447
 ! https://github.com/AdguardTeam/AdguardFilters/issues/37804
@@ -2755,7 +2758,7 @@ pornoente.tv#%#//scriptlet("set-constant", "vpUsePreRoll", "false")
 ddl-music.to#%#//scriptlet("abort-current-inline-script", "$", "ddlpop")
 ddl-music.to#%#document.cookie = "ddlpop=1; path=/;";
 ! https://github.com/AdguardTeam/AdguardFilters/issues/28804
-maniac.de#%#Object.defineProperty(window, 'td_ad_background_click_link', { get: function() { return ""; } });
+maniac.de#%#//scriptlet('set-constant', 'td_ad_background_click_link', '')
 ! radio.at, radio.net, radio.de -- blocking PreRoll by faking user agent to Google bot
 radio.at,radio.net,radio.de#%#document.cookie = "google_nomod=547";
 ! https://github.com/AdguardTeam/AdguardFilters/issues/24266
@@ -2814,6 +2817,8 @@ menshealth.de#%#function google_ad_request_done() {};
 !------- CSS fixes --------------------!
 !--------------------------------------!
 !
+! https://github.com/AdguardTeam/AdguardFilters/pull/139865
+maniac.de#$#body { cursor: auto !important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/139202
 hardwareluxx.de#$#body { margin-top: 0 !important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/136708
@@ -4502,10 +4507,6 @@ vw-page.com##div[id^="easyAdsMessageList_"]
 duden.de###block-dudende-d-970x250-1billboard
 duden.de###block-dudende-d-300x600-1sidebarobensticky
 ||duden.de/duden_gpt/asset/$script
-maniac.de##.ad.exit
-maniac.de##body > .flow-wrapper
-maniac.de##a[data-bid][href^="https://www.maniac.de/linkout/"][target="_blank"]
-||maniac.de/campaigns/$image,media
 stadtkind-stuttgart.de##.taboola-werbung
 stuttgarter-zeitung.de##.mod-weekli
 stuttgarter-zeitung.de###rectangle
@@ -6386,6 +6387,8 @@ homad-global-configs-eu-fra.schneevonmorgen.com.s3.amazonaws.com/*/config.json$r
 !
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/139833
+ariva.de#@#.teaserPicturedNews
 ! https://github.com/AdguardTeam/AdguardFilters/issues/138648
 plastverarbeiter.de,neue-verpackung.de#@##content_ad_1
 plastverarbeiter.de,neue-verpackung.de#@##content_ad_2
@@ -6423,9 +6426,6 @@ jobs.weser-kurier.de#@%#//scriptlet('abort-current-inline-script', 'Math', '/="h
 @@||getjad.io/library/$script,domain=gamepro.de
 @@||getjad.io/prebid/$script,domain=gamepro.de
 !#endif
-! https://github.com/AdguardTeam/AdguardFilters/issues/118244
-@@||cdn.stroeerdigitalgroup.de/metatag/live/mps_womenshealth/metaTag.min.js$domain=womenshealth.de
-||cdn.stroeerdigitalgroup.de/metatag/live/mps_womenshealth/metaTag.min.js$script,redirect=noopjs,domain=womenshealth.de,important
 ! https://github.com/AdguardTeam/AdguardFilters/issues/104747
 heise.de#@#[data-ad-unit]
 ! https://github.com/AdguardTeam/AdguardFilters/issues/103978
@@ -6476,8 +6476,6 @@ fahrrad.de#@#.is-sponsored
 @@||player.glomex.com/integration^$domain=t-online.de
 ! https://github.com/AdguardTeam/AdguardFilters/issues/81081
 @@||movie.momo-net.com/_embed/video.php$domain=german-porno-deutsch.info
-! https://github.com/AdguardTeam/AdguardFilters/issues/82152
-@@||cdn.stroeerdigitalgroup.de/metatag/live/bauer-tvmovie/metaTag.min.js$domain=tv14.de
 ! https://github.com/AdguardTeam/AdguardFilters/issues/82143
 @@||static-v*.trbo.com/plugin/trbo_*.js$domain=o2online.de
 @@||api-v*.trbo.com/r.php$domain=o2online.de
@@ -6547,8 +6545,6 @@ krone.at#@#.ad-container
 buecher.de#@#.top-banners
 ! https://github.com/AdguardTeam/AdguardFilters/issues/49006
 @@||prosiebengames.de/modules/custom/adspree_custom/js/colorbox.js
-! https://github.com/AdguardTeam/AdguardFilters/issues/48701
-@@||cdn.stroeerdigitalgroup.de/metatag/live/bauer-autozeitung/metaTag.min.js$domain=autozeitung.de
 ! https://github.com/AdguardTeam/AdguardFilters/issues/48231
 @@||shop.printweb.de/werbung^$domain=printweb.de
 ! yello.de - article broken
@@ -6605,8 +6601,6 @@ giga.de#@##teaserheld-header
 @@||cdn.antenne.de/antenne-de/uploads^
 ! https://github.com/AdguardTeam/AdguardFilters/issues/21340
 androidpit.de#@##ad-sticky-container
-! https://github.com/AdguardTeam/AdguardFilters/issues/20330
-@@||cdn.stroeerdigitalgroup.de/metatag/live/bauer-tvmovie/metaTag.min.js$domain=tvmovie.de
 ! https://github.com/AdguardTeam/AdguardFilters/issues/18077
 @@||securepubads.g.doubleclick.net/gpt/pubads_impl_*.js$domain=20min.ch
 ! https://github.com/AdguardTeam/AdguardFilters/issues/18075
@@ -6912,6 +6906,7 @@ _woz_banner_vote.
 ###nativendo-infeed2
 ###nativendo-marginal
 ###nativendo-nachrichten-unterhalb
+###nativendo-nativendo-aktie
 ###nativendo-nativendo-homepage-mobil
 ###nativendo-oms-infeed
 ###o2freikarte
@@ -7099,6 +7094,7 @@ _woz_banner_vote.
 ##.shift-widget > .cm-article
 ##.sidebar-werbung
 ##.sidebarwerbung
+##.smartbrokerAds
 ##.spielen_werbung_2
 ##.sponsorinaktiv
 ##.sponsorlinkgruen
@@ -7207,6 +7203,7 @@ _woz_banner_vote.
 ##a[href^="https://maidings-mectland.com/"]
 ##a[href^="https://marketing.net.brillen.de/"]
 ##a[href^="https://media.datingpartner.com/click.php?dp="]
+##a[href^="https://ofrbpu.smartbroker.de/"]
 ##a[href^="https://stream.justhdfilme.com/kkiste-kinox/"]
 ##a[href^="https://t.trafai.com/"]
 ##a[href^="https://trk.imobtrk.com/"]
@@ -7714,6 +7711,7 @@ wetter.com#@#div[id^="div-gpt-"]
 ||middleware.marktjagd.de^$third-party
 ||mobildiscounter.de/banner/$third-party
 ||modellplan.de/banner/$third-party
+||modules.wikifolio.com/v2/de/autocontent/stock/*?partner=
 ||mondrian.twyn.com^$third-party
 ||monsterdealz.de/images/$third-party
 ||monsterdealz.de/script.js
@@ -10877,7 +10875,6 @@ amor-frau.com##a[href^="https://lp.amateurcommunity.com/"]
 pornkinox.to##a[href^="https://lp.mydirtyhobby.com/"]
 pcwelt.de##a[href^="https://ndirect.ppro.de/"]
 chip.de##a[href^="https://network.screen13.com/"]
-ariva.de##a[href^="https://ofrbpu.smartbroker.de/"]
 goal.com##a[href^="https://prf.hn/"]
 pcwelt.de##a[href^="https://pvn.mediamarkt.de/"]
 pcwelt.de##a[href^="https://pvn.saturn.de/"]
@@ -11359,6 +11356,9 @@ tonight.de#?#.td_block_wrap:-abp-has(a:-abp-contains(Anzeige))
 um-tv.de#?#.small-12.column.space:-abp-has(p:-abp-contains(--Anzeige--))
 unicum.de#?#.artikel-preview-content:-abp-has(p:-abp-contains(-ANZEIGE-))
 wallstreet-online.de#?#.footnote:-abp-has(.headline-box:-abp-contains(Werbung))
+wallstreet-online.de#?#.module.c1.hidden-xs:-abp-has(span.issuerPromotionHint:-abp-contains(Werbung))
+wallstreet-online.de#?#.newsflash:-abp-has(span.suffix.wo-inline-block.pull-right:-abp-contains(Anzeige))
+wallstreet-online.de#?#.sliderItem.active:-abp-has(span.news-item:-abp-has(img[alt="Anzeige"]))
 wallstreet-online.de#?#.teaser.objectfit:-abp-has(div.angebot)
 wallstreet-online.de#?#.teaser.objectfit:-abp-has(div.anzeige)
 wallstreet-online.de#?#tr:-abp-has(td.right:-abp-has(img[alt="Anzeige"]))
