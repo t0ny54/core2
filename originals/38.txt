@@ -94,7 +94,13 @@ yandex.*#?#.unit_rect[data-log-node]:has(> div[class*="_type_partner "])
 yandex.ru##.unit_rect[data-log-node] > div[class*="_type_partner "]
 yandex.*##.advert-js
 yandex.*#?#span.unit_rect > div.ext-embed:has(> iframe[src^="https://yastatic.net/s3/turbo-static"])
+! Yandex.Afisha
+afisha.yandex.ru#%#//scriptlet('prevent-eval-if', 'bidReqIdStr')
+afisha.yandex.ru#%#//scriptlet('abort-on-property-read', 'Object.prototype.renderRtbBlock')
+afisha.yandex.ru##div[style="width:100%;height:250px;display:block"]
+afisha.yandex.ru##div[style="width:100%;height:240px;display:block"]
 ! Yandex.Weather
+[$path=/pogoda]yandex.*#%#//scriptlet('prevent-eval-if', 'advPosNames')
 !#if (!ext_ublock)
 ! Yandex.Video, Dzen
 dzen.ru,yandex.*#%#//scriptlet("abort-on-property-write", "Object.prototype.adSystem")
@@ -108,7 +114,8 @@ docviewer.yandex.*#%#//scriptlet("abort-on-property-read", "Object.prototype.YaA
 !#endif
 !
 ! Yandex.Images
-yandex.*##body[data-bem*="Яндекс.Картинки"] div[data-bem*="R-I-"]:not([class*="images-touch-viewer2"])
+[$path=/images/]yandex.*#%#//scriptlet('abort-on-property-read', 'Object.prototype.renderDirect')
+[$path=/images/]yandex.*##div[data-state*="/image/new/serp/page/commercial/incut"]
 ! kinopoisk.ru - media ads in trailers
 www.kinopoisk.ru##div[class^="toaster-container"]
 www.kinopoisk.ru##div[class^="styles_adBlockWarningRoot"]
@@ -721,6 +728,9 @@ reddit.com#@#.ADBAR
 ! SECTION: Anti-adblock - Regular rules
 ! Do not forget about '!#safari_cb_affinity' section for exclusions
 !
+femmeactuelle.fr###bt-softwall
+steamcollector.com##.adblock-detected
+steamcollector.com#%#//scriptlet('abort-current-inline-script', 'getComputedStyle', 'adsbygoogle')
 techymedies.com###SpiderBlogginAdblocker
 libgen.rocks###maintable > tbody > tr > td[valign="top"] + td > #message
 libgen.rocks#%#//scriptlet('prevent-setTimeout', '$("ins").css')
@@ -1547,8 +1557,6 @@ schieb.de#%#document.cookie = "anCookie=true";
 schwaebische.de##.goodies
 science-et-vie.com###detection-block
 science-et-vie.com###detection-block-overlay
-screenrant.com##body .lb-ad-blocker
-screenrant.com#%#Object.defineProperty(window, 'ads_blocker', { get: function() { return; } });
 scrolller.com##.notification[style^="height: 189px;"]
 sd-company.su###dom_adblock
 segnidalcielo.it##.sweet-alert
@@ -3481,6 +3489,12 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 !
 ! SECTION: Popups - Regular rules
 !
+aachener-zeitung.de##.abdunkler
+aachener-zeitung.de##.abdunkler + div.overlay
+gn-online.de##div.toggleContainer
+fcbarcelona.com##.quicklinks
+goodreads.com#?#.Overlay--floating > div.Overlay__window:has(> div.Overlay__content > div.LoginInterstitial)
+gsp.ro###v-popup
 pauta.cl##.sticky-relacionados
 rpp.pe###rpp-alerta
 grupormultimedio.com###content-dock
@@ -6386,7 +6400,7 @@ interestingengineering.com#$##newsletter-modal { display: none !important; }
 interestingengineering.com#$#.modal-backdrop { display: none !important; }
 interestingengineering.com#$#body { overflow: auto !important; }
 catwalkyourself.com,egyptianstreets.com,sklum.com,comicbook.com###newsletterModal
-||cdn.viqeo.tv/js/vq_fly_widget.js$domain=liveinternet.ru|femmie.ru|solenka.info|gorodche.ru|kp.ru|osnmedia.ru
+||cdn.viqeo.tv/js/vq_fly_widget.js$domain=liveinternet.ru|femmie.ru|solenka.info|gorodche.ru|kp.ru|osnmedia.ru|muz-tv.ru
 stylus.ua###roulette-widget
 livehindustan.com##.co-bannerparent
 livehindustan.com##.show_login_inner
@@ -9332,6 +9346,8 @@ kurashiru.com#$#html.dly-modal-active { overflow: auto!important; }
 !
 !--- Allowlist
 ! SECTION: Popups - Allowlist
+! https://github.com/uBlockOrigin/uAssets/issues/16321
+@@||centrisfcu.org/wp-content/plugins/popup-maker/$domain=centrisfcu.org
 ! https://github.com/uBlockOrigin/uAssets/issues/15647
 @@||popup.wisepops.com/my-wisepop$domain=bluecinema.ch
 ! https://github.com/AdguardTeam/AdguardFilters/issues/126265
@@ -9846,6 +9862,7 @@ macwelt.de,pcwelt.de#%#//scriptlet("set-constant", "firebase.messaging", "noopFu
 !
 ! SECTION: Push notifications - Regular rules
 !
+digi.ro###webpush
 ||cdn.amomama.com/pusher-v*.min.js
 tuttosport.com##div[class^="Header_containerToast__"]
 ||lib.dengage.com/p/push/$third-party
@@ -10541,6 +10558,14 @@ edp24.co.uk,technologyreview.com,inews.co.uk,nordbayern.de,thelocal.ch,morgenpos
 !
 ! SECTION: Subscriptions - Regular rules
 !
+motortrend.com##aside[data-c="newsletter-tout"]
+aachener-zeitung.de###daily_nl
+agerpres.ro##.include_newsletter
+musicbusinessworldwide.com##.mbw-stickybar
+brestcity.com##.BlockR2 td > a[href="https://t.me/brestcity"]
+brestcity.com##.BlockR2 td > a[href="https://www.instagram.com/brestcity_news/"]
+nextshark.com##.bg-newsletter
+nextshark.com#?##__next > div.bg-primary:has(> div.mx-auto > div.text-center > span:contains(Latest Newsletter))
 pauta.cl###suscripcion
 rpp.pe##.story-googlenews
 rpp.pe##.newsletter-modtipo2

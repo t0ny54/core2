@@ -79,6 +79,12 @@
 ! Bad: example.org###rek (should be in specific.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/139949
+guancha.cn#%#//scriptlet('set-constant', 'sensors', 'emptyObj')
+guancha.cn#%#//scriptlet('set-constant', 'sensors.init', 'noopFunc')
+guancha.cn#%#//scriptlet('set-constant', 'sensors.track', 'noopFunc')
+guancha.cn#%#//scriptlet('set-constant', 'sensors.quick', 'noopFunc')
+guancha.cn#%#//scriptlet('set-constant', 'sensors.registerPage', 'noopFunc')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/139139
 embed.rtl.hu#%#//scriptlet('set-constant', 'gemiusStream', 'emptyObj')
 embed.rtl.hu#%#//scriptlet('set-constant', 'gemiusStream.event', 'noopFunc')
@@ -369,6 +375,7 @@ journal-plaza.net#?#.rightside div.block.bnavi[-ext-has="h3.dtitle:contains(Сч
 !
 ! The list of bug-tracker services(Sentry, etc.)
 ! Add as commented rules. Will be used in additional list and/or strict DNS
+! ||loggly.com^$third-party
 ! ||bugherd.com^$third-party
 ! ||in.appcenter.ms^
 ! ||api.loganalytics.io^
@@ -406,7 +413,6 @@ journal-plaza.net#?#.rightside div.block.bnavi[-ext-has="h3.dtitle:contains(Сч
 !||i.snssdk.com/slardar/sdk.js
 !
 ||fpnpmcdn.net^
-||loggly.com^$third-party
 ||offer-go.com^$third-party
 ||d2ezz24t9nm0vu.cloudfront.net^
 ||px*.mediahills.ru^
@@ -5407,6 +5413,9 @@ nethunt.com/api/v1/track/email/$image
 ! Blocking piwik analytics subdomain(for DNS filtering)
 |piwik.
 !
+||d24rtvkqjwgutp.cloudfront.net^
+||collect.rtl.lu^
+||s.sofoot.com^
 ||tracker.hdtvcloud.com^
 ||mtm.walls.io^
 ||analytics.slidesai.io^
@@ -33592,8 +33601,13 @@ _tracking.php?b=
 /init.js|$domain=iherb.com|skyscanner.com.br|bloomberg.com|sweetwater.com
 !
 /analytics.js$domain=freexcafe.com|rusvideos.tv|nakubani.ru|lun.com|songsara.net|newsmax.com|bolgehastanesi.com|ewtc.de|newsdig.tbs.co.jp|imore.com|city.kushiro.lg.jp|emeraldbridal.com.au|emarat-news.ae|imobie.jp
-||assets.adobedtm.com^$domain=mcclatchydc.com|elnuevoherald.com|bellinghamherald.com|sacbee.com|charlotteobserver.com|newsobserver.com|miamiherald.com|ef.ru|algida.com.tr|bmw-motorrad.co.uk|cif.com.tr|clearhaircare.com|domestos.com|dove.com|elidor.com.tr|f1sport.autorevue.cz|geico.com|hellmanns.com.tr|herkessofraya.com|johnsonsbaby.com.tr|lipton.com|lnk.to|lux.com|magnumicecream.com|neutrogena.com.tr|omo.com|rexona.com|samsung.com|sap.com|schwarzkopf.com.tr|signalturkiye.com|msnbc.com|nbcnews.com|kbb.com|eurosport.ru|timgate.it|intermiles.com|oxfordmail.co.uk|spiegel.de|hp.com|deutschepost.de|thebay.com|s.shufoo.net|tsn.ca|tabelog.com
+||assets.adobedtm.com^$domain=mcclatchydc.com|elnuevoherald.com|bellinghamherald.com|sacbee.com|charlotteobserver.com|newsobserver.com|miamiherald.com|ef.ru|algida.com.tr|bmw-motorrad.co.uk|cif.com.tr|clearhaircare.com|domestos.com|dove.com|elidor.com.tr|f1sport.autorevue.cz|geico.com|hellmanns.com.tr|herkessofraya.com|johnsonsbaby.com.tr|lipton.com|lnk.to|lux.com|magnumicecream.com|neutrogena.com.tr|omo.com|rexona.com|samsung.com|sap.com|schwarzkopf.com.tr|signalturkiye.com|msnbc.com|nbcnews.com|kbb.com|eurosport.ru|timgate.it|intermiles.com|oxfordmail.co.uk|spiegel.de|hp.com|deutschepost.de|thebay.com|s.shufoo.net|tsn.ca|tabelog.com|euronews.com
 !
+||plug.it/iplug/js/lib/iol/analytics/
+||v*.astar.bz/*/ping.gif
+||rtb.wedeo.ru/track?
+||sbazar.cz/*/hit|$xmlhttprequest
+||harryrosen.com/analytics/
 ||diarioregistrado.com/api/v*/analytics
 ||adtonos.com/atr/*/px.gif
 ||elpais.com.uy/google-analytics-*.js
@@ -38530,6 +38544,11 @@ $app=com.miui.analytics
 !#endif
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/139994
+@@||aachener-zeitung.de/cre-1.0/tracking/call.js?serviceid=
+! https://github.com/AdguardTeam/AdguardFilters/issues/139949
+!+ PLATFORM(ios, ext_android_cb, ext_safari)
+@@||guancha.cn/js/sensorsdata.min.js
 ! https://github.com/AdguardTeam/AdguardFilters/issues/139866
 @@||googletagmanager.com/gtm.js$domain=shop.sanrio.co.jp
 ! https://github.com/AdguardTeam/AdguardFilters/issues/138797
