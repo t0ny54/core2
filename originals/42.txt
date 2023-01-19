@@ -5531,8 +5531,6 @@ newsland.com##body > div[id][style="display: block;"]:first-child
 gisclub.tv##body div#mdl_adb.fadeIn
 ! https://github.com/AdguardTeam/AdguardFilters/issues/4741
 aqa.ru#@#div[id^="div-gpt-ad"]
-! free-torrents.org - fixing Adguard Assistant
-game-torrent.info,free-torrent.org,free-torrents.org#%#Object.defineProperty(window, 'antiadblock', { get: function() { return; } });
 ! https://forum.adguard.com/index.php?threads/22323/
 @@/ads.js$domain=hdrezka.pro|rezka.ag
 ! https://forum.adguard.com/index.php?threads/21501/
@@ -6091,9 +6089,6 @@ echo.msk.ru,kakprosto.ru#%#//scriptlet('abort-on-property-read', 'Object.prototy
 ||echo.msk.ru^$replace=/AdvManager\.render/AdvManager._render/
 echo.msk.ru$$script[tag-content="DisplayAcceptableAdIfAdblocked"]
 otzovik.com$$script[wildcard="*function*blockId*"][min-length="1000"][max-length="2500"]
-!
-avtovzglyad.ru#%#Object.defineProperty(Object.prototype, 'initYaDirect', { get: function(){ throw null; }, set: function(){ throw null; }});
-avtovzglyad.ru#%#//scriptlet("set-constant", "Object.prototype.initYaDirect", "undefined")
 !
 ! Yandex main page
 @@||awaps.yandex.net/*_.htm&link$domain=yandex.ru
@@ -6724,6 +6719,7 @@ okko.sport#?#div[class]:has(> div[class] > div[class]:contains(/^коэффиц�
 okko.sport#?#button:has(> span:contains(/^прогнозы$/))
 okko.sport##div[class]:has(> iframe[src^="https://clients-static.okko.tv/web/banners/winline/"])
 !
+readmanga.live#?##fotocontext > div.manga-img-placeholder:has(> img[src$=".gif"])
 amic.ru#?#.col-md-12 > h3:contains(Новости партнеров)
 tvmag.ru#?#.main > div.container:has(> div.smi2)
 tvmag.ru#?#.main > div.container:has(> div.pulse-widget)
@@ -8344,7 +8340,7 @@ fastpic.ru,fastpic.org#%#//scriptlet("abort-on-property-read", "utrgLabel")
 ! https://github.com/AdguardTeam/AdguardFilters/issues/73390
 l2top.ru#%#//scriptlet("abort-current-inline-script", "$", "cleanAndEval")
 ! https://github.com/AdguardTeam/AdguardFilters/issues/73757
-ain.ua#%#//scriptlet('prevent-window-open', '1', '/\/special\//')
+ain.ua#%#//scriptlet('prevent-window-open', '/\/special\//')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/70205
 torren.eu#%#//scriptlet('remove-attr', 'onclick', 'a[download]')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/68820
@@ -8435,7 +8431,7 @@ assiatv.com#%#//scriptlet("prevent-window-open")
 ivi.ru#%#//scriptlet('set-constant', 'Object.prototype.getAd', 'noopFunc')
 ivi.ru#%#//scriptlet('set-constant', 'Object.prototype.daAdvGetItems', 'undefined')
 ! cdnpotok.com player popups
-cdntvpotok.com,cdnpotok.com,only-tv.org,oneliketv.com#%#//scriptlet("prevent-window-open", "1", "/\/(tv|twotvs.|thretvs.)\.php/")
+cdntvpotok.com,cdnpotok.com,only-tv.org,oneliketv.com#%#//scriptlet("prevent-window-open", "/\/(tv|twotvs.|thretvs.)\.php/")
 ! https://github.com/AdguardTeam/AdguardFilters/issues/52136
 hochu.tv,hdreactor.club,hdreactor.su,hdreactor.tv,hdreactor.net#%#//scriptlet("abort-on-property-read", "ABN")
 ! https://github.com/AdguardTeam/AdguardFilters/issues/98275
@@ -8443,7 +8439,7 @@ ddgroupclub.win#%#//scriptlet("abort-current-inline-script", "Math.ceil", "x.cha
 ! https://github.com/AdguardTeam/AdguardFilters/issues/50821
 kinokong.pro#%#//scriptlet("abort-on-property-read", "ABN")
 ! https://github.com/AdguardTeam/AdguardFilters/issues/56094
-zloekino.su,zloekino.ru#%#//scriptlet("prevent-window-open", "1", "stargate")
+zloekino.su,zloekino.ru#%#//scriptlet("prevent-window-open", "stargate")
 ! https://github.com/AdguardTeam/AdguardFilters/issues/49364
 1tv.ru#%#//scriptlet("abort-on-property-read", "Object.prototype.disableSeek")
 ! https://github.com/AdguardTeam/AdguardFilters/issues/49307
@@ -8507,7 +8503,7 @@ ruspornvideos.com#%#//scriptlet("set-constant", "String.prototype.charCodeAt", "
 tofight.ru#%#//scriptlet("set-constant", "AIsEnabled", "false")
 tofight.ru#%#//scriptlet("set-constant", "AdvFunc", "undefined")
 ! https://github.com/AdguardTeam/AdguardFilters/issues/39183
-vmusi.ru#%#//scriptlet("prevent-window-open", "1", "/tutad\.ru/")
+vmusi.ru#%#//scriptlet("prevent-window-open", "/tutad\.ru/")
 !+ PLATFORM(windows, mac, android)
 vmusi.ru#%#window.open = function() {};
 ! https://github.com/AdguardTeam/AdguardFilters/issues/41449
@@ -8565,8 +8561,6 @@ ua-today.com#%#AG_onLoad(function() { setTimeout(function() { jQuery('body').unb
 synthira.ru#%#//scriptlet("abort-current-inline-script", "document.write", "adsteroid")
 ! https://github.com/AdguardTeam/AdguardFilters/issues/17463
 recommendedlab.com#%#(function() { window.open_ = window.open; var w_open = window.open, regex = /deloton\.com/; window.open = function(a, b) { if (typeof a !== 'string' || !regex.test(a)) { w_open(a, b); } }; })();
-! https://github.com/AdguardTeam/AdguardFilters/issues/18465
-repack.app#%#Object.defineProperty(window, 'PopShow3', { get: function() { return; } });
 ! https://github.com/AdguardTeam/AdguardFilters/issues/84516
 gamer-info.com#%#//scriptlet('abort-current-inline-script', '$', '/\$\(\'\.roarticlecol\'\)\.height\(\) >/')
 ! gamer-info.com - video ad
@@ -8577,32 +8571,22 @@ sberometer.ru#%#//scriptlet("abort-current-inline-script", "document.addEventLis
 gdespaces.com,spcs.me,spaces.im,spaces-blogs.com,strip2.me#%#//scriptlet("set-constant", "mobiads_loader", "noopFunc")
 ! tehnot.com - удаление кликабельности фона
 tehnot.com#%#AG_onLoad(function() { jQuery(function() { jQuery('body').unbind('click'); }); });
-! https://github.com/AdguardTeam/AdguardFilters/issues/12406
-gecid.com#%#Object.defineProperty(window, 'hraa', { get: function() { return function(){}; } });
 ! https://github.com/AdguardTeam/AdguardFilters/issues/11775
 zerno-ua.com#%#AG_onLoad(function() { $('div.branding_wrapper').removeAttr("onclick"); });
 ! https://github.com/AdguardTeam/AdguardFilters/issues/11776
-economistua.com#%#Object.defineProperty(window, 'onlyBodyClick', { get: function() { return function(){}; } });
+economistua.com#%#//scriptlet('set-constant', 'onlyBodyClick', 'noopFunc')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/11174
 baskino.me#%#AG_onLoad(function() { $('body').removeClass('branding'); });
 ! marketgid.com V3
 0day.kiev.ua,freerutor.me#%#//scriptlet("abort-current-inline-script", "MarketGidJSON")
-! https://github.com/AdguardTeam/AdguardFilters/issues/9831
-online-kinopokaz.ru#%#Object.defineProperty(window, '_0x98a8', { get: function() { return; } });
 ! https://github.com/AdguardTeam/AdguardFilters/issues/9168
 ruclip.com#%#//scriptlet("abort-current-inline-script", "atob", "decodeURIComponent")
-! https://github.com/AdguardTeam/AdguardFilters/issues/8620
-hs-manacost.ru#%#Object.defineProperty(window,"td_ad_background_click_link",{set:function(){throw Error();}});
 ! https://forum.adguard.com/index.php?threads/26986/
 meta.ua#%#AG_onLoad(function() { for (var key in window) { if (key.indexOf('AD_DOMAIN_URL') == 0) { window[key] = undefined; } }; });
 ! https://forum.adguard.com/index.php?threads/24201/
 macdigger.ru#%#AG_onLoad(function() { for (var key in window) { if (key.indexOf('funnyIsInit') == 0) { window[key] = true; } }; });
-! https://forum.adguard.com/index.php?threads/14791/
-samods.ru#%#Object.defineProperty(window, 'PopShow3', { get: function() { return; } });
 ! https://forum.adguard.com/index.php?threads/23865/
 fainaidea.com#%#//scriptlet('abort-on-property-read', 'td_ad_background_click_link')
-! https://forum.adguard.com/index.php?threads/22623/
-goblin-online.ru,freerutor.org#%#Object.defineProperty(window, 'area51', { get: function() { return; } });
 ! https://forum.adguard.com/index.php?threads/23005/
 winlined.ru#%#AG_onLoad(function() { $('a[href="http://www.winline.ru"]').unbind('click').removeAttr("href"); });
 ! https://forum.adguard.com/index.php?threads/22979/
@@ -8611,8 +8595,6 @@ kurkul.com#%#AG_onLoad(function() { $('body').unbind('click').removeAttr("onclic
 unionpeer.com#%#AG_onLoad(function() { document.querySelector('body').style.cssText+=';padding-top: 0!important'; });
 ! https://forum.adguard.com/index.php?threads/22416/
 fayloobmennik.cloud#%#AG_onLoad(function() { window.redirect = function() {}; });
-! comments.ua - clicable background
-comments.ua#%#Object.defineProperty(window, 'AddEvents', { get: function() { return; } });
 ! https://forum.adguard.com/index.php?threads/22190/
 0day.kiev.ua#%#window._mgq = { push: function() { } };
 ! https://github.com/AdguardTeam/AdguardFilters/issues/4784
@@ -8621,8 +8603,6 @@ freerutor.org#%#window._mgq = { push: function() { } };
 kakprosto.ru#%#AG_onLoad(function() { window.getDirectBlock = function() {}; });
 ! https://forum.adguard.com/index.php?threads/19166/
 fayloobmennik.net#%#AG_onLoad(function() { setTimeout(function() { linker(); window.open = function() {}; }, 300); });
-! gamegpu.com - clickunder
-gamegpu.com#%#Object.defineProperty(document, 'onmouseup', { get: function() { return; } });
 ! https://forum.adguard.com/index.php?threads/33157/
 @@||pr-cy.ru/js/ad1.js
 ! https://forum.adguard.com/index.php?threads/15549/
@@ -8642,8 +8622,6 @@ game-fresh.com#%#document.cookie = "clickunder=1";
 kinozal.me,kinozal.tv,share-serials.net,zserials.tv#%#window.Worker = function() { this.postMessage = function() {} };
 ! https://forum.adguard.com/index.php?threads/14306/
 small-games.info#%#(function() { window.open_ = window.open; var w_open = window.open, regex = /cityadspix.com/; window.open = function(a, b) { if (typeof a !== 'string' || !regex.test(a)) { w_open(a, b); } }; })();
-! https://forum.adguard.com/index.php?threads/9356/
-leporno.org#%#Object.defineProperty(document, 'onmouseup', { get: function() { return; } });
 ! vk.com - Adguard style was removed
 vk.com#%#AG_onLoad(function(){window.icoNode = document.querySelector('head>link[rel*="shortcut"]')});
 ! https://github.com/AdguardTeam/ExperimentalFilter/issues/2206
@@ -8672,8 +8650,6 @@ porno-tour.net#%#(function(){var getElementsByTagName=document.getElementsByTagN
 tfilm.me#%#AG_onLoad(function() { document.getElementById("body").style.paddingTop = "0px"; });
 ! https://github.com/AdguardTeam/ExperimentalFilter/issues/1553
 videokub.me#%#document.cookie = "mycp=1";
-! insider.pro - disable splash screen ad
-insider.pro#%#Object.defineProperty(window, 'getYesterday', { get: function() { return new Date(); } });
 ! http://forum.adguard.com/showthread.php?8703
 luxpic.ru#%#document.cookie = "clickunder=1";
 ! rutor - override clickunder
@@ -17774,8 +17750,8 @@ dvizhok.su##.topFullSizePromo
 portaltele.com.ua##.topLinks
 newsmax.com.ua##.topMGimg
 fclmnews.ru##.top_a[style="height:250px;"]
-mintmanga.live,readmanga.live,librebook.me,mintmanga.com##.top_ba
-mintmanga.live,readmanga.live,librebook.me,mintmanga.com##.middle_ba
+readmanga.live,mintmanga.live,readmanga.live,librebook.me,mintmanga.com##.top_ba
+readmanga.live,mintmanga.live,readmanga.live,librebook.me,mintmanga.com##.middle_ba
 gradus.pro,seetv.tv##.top_baner
 life-reactor.com##.top_baner_desk
 partnerkin.com##.top_banner_box
