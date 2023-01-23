@@ -2479,8 +2479,6 @@ getcoloringpages.com#@#.adsBlock
 ! https://forums.lanik.us/viewtopic.php?p=155106#p155106
 !#if env_firefox
 @@||markup.nieuwsblad.be/extra/assets/advertising/prebid.js$script,1p
-@@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,domain=nieuwsblad.be
-@@||securepubads.g.doubleclick.net/gpt/pubads_impl_$script,domain=nieuwsblad.be
 !#endif
 
 ! https://www.wilderssecurity.com/threads/ublock-a-lean-and-fast-blocker.365273/page-180#post-2922999
@@ -2531,7 +2529,7 @@ nfmovies.com#@#+js(aopr, $myui)
 arthromed.de#@##ad_3
 
 ! broken video on cookinggames .com
-@@||js.honeybadger.io^$script,domain=player.tubia.com
+@@||bitent.com/lock_html5/adPlayer/v*/adPlayer.js$script,domain=cookinggames.com
 
 ! unbreak saltspringexchange .com
 saltspringexchange.com#@#.single-ad
@@ -2689,10 +2687,7 @@ politico.com##+js(set, generateGalleryAd, noopFunc)
 ! https://www.reddit.com/r/uBlockOrigin/comments/9hy3s7/mlb_standings_not_working/
 ! https://github.com/NanoMeow/QuickReports/issues/810
 ! https://github.com/uBlockOrigin/uAssets/issues/6503
-||doubleclick.net/gampad/ads*mlb.com*preroll$xhr,important,domain=imasdk.googleapis.com
 ||googlevideo.com^$media,redirect=noopmp4-1s,domain=mlb.com
-@@||doubleclick.net/gampad/ads*mlb.com$xhr,domain=imasdk.googleapis.com
-@@||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=mlb.com
 @@||mlbstatic.com/*/VisitorAPI.js$script,domain=mlb.com
 ! https://www.reddit.com/r/uBlockOrigin/comments/i75z0o/
 @@||mlbstatic.com/mlb.com/*$script,domain=mlb.com
@@ -2731,7 +2726,8 @@ hubblespacetelescope.blogspot.com#@#.vertical-ads
 @@||track.rundschau-online.de/*/api/$xhr,1p
 
 ! https://github.com/NanoMeow/QuickReports/issues/4540
-@@||officedepot.co.cr/*/js/analyticsmediator.js$script,1p
+officedepot.co.cr##+js(set, mediator, noopFunc)
+officedepot.co.cr##+js(set, Object.prototype.subscribe, noopFunc)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/ifvbor/
 !#if env_firefox
@@ -2789,8 +2785,7 @@ eslint.org#@#.sponsor-link
 
 ! https://github.com/NanoMeow/QuickReports/issues/4498#issuecomment-694559797
 ||doubleclick.net/tag/js/gpt.js$script,redirect-rule=googletagservices_gpt.js,domain=usnews.com
-@@||unpkg.com/videojs-contrib-ads^*/videojs-contrib-ads.min.js$script,domain=usnews.com
-@@||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=usnews.com
+usnews.com##+js(set, Object.prototype.vjsPlayer.ads, noopFunc)
 
 ! cname https://github.com/uBlockOrigin/uAssets/issues/7928
 ! https://github.com/NanoMeow/QuickReports/issues/4738
@@ -2826,8 +2821,6 @@ eslint.org#@#.sponsor-link
 
 ! https://github.com/uBlockOrigin/uAssets/issues/7961
 @@||googletagmanager.com/gtm.js$script,domain=lavanguardia.com
-@@||google-analytics.com/analytics.js$script,domain=lavanguardia.com
-@@||google-analytics.com/gtm/js$script,domain=lavanguardia.com
 
 ! https://github.com/uBlockOrigin/uAssets/issues/4636#issuecomment-699869544
 |https://$script,3p,domain=cloudvideo.tv,badfilter
@@ -4764,9 +4757,6 @@ dobreprogramy.pl##script:has-text(slotNumber):upward(2)
 ! https://github.com/easylist/easylist/issues/14690
 lovepanky.com#@#.full-width.row > .medium-12:first-child
 
-! https://github.com/uBlockOrigin/uAssets/issues/16391
-@@||p.typekit.net/p.css$stylesheet,domain=browserstack.com
-
 ! https://github.com/uBlockOrigin/uAssets/issues/16394
 ||coveo.com^$script,domain=basspro.com,redirect-rule=noopjs
 
@@ -4776,5 +4766,6 @@ lovepanky.com#@#.full-width.row > .medium-12:first-child
 ! https://github.com/uBlockOrigin/uAssets/issues/16440
 @@||h-microsoft.online-metrix.net^$xhr,domain=ave9858.github.io
 
-! https://github.com/uBlockOrigin/uAssets/issues/16448
-||intel.*/content/dam/www/global/wap/tms.sync.js$badfilter
+! https://www.reddit.com/r/uBlockOrigin/comments/10i8c3u/
+@@||cdn.blueconic.net/akc.js$script,domain=akc.org
+@@||akc.blueconic.net^$image,script,xhr,domain=akc.org
