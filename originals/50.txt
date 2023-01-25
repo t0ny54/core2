@@ -2944,9 +2944,10 @@ hero-magazine.com###header:style(position: inherit !important;)
 !#endif
 
 ! https://github.com/uBlockOrigin/uAssets/issues/7766#issuecomment-731743962
-||securepubads.g.doubleclick.net/tag/js/gpt.js^$script,redirect-rule=googletagservices_gpt.js,domain=pimylifeup.com
 @@||ads.adthrive.com/sites/*/ads.min.js$script,domain=pimylifeup.com
-@@||ads.adthrive.com/core/$script,domain=pimylifeup.com
+@@||ads.adthrive.com/builds/core/*/js/adthrive.min.js$script,domain=pimylifeup.com
+pimylifeup.com##+js(no-fetch-if, marmalade)
+pimylifeup.com#@#.adthrive
 
 ! egy.best broken download buttons
 ||cdn-static.egybest.*/packed/$badfilter
@@ -2961,17 +2962,9 @@ hero-magazine.com###header:style(position: inherit !important;)
 ||crypto-loot.org^$badfilter
 ||crypto-loot.org^$3p
 
-! https://twitter.com/christopherw/status/1334108132142948355
-@@||googletagmanager.com/gtm.js$script,domain=tortoisemedia.com
-
 ! Counter Peter Lowe's
 ||shareasale.com^$badfilter
 ||shareasale.com^$3p
-
-! https://www.reddit.com/r/uBlockOrigin/comments/k74vt7/need_help_ubo_seems_to_be_overblocking/
-@@||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=mewatch.sg
-@@||youborafds01.com/data?outputformat=json$xhr,domain=mewatch.sg
-@@||pubads.g.doubleclick.net/gampad/ads$xhr,domain=mewatch.sg
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/k7saee/
 @@||ssl-images-amazon.com/*/satelliteLib-$script,domain=audible.*
@@ -2987,7 +2980,6 @@ digg.com##.single-story > header:style(margin-top: 40px !important)
 ||biroads.com^$3p
 
 ! https://www.hessenschau.de/suche/index.nc.html?query=livestream broken livestreams
-@@||sensic.net/sui-connector.js$script,domain=hessenschau.de
 @@||sensic.net^$frame,domain=hessenschau.de
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/kc5ugq/
@@ -3036,9 +3028,6 @@ researchgate.net##.research-resources-summary__inner.is-sticky:style(top: 0 !imp
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/kqh20o/website_doesnt_work_properly/
 @@||imobiliare.ro/js/gtm.js$script,1p
-
-! https://github.com/uBlockOrigin/uAssets/issues/8426
-@@||nexus.ensighten.com/*/Bootstrap.js$script,domain=safeco.com
 
 ! nydailynews.com TODAY'S TOP NEWS VIDEOS on article pages
 @@||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=nydailynews.com
@@ -3129,9 +3118,6 @@ independent.co.uk##article > div > div > div[data-tile-name="top_banner"]:upward
 ! https://www.reddit.com/r/uBlockOrigin/comments/loexoa/cant_figure_out_how_to_unblock_reviews_on_a_site/
 @@||googletagmanager.com/gtm.js$script,domain=well.ca
 
-! https://www.wilderssecurity.com/threads/ublock-a-lean-and-fast-blocker.365273/page-209#post-2990861
-@@||static.adman.gr/adman.js$domain=gazzetta.gr
-
 ! adssettings.google.com blocked by PL
 ||ads.youtube.com^$badfilter
 ||ads.youtube.com^$domain=~ads.youtube.com
@@ -3181,6 +3167,7 @@ bing.com##+js(nosiif, logQueue, 10000)
 ||actonsoftware.com^$badfilter
 
 ! watcho. com home page very slow loading
+@@||api2.branch.io/v1/open$xhr,domain=watcho.com
 @@||cdn.branch.io/branch-$script,xhr,domain=watcho.com
 @@||app.link/*branch_key$script,domain=watcho.com
 
@@ -3269,7 +3256,8 @@ johnhardy.com##+js(acis, $, optimoveSDK)
 ||thepiratebay.$script,domain=pirateproxy.live|thehiddenbay.com|thepiratebay.org,badfilter
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/81533
-@@||imasdk.googleapis.com/js/sdkloader/ima3$script,domain=rotana.net
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=rotana.net,redirect-rule=google-ima.js
+@@||imasdk.googleapis.com/js/sdkloader/ima3_dai.js$script,domain=rotana.net
 @@||pubads.g.doubleclick.net/ssai/event/*/streams$xhr,domain=rotana.net
 
 ! https://github.com/uBlockOrigin/uAssets/issues/8966
@@ -3554,8 +3542,8 @@ coolmathgames.com##+js(set, network_user_id, '')
 @@||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=olympics.com
 
 ! https://github.com/easylist/easylist/issues/8990
-://ads.$popup,badfilter
-://ads.$popup,domain=~kakaku.com
+://ads.$popup,domain=~smartnews.com,badfilter
+://ads.$popup,domain=~kakaku.com|~smartnews.com
 
 ! https://jbbs.shitaraba.net/bbs/read.cgi/internet/25463/1598352715/232
 !#if env_mobile

@@ -422,6 +422,8 @@ journal-plaza.net#?#.rightside div.block.bnavi[-ext-has="h3.dtitle:contains(Сч
 !||i.snssdk.com/log/*
 !||i.snssdk.com/slardar/sdk.js
 !
+||cntxtfl.com^
+||ztrck.me^
 ||trk.lightdatahouse.com^
 ||fpnpmcdn.net^
 ||offer-go.com^$third-party
@@ -733,7 +735,6 @@ journal-plaza.net#?#.rightside div.block.bnavi[-ext-has="h3.dtitle:contains(Сч
 ||imzahrwl.xyz^
 ||gae.karte.io^
 ||script.anura.io^
-||collector-*.px-cloud.net^
 ||metricskey.com^$third-party
 ||static-tracking.klaviyo.com^
 ||telemetrics.klaviyo.com^
@@ -1686,8 +1687,6 @@ journal-plaza.net#?#.rightside div.block.bnavi[-ext-has="h3.dtitle:contains(Сч
 ||target.mixi.media^$third-party
 ||analytics.servogram.io^
 ||checkmygeo.com^$third-party
-||collector-*.perimeterx.net^$third-party
-||client.perimeterx.net^$third-party
 ||stats.coronalabs.com^
 ||track.special-offers.online^$third-party
 ||crm-analytics.imweb.ru^$third-party
@@ -33073,18 +33072,16 @@ _tracking.php?b=
 ||adc.nine.com.au/?token=$redirect=nooptext,important,domain=9now.com.au
 ||googleadservices.com/pagead/conversion_async.js$redirect=noopjs,domain=ffm.to,important
 !
-! PerimeterX
-/init.js|$domain=iherb.com|skyscanner.com.br|bloomberg.com|sweetwater.com
-!
 /analytics.js$domain=freexcafe.com|rusvideos.tv|nakubani.ru|lun.com|songsara.net|newsmax.com|bolgehastanesi.com|ewtc.de|newsdig.tbs.co.jp|imore.com|city.kushiro.lg.jp|emeraldbridal.com.au|emarat-news.ae|imobie.jp
 ||assets.adobedtm.com^$domain=mcclatchydc.com|elnuevoherald.com|bellinghamherald.com|sacbee.com|charlotteobserver.com|newsobserver.com|miamiherald.com|ef.ru|algida.com.tr|bmw-motorrad.co.uk|cif.com.tr|clearhaircare.com|domestos.com|dove.com|elidor.com.tr|f1sport.autorevue.cz|geico.com|hellmanns.com.tr|herkessofraya.com|johnsonsbaby.com.tr|lipton.com|lnk.to|lux.com|magnumicecream.com|neutrogena.com.tr|omo.com|rexona.com|samsung.com|sap.com|schwarzkopf.com.tr|signalturkiye.com|msnbc.com|nbcnews.com|kbb.com|eurosport.ru|timgate.it|intermiles.com|oxfordmail.co.uk|spiegel.de|hp.com|deutschepost.de|thebay.com|s.shufoo.net|tsn.ca|tabelog.com|euronews.com|newshub.co.nz
 !
+/news-portlet/html/counter-portlet/*$domain=eluniversal.com.co|elcolombiano.com
+/html/js/iter-libraries/iter-statistics.js*$domain=eluniversal.com.co|elcolombiano.com
+||so-zou.jp/js/ga.js
 ||wired.*/hotzones/src/pixelpropagate.js
 ||list-manage.com/track/
 ||assets-prod.sumo.prod.webservices.mozgcp.net/static/gtm-snippet.
 ||fast.a.klaviyo.com/media/js/analytics/klaviyo_analytics.js
-||elcolombiano.com/news-portlet/html/counter-portlet/
-||elcolombiano.com/html/js/iter-libraries/iter-statistics.js
 ||psprices.com/staticfiles/build/frontend_psprices_js_analytics_ts.*.js
 ||coralproject.net/assets/js/count.js
 ||static.iris.informa.com/widgets/*/iris-t.js
@@ -33886,7 +33883,6 @@ today.ua##.li-bi-container
 ||crm.a1.by/upload/crm/tag/call.tracker.js
 ||d3fdp2ho8z9fyl.cloudfront.net/tracker.min.js
 culture.ru###page-error-modal
-||px-cloud.net/b/s
 ||primer.typekit.net^$xmlhttprequest
 ||gazisoft.com/counter.php
 ||c.keltis.com/c.aspx
@@ -36322,6 +36318,11 @@ link.gmapp*.net$image
 !------------------------------
 ! NOTE: Cookies specific
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/140733
+||cnn.$cookie=nexus-web-application-identifier
+||cnn.$cookie=__idcontext
+! Used to provide advertising based on user data
+||mailchimp.com^$cookie=_mcid
 ! https://github.com/AdguardTeam/AdguardFilters/issues/140645
 ||sexu.com^$cookie=_ttrack
 ! https://github.com/AdguardTeam/AdguardFilters/issues/140694
@@ -36569,6 +36570,9 @@ $cookie=ev_sid,domain=ideal.es|elcorreo.com
 !------------------------------
 ! NOTE: Cookies generic rules
 !
+! Teads
+! User ID
+$cookie=_tfpvi
 ! Klaviyo
 ! User ID
 $cookie=__kla_id
@@ -38069,6 +38073,12 @@ $app=com.miui.analytics
 !#endif
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/140881
+@@||st-eu.dynamicyield.com/st?sec=$domain=gigasport.at|gigasport.de|gigasport.ch
+! https://github.com/AdguardTeam/AdguardFilters/issues/140831
+||tag.aticdn.net/*/at.js$script,redirect=ati-smarttag,domain=tv5monde.com
+!+ PLATFORM(ios, ext_android_cb, ext_safari, ext_ublock)
+@@||tag.aticdn.net/*/at.js$domain=tv5monde.com
 ! fix https://pointmall.rakuten.co.jp/gacha
 @@||googletagmanager.com/gtm.js$domain=pointmall.rakuten.co.jp
 ! https://github.com/AdguardTeam/AdguardFilters/issues/140178
@@ -39507,9 +39517,6 @@ nnmclub.ro,nnm-club.t0r.xyz,nnmclub.to#@#img[width="88"][height="31"]
 @@||googletagmanager.com/gtag/js$domain=nibelungen-kurier.de
 @@||google-analytics.com/analytics.js$domain=nibelungen-kurier.de
 !#endif
-! https://github.com/AdguardTeam/AdguardFilters/issues/67989
-!+ PLATFORM(ios, ext_android_cb, ext_safari)
-@@||4allprograms.me/wp-content/cache/busting/google-tracking/ga-*.js
 ! https://github.com/AdguardTeam/AdguardFilters/issues/67515
 @@||googletagmanager.com/gtm.js$domain=wikium.ru
 ||google-analytics.com/analytics.js$script,redirect=google-analytics,domain=wikium.ru,important
