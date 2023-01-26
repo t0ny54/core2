@@ -84,6 +84,7 @@
 ! https://forum.adguard.com/index.php?threads/ivoox-com-podcasts-issues.29530/
 ! ||addevweb.com^$third-party
 !
+||smart-placements-sdk.ex.co^
 ||mucmoapa.com^
 ||cibgphkiqbjk.com^
 ||sgbm.info^$third-party
@@ -283,6 +284,11 @@
 ! Bad: ||ad.doubleclick.net^ (should be in adservers.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/140890
+pobre.wtf#%#//scriptlet('set-constant', 'adBlockerActive', 'false')
+pobre.wtf#%#//scriptlet('prevent-fetch', 'pagead2.googlesyndication.com')
+!+ PLATFORM(ios, ext_android_cb, ext_safari)
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xmlhttprequest,domain=pobre.wtf
 ! https://github.com/AdguardTeam/AdguardFilters/issues/139850
 ||suaads.com/peel1-ad-300x250.js
 suaurl.com#%#//scriptlet('prevent-setInterval', 'adblock')
@@ -1687,6 +1693,12 @@ peru21.pe#@#.adstop
 ! https://github.com/AdguardTeam/AdguardFilters/issues/24801
 yahoo.com#?#ul[class^="Mb(0)"] > li.js-stream-content:has(> div > a[rel="nofollow noopener noreferrer"]+div:contains(Patrocinado))
 !
+sinembargo.mx#?#body > div.container-fluid:has(> div.row > div.container > div.row > div > div[id^="div-gpt-ad-"])
+razon.com.mx#?#body > div[style]:has(> button#stickyad-close)
+elsiglodetorreon.com.mx#?#.col-4 > div.bg-light:has(> div.pub)
+elnorte.com,reforma.com#?#div[style]:has(> div.mdl > div[id*="orden"])
+reforma.com#?##zonanoticias > div[style]:has(> script:contains(grVista))
+elnorte.com,reforma.com#?##zonanoticias > div[style]:has(> div#hubAristegui)
 elpilon.com.co#?#body > div.text-center:has(> div[id^="div-gpt-ad-"])
 eluniversal.com.co#?#.grid-x > div.cell:has(> div[id^="pub-news-"])
 estandarte.com#?#aside > div.mod:has(> div.ad-p)
@@ -1951,6 +1963,8 @@ maisgasolina.com#?##main [id$="Block"][-ext-has='.adsbygoogle']
 !------- JS rules ---------------------!
 !--------------------------------------!
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/140890
+pobre.wtf#%#//scriptlet('set-constant', 'ads', 'false')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/139850
 suaurl.com#%#//scriptlet('set-constant', 'acdl', 'undefined')
 suaurl.com#%#//scriptlet('prevent-setTimeout', 'window.location.href')
@@ -2545,8 +2559,26 @@ mediotiempo.com,elpais.com,olhardigital.com.br,atribuna.com.br,jovemnerd.com.br,
 ! ##.ads
 bebe.abril.com.br,tribunapr.uol.com.br,diariodonordeste.verdesmares.com.br,sbt.com.br,link.estadao.com.br,atomixhq.*,jc.ne10.uol.com.br,internetpasoapaso.com,acidadeon.com,leouve.com.br,larazon.es,infoescola.com,quatrorodas.abril.com.br,cbn.globoradio.globo.com,maxitorrent.com,veja.abril.com.br,odia.ig.com.br,especiais.g1.globo.com,tribunapr.com.br,novelasd.com,anime-tube.tv##.ads
 ! ##.banner
-elinformador.com.co,cronista.com,rionegro.com.ar,diariodecuyo.com.ar,voydeviaje.com.ar,guarda14.com,viapais.com.ar,agazeta.com.br,eleconomista.com.mx,metropolitanafm.com.br,tycsports.com,elespectador.com,bnews.com.br,migalhas.com.br,losandes.com.ar,lavoz.com.ar,mundo.sputniknews.com,omelete.com.br,lapoliticaonline.com.ar,mundotecnologias.com,valenciaplaza.com,veneapp.com,dalealbo.cl,globo.com,defesanet.com.br,mibrujula.com,lyon.kim,26noticias.com.ar,auniao.com,clickpb.com.br,emagister.com,lanacion.com.ar,parana-online.com.br,r7.com,toxico-pc.com,uol.com.br##.banner
+informador.mx,elinformador.com.co,cronista.com,rionegro.com.ar,diariodecuyo.com.ar,voydeviaje.com.ar,guarda14.com,viapais.com.ar,agazeta.com.br,eleconomista.com.mx,metropolitanafm.com.br,tycsports.com,elespectador.com,bnews.com.br,migalhas.com.br,losandes.com.ar,lavoz.com.ar,mundo.sputniknews.com,omelete.com.br,lapoliticaonline.com.ar,mundotecnologias.com,valenciaplaza.com,veneapp.com,dalealbo.cl,globo.com,defesanet.com.br,mibrujula.com,lyon.kim,26noticias.com.ar,auniao.com,clickpb.com.br,emagister.com,lanacion.com.ar,parana-online.com.br,r7.com,toxico-pc.com,uol.com.br##.banner
 !
+sdpnoticias.com##.sdp-ad
+sdpnoticias.com##.sdp-block
+forbes.com.mx##.set__ads--component
+forbes.com.mx##placements-block
+los40.com##div[class^="centrar_publicidad"]
+diario.mx##.publicidad_basica
+diario.mx##amp-img[width="200"][height="77"]
+||elsiglodetorreon.com.mx/plantillas/adsPortada.js
+vanguardia.com.mx##.cab_ads
+excelsior.com.mx###region-aperture
+excelsior.com.mx##.node_bottom_ads
+excelsior.com.mx###PorqueLeisteAds
+excelsior.com.mx##.items-publicidad
+excelsior.com.mx###Caliente
+excelsior.com.mx###at-moment-Ad
+excelsior.com.mx##.imx-mas-recientes-publicidad
+||excelsior.com.mx/gigigo/Component/widget_calientemx.html
+||cloud.mail.ru/weblink/view/*?adVideo$media,redirect=noopmp3-0.1s,domain=pobre.wtf
 elpilon.com.co##div[style^="width: 300px;"][style*="height: 250px"]
 ||eluniversal.com.co/mcm/publicidad/dfp-sb/publicidad_internas_*.js
 eluniversal.com.co###tg-adhesion
@@ -3287,7 +3319,7 @@ mrpiracy.top##center > a[class^="super-r-button"] > img
 ||mrpiracy.top/assets/refleczomrpiracy.gif
 lasexta.com##.show-ads
 ||blog.facialix.com/wp-content/uploads/*/hostinger*.jpg
-otvfoco.com.br,facialix.com##.ai_widget
+diariodelnorte.net,otvfoco.com.br,facialix.com##.ai_widget
 legendas.co##[id^="publicidade_"]
 correiobraziliense.com.br##.pub-hor
 ||webglobal.com.br/banner/$third-party
@@ -4761,7 +4793,7 @@ ig.com.br##.previsaoTempoBox
 kiosko.net##.promo
 hotelius.com##.promocines
 planetadeagostini.es##.promocion
-cifraclub.com.br,clix.pt,destak.pt,iol.pt,lavozdegalicia.es,publico.pt,sapo.pt,wareztuga.tv##.pub
+elsiglodetorreon.com.mx,cifraclub.com.br,clix.pt,destak.pt,iol.pt,lavozdegalicia.es,publico.pt,sapo.pt,wareztuga.tv##.pub
 ig.com.br##.pub-island.fl
 telanon.info##.pub-large
 iol.pt##.pub-line

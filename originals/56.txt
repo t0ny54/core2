@@ -4391,9 +4391,8 @@ pouvideo.*,povvideo.*,povw1deo.*,povwideo.*,powv1deo.*,powvibeo.*,powvideo.*,pow
 pouvideo.*,povvideo.*,povw1deo.*,povwideo.*,powv1deo.*,powvibeo.*,powvideo.*,powvldeo.*##iframe:not([src*="recaptcha"])
 /jquery.notify.js$script,1p,domain=pouvideo.*|povvideo.*|povw1deo.*|povwideo.*|powv1deo.*|powvibeo.*|powvideo.*|powvldeo.*
 ext=$script,1p,domain=pouvideo.*|povvideo.*|povw1deo.*|povwideo.*|powv1deo.*|powvibeo.*|powvideo.*|powvldeo.*
-*$frame,denyallow=google.com,domain=pouvideo.*|povvideo.*|povw1deo.*|powvibeo.*|povwideo.*|powv1deo.*|powvideo.*|powvldeo.*|povvldeo.*
+*$frame,3p,denyallow=google.com,domain=pouvideo.*|povvideo.*|povw1deo.*|powvibeo.*|povwideo.*|powv1deo.*|powvideo.*|powvldeo.*|povvldeo.*
 *$script,3p,denyallow=googleapis.com|google.com|gstatic.com,domain=povvldeo.*|povvldeo.lol
-*$frame,3p,denyallow=google.com,domain=povvldeo.*
 @@player*.html$frame,1p,domain=pouvideo.*|povvideo.*|povw1deo.*|powvibeo.*|povwideo.*|powv1deo.*|powvideo.*|powvldeo.*
 ||wontent.powvideo.net^
 ||zontent.powvideo.net^
@@ -6479,10 +6478,6 @@ goto.com.np##+js(aopr, open)
 ! https://www.reddit.com/r/uBlockOrigin/comments/8xhann/getting_around_antiadblock_on_a_wiki_site/
 undeniable.info##+js(acis, document.getElementById, testadblock)
 
-! https://github.com/NanoAdblocker/NanoFilters/issues/123
-@@||3bmeteo.com^$ghide
-@@||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=3bmeteo.com
-
 ! https://github.com/uBlockOrigin/uAssets/issues/2821
 @@||mackie100projects.altervista.org^$ghide
 mackie100projects.altervista.org##.adsbygoogle
@@ -8195,7 +8190,6 @@ djxmaza.in,proviralhost.com##+js(ra, disabled, #wait1button[disabled], stay)
 djxmaza.in,proviralhost.com##+js(ra, disabled, #wait2button[disabled], stay)
 djxmaza.in,proviralhost.com###wait1button.disabled, #wait2button.disabled:remove-class(disabled)
 djxmaza.in,proviralhost.com###wait1
-djxmaza.in,proviralhost.com###wait1button, #wait2button:style(display: block !important;)
 proviralhost.com###wait2button:upward(center):style(display: block !important;)
 djxmaza.in###wait1button:upward(center) ~ *:not(center)
 proviralhost.com###wait1button ~ *:not(#wait2button, center:has(#wait2button))
@@ -10229,6 +10223,9 @@ bolly4u.*##.code-block
 ! https://github.com/NanoMeow/QuickReports/issues/1941
 @@||androidweblog.com^$ghide
 androidweblog.com##.adsbygoogle
+androidweblog.com##.ezoic-ad
+androidweblog.com##.stream-item
+androidweblog.com##[class^="andro-random-paragraph"]
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/aezw21/pogo/
 pogo.com##+js(set, pogo.intermission.staticAdIntermissionPeriod, 0)
@@ -12042,13 +12039,15 @@ enrt.eu##[href*="builderall.net/"]
 ##[href*="https://ads.enrt.eu/"]
 
 ! https://github.com/uBlockOrigin/uAssets/issues/5390
-oko.sh##+js(aopr, app_vars.force_disable_adblock)
+! https://github.com/uBlockOrigin/uAssets/issues/16490
 oko.sh##+js(aopr, AaDetector)
 oko.sh##+js(aopr, open)
 oko.sh##+js(aopw, Fingerprint2)
 oko.sh##+js(nowebrtc)
 oko.sh##+js(set, blurred, false)
+@@||oko.sh^$ghide
 oko.sh##a[href^="https://href.li/"]
+oko.sh##a[href^="https://taghaugh.com/"]
 oko.sh##[href="https://tipsalert.xyz"]
 oko.sh##[src^="https://i.imgur.com/"]
 
@@ -15325,9 +15324,6 @@ animetake27.*##.gads
 ! https://github.com/NanoMeow/QuickReports/issues/2080
 @@||s0ft4pc.com^$ghide
 
-! https://github.com/NanoMeow/QuickReports/issues/2079
-@@||alttyab.net^$ghide
-
 ! https://github.com/NanoMeow/QuickReports/issues/2081
 lavozdegalicia.es##+js(aeld, load, adb)
 
@@ -17638,9 +17634,6 @@ felizporno.com,gonewild.co,rubias19.com,thebarchive.com,torrent-pirat.com##+js(a
 tiz-cycling-live.io##+js(acis, $, blocker)
 tiz-cycling-live.io###msg
 tiz-cycling.io##+js(acis, jQuery, blocker)
-
-! https://forums.lanik.us/viewtopic.php?f=103&p=149835&sid=b15db418238da7d16f4acd3ef81ffdf8#p149833
-@@||abc.es^$ghide
 
 ! azarplus.com ads
 ||azarplus.com/wp-content/uploads/*.gif$image,1p
