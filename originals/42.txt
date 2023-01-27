@@ -4543,9 +4543,18 @@ sinoptik.ua$$script[tag-content="SIN.AdsLoader.adBlockDetector()"][max-length="1
 !
 !
 ! https://github.com/AdguardTeam/AdguardFilters/issues/140815
-!#if (!adguard_app_windows && !adguard_app_mac && !adguard_app_android)
+!#if (adguard_app_ios || adguard_ext_android_cb)
 docs-python.ru#@#div[id^="yandex_rtb"]
 @@||yandex.ru/ads/$domain=docs-python.ru
+!#endif
+!#if (!adguard_app_windows && !adguard_app_mac && !adguard_app_android && !adguard_ext_firefox)
+docs-python.ru#%#//scriptlet('prevent-addEventListener', 'load', 'function')
+docs-python.ru#%#AG_onLoad(function(){document.querySelectorAll('pre').forEach(function(a){a.classList.add('highlight')})});
+docs-python.ru#$#nav { visibility: visible !important; }
+docs-python.ru#$#aside { visibility: visible !important; }
+docs-python.ru#$##container-share-error { visibility: visible !important; }
+docs-python.ru#$##donate-row { visibility: visible !important; }
+docs-python.ru#$#pre { color: #212529 !important; user-select: text !important; }
 !#endif
 ||docs-python.ru^$~script,~stylesheet,~other,replace=/ads===false\|\|v===true/ads===undefined/
 ! https://github.com/AdguardTeam/AdguardFilters/issues/138822
@@ -6712,6 +6721,7 @@ okko.sport#?#div[class]:has(> div[class] > div[class]:contains(/^коэффиц�
 okko.sport#?#button:has(> span:contains(/^прогнозы$/))
 okko.sport##div[class]:has(> iframe[src^="https://clients-static.okko.tv/web/banners/winline/"])
 !
+spb-guide.ru#?##content > div[style]:has(> div[id^="yandex_rtb"])
 ya.ru#$?#.mini-suggest__popup-content > li[data-type="nav"] > a { remove: true; }
 realty.ya.ru#?##app > div[class^="Frame__container--"] > div[class^="Frame__container--"]:has(> div[class^="Frame__container--"] > vertisads-recommendation-widget)
 readmanga.live#?##fotocontext > div.manga-img-placeholder:has(> img[src$=".gif"])
@@ -7171,7 +7181,6 @@ travel.rambler.ru,weekend.rambler.ru,woman.rambler.ru#?#div[class*="right"] > di
 beat.rambler.ru#?##app > div[class] > div[class] > div[class] > div:has(> div:contains(реклама))
 1progs.ru#?##sidebar > aside.widget:has(> div.widget-title > h4:contains(Рекомендуем))
 quto.ru#?#div.block > div[class]:has(> div.gradient > div[style*="margin-bottom"][style*="30px"] > div[data-widget^="plista_widget"])
-savefrom.net#?#.wrapper > div[class]:has(> div[id^="yandex_rtb"])
 igis.ru#?#.table-st5 > tbody > tr > td:has(> a[href^="/click.php?ban="])
 pickupforum.ru#?##ips_Posts > div.post_wrap:has(> div.post_body > div#slider_theme_advt)
 kak-pravilno.net#?#.post-content > div:has(> div[id^="yandex_rtb_R-A-"])
@@ -8266,8 +8275,6 @@ online.anidub.com,online.anidub.club#%#//scriptlet("abort-on-property-write", "b
 https-xvideos.com#%#//scriptlet('prevent-window-open')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/131019
 www.kinopoisk.ru#%#//scriptlet('set-constant', 'window.adfoxService', 'emptyObj')
-! https://github.com/AdguardTeam/AdguardFilters/issues/114112
-kinopoisk.ru#%#//scriptlet('prevent-eval-if', 'bannerId')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/116089
 igroutka.ru#%#//scriptlet("set-cookie-reload", "afg", "1")
 ! https://github.com/AdguardTeam/AdguardFilters/issues/113914
@@ -9273,7 +9280,7 @@ fxstreet.ru.com#$#.fxs_prestitial-window-block { display: none!important; }
 ! amic.ru - удаление отступа сверху
 amic.ru#$#.wrapper.branded2 { padding-top: 0!important; }
 ! bombardir.ru - удаление отступа сверху
-bombardir.ru#$#body { padding-top: 0!important; }
+bombardir.ru#$#.soc-wrap.branding { margin-top: 0 !important; }
 ! moviebuster.tv -- remove the top margin
 moviebuster.tv#$##page { margin-top: 0!important; }
 ! anilibria.tv - удаление отступа сверху
@@ -11202,6 +11209,7 @@ progorod76.ru,riamobalashiha.ru,sobesednik.com,vz.ru,autoparus.by,ctv.by,hightec
 !
 !
 !
+wallscloud.net##.after_image_promo
 bst.bratsk.ru##div[data-yandex^="R-A-"]
 hyser.com.ua##.ai-placement
 101kofemashina.ru###hateallyoupoorrulistbstrds
