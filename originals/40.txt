@@ -117,6 +117,10 @@ theaterdays.xyz,tyoieronews.blog.jp,akbmatomeatoz.ldblog.jp,npb-news.com,masaki2
 ! Other domain having similar problem: seesaa.net,blog.fc2.com,blog.2nt.com
 ! Except for very unique and safe selector, avoid rules like `blog.jp##.rule` but specify subdomain: `futamato.blog.jp##.rule`
 ! In case of blog.livedoor.jp, make your rule as specific or use $path
+blog.livedoor.jp###container > div[style^="width:1105px;height:270px;overflow:auto;background-color:#ffffff;"]
+blog.livedoor.jp##.column-inner-2 > div[style^="width:758px;height:500px;overflow:auto;background-color:#FFEEFF;"]
+blog.livedoor.jp###main > div[style="border-bottom: black 1px solid; border-left: black 1px solid; padding-bottom: 5px; background-color: white; padding-left: 5px; width: 588px; padding-right: 5px; color: red; border-top: black 1px solid; border-right: black 1px solid; padding-top: 10px"]
+blog.livedoor.jp##.blogroll2
 ||blog.livedoor.jp/hibinanchara/$subdocument,~third-party
 ||blog.livedoor.jp/neomani/neomani-news.htm
 blog.livedoor.jp##.sp_kizi_recommend
@@ -125,6 +129,7 @@ blog.livedoor.jp##.sp_kizi_recommend
 ||blog.livedoor.jp/pawapuro_kouryaku/RSS4.html
 ||blog.livedoor.jp/rock1963roll/pride_rss
 ||yumetsu.web.fc2.com/rss_$subdocument
+blog.livedoor.jp###container > div.blog-title-outer ~ div[class^="entry_box_"]
 blog.livedoor.jp#?#.plugin-memo > div.side > script[src$="/blogroll.js"]:upward(2)
 blog.livedoor.jp#?#.plugin-memo > div.side > div.pickups:upward(2)
 blog.livedoor.jp##.pickup
@@ -1156,10 +1161,11 @@ full-count.jp#?#section > div.c-heading:has(> p.c-heading__en:contains(RECOMMEND
 !   SECTION: Widgets - Chats (specific)
 !   NOTE: chatango.com widget
 sportnews.to,footlive.me.pokemon-tube.com,shirainime.com,daemon-hentai.com,seirsanduk.us,sedsports.com,139.99.120.222,indoxxi.show,aniwatcher.com,mylivecricket.info,debrid-file.com,streamonsport.info,gdplayer.tv##iframe[src*="chatango.com"]
-||st.chatango.com^$domain=xtapes.to|streamonsports.cc|footlive.me|neonime.site|psntvs.me|hesgoal.com|sanzisport.com|goanimelist.me|pokemon-tube.com|animeindo.moe|shirainime.com|daemon-hentai.com|seirsanduk.us|sedsports.com|139.99.120.222|indoxxi.show|cricfree.live|bosscast.net|aniwatcher.com|mylivecricket.info|debrid-file.com|neonime.vip|streamonsport.info|snahp.it|worldcupfootball.me|gdplayer.tv
+||st.chatango.com^$domain=mysocceraustralia.com|xtapes.to|streamonsports.cc|footlive.me|neonime.site|psntvs.me|hesgoal.com|sanzisport.com|goanimelist.me|pokemon-tube.com|animeindo.moe|shirainime.com|daemon-hentai.com|seirsanduk.us|sedsports.com|139.99.120.222|indoxxi.show|cricfree.live|bosscast.net|aniwatcher.com|mylivecricket.info|debrid-file.com|neonime.vip|streamonsport.info|snahp.it|worldcupfootball.me|gdplayer.tv
 streamonsports.cc,streamonsport.info##.chatango
 139.99.120.222,indoxxi.show##.chatango-btn
 !
+mysocceraustralia.com#?#.cactus-sidebar-content > aside.widget:has(> div.widget-inner div#flip)
 ||stdntl.ru/*/std-order-chat.js
 ankerjapan.com###ch-plugin
 siracusanews.it###ht-ctc-chat

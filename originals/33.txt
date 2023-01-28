@@ -422,6 +422,7 @@ journal-plaza.net#?#.rightside div.block.bnavi[-ext-has="h3.dtitle:contains(Сч
 !||i.snssdk.com/log/*
 !||i.snssdk.com/slardar/sdk.js
 !
+||nakanohito.jp^
 ||track.my1elitclub.com^
 ||openfpcdn.io^
 ||tracking-api-4lasu2nlcq-ew.a.run.app^
@@ -5430,6 +5431,7 @@ nethunt.com/api/v1/track/email/$image
 ! Blocking piwik analytics subdomain(for DNS filtering)
 |piwik.
 !
+||a.opmnstr.com^
 ||analytics.aklamio.com^
 ||collect.hollisterco.com^
 ||d17tqr44y57o31.cloudfront.net^
@@ -34150,7 +34152,7 @@ suara.com##.dailymotion-widget
 ||houzz.com/js/log?p=
 ||admin.guide-rank.com/guiderank-tracking/
 ||image.ruliweb.com/view/log
-||odnoklassniki.ru/dk?cmd=videoStatNew
+||ok.ru/dk?cmd=videoStatNew
 ||opensubtitles.org/gfx/banners_campaigns/2x2.gif
 ||ias.r10s.jp/grp15/ex_common2.js
 ||adn-srv.reckoner-api.com/v1/ad/
@@ -36359,6 +36361,11 @@ link.gmapp*.net$image
 ! Bad:  ||example.com^$cookie=flat_r_mb (should be in cookies_specific.txt)
 !
 !
+! Adobe analytics
+! https://experienceleague.adobe.com/docs/analytics/implementation/vars/plugins/getnewrepeat.html?lang=en
+$cookie=s_nr
+$cookie=s_lastvisit
+$cookie=s_lastvisit_s
 ! mapp.com
 ! https://documentation.mapp.com/1.0/en/which-cookies-are-set-by-mapp-intelligence-7211196.html
 ! Used to collecting visits
@@ -36793,7 +36800,12 @@ $cookie=abMbl
 ! Used on websites of our publisher Customers that utilize the Taboola Newsroom services. It measures performance of the publisher’s homepage articles that are clicked.
 $cookie=tb_click_param
 !
-! Hotjar - https://help.hotjar.com/hc/en-us/articles/115011789248-Hotjar-Cookie-Information
+! Hotjar
+! https://help.hotjar.com/hc/en-us/articles/115011789248-Hotjar-Cookie-Information
+! A cookie that holds the current session data. This ensues that subsequent requests within the session window will be attributed to the same Hotjar session
+$cookie=/^_hjSession_/
+! Hotjar cookie that is set when a user first lands on a page with the Hotjar script
+$cookie=/^_hjSessionUser_/
 ! Hotjar cookie that is set when the customer first lands on a page with the Hotjar script. It is used to persist the Hotjar User ID, unique to that site on the browser.
 $cookie=_hjid
 ! This is set to identify a new user’s first session.
@@ -36960,6 +36972,15 @@ $cookie=bf_visit
 ! Bad:  ||monerominer.rocks^$third-party (should be in adservers.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/141154
+||istories.media^$cookie=latest_viewed_material
+! https://github.com/AdguardTeam/AdguardFilters/issues/141055
+||mindbox.ru^$cookie=deviceUUID
+! journal.tinkoff.ru
+||journal.tinkoff.ru^$cookie=ta_visit_start_ts
+||journal.tinkoff.ru^$cookie=dsp_click_id
+||journal.tinkoff.ru^$cookie=ta_visit_num
+||journal.tinkoff.ru^$cookie=mindboxDeviceUUID
 ! https://github.com/AdguardTeam/AdguardFilters/issues/140889
 ||dealabs.com^$cookie=f_v
 ! https://github.com/AdguardTeam/AdguardFilters/issues/140940

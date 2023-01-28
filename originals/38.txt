@@ -123,11 +123,11 @@ docviewer.yandex.*#%#//scriptlet("abort-on-property-read", "Object.prototype.YaA
 ! kinopoisk.ru - media ads in trailers
 www.kinopoisk.ru##div[class^="toaster-container"]
 www.kinopoisk.ru##div[class^="styles_adBlockWarningRoot"]
+www.kinopoisk.ru##div[class*="__AMNhR styles_"]
 !#if (!adguard_app_windows && !adguard_app_mac && !adguard_app_android)
 ! www.kinopoisk.ru#%#//scriptlet("abort-on-property-read", "Object.prototype.mediaAds")
 ! www.kinopoisk.ru#%#//scriptlet("abort-on-property-read", "Object.prototype.createVideoBannerAdLite")
 www.kinopoisk.ru#%#//scriptlet('set-constant', 'Object.prototype.renderTo', 'undefined')
-www.kinopoisk.ru##div[class*="__AMNhR styles_i"]
 !
 ! Yandex.Turbo
 yandex.*##.page__result > p ~ div[class*="_type_partner "]
@@ -3500,8 +3500,6 @@ neilpatel.com#%#//scriptlet('remove-class', 'mfp-popup-exit-quiz-v2', 'body')
 neilpatel.com#%#//scriptlet('remove-attr', 'style', 'html')
 neilpatel.com#$#div[class^="mfp-"] { display: none !important; }
 neilpatel.com###topbar
-imdb.com#$#div[data-testid="promptable"] { display: none !important; }
-imdb.com#$?#body { overflow: auto !important; }
 informador.mx##.alert-social
 proceso.com.mx###dailymotion-pip-large-viewport
 roboma.io##.pum-overlay[data-popmake*="380px"]
@@ -8630,7 +8628,6 @@ steambuy.com###popup-overlay
 ulyanovskcity.ru###popup_contact
 thebodyshop.com.tr,14.ru,116.ru,154.ru,161.ru,164.ru,178.ru,26.ru,29.ru,35.ru,42.ru,43.ru,45.ru,48.ru,51.ru,53.ru,56.ru,59.ru,60.ru,62.ru,63.ru,68.ru,70.ru,71.ru,72.ru,74.ru,75.ru,76.ru,86.ru,89.ru,93.ru,e1.ru,ekat.ru,irkutsk.ru,kbs.ru,mgorsk.ru,ngs.ru,ngs22.ru,ngs24.ru,ngs38.ru,ngs42.ru,ngs54.ru,ngs55.ru,ngs70.ru,nn.ru,omsk1.ru,proizhevsk.ru,provoronezh.ru,sochi1.ru,sterlitamak1.ru,tolyatty.ru,ufa1.ru,v1.ru###popup_container
 promipool.de###pp_fb_popup_wrapper
-tvrain.ru###promo_bottom_nest
 mytechdecisions.com###promo_bottombar
 vauxhall.co.uk,seat.fr,mini.de###psyma_layer
 chubbyparade.com###regp_bg
@@ -10442,6 +10439,8 @@ aol.com#$#.banner-active { margin-top: 0 !important; }
 !
 ! SECTION: Push notifications - Allowlist
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/141088
+@@||cdnt.netcoresmartech.com^$domain=cgv.vn
 ! https://github.com/AdguardTeam/AdguardFilters/issues/140801
 @@||widget.intercom.io/widget/fix72gk8$domain=onboarding.speechify.com
 ! https://github.com/AdguardTeam/AdguardFilters/issues/138346
@@ -10589,6 +10588,10 @@ edp24.co.uk,technologyreview.com,inews.co.uk,nordbayern.de,thelocal.ch,morgenpos
 !
 ! SECTION: Subscriptions - Regular rules
 !
+gowork.pl###subscribe-company-init
+pap.pl###block-zapiszsienanewsletter
+abc.net.au#?#section:has(> div[data-component="LayoutContainer"] > div > div[data-component="Newsletter"])
+medicalxpress.com###js-popup-nwletter
 milenio.com##div[id$="x1sidebar"]
 lycamobile.co.uk##.subscribe-news-letter-full-width
 gitpod.io###main-content > section[id][class^="flex"][class*="svelte-19"]
@@ -14228,7 +14231,6 @@ mk.ru##.article__subscription
 digitalcitizen.life##.block-next-sidebar-subscription-options > :not(.subscription-options__social_buttons)
 bloggif.com###right > #rightTools + div.sky + h2
 dafideff.com##.widget-content > div.follow-by-email-inner > ul.list-inline ~ *
-istories.media##.subscr
 tasteandtellblog.com###oc_acf_cta-2
 tasteandtellblog.com##.subscribe_widget
 thegatewaypundit.com##.email-list-subscribe
@@ -15085,7 +15087,7 @@ gamezebo.com##.mail-form-container
 lifehacker.ru##.mailchimp-ajax-form
 womanadvice.ru##.mailchimp-container
 nova.bg##.mailchimp-wrap
-dom.ria.com,tvrain.ru##.mailing
+dom.ria.com##.mailing
 fitness-pro.ru##.mailsubscribe
 likeni.ru##.main-widgets-subscribe
 hogan.com##.mainFooter__newsletterPopup__section
@@ -15286,7 +15288,6 @@ liberation.fr##.subscription-bloc
 miamiherald.com##.subscription-cta-widget
 esquire.ru,popmech.ru,warhead.su##.subscription_block
 graziamagazine.ru##.subscription_block_container
-tvrain.ru##.subscription_buttons_nest
 m.faz.net##.subscription_footer_bar
 detstrana.ru##.subscription_offer
 marca.com##.suscripciones-noticias
@@ -15527,9 +15528,6 @@ mail.ru###subscriptionFormWeekMainBlockId
 !+ NOT_OPTIMIZED
 magazine.skyeng.ru##.tg-banner
 !
-!#if (adguard_app_ios || adguard_ext_android_cb || adguard_app_android)
-tvrain.ru##.menu3__foreign-agent-wrapper
-!#endif
 ! NOTE: Regular rules end ⬆️
 ! !SECTION: Subscriptions - Regular rules
 !
