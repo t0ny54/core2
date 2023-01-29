@@ -153,6 +153,12 @@ echo-online.de##.storyElementWrapper__container > [data-testid="storyElementWrap
 echo-online.de##.swiper-slide [data-testid="topStories-cardSlider-ad"]:upward(.swiper-slide)
 echo-online.de##.teaserGrid > div .nativeAd:upward(.teaserGrid > div)
 echo-online.de##div.frontpageOverview__child
+allgemeine-zeitung.de,buerstaedter-zeitung.de,echo-online.de,lampertheimer-zeitung.de,lauterbacher-anzeiger.de,main-spitze.de,oberhessische-zeitung.de,wiesbadener-kurier.de,wormser-zeitung.de##.adSlot, .loadingBanner
+berliner-zeitung.de##[class^="ad-slot"]
+berliner-zeitung.de##[class^="outbrain"]
+! breakage
+@@||scdn.cxense.com/cx.cce.js$script,domain=allgemeine-zeitung.de|buerstaedter-zeitung.de|echo-online.de|lampertheimer-zeitung.de|lauterbacher-anzeiger.de|main-spitze.de|oberhessische-zeitung.de|wiesbadener-kurier.de|wormser-zeitung.de
+@@||api.cxense.com/public/widget/data$xhr,domain=allgemeine-zeitung.de|buerstaedter-zeitung.de|echo-online.de|lampertheimer-zeitung.de|lauterbacher-anzeiger.de|main-spitze.de|oberhessische-zeitung.de|wiesbadener-kurier.de|wormser-zeitung.de
 
 ! Yavli ads
 *.jpg$script,domain=allthingsvegas.com|clashdaily.com|madworldnews.com|menrec.com|politicalcowboy.com|reviveusa.com|sonsoflibertymedia.com|themattwalshblog.com|videogamesblogger.com
@@ -1900,6 +1906,8 @@ cooking.nytimes.com##body:style(height: auto !important; overflow: auto !importa
 cooking.nytimes.com##html:style(height: auto !important; overflow: auto !important)
 ! https://github.com/easylist/easylist/commit/1509d85840e1245394ed7fb6cbbbedc9c0cda103
 @@||nytimes.com^*/adslot-$script,xhr,badfilter
+! https://github.com/uBlockOrigin/uAssets/issues/16519
+nytimes.com##[id^="story-ad"][id$="wrapper"]
 
 ! https://forums.lanik.us/viewtopic.php?f=62&t=32450
 ! https://github.com/uBlockOrigin/uAssets/issues/2973
@@ -3032,7 +3040,7 @@ pussyspace.com,pussyspace.net##+js(aost, document.createElement, ExoSupport)
 pussyspace.com,pussyspace.net##+js(aost, Node.prototype.appendChild, www.pussyspace.net/js/all.js)
 pussyspace.com,pussyspace.net##:matches-path(/vid-) [class] img:xpath(ancestor::*[string-length(@class) > 20])
 pussyspace.com,pussyspace.net##style ~ [id] [class]:only-child div:only-child > img
-pussyspace.com,pussyspace.net###alphabet, #channels, #divx-container, #hmenu, #inform, #nowlooking, #playerCamBox, #playerMenu, #qcat, #showPlayer, #tabel_tagslist, #video_content, #web_cam, .buttons, .carouselTopScroll, .carusel-keys-box-ps, .footerdesc, .in_top, .load_more_rel, .mainBoxTitle, .pagIno, .playerContent100pr, .relatedVideo, .right-160px, .videos-related, footer, header, [href^="/webcams.php"]:others()
+pussyspace.com,pussyspace.net###alphabet, #channels, #divx-container, #hmenu, #inform, #nowlooking, #playerCamBox, #playerMenu, #qcat, #showPlayer, #tabel_tagslist, #video_content, #web_cam, .BaseRoomContents, .buttons, .carouselTopScroll, .carusel-keys-box-ps, .footerdesc, .in_top, .load_more_rel, .mainBoxTitle, .pagIno, .playerContent100pr, .relatedVideo, .right-160px, .videos-related, footer, header, [href^="/webcams.php"]:others()
 /^https:\/\/www\.pussyspace\.(?:com|net)\/(?!style\/).*/$image,1p,domain=pussyspace.*
 /\/all\.js\?v=\S{10,}/$script,1p,domain=pussyspace.com|pussyspace.net
 
@@ -3107,6 +3115,7 @@ freewebscript.com##+js(nostif, documentElement.classList.add, 400)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/1189
 1fichier.com##+js(nowebrtc)
+1fichier.com##+js(nano-stb, dlw, 40000)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/1191
 vivud.com##+js(aopr, ALoader)
@@ -4015,8 +4024,7 @@ freeopenvpn.org#@##advert_top
 @@||laverdad.es^$ghide
 @@||leonoticias.com^$ghide
 ||static.vocento.com/dab/*.js
-elnortedecastilla.es##.voc-advertising
-diariovasco.com##.voc-advertising
+diariovasco.com,eldiariomontanes.es,elnortedecastilla.es,hoy.es,ideal.es,larioja.com,lasprovincias.es,leonoticias.com##.voc-advertising
 
 ! https://forums.lanik.us/viewtopic.php?f=62&t=40101&p=133246#p133238
 ksbw.com##+js(nostif, [native code], 500)
@@ -9490,7 +9498,6 @@ xvideo.party##.pride.dump
 
 ! https://github.com/gorhill/uBO-Extra/issues/111
 mtlblog.com,narcity.com##+js(aopw, Ha)
-mtlblog.com,narcity.com##+js(aopr, btoa)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/4311
 komikcast.*##+js(aeld, load, onload)
@@ -10420,8 +10427,8 @@ sypl.xyz##+js(nowoif)
 sypl.xyz##+js(set, clientSide.adbDetect, noopFunc)
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/aj27ua/redirect_on_couchtuner/
+! https://github.com/uBlockOrigin/uAssets/issues/16528
 couchtuner.*##+js(acis, RegExp, 0x)
-couchtuner.*##+js(set, atob, trueFunc)
 ||couchtuner.*/sw.js$script,1p
 ||chidsimp.com^
 
@@ -10815,7 +10822,7 @@ starlive.xyz##+js(aopr, AaDetector)
 starlive.xyz##^script:has-text(AaDetector)
 *$script,3p,denyallow=cloudflare.net|jsdelivr.net|fastly.net|swarm.video|zencdn.net,domain=deliriousholistic.net|metx.me
 starlive.xyz##^script[data-cfasync]:has-text(h=decodeURIComponent)
-*$script,3p,denyallow=jquery.com|bootstrapcdn.com|cloudflare.com|jsdelivr.net|fastly.net|futbollatam.com|gstatic.com|hwcdn.net,domain=starlive.xyz
+*$script,3p,denyallow=jquery.com|bootstrapcdn.com|cloudflare.com|cloudflare.net|jsdelivr.net|fastly.net|futbollatam.com|gstatic.com|hwcdn.net,domain=starlive.xyz
 /adu.php$frame
 ||durrent.com^$3p
 ||fasttrack.mobi^$all
@@ -16040,9 +16047,6 @@ blackavelic.com##+js(aeld, load, 2000)
 series-d.com##+js(nano-sib, curAd)
 series-d.com##+js(nowoif)
 
-! https://github.com/NanoAdblocker/NanoFilters/issues/428
-@@||ffcv.es^$ghide
-
 ! https://github.com/NanoMeow/QuickReports/issues/2349
 ||googlesyndication.com/pagead/js/adsbygoogle.js$script,redirect=noopjs:10,domain=felanovia.com
 
@@ -17004,9 +17008,6 @@ heavy-r.com##.nopop.hd-bar
 
 ! https://www.her.ie/celeb/what-ever-happened-to-enrique-iglesias-mole-269224 (scroll issue)
 her.ie##html:style(overflow: auto !important)
-
-! https://github.com/NanoMeow/QuickReports/issues/2886
-@@||fifetoday.co.uk^$ghide
 
 ! https://github.com/NanoMeow/QuickReports/issues/2889
 warps.club##+js(aopr, adblockDetect)
