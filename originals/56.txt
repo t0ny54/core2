@@ -1374,12 +1374,15 @@ informer.com##+js(aopr, adblock_added)
 informer.com##.screen_ad
 
 ! https://github.com/uBlockOrigin/uAssets/issues/1286
+torlock.*,torlock2.*##+js(acs, setTimeout, admc)
 torlock.*##+js(aopw, _pop)
 ||torlock.*/sww.js$script,1p
 torlock.*##:xpath(//strong[contains(text(),"VPN")]/../../..)
 torlock.*,torlock2.*##+js(nowebrtc)
 torlock2.*##:xpath(//strong[contains(text(),"VPN")]/../../..)
 torlock.*,torlock2.*##.extneed
+/script/bootstrap.js$script,3p,domain=torlock.*|torlock2.*
+||ecorph.com^
 
 ! https://github.com/uBlockOrigin/uAssets/issues/582
 @@||inoreader.com^$ghide
@@ -4184,6 +4187,8 @@ seekingalpha.com##[id^="ad-slot-"]
 twitter.com#@#div[data-testid="trend"]:has-text(/Promoted|Gesponsert|Promocionado|Sponsorisé|Sponsorizzato|Promowane|Promovido|Реклама|Uitgelicht|Sponsorlu|Promotert|Promoveret|Sponsrad|Mainostettu|Sponzorováno|Promovat|Ajánlott|Προωθημένο|Dipromosikan|Được quảng bá|推廣|推广|推薦|推荐|プロモーション|프로모션|ประชาสัมพันธ์|प्रचारित|বিজ্ঞাপিত|تشہیر شدہ|مُروَّج|تبلیغی|מקודם/)
 twitter.com,twitter3e4tixl4xyajtrzo62zg5vztmjuricljdp2c5kshju4avyoid.onion##[data-testid="trend"]:has-text(/Promoted|Gesponsert|Promocionado|Patrocinat|Sponsorisé|Sponsorizzato|Promowane|Promovido|Реклама|Uitgelicht|Sponsorlu|Promotert|Promoveret|Sponsrad|Mainostettu|Sponzorováno|Promovat|Ajánlott|Προωθημένο|Dipromosikan|Được quảng bá|推廣|推广|推薦|推荐|プロモーション|프로모션|ประชาสัมพันธ์|प्रचारित|বিজ্ঞাপিত|تشہیر شدہ|مُروَّج|تبلیغی|מקודם/):upward(1)
 twitter.com,twitter3e4tixl4xyajtrzo62zg5vztmjuricljdp2c5kshju4avyoid.onion##nav + section > div[aria-label] > div > div[style^="transform"] h2 > div[style^="-webkit-line-clamp"] > span:has-text(/^(?:Promoted Tweet|プロモツイート|Promowany Tweet)$/):upward(3)
+! https://github.com/AdguardTeam/AdguardFilters/commit/b9e4a8dc042592f64b01d385415d6a80ffbb237b#commitcomment-97906383
+twitter3e4tixl4xyajtrzo62zg5vztmjuricljdp2c5kshju4avyoid.onion,twitter.com##div[data-testid="cellInnerDiv"] > div.css-1dbjc4n > div[class="css-1dbjc4n"] > div[class="css-1dbjc4n"][data-testid="placementTracking"]
 
 ! https://forums.lanik.us/viewtopic.php?f=62&t=40228#p133884
 popularmechanics.com##+js(nostif, addEventListener, 0)
@@ -5430,6 +5435,7 @@ freemegalinks.com##+js(nobab)
 ! https://github.com/uBlockOrigin/uAssets/issues/9814
 @@||frkn64modding.com^$ghide
 frkn64modding.com##+js(no-xhr-if, ad_)
+frkn64modding.com##.ezoic-ad
 
 ! https://github.com/uBlockOrigin/uAssets/issues/2350
 @@||cdn.vuplay.co.uk/*/comscore.$script,domain=sporza.be
@@ -11116,8 +11122,11 @@ ksta.de##.dm_ad
 ksta.de##.dm_ad-container
 
 ! https://github.com/uBlockOrigin/uAssets/issues/6773
-@@||frag-mutti.de^$ghide
-frag-mutti.de##.superbanner
+! https://github.com/uBlockOrigin/uAssets/issues/5052#issuecomment-1407771485
+frag-mutti.de##.intext-ad
+frag-mutti.de##.ad-loading:remove()
+frag-mutti.de###campaign-popup
+frag-mutti.de###fm-shadow
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/ax3wtv/ads_in_videos_porn_site/
 porn-tube-club.com##+js(nowoif)
@@ -15130,7 +15139,8 @@ hl-live.de##+js(aeld, load, onload)
 hl-live.de##+js(nostif, getComputedStyle, 250)
 
 ! flsaudio.com anti adb
-@@||flsaudio.com^$ghide
+flsaudio.com##.adsbygoogle:upward(.widget)
+flsaudio.com##.altumcode-coupon-content
 ||flsaudio.com^$image,redirect-rule=1x1.gif,1p
 
 ! https://github.com/NanoMeow/QuickReports/issues/1997
@@ -16921,12 +16931,12 @@ pccomponentes.com##div[id^="div-gpt-ad-"]
 ! https://github.com/uBlockOrigin/uAssets/issues/2475
 techradar.com##+js(aopr, _sp_._networkListenerData)
 gamesradar.com,techradar.com,tomsguide.com,tomshardware.com,whathifi.com##.mobile-leaderboard-320-50:upward([style])
-gamesradar.com,techradar.com,tomsguide.com,tomshardware.com,whathifi.com,windowscentral.com##.related-articles-block
+gamesradar.com,livescience.com,pcgamer.com,techradar.com,tomsguide.com,tomshardware.com,whathifi.com,windowscentral.com##.related-articles-block
+gamesradar.com,livescience.com,pcgamer.com,techradar.com,tomsguide.com,tomshardware.com,whathifi.com,windowscentral.com##.van_taboola
 whathifi.com##.dfp-leaderboard-container
 whathifi.com###ultimedia_wrapper
 whathifi.com##.slot-leaderboard
 whathifi.com##.adunit
-whathifi.com##.van_taboola
 
 ! https://github.com/NanoMeow/QuickReports/issues/2836
 modebaca.com##+js(aopr, app_vars.force_disable_adblock)
