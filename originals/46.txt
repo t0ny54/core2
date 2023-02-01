@@ -284,6 +284,12 @@
 ! Bad: ||ad.doubleclick.net^ (should be in adservers.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/141370
+olhonaviagem.com#%#//scriptlet('adjust-setInterval', '.style.display', '*', '0.02')
+olhonaviagem.com#%#//scriptlet('prevent-element-src-loading', 'script', 'pagead2.googlesyndication.com')
+||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$script,redirect=googlesyndication-adsbygoogle,domain=olhonaviagem.com
+!+ PLATFORM(ios, ext_android_cb, ext_safari)
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=olhonaviagem.com
 ! https://github.com/AdguardTeam/AdguardFilters/issues/141100
 investnewsbrazil.com,ricettafitness.com###adblockbyspider
 /traduzidocode.min.js$domain=investnewsbrazil.com|ricettafitness.com
@@ -1697,6 +1703,7 @@ peru21.pe#@#.adstop
 ! https://github.com/AdguardTeam/AdguardFilters/issues/24801
 yahoo.com#?#ul[class^="Mb(0)"] > li.js-stream-content:has(> div > a[rel="nofollow noopener noreferrer"]+div:contains(Patrocinado))
 !
+diariofutrono.cl#?#.row > div#body_right > div.row:has(> script[src^="/base/printadv/"])
 tudn.com,univision.com#?#article > div[class] > div[class]:has(> div.OUTBRAIN)
 univision.com#?#div:not([class]) > div[class]:has(> div[id^="div-gpt-ad-"])
 24-horas.mx#?#.entry-content > div.is-layout-flex:has(> div.is-layout-flow > div.code-block > div[id^="sas_"])
@@ -2572,6 +2579,8 @@ bebe.abril.com.br,tribunapr.uol.com.br,diariodonordeste.verdesmares.com.br,sbt.c
 ! ##.banner
 informador.mx,elinformador.com.co,cronista.com,rionegro.com.ar,diariodecuyo.com.ar,voydeviaje.com.ar,guarda14.com,viapais.com.ar,agazeta.com.br,eleconomista.com.mx,metropolitanafm.com.br,tycsports.com,elespectador.com,bnews.com.br,migalhas.com.br,losandes.com.ar,lavoz.com.ar,mundo.sputniknews.com,omelete.com.br,lapoliticaonline.com.ar,mundotecnologias.com,valenciaplaza.com,veneapp.com,dalealbo.cl,globo.com,defesanet.com.br,mibrujula.com,lyon.kim,26noticias.com.ar,auniao.com,clickpb.com.br,emagister.com,lanacion.com.ar,parana-online.com.br,r7.com,toxico-pc.com,uol.com.br##.banner
 !
+emol.com###publi_right
+globo.com##div[data-block-type="ads"]
 lun.com###dvVideo1
 tudn.com,univision.com##div[data-widget-type="Outbrain"]
 tudn.com,univision.com##div[data-widget-type="Advertisement"]
@@ -2620,7 +2629,7 @@ ccma.cat###contenidor_megabanner
 ccma.cat##[data-ad-type]
 principal.cat##.publi-principal
 estandarte.com##.ad-p
-elrellano.com##.code-block
+elrellano.com,elintransigente.com,comando.la##.code-block
 elrellano.com##.inside-right-sidebar
 neoxscans.net##.empower-ad
 eltiempo.com##div[class^="gpt-slot-"]
@@ -2729,7 +2738,6 @@ elcomercio.com##ned-ad
 ||hardmob.com.br/clientscript/init.js
 canalhelptutoryt.blogspot.com###HTML8
 letras.mus.br##.an-pub
-elintransigente.com,comando.la##.code-block
 ||player.hentaistube.com/cdn/videojs-preroll.
 ||baixarhentais.com/*/*-Pre-Roll-*.mp4$media,redirect=noopmp3-0.1s,domain=player.hentaistube.com
 vandal.elespanol.com###carril_derecho1
@@ -3137,7 +3145,6 @@ larazon.es##.content__ad
 larazon.es###outbrain-id
 gmconline.com.br##.banner-item
 gmconline.com.br##.section-banner-topo
-gmconline.com.br##.banners
 xchica.com##td[width="360"] > center
 escolhasegura.com##.adsense
 pobre.wtf,pobre.tv##.generalModal
@@ -3306,7 +3313,6 @@ es.charla.motor.narkive.com##div[onimpression="nk_playbuzz_impression"]
 ordenador.online##div[class^="escomad"]
 enmimaquinafunciona.com##.big-square-inline
 enmimaquinafunciona.com##.intro-top
-mundoeducacao.uol.com.br##.bnr
 mundoeducacao.uol.com.br##.pb_inner_content
 mundoeducacao.uol.com.br##div[style="height:250px; width:300px;"]
 mundoeducacao.uol.com.br##.entry > div[style^="display: flex; align-items: center; justify-content: center;"]
@@ -4141,7 +4147,7 @@ muyzorras.com##.pd.pbf
 videospornosos.com##.publicidadactriz
 okdiario.com##.aux-col > .widget_aawp_widget_bestseller
 pornogratisdiario.com##.bnfo
-pornogratisdiario.com##.bnr
+mundoeducacao.uol.com.br,pornogratisdiario.com##.bnr
 embed.videosdemadurasx.com###floating-bn
 3dgames.com.ar###sponsor_image
 cine-online.eu##body #expandirBotones
@@ -4221,7 +4227,7 @@ espaebook.org,verestrenos.net,autoblog.com.ar##a[href^="http://bit.ly/"] > img
 ||erohentai.net/wp-content/themes/erohentai/biu_yi.js
 doramashd.com,bludvfilmes.com,fulltvhd.fi,megafilmestorrents.net,erohentai.net###floatLayer2
 erohentai.net###secondary > #text-2
-ddhentaid.net##.bloque_ads
+sxmanga.com,ddhentaid.net##.bloque_ads
 hentaixtremist.com###player > #ap
 tabletzona.es###NEWS_BODY
 tabletzona.es###GLOBAL_BD_TOP
@@ -4260,13 +4266,9 @@ seriesypelis24.com##a[rel="nofollow"] > img
 musicaanime.info###contendor-right-publicidad
 musicaanime.info##body > div[style="z-index:3; display:block"]#players
 anime-latino.net###left > div.cto
-anime-latino.net##.a160
 ||ainder.club/*/code.php^
-sxmanga.com##.bloque_ads
 pepeliculas.com##.module_single_ads
 inkanime.com##iframe[height="105"][width="700"]
-inkanime.com##.a728
-inkanime.com,todoanimeshd.com,anime-latino.net##.adspl
 anime-latino.net##iframe[name="Pub300"]
 windowsblogitalia.com##div[id^="ppsPopup"]
 windowsblogitalia.com##.sidebar > div.tile-top > div[class="tile-content"]
@@ -4605,9 +4607,9 @@ rtp.pt##.PubGoogle300
 damepc.com##.Publitop
 baboo.com.br##.RgtColTopImg
 infobolsa.es##.Web_Banner
-animeflv.net,animeid.com##.a160
+animeflv.net,anime-latino.net,animeid.com##.a160
 animeflv.net##.a300x250
-elanimeflv.com,animeyt.org,jkanimeonline.com,elanimeonline.net,animeflv.net,animeid.com##.a728
+inkanime.com,elanimeflv.com,animeyt.org,jkanimeonline.com,elanimeonline.net,animeflv.net,animeid.com##.a728
 letras.mus.br##.ad-full
 telecinco.es##.ad-top
 ondacero.es##.adContainer1
@@ -4619,7 +4621,7 @@ impre.com##.ads125BackTexture
 elnuevodiario.com.ni##.ads728_90
 ticotimes.net##.ads_by_tico
 cinetube.es##.adsb
-animeflv.net##.adspl
+inkanime.com,todoanimeshd.com,anime-latino.net,animeflv.net##.adspl
 cinetube.es##.adst
 intereconomia.com##.adv-top
 tribunaavila.com,terra.com.ni,totaldescargas.com##.advertising
@@ -4676,7 +4678,7 @@ as.com##.banner_sup
 futnet.com.br,gizmodo.com.br##.banner_super
 canal13.cl,elpais.com,los40.com,uol.com.br##.banner_top
 lacerca.com##.banner_zona_9
-novanews.com.br,aquiacontece.com.br,elotrolado.net,xvideoz.es##.banners
+gmconline.com.br,novanews.com.br,aquiacontece.com.br,elotrolado.net,xvideoz.es##.banners
 olhardireto.com.br##.bannersButton
 eluniversal.com##.bannersTop
 lacartadelabolsa.com##.banners_cab
