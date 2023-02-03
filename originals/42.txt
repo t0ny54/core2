@@ -1457,7 +1457,6 @@ us6odtasve.ru
 ||adriverm.narod2.ru^$third-party
 ||adrock.ru^$third-party
 ||adrock.ua^$third-party
-||adroll.com^$third-party
 ||adru.net^$third-party
 ||adsbc.pp.ua^$third-party
 ||adselector.ru^$third-party
@@ -8709,6 +8708,12 @@ disk.yandex.*#%#//scriptlet('remove-class', 'has-fullscreen-banner','.public__ro
 !------- CSS -----------
 !-----------------------
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/141755
+n.fcd.su#$#.modal-fs { display: none !important; }
+n.fcd.su#$#.modal-backdrop { display: none !important; }
+n.fcd.su#$#body { overflow: auto !important; padding-right: 0 !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/141736
+kinobar.vip#$#body { padding-top: 0 !important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/141549
 kinometro.ru#$#body > div.wrapper { background: none !important; padding-top: 0 !important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/141543
@@ -11214,6 +11219,12 @@ progorod76.ru,riamobalashiha.ru,sobesednik.com,vz.ru,autoparus.by,ctv.by,hightec
 !
 !
 !
+360tv.ru##div[class^="ArticlePage_advBlock"]
+n.fcd.su##.card.w-rised-icon
+alisale.by##div.btn-box > a[class$="js-link"][target="_blank"][onclick]
+alisale.by##.long-sale
+||alisale.by/img/aliexpress
+||kinobar.vip/bg/glavnyy_geroy.jpg
 igromania.ru##.headerline_outer > a.strunmenu
 ||kinometro.ru/res/pic/brand/
 kinometro.ru##section[id^="banner-"]
@@ -19901,7 +19912,6 @@ www.ex.ua/*/index.css
 ||bzh.life/system/brandings/
 ||c-inform.info/images/poll_banner/
 ||c-s.net.ua/images/multiplay.jpg
-||c.votrube.ru^
 ||camelot.multilocal.ru/22.gif
 ||camelot.multilocal.ru/blogds.gif
 ||car.ru/|$~third-party,xmlhttprequest
@@ -22187,6 +22197,8 @@ gamer-info.com###games-db-main-listblock > a[class="gmv2-it"] + div[class]
 !
 ! START: mail.ru
 mail.ru##div[data-testid="grid-header"] > div.toolbar
+!+ PLATFORM(windows, mac, android)
+mail.ru##div[slot="main-column"] > div.tgb-wrapper
 !
 !!! !#if (!adguard_app_windows && !adguard_app_mac && !adguard_app_android)
 mail.ru##.skeleton + a[href^="https://r.mail.ru/redir/"]
@@ -23084,6 +23096,8 @@ bender/_bender*.js$script,replace=/this\.removeShadowBlockers\(\);/true; return;
 !
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/141312
+japannews.yomiuri.co.jp#@#.sp_search
 ! https://github.com/AdguardTeam/AdguardFilters/issues/137302
 zddoc.ru#@#.adrotate_widgets
 ! https://github.com/AdguardTeam/AdguardFilters/issues/135562

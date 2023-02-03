@@ -1977,9 +1977,6 @@ nowgoal.com##[href^="/ad/"]
 @@||capi.connatix.com/core/pls$xhr,domain=realclearpolitics.com
 @@||vid.connatix.com/*_media.bin$xhr,domain=realclearpolitics.com
 
-! fullmatchesandshows .com page broken by sw easylist regex filter
-@@||fullmatchesandshows.com/wp$script,1p
-
 ! https://github.com/NanoMeow/QuickReports/issues/2771
 @@||apollo-ireland.akamaized.net/*/files/*$image,domain=otodom.pl
 
@@ -3822,9 +3819,6 @@ meteoetradar.com##+js(no-xhr-if, doubleclick)
 ! https://github.com/uBlockOrigin/uAssets/issues/11372
 gumtree.com.au#@#.header--is-new-sticky-behaviour
 
-! https://github.com/uBlockOrigin/uAssets/issues/11357
-@@||imasdk.googleapis.com/js/sdkloader/ima3.js^$script,domain=nova.cz
-
 ! https://forums.lanik.us/viewtopic.php?t=47165
 @@||aps.hearstnp.com/Scripts/loadAds.js$script,domain=timesunion.com
 timesunion.com##div.setHeight.stickyWrapper
@@ -4218,7 +4212,6 @@ fontspace.com#@#.container-ads
 @@||hb.improvedigital.com/pbw/headerlift.min.js$script,domain=html5.gamedistribution.com
 @@||hb.improvedigital.com/pbw/prebid/*$script,domain=html5.gamedistribution.com
 ||tag.atom.gamedistribution.com^$xhr,redirect-rule=nooptext,1p
-gamedistribution.com##+js(no-fetch-if, /^/)
 ! https://github.com/uBlockOrigin/uAssets/issues/15382
 @@||googlesyndication.com/pagead/js/adsbygoogle.js$script,redirect-rule,domain=html5.gamedistribution.com
 
@@ -4743,3 +4736,9 @@ instagram.com#@#article[role="presentation"] > div[style]:has(span:has-text(/Ges
 
 ! https://github.com/uBlockOrigin/uAssets/issues/16587
 eleconomista.es#@#[class*="banner"]
+
+! unbreak sign up on NSFW sites
+@@/signup.php?mode=async&action=show_security_code$image,1p
+
+! https://github.com/uBlockOrigin/uAssets/issues/16598
+@@||js.sentry-cdn.com^$script,domain=app.homebinder.com
