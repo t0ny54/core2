@@ -456,6 +456,9 @@
 ! Bad: ||ad.doubleclick.net^ (should be in adservers.txt)
 !
 !
+! gbf.life anti-adb
+gbf.life#@#.adsbygoogle
+gbf.life##.adsbygoogle.ads-slot
 ! https://github.com/AdguardTeam/AdguardFilters/issues/140795
 audio-sound-premium.com##div[id][class^="popup"][class$="wrap"]
 audio-sound-premium.com#%#//scriptlet('prevent-fetch', 'pagead2.googlesyndication.com')
@@ -640,12 +643,14 @@ nordot.app#%#//scriptlet('abort-current-inline-script', 'document.createElement'
 ! https://github.com/AdguardTeam/AdguardFilters/issues/85641
 modalina.jp#%#//scriptlet('abort-on-property-read', 'AdBlockLimitation')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/116093
+sekai-kabuka.com#%#//scriptlet("abort-current-inline-script", "document.write", "r10.to")
+realtime-chart.info#$#div[style^="top:1"] > a[href^="https://a.r10.to"] { pointer-events: none !important; }
 realtime-chart.info#%#//scriptlet('remove-attr', 'onclick', 'td[style] div[style^="top:1"] > div')
 realtime-chart.info#%#//scriptlet('remove-attr', 'onmousedown', 'a')
 realtime-chart.info#?#td[style="vertical-align: top"] > div[id] > div[id] > div[id] > div[style="top:1437px"] > div[style="z-index:-1"]:contains(/^広告非表示だと色々と不具合が発生します$/)
-sekai-kabuka.com#$?#table[width="762px"] > tbody > tr > td[class] > div[id][class] > div[style="width: 227px;"]:contains(不具合が) { z-index: -1 !important; }
+sekai-kabuka.com#$?#table[width="762px"] > tbody > tr > td[class] > div[id][class] > div[style="width: 225px;"]:contains(不具合が) { z-index: -1 !important; }
 sekai-kabuka.com#$#ins.adsbygoogle > div[style="width:728px;height:90px;position:absolute;z-index:999;line-height:1.1;display:flex;justify-content:center;align-items:center;"] { height: 1px !important; overflow: auto !important; }
-realtime-chart.info#$#div[style="top:1437px"] > [style*="font-size:"]:is(b, span, a) { font-size: 0 !important; }
+realtime-chart.info#$#div[style="top:1414px"] > [style*="font-size:"]:is(b, span, a) { font-size: 0 !important; }
 sekai-kabuka.com#$#div[id][class][style^="position:relative;background:#000;"][style*="width:729px;"][style*="height: 90px;"] { height: 1px !important; }
 realtime-chart.info#$#div[data-i4h] { font-size: 0 !important; }
 sekai-kabuka.com#%#//scriptlet('remove-attr', 'onclick', 'div[data-js][style*="background"]', 'stay')
@@ -2243,6 +2248,11 @@ kuruma-news.jp,magmix.jp,trafficnews.jp$$div[data-history="photo_extra"]
 /wp-content/plugins/amazonjs/*
 !
 ! Malware/Phishing
+-koyamato-jp.*.cn/$document
+koyamaton-co.*.cn/$document
+://amazon-*.com/pc/sigin.php?openid_pape_max_auth_age=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier&openid_return_to=$document
+resohabannk-co-jp.*.com/resona/$document
+.shop/redcross/login.jsp|$document
 ||s.kurersekoyas*-jp.icu^$document
 _ap/signin*?_encoding=UTF8&openid.assoc_handle=jpflex&openid.claimed_id=&action=sign-in&path=home&ref_=nav_Account&signIn=1&useRedirectOnSuccess=1|$document
 ||ddns.net/Personal/member/Login/index.php?oneTimeAccessID=$document
@@ -2256,12 +2266,10 @@ _ap/signin*?_encoding=UTF8&openid.assoc_handle=jpflex&openid.claimed_id=&action=
 .com/login.php?Login/link_id=cojp_head_myj_login|$document
 .cn/ap/signin/openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.co.jp$document
 .icu/pc.html#/pc/login/openid.pape.max_auth_age=0&openid.return_to=$document
-://ekii-net.*.shop/login.php|$document
 .cn/eorico/login.php|$document
 /Softbank.apk^$document
 /all/login.php?idsmt=*&nextfunck=$document
 ://www-info-view.*.com/all/sign.php|$document
-://eki.net.*.shop/$document
 ://wwwsnbc.*.cn/all/login.php|$document
 /:\/\/www\.eki-net\.[a-z]{6}\.info\/[0-9A-Za-z]{44}$/$document
 ://www.eki-net.*.top/index/index/login.html|$document
@@ -2433,6 +2441,7 @@ blog.livedoor.jp##a[href*="ad-feed.com/link/click"]
 !
 !
 !
+limia.jp###js-Columns-col-inner > div[style="min-height: 160px;"]
 asm.asahi.com##.entry-links-group
 nanjgod.blog.jp###extra div.plugin-memo:last-child
 stv.jp##.Ads > div[id^="div-gpt-"] + br

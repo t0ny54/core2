@@ -1,9 +1,9 @@
 ![Adblock Plus 2.0]
-! Checksum: R73H/xCwmczI7NJ/WNBP/Q
+! Checksum: CMlixib9K+3Uq3CZejPWaw
 ! Title: AdGuard German filter (Optimized)
 ! Description: EasyList Germany + AdGuard German filter. Filter list that specifically removes ads on websites in German language.
-! Version: 2.0.32.38
-! TimeUpdated: 2023-02-04T15:31:56+00:00
+! Version: 2.0.32.39
+! TimeUpdated: 2023-02-05T23:31:58+00:00
 ! Expires: 4 days (update frequency)
 ||ad.dl.mainpost.de^
 ||plx.eispop.com^
@@ -500,6 +500,7 @@ lecker.de#@#.adBlock
 lecker.de#@#.ad-text
 proplanta.de###body_opacity_overlay
 proplanta.de##+js(no-setTimeout-if, adBlockFlag.offsetHeight)
+hdfilme.*#$##fads { display: block !important; }
 hdfilme.*##+js(set-constant, adBlocked, falseFunc)
 ||doubleclick.net^$xmlhttprequest,redirect=noop.txt,domain=stol.it,important
 @@||doubleclick.net^$xmlhttprequest,domain=stol.it
@@ -597,7 +598,6 @@ willhaben.at#@#div[id^="advert"]
 @@||sixx.de^$generichide
 @@||giga.de^$generichide
 @@||zdnet.de/wp-content/themes/*/assets/js/advertising.js^
-@@||media-cdn.sueddeutsche.de/adblock/*$script
 @@||handelsblatt.com/js/*/iqadcontroller.js
 @@||handelsblatt.com$generichide
 @@||radiohamburg.de^$generichide
@@ -1562,6 +1562,7 @@ printer-care.de###advertisment
 saarbruecker-zeitung.de##.park-section-portal-top > aside.park-portal[id^="park-portal-"]
 alemannia-aachen.de###grid-image-head
 trainingsworld.com##div[id^="npm_"]
+trainingsworld.com##.post-content > div[id^="attachment_"][style*="width"].wp-caption
 trainingsworld.com##.post-content a[href*="amazon"][target="_blank"]
 frag-mutti.de##.intext-ad
 frag-mutti.de##.content-recommendations
@@ -2182,9 +2183,11 @@ autobild.de,computerbild.de##.adsensebox
 radiobielefeld.de###billboardad
 radiobielefeld.de##div[class*="jsbt"]
 schulferien.org###right_box
-genussmagazin-frankfurt.de###banner_fullsize_div
+journal-frankfurt.de,genussmagazin-frankfurt.de###banner_fullsize_div
+garten.de,studienwahl.de##div[id^="ad_"]
 zeit.de##.cp-area--shop
 nw.de###accordionDate
+aachener-zeitung.de,aachener-nachrichten.de##div[id^="oms_gpt_"]
 dhd24.com##.external-content-container
 wetteronline.de##.adplace
 wetteronline.de##.flagged
@@ -2196,7 +2199,6 @@ pcwelt.de##.bid_info
 ||andreas-unterberger.at/mediafiles/werbung
 andreas-unterberger.at##div[class^="adsensecontent"]
 whocallsme.com###phoneTop
-wow-forum.com###mpu
 druckerchannel.de###DCA_BOTTOM
 druckerchannel.de###DCGA_LEAD
 winfuture.de###adbox16
@@ -2279,6 +2281,7 @@ schnelle-online.info##div[id^="adright"]
 spielaffe.de##div[id^="app_advertising"]
 dhv.de,welt.de##div[id^="banner_"]
 chip.de##div[id^="contentad-"]
+spiegel.de,abnehmen.com,gulli.com##div[id^="crt-"]
 bmw-syndikat.de##div[id^="div-dfp-"]
 sueddeutsche.de##div[id^="iqad"]
 meinestadt.de##div[id^="ms_adsense"]
@@ -2287,7 +2290,6 @@ elderscrollsportal.de,netzwelt.de##li.message:not([id^="post-"])
 zeit.de##li[data-label$="Anzeige"]
 frustfrei-lernen.de##span.contentlabel
 jumk.de,welt-zeit-uhr.de,rechneronline.de##div[style="font-size:10px;margin-top:1px"]
-||ad-js.chip.de/js/chip/
 ||allgaeuhit.de/wb_code.php?wbid=*&url=
 ||marktforschung.de/fileadmin/user_upload/Banner_
 ||widgets.outbrain.com/outbrain.js$domain=chip.de
@@ -2297,6 +2299,7 @@ bild.de##div[class$="rectangle ad-mark"]
 ||durchblicker.at/iframes^$third-party
 merkur.de,merkur-online.de##.id-Container--promotion
 wetter24.de###ads_placeholder
+wow-forum.com,gta-5-forum.de###mpu
 pcwelt.de##.idgGoogleAdTag
 vip.de##.vip-medium-rectangle.teaser_item
 vip.de##.vip-teaser.large
@@ -2309,7 +2312,6 @@ wallstreet-online.de###mooTickerContainer
 az-online.de##div[data-id-advertdfpconf]
 winfuture-forum.de##.ExtraPostBlock > div[class$="post_block hentry clear"]
 transfermarkt.de##div[style="margin-top:20px;"] > div.fl
-autobild.de##.rectangle
 ariva.de#@#.teaserPicturedNews
 plastverarbeiter.de,neue-verpackung.de#@##content_ad_1
 plastverarbeiter.de,neue-verpackung.de#@##content_ad_2
@@ -2411,7 +2413,6 @@ browsergames.spielen.de#@##gameimage
 kostenlose-online-rechner.de#@##advert1
 kostenlose-online-rechner.de#@##advert2
 rtl.de#@#.rtlde-medium-rectangle
-@@||assets.sport1.de/bundles/
 -Bannerwerbung-
 -Werbebanner-
 -werbebanner.$domain=~merkur-werbebanner.de
@@ -2425,7 +2426,6 @@ rtl.de#@#.rtlde-medium-rectangle
 .org/werbung/
 /_werbung/*
 /bannerwerbung-
-/bilder/ads/*
 /bilder/werbung_
 /grafik/ads/*
 /images/werb/*
@@ -2464,6 +2464,7 @@ rtl.de#@#.rtlde-medium-rectangle
 /werbung.gif
 /werbung/*$third-party
 /Werbung/*_banner_
+/werbung/banner/*
 /werbung/banner_
 /werbung5jw/*
 /werbung90.
@@ -2729,7 +2730,6 @@ wetter.com#@#div[id^="div-gpt-"]
 ||heias.com^$third-party
 ||ibanner.de^$third-party
 ||iias.eu^$third-party
-||iqcontentplatform.de^$third-party
 ||itrack.it^$third-party
 ||jojoad.com^$third-party
 ||ktxtr.com^$third-party
@@ -2912,6 +2912,7 @@ $stylesheet,subdocument,third-party,xmlhttprequest,domain=canna-power.to|canna.t
 ||crosswater-job-guide.com/pics/banner_
 ||daily-pia.de/wp-content/uploads/*/manitu_hostedby-
 ||delamar.de/wp-content/uploads/__aktionen/plakat/plakat_billb.jpg
+||derkleinegarten.de/images/kiste/
 ||deutschland.fm^*/leaseweb.gif
 ||dforum.net/banner/
 ||dhb.de^*/Sponsoren/
@@ -3026,6 +3027,7 @@ $stylesheet,subdocument,third-party,xmlhttprequest,domain=canna-power.to|canna.t
 ||mediaforum.ch/banner_
 ||mein-wetter.com/include/$subdocument
 ||melodieundrhythmus.com^*/unblock-cuba_
+||modified-shop.org/images/banner/
 ||msecnd.net/endpoint/shipment/$domain=merkurist.de
 ||mtb-news.de/news/wp-content/plugins/mtbn-ads/
 ||musiker-board.de^*/siropu/aml/
@@ -3115,6 +3117,7 @@ $stylesheet,subdocument,third-party,xmlhttprequest,domain=canna-power.to|canna.t
 ||tchgdns.de/wp-content/uploads/*-300-600.jpg
 ||tchgdns.de/wp-content/uploads/*_97090.jpg
 ||techreviewer.de/wp-content/uploads/*-banner-
+||teilzeithelden.de/wp-content/uploads/*/DTRPG-Sidebar.jpg
 ||thinkpad-forum.de/bilder/thinkstore24.jpg
 ||tieronline.ch/images/partner/
 ||trustedoffers.de^$domain=chip.de
@@ -3224,7 +3227,6 @@ wiesbaden.de###SP-commercials
 teltarif.de###SpaceRectangle
 1erforum.de,bauexpertenforum.de,dasheimwerkerforum.de,elektrikforen.de,fitness-foren.de,lpgforum.de,mazda-forum.info,megane-board.de,mercedes-forum.com,notebookforum.at,pkw-forum.de,skodacommunity.de,toyota-forum.de,vermieter-forum.com,windows-7-forum.net###TopRectangle
 bbv-net.de,stadtanzeiger-borken.de###WallpaperBanner
-neumarktaktuell.de###Werbung
 mallorcazeitung.es###_mo_cti
 pokewiki.de,timeanddate.de###ad1
 pokewiki.de###ad2
@@ -3317,7 +3319,6 @@ finanznachrichten.de,wallstreet-online.de###dmr2
 wallstreet-online.de###dout1
 dastelefonbuch.de###dtm_multiboxcontainer
 gelbeseiten.de###dtm_super
-teilzeithelden.de###enhancedtextwidget-12
 fremdwort.de###ezisgib
 autoextrem.de,skodacommunity.de###fh-inside-bottom
 autoextrem.de,skodacommunity.de,usp-forum.de,win-10-forum.de,winboard.org###fh-outside-top
@@ -3539,7 +3540,6 @@ ichkoche.at##.asyncBanner
 pcgameshardware.de##.at_sponsored
 autogazette.de##.autog-widget
 nrwhits.de##.ax-medium-rectangle-n
-abmahnung.org##.azk-native-responsive
 fcaugsburg.de##.b-logo-listing
 hardwareschotte.de##.ba-fullsize
 browsergames.de##.background
@@ -3571,7 +3571,6 @@ liveticker.com##.bettingStrip
 bunte.de##.bfa-ad-slot
 boersennews.de##.bg-smartbroker-dark
 boersennews.de##.bg-smartbroker-light
-finanzen.ch##.big_size
 baupool.com,bundesliga.com,fnweb.de,laborjournal.de,ligaportal.at,mannheimer-morgen.de,tarnkappe.info,traktorpool.de,winfuture.de##.billboard
 infranken.de##.billboard-wrapper
 computerbild.de##.billboardBtfContainer
@@ -4206,7 +4205,6 @@ onvista.de#?#.flex-layout:-abp-has(div[class^="ArticleTeaser_ov-article-teaser__
 onvista.de#?#.outer-spacing--xxlarge-top:-abp-contains(Werbung von)
 onvista.de#?#.ov-article-teaser:-abp-has(.ov-article-teaser__onvistaCustomer)
 pc-magazin.de#?#.teaser:-abp-has(.teaser__promolabel)
-photographie.de#?#.post.type-post.status-publish:-abp-has(.anzeige-box)
 promobil.de#?#.v-A_-teaser__halfcol__listitem:-abp-has(.v-A_-teaser__tag--ad)
 saechsische.de#?#.article-box:-abp-has(> .article-box__text > .article-box__info > span.article-badge--ad)
 saechsische.de#?#.article-fill:-abp-has(.article-badge.article-badge--ad)
@@ -4227,7 +4225,6 @@ zwischengas.com#?#.row.mt-0.mb-3.d-print-none:-abp-has(.fa-ad)
 @@||adform.net/banners/$domain=rewe.de|telekom.de
 @@||adnxs.com/p/creative-image/$image,domain=autobild.de
 @@||adnxs.com/ut/v3|$xmlhttprequest,domain=autobild.de
-@@||ads.viralize.tv/player/$xmlhttprequest,domain=rollingstone.de
 @@||amazon-adsystem.com/aax2/apstag.js$script,domain=gamestar.de|moviepilot.de
 @@||asadcdn.com/adlib/$domain=autobild.de|rollingstone.de
 @@||asadcdn.com/adlib/$script,domain=sportbild.bild.de
