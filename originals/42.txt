@@ -4558,7 +4558,7 @@ docs-python.ru#@#div[id^="yandex_rtb"]
 @@||yandex.ru/ads/$domain=docs-python.ru
 !#endif
 !#if (!adguard_app_windows && !adguard_app_mac && !adguard_app_android && !adguard_ext_firefox)
-docs-python.ru#%#//scriptlet('prevent-setTimeout', 'resolve', '2000')
+docs-python.ru#%#//scriptlet('prevent-setTimeout', 'resolve')
 docs-python.ru#%#AG_onLoad(function(){document.querySelectorAll('pre').forEach(function(a){a.classList.add('highlight')})});
 docs-python.ru#$#nav { visibility: visible !important; }
 docs-python.ru#$#aside { visibility: visible !important; }
@@ -6198,6 +6198,7 @@ livejournal.com#%#//scriptlet("set-constant", "begun_new_callbacks", "undefined"
 ||irecommend.ru/*/*/$xmlhttprequest,jsonprune=\$.data.*.attributes
 !
 !#if (!adguard_ext_firefox)
+||rg.ru/*/*/$xmlhttprequest,replace=/"attributes"/""/
 ||home.imgsmail.ru/resplash/*/j/d-*.js$replace=/o\.default\.radar\("adblock"\)//
 ||yandex.ru/weather/$script,xmlhttprequest,replace=/^Ya\[\d+\].*//
 ||dzen.ru/*/*/*_$replace=/^.*"blockId\":\s*\"R-A-.*//,script,xmlhttprequest,other
@@ -6726,6 +6727,8 @@ sports.ru#?#.columns-layout__right > section:has(> div[data-is-ad-poll="1"])
 okko.sport#?#div[class]:has(> div[class] > div[class]:contains(/^коэффициенты$/))
 okko.sport#?#button:has(> span:contains(/^прогнозы$/))
 okko.sport##div[class]:has(> iframe[src^="https://clients-static.okko.tv/web/banners/winline/"])
+!
+rg.ru#?#div[class^="EditorialPageArticleAside_aside"] > div[class^="EditorialPageArticleAside_item"]:has(> div[id].page_article)
 !
 cnews.ru#?#.article-wrap > section.section_mainnews > div.container:has(> div.line_pattern > a[href^="https://market.cnews.ru/"])
 slamdunk.ru#$?#body > a[target="_blank"] { remove: true; }
@@ -8706,6 +8709,11 @@ disk.yandex.*#%#//scriptlet('remove-class', 'has-fullscreen-banner','.public__ro
 !------- CSS -----------
 !-----------------------
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/142892
+vseprosport.ru#$#.full-banner-page { padding-top: 0px !important; }
+! rg.ru
+rg.ru#$#div[class^="NewsFeed_adsTop"] { height: 0 !important; }
+rg.ru#$#div[class^="Page_main"] { min-height: auto !important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/141755
 n.fcd.su#$#.modal-fs { display: none !important; }
 n.fcd.su#$#.modal-backdrop { display: none !important; }
@@ -11214,6 +11222,10 @@ progorod76.ru,riamobalashiha.ru,sobesednik.com,vz.ru,autoparus.by,ctv.by,hightec
 !
 !
 !
+habr.com##.tm-layout-sidebar__ads
+||vseprosport.ru/images/bookmaker-banners
+vseprosport.ru##div[id^="bookmaker_"]
+habr.com##.tm-company-card__branding
 ||officelife.media/*/rk/
 officelife.media##.a-brand
 myip.ru##.copy
@@ -12826,7 +12838,7 @@ gameinside.ua##body > a[target="_blank"]
 gameinside.ua##a.banner
 felomena.com##div[class^="sliding-parent"]
 allsports-tv.ru##.tabs-outer
-vprognoze.ru##.header__bonus
+vseprosport.ru,vprognoze.ru##.header__bonus
 vprognoze.ru##.w-bookmakers
 vprognoze.ru##.LKJP-banner
 anime-bit.ru##.anime_list_ad
@@ -22947,6 +22959,13 @@ dtf.ru##.kinopoisk-site-header
 dtf.ru##.daily-promo-unit
 spark.ru##.jobs--layout
 ! End: vc.ru, dtf.ru, spark.ru
+!
+! rg.ru
+rg.ru##div[class^="PageIndexContentFirst_spiegelWrapper"] > div[class^="PageIndexContentFirst"]
+rg.ru##div[class*="PageArticle"][class*="partner"]
+rg.ru##main div[class^="Section_sectionContent"] > div[class^="EditorialPageArticle"]
+rg.ru##.page_article
+rg.ru##div[class^="NewsFeedList_banner"]
 
 !-------------------------------------------------------------------------------!
 !------------------ Content replacement rules ----------------------------------!
