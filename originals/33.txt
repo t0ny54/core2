@@ -324,7 +324,7 @@ biteki.com#$?#.slick-slide > div[id] + script:upward(1)  { remove: true; }
 jin115.com#?#.plugin-memo > div.side > script[src*="ziyu.net/"]:upward(2)
 ! https://github.com/AdguardTeam/AdguardFilters/issues/140288#issuecomment-1385509403
 mesyuu.com#?#div[class$="_outline"] > div > div.plugin-freearea > div.ninja-recommend-block:upward(3)
-pachinkopachisro.com,blog.livedoor.jp,blog.jp,vipstyle.tokyo#?#.plugin-memo > div.side > div.ninja-recommend-block:upward(2)
+doorblog.jp,pachinkopachisro.com,blog.livedoor.jp,blog.jp,vipstyle.tokyo#?#.plugin-memo > div.side > div.ninja-recommend-block:upward(2)
 blogterest.net#?#.blockSide > div.blockWrapper > div > div.ninja-recommend-block:upward(2)
 nukeruerodouga.com#?##main-right > div.right_area > div.ninja-recommend-block:upward(2)
 ! https://github.com/AdguardTeam/AdguardFilters/issues/110304#issuecomment-1057807201
@@ -5453,6 +5453,8 @@ nethunt.com/api/v1/track/email/$image
 ! Blocking piwik analytics subdomain(for DNS filtering)
 |piwik.
 !
+||beacon.unext.jp^
+||log.affiliate.rakuten.co.jp^
 ||d-collector.jennifersoft.com^
 ||analytics.dashboard.fingerprint.com^
 ||tracking.ensonhaber.com^
@@ -35332,6 +35334,11 @@ charlestownwyllie.oaklawnnonantum.com^
 ! Good: .org/ads/
 ! Bad: .org/ads/$domain=example.org (for instance, should be in speficic.txt)
 !
+!
+! Admiral
+! https://github.com/AdguardTeam/AdguardFilters/pull/142877
+/^https:\/\/[0-9a-z]{7,25}\.com\/v2(?:\/0\/)?(?=[0-9a-z_-]{0,84}[A-Z])(?=[a-zA-Z_-]{0,84}[0-9])[0-9a-zA-Z_-]{54,85}(#\?v=[0-9a-f]{32})?$/$ping,script,xmlhttprequest,third-party,match-case
+!
 ! Blocking conversion tracking URLs that are used by WebKit
 ! More info: https://webkit.org/blog/11529/introducing-private-click-measurement-pcm/
 ! Content blockers can prevent this: https://bugs.webkit.org/show_bug.cgi?id=197183
@@ -35918,6 +35925,7 @@ _tracking.php?b=
 /analytics.js$domain=freexcafe.com|rusvideos.tv|nakubani.ru|lun.com|songsara.net|newsmax.com|bolgehastanesi.com|ewtc.de|newsdig.tbs.co.jp|imore.com|city.kushiro.lg.jp|emeraldbridal.com.au|emarat-news.ae|imobie.jp
 ||assets.adobedtm.com^$domain=mcclatchydc.com|elnuevoherald.com|bellinghamherald.com|sacbee.com|charlotteobserver.com|newsobserver.com|miamiherald.com|ef.ru|algida.com.tr|bmw-motorrad.co.uk|cif.com.tr|clearhaircare.com|domestos.com|dove.com|elidor.com.tr|f1sport.autorevue.cz|geico.com|hellmanns.com.tr|herkessofraya.com|johnsonsbaby.com.tr|lipton.com|lnk.to|lux.com|magnumicecream.com|neutrogena.com.tr|omo.com|rexona.com|samsung.com|sap.com|schwarzkopf.com.tr|signalturkiye.com|msnbc.com|nbcnews.com|kbb.com|eurosport.ru|timgate.it|intermiles.com|oxfordmail.co.uk|spiegel.de|hp.com|deutschepost.de|thebay.com|s.shufoo.net|tsn.ca|tabelog.com|euronews.com|newshub.co.nz
 !
+||istoe.com.br/@nave/gateway/reply?navtrackdata=
 zch-vip.com##.plugin-access
 ||mtvnservices.com/measurements/
 ||cqloud.com/measurements/
@@ -39246,6 +39254,7 @@ $cookie=s_lastvisit_s
 ! Used to collecting visits
 $cookie=wt3_sid
 $cookie=wt_sid
+$cookie=wtstp_sid
 ! Used to collecting end device and visitor id
 $cookie=wt3_eid
 $cookie=wt_eid
@@ -40537,6 +40546,7 @@ $app=com.miui.analytics
 ||monitoring-sdk.experimentation.intuit.com^
 ||logging.api.intuit.com^
 ||analytics.prod.mybuddy.ai^
+||dualstack-logs.amap.com^
 ||logs.amap.com^
 ||edmanalytics.pandahall.com^
 ||applogs.pixelfederation.com^
@@ -41050,6 +41060,8 @@ $app=com.miui.analytics
 !
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/142567
+@@||csm.cxpublic.com/nikkansports.js$domain=nikkansports.com,script
 ! https://github.com/AdguardTeam/AdguardFilters/issues/142569
 @@||cm-widget.nakanohito.jp/cm/$script,stylesheet
 @@||cm-beacon.nakanohito.jp/cm/comment_$xmlhttprequest

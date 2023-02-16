@@ -235,6 +235,22 @@ $removeparam=fb_source
 ! Bad: ||example.org^$xmlhttprequest,redirect=noopvast-3.0 (for instance, should be in specific.txt)
 !
 !
+! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-4966523
+||login.afreecatv.com^$removeparam=szFrom
+! moffme.com?source=gl&medium=moffme&campaign=article_2699
+||moffme.com^$removeparam=source
+||moffme.com^$removeparam=medium
+||moffme.com^$removeparam=campaign
+! Uzou recommendation trackparam
+||click.speee-ad.jp^$removeparam=os
+||click.speee-ad.jp^$removeparam=ref
+||click.speee-ad.jp^$removeparam=sess_id
+||click.speee-ad.jp^$removeparam=slot_index
+||click.speee-ad.jp^$removeparam=v
+! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-4978150
+||tiktok.com^$removeparam=embed_source
+||tiktok.com^$removeparam=referer_url
+||tiktok.com^$removeparam=refer
 ! https://voicy.jp/channel/2964/451627?share.ref=https%3A%2F%2Ft.co%2F
 ||voicy.jp^$removeparam=share.ref
 ! https://github.com/AdguardTeam/AdguardFilters/issues/141768
@@ -903,8 +919,9 @@ $removeparam=a_aid,domain=expressvpn.com|vpnarea.com
 ! ads_params - it contains information on a which website video iframe is embedded
 ||dailymotion.com/embed/video/*?ads_params=*&origin=$removeparam=ads_params
 ||dailymotion.com/embed/video/*?ads_params=*&origin=$removeparam=origin
-! https://github.com/AdguardTeam/AdguardFilters/pull/91540
+! https://github.com/AdguardTeam/AdguardFilters/issues/143017
 ||wired.co.uk^$removeparam=mbid
+||wired.com^$removeparam=mbid
 ! https://github.com/AdguardTeam/AdguardFilters/issues/91233
 ||wikihow.com^$removeparam=?utm_source
 ! kohls.com - counter
