@@ -721,10 +721,6 @@ britannica.com###md-media-overlay-ad
 ! https://forums.lanik.us/viewtopic.php?p=138218#p138218
 ||tag.navdmp.com/$script,redirect=noopjs,domain=globoesporte.globo.com
 
-! https://www.techadvisor.co.uk/how-to/photo-video/how-convert-vhs-dvd-digital-3417308/
-! images missing
-techadvisor.co.uk#@#.adsbygoogle
-
 ! https://adblockplus.org/forum/viewtopic.php?f=1&t=57357&start=0
 @@||statics.estadao.com.br/*/portal/js/comscore/$script,domain=estadao.com.br
 @@||statics.estadao.com.br/*/utils/publicidade/dfp.min.js$script,domain=estadao.com.br
@@ -1044,9 +1040,6 @@ hdblog.it#@#a[href^="https://www.amazon."][href*="tag="]
 ! http://forum.canucks.com/topic/388440-pgt-philadelphia-flyers-at-vancouver-canucks-dec-15-2018/?page=2&tab=comments#comment-14661218
 @@||ads.rogersmedia.com/cbc$frame,domain=cbc.ca
 @@||pubads.g.doubleclick.net/ssai/event/$xhr,domain=players.brightcove.net|cbc.ca
-
-! https://github.com/NanoMeow/QuickReports/issues/457#issuecomment-447925751
-gplcanyon.com#@#.adsbygoogle
 
 ! https://github.com/NanoMeow/QuickReports/issues/462
 @@||startpage.com^$popup,domain=msn.com
@@ -4550,8 +4543,15 @@ instagram.com#@#div[style="max-height: inherit; max-width: inherit;"]:has(span:h
 @@||imasdk.googleapis.com/js/sdkloader/ima3.js$script,3p,domain=ici.tou.tv
 
 ! https://github.com/uBlockOrigin/uAssets/issues/15661
-@@||aniview.com/api/$script,domain=gamingbible.co.uk
-@@||player.avplayer.com/script/*/avcplayer.js$script,domain=gamingbible.co.uk
+@@||aniview.com/api/$script,xhr,domain=gamingbible.co.uk
+@@||player.avplayer.com/script/*/avcplayer.js$script,xhr,domain=gamingbible.com
+@@||micro.rubiconproject.com/prebid/dynamic/$script,xhr,domain=gamingbible.com
+||amazon-adsystem.com/aax2/apstag.js$script,xhr,redirect-rule=amazon_apstag.js:5
+*$script,redirect-rule=noopjs,domain=gamingbible.com
+*$xhr,redirect-rule=nooptext,domain=gamingbible.com
+gamingbible.com##[data-cypress="sticky-header"]
+gamingbible.com##[data-cypress="sticky-ads"]
+gamingbible.com##div[id] > .dfp-ad-unit:upward(1)
 
 ! shavetape. cash(streamtape alias) download blocked
 *$popup,3p,domain=shavetape.cash,badfilter
@@ -4561,9 +4561,6 @@ gloucestershirelive.co.uk##+js(set, chameleonVideo.adDisabledRequested, true)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/15720
 /^https?:\/\/[0-9a-z]{8,}\.xyz\/.*/$3p,~media,domain=apiyoutube.cc|clicknupload.to|daddyhd.com|poscitech.click|sportcast.life,badfilter
-
-! https://github.com/uBlockOrigin/uAssets/issues/15745
-@@||aps.hearstnp.com/Scripts/loadAds.js$script,domain=sfchronicle.com
 
 ! https://github.com/uBlockOrigin/uAssets/issues/15744
 @@||abcmouse.com/*/analytics.js$script,1p
@@ -4771,3 +4768,13 @@ wnynewsnow.com#@#.ez-video-wrap
 ! https://github.com/uBlockOrigin/uAssets/issues/16765
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=tunegenie.com,redirect-rule=google-ima.js
 tunegenie.com##.adcontainer
+
+! https://github.com/uBlockOrigin/uAssets/issues/16779
+@@||google-analytics.com/analytics.js$script,domain=by.tribuna.com|ua.tribuna.com
+@@||googletagmanager.com/gtm.js$script,domain=by.tribuna.com|ua.tribuna.com
+
+! https://github.com/AdguardTeam/AdguardFilters/issues/142640
+itmedia.co.jp###ulCommentWidget[style*="display"]:style(display: block !important;)
+
+! https://github.com/uBlockOrigin/uAssets/issues/16786
+@@||ftb.ca.gov/js/webtrends.min.js$script,1p

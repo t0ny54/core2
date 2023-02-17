@@ -79,6 +79,10 @@
 ! Bad: example.org###rek (should be in specific.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/142640
+! Fixes comment section loading
+itmedia.co.jp#%#//scriptlet('set-cookie', 'cX_G', '1')
+itmedia.co.jp#$##ulCommentWidget[style*="display"] { display: block !important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/142311
 ! Fixes comment section loading
 apkpure.com#%#//scriptlet('set-constant', '$$.analytics', 'emptyObj')
@@ -266,8 +270,6 @@ venalia.ru,добрынинский.рф#%#(function() { window.Ya = window.Ya |
 citypizza.ru#%#window.yaCounter9890803 = { reachGoal: function() {} };
 ! Fixing apteka.ru map
 apteka.ru#%#window.yaCounter14913877={ reachGoal: function() {} };
-! http://forum.adguard.com/showthread.php?4633
-popmech.ru#%#AG_onLoad(function() { window.POPMECH.increaseCounters = function() {} });
 ! https://forum.adguard.com/index.php?threads/resolved-accountkiller-com.16162/
 accountkiller.com#%#window.ga = function(){var a = arguments[5];a&&a.hitCallback&&a.hitCallback();}
 !-------------------
@@ -35912,7 +35914,7 @@ _tracking.php?b=
 ! ||googletagmanager.com/gtm.js?$third-party,script,redirect=googletagmanager-gtm,domain=~corsair.com|~olx.*|~simon.com|~bethesda.net|~paddle.com
 ||googletagservices.com/tag/js/gpt.js$xmlhttprequest,script,redirect=googletagservices-gpt
 ! fix https://golf.com/news/tour-confidential-match-play-concession-augusta-womens-am/
-||securepubads.g.doubleclick.net/tag/js/gpt.js$script,redirect=googletagservices-gpt,domain=~golf.com|~today.line.me|~inmuebles24.com|~inside.com.tw
+||securepubads.g.doubleclick.net/tag/js/gpt.js$script,redirect=googletagservices-gpt,domain=~golf.com|~today.line.me|~inmuebles24.com|~inside.com.tw|~investing.com
 !
 ! Some sites are broken. The rules are required for apps only.
 .demdex.net/id^$redirect=nooptext,important
@@ -35925,6 +35927,7 @@ _tracking.php?b=
 /analytics.js$domain=freexcafe.com|rusvideos.tv|nakubani.ru|lun.com|songsara.net|newsmax.com|bolgehastanesi.com|ewtc.de|newsdig.tbs.co.jp|imore.com|city.kushiro.lg.jp|emeraldbridal.com.au|emarat-news.ae|imobie.jp
 ||assets.adobedtm.com^$domain=mcclatchydc.com|elnuevoherald.com|bellinghamherald.com|sacbee.com|charlotteobserver.com|newsobserver.com|miamiherald.com|ef.ru|algida.com.tr|bmw-motorrad.co.uk|cif.com.tr|clearhaircare.com|domestos.com|dove.com|elidor.com.tr|f1sport.autorevue.cz|geico.com|hellmanns.com.tr|herkessofraya.com|johnsonsbaby.com.tr|lipton.com|lnk.to|lux.com|magnumicecream.com|neutrogena.com.tr|omo.com|rexona.com|samsung.com|sap.com|schwarzkopf.com.tr|signalturkiye.com|msnbc.com|nbcnews.com|kbb.com|eurosport.ru|timgate.it|intermiles.com|oxfordmail.co.uk|spiegel.de|hp.com|deutschepost.de|thebay.com|s.shufoo.net|tsn.ca|tabelog.com|euronews.com|newshub.co.nz
 !
+||ccp.digitaltrends.com/scripts/cc-tracking.js
 ||istoe.com.br/@nave/gateway/reply?navtrackdata=
 zch-vip.com##.plugin-access
 ||mtvnservices.com/measurements/
@@ -39197,6 +39200,8 @@ link.gmapp*.net$image
 ! Bad:  example.org#@##cookie
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/142640
+@@||itmedia.co.jp^$cookie=cX_G
 ! https://github.com/AdguardTeam/AdguardFilters/issues/140782
 @@||dell.com^$cookie=/^AMCVS?_.*AdobeOrg/
 ! https://github.com/AdguardTeam/AdguardFilters/issues/140059
@@ -40119,7 +40124,6 @@ $cookie=tint-anonymous-uid,domain=leichtathletik.de
 ||kariyer.net^$cookie=jobviewcount
 ||ok.ru^$cookie=_statid
 ||ok.ru^$cookie=mtrc
-||popmech.ru^$cookie=popmech_nuid
 ||productreview.com.au^$cookie=pr_guest_id
 ||productreview.com.au^$cookie=pr_visitor_id
 ||11st.co.kr^$cookie=/RAKE_SID/
@@ -40213,6 +40217,42 @@ $app=com.miui.analytics
 ! Apps of Naver Corp https://github.com/AdguardTeam/AdguardFilters/pull/100824
 ||ntracker-collector.naver.com^
 ||ace.naver.com^
+! xiaomi
+||api.sec.intl.miui.com^
+||authbe.sec.intl.miui.com^
+||flash.sec.intl.miui.com^
+||api.setting.intl.miui.com^
+||data.sec.intl.miui.com^
+||log.avlyun.sec.intl.miui.com^
+||tracking.intl.miui.com^
+||metok.sys.miui.com^
+||mazu.sec.miui.com^
+||auth.be.sec.miui.com^
+||adv.sec.miui.com^
+||api.sec.miui.com^
+||data.sec.miui.com^
+||logupdate.avlyun.sec.miui.com^
+||r.browser.miui.com^
+||tracking.miui.com^
+||xlmc.sec.miui.com^
+||data.mistat.intl.xiaomi.com^
+||register.xmpush.xiaomi.com^
+||storeconfig.mistat.intl.xiaomi.com^
+||zeus.ad.intl.xiaomi.com^
+||api.ad.intl.xiaomi.com^
+||sdkconfig.ad.intl.xiaomi.com^
+||api.miui.security.xiaomi.com^
+||shenghuo.xiaomi.com^
+||globalapi.ad.xiaomi.com^
+||api.ad.xiaomi.com^
+||resolver.msg.xiaomi.net^
+||abtest.mistat.xiaomi.com^
+||o2o.api.xiaomi.com^
+||thm.market.xiaomi.com/thm/stats
+||data.mistat.india.xiaomi.com^
+||data.mistat.rus.xiaomi.com^
+||data.mistat.xiaomi.com^
+||sdkconfig.ad.xiaomi.com^
 ! xiaomi mi band app
 ||datacollector-*.dt.hicloud.com^
 ||app-analytics-ru.huami.com^
@@ -40401,7 +40441,6 @@ $app=com.miui.analytics
 ||msga.cupid.iqiyi.com^
 ||ndct-data.video.iqiyi.com^
 ||ibd-as-api.iq.com^
-||data.mistat.intl.xiaomi.com^
 ||statclick.nate.com^
 ||aff-report.lbesecapi.com^
 ||aff-policy.lbesecapi.com^
@@ -40515,8 +40554,6 @@ $app=com.miui.analytics
 ||errlogos.umeng.com^
 ||datacollector-*.dt.hicloud.com^
 ||tenant-content.apm.appfolio-analytics.com^
-||logupdate.avlyun.sec.miui.com^
-||log.avlyun.sec.intl.miui.com^
 ||log.avlyun.com^
 ||api-analytics.prod.birdapp.com^
 ||mpianalytics.com^
@@ -40584,7 +40621,6 @@ $app=com.miui.analytics
 ||getclicky.com^
 ||ztevents.zaloapp.com^
 ||log.adtimaserver.vn^
-||register.xmpush.xiaomi.com^
 ||tunion-api.m.taobao.com^
 ||nbsdk-baichuan.taobao.com^
 ||amdc.m.taobao.com^
@@ -40666,15 +40702,10 @@ $app=com.miui.analytics
 ||elephantdata.net^
 ||sdks.stats-locations.com^
 ||imp.startappservice.com^
-||tracking.intl.miui.com^
-||storeconfig.mistat.intl.xiaomi.com^
 ||ploy.batmobi.net^
 ||an.batmobi.net^
 ||ustat.batmobi.net^
 ||analytics.any.do^
-||zeus.ad.intl.xiaomi.com^
-||api.ad.intl.xiaomi.com^
-||sdkconfig.ad.intl.xiaomi.com^
 ||alog.umeng.co^
 ||oc.umeng.co^
 ||m.vpadn.com^
@@ -40701,8 +40732,6 @@ $app=com.miui.analytics
 ||e-ssl.apsalar.com^
 ||collector-axa.cloud.ca.com^
 ||track.adform.net^
-||api.miui.security.xiaomi.com^
-||metok.sys.miui.com^
 ||sync.adotmob.com^
 ||logger.cloudmobi.net^
 ||tracker.adotmob.com^
@@ -40742,10 +40771,6 @@ $app=com.miui.analytics
 ||dispatcher.upmc.uc.cn^
 ||gj.applog.uc.cn^
 ||gjapplog.uc.cn^
-||mazu.sec.miui.com^
-||shenghuo.xiaomi.com^
-||globalapi.ad.xiaomi.com^
-||api.ad.xiaomi.com^
 ||a.bitmango.com^
 ||bitmango.com/log
 ||tracking.directservices.it^
@@ -40758,11 +40783,7 @@ $app=com.miui.analytics
 ||tracking-server-prod-1.zenmxapps.com^
 ||config.uca.cloud.unity3d.com^
 ||api.uca.cloud.unity3d.com^
-||resolver.msg.xiaomi.net^
 ||resolver.gslb.mi-idc.com^
-||o2o.api.xiaomi.com^
-||auth.be.sec.miui.com^
-||thm.market.xiaomi.com/thm/stats
 ||geoip.ifunny.co^
 ||alogs.umeng.com^
 ||alogs.umengcloud.com^
@@ -40773,13 +40794,11 @@ $app=com.miui.analytics
 ||iapp-cp.nuggad.net^
 ||4seeresults.com^
 ||abcd.mdc.akamaized.net/materials/index/?country=
-||abtest.mistat.xiaomi.com^
 ||ad-analytics-bootstrap.metaps.com^
 ||adash.m.taobao.com/rest/sur?ak=
 ||adfuture.cn^
 ||adserver.snapads.com^
 ||adsunflower.com^
-||adv.sec.miui.com^
 ||advmob.cn^
 ||alog.umeng.com^
 ||alog.umengcloud.com^
@@ -40803,7 +40822,6 @@ $app=com.miui.analytics
 ||rubick.gameanalytics.com^
 ||api.gameanalytics.com^
 ||api.gimbal.com^
-||api.sec.miui.com^
 ||appmetrica.yandex.net^
 ||appmetrica.yandex.com^
 ||ar.umeng.com^
@@ -40829,10 +40847,6 @@ $app=com.miui.analytics
 ||crasheye.cn^
 ||crittercism.com/api/
 ||crwdcntrl.net^
-||data.mistat.india.xiaomi.com^
-||data.mistat.rus.xiaomi.com^
-||data.mistat.xiaomi.com^
-||data.sec.miui.com^
 ||demdex.net^
 ||dsg.sc.omtrdc.net^
 ||ep.xone.com^
@@ -40852,7 +40866,6 @@ $app=com.miui.analytics
 ||log.droid4x.cn^
 ||log.umsns.com^
 ||logger.ntracecloud.com^
-||logupdate.avlyun.sec.miui.com^
 ||lp4.io^
 ||m.vk.com/counters.php
 ||m.xiangce.baidu.com/mobileapp/motu-*?guid=
@@ -40882,7 +40895,6 @@ $app=com.miui.analytics
 ||prugskh.com^
 ||prugskh.net^
 ||quantcount.com^
-||r.browser.miui.com^
 ||rc.dxsvr.com^
 ||regist.fotoable.net/regist/
 ||report.appmetrica.yandex.net^
@@ -40891,7 +40903,6 @@ $app=com.miui.analytics
 ||sc-analytics.appspot.com^
 ||sdk-api.yozio.com/?os
 ||sdk.appbrain.com/api/
-||sdkconfig.ad.xiaomi.com^
 ||ssl-google-analytics.l.google.com^
 ||sstats.economist.com/b/ss/econdarwinproduction/
 ||stat.duokanbox.com^
@@ -40904,7 +40915,6 @@ $app=com.miui.analytics
 ||track.pingstart.com^
 ||tracker-api.my.com^
 ||tracking.lenzmx.com^
-||tracking.miui.com^
 ||trk.pinterest.com^
 ||tu.dxcnd.cn^
 ||tumblr.com/services/cslog
@@ -40914,7 +40924,6 @@ $app=com.miui.analytics
 ||ups.ksmobile.net^
 ||ws.ksmobile.net^
 ||www-google-analytics.l.google.com^
-||xlmc.sec.miui.com^
 ||yadro.ru^
 ||yikyakapi.net/api/logEvent?
 ||ymtracking.com^
@@ -41060,6 +41069,10 @@ $app=com.miui.analytics
 !
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/143029
+@@||mpsnare.iesnare.com/snare.js$domain=welcome.cryptothrills.io
+! https://github.com/AdguardTeam/AdguardFilters/issues/102126
+@@||wurfl.io/wurfl.js$domain=adshnk.com
 ! https://github.com/AdguardTeam/AdguardFilters/issues/142567
 @@||csm.cxpublic.com/nikkansports.js$domain=nikkansports.com,script
 ! https://github.com/AdguardTeam/AdguardFilters/issues/142569
@@ -41374,6 +41387,12 @@ ouminews.net#@#img[width="88"][height="31"]
 @@||api.cxense.com/public/widget/data$domain=dhnet.be
 ! https://github.com/AdguardTeam/AdguardFilters/issues/127258
 @@||dcf.espn.com/TWDC-DTCI/prod/Bootstrap.js$domain=fivethirtyeight.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/142640
+!#if (adguard_ext_safari || adguard_app_ios || adguard_ext_android_cb)
+@@||scdn.cxense.com/cx.cce.js$domain=itmedia.co.jp
+@@||cdn.cxense.com/sp1.html$domain=itmedia.co.jp
+@@||id.cxense.com/public/user/id?json=$domain=itmedia.co.jp
+!#endif
 ! https://github.com/AdguardTeam/AdguardFilters/issues/126945
 @@||api.cxense.com/document/search?$domain=itmedia.co.jp
 ! https://forum.adguard.com/index.php?threads/the-app-zappn-does-not-work-correctly-after-updating-to-3-6-9.49442/
@@ -43834,8 +43853,6 @@ kizi.com#%#window.google_trackConversion = function() {};
 @@||google-analytics.com/plugins/ua/linkid.js$domain=androidpit.es|androidpit.fr
 ! eugene.kaspersky.* - incorrect blocking
 @@||google-analytics.com/analytics.js$domain=eugene.kaspersky.co.jp|eugene.kaspersky.com|eugene.kaspersky.com.br|eugene.kaspersky.com.mx|eugene.kaspersky.de|eugene.kaspersky.es|eugene.kaspersky.fr|eugene.kaspersky.hk|eugene.kaspersky.it|eugene.kaspersky.ru
-! https://forum.adguard.com/index.php?threads/15617/
-@@||images*.engageya.com^$image,domain=popmech.ru
 ! https://forum.adguard.com/index.php?threads/23539/
 @@||google-analytics.com/analytics.js$domain=piriform.com
 ! https://github.com/AdguardTeam/AdguardFilters/issues/3980
@@ -44621,7 +44638,7 @@ mozilla-russia.org#@#img[width="88"][height="31"]
 @@||buffaloshop.de^*/webtrekk.js
 @@||bundesliga.de/js/xtcore.js
 @@||classistatic.de^*/hitcounter.js$domain=mobile.de
-@@||code.etracker.com/t.js?et=$script,domain=apotheken-umschau.de|compo-hobby.de|diabetes-ratgeber.net|kaguma.com|krombacher.de
+@@||code.etracker.com/t.js?et=$script,domain=apotheken-umschau.de|compo-hobby.de|kaguma.com|krombacher.de
 @@||count.rtl.de/crossdomain.xml$domain=n-tvnow.de|rtl-now.rtl.de|rtl2now.rtl2.de|rtlnitronow.de|superrtlnow.de|voxnow.de
 @@||eatsmarter.de^*/webtrekk.js
 @@||edgesuite.net^*/frontend_webtrekk.js$domain=goertz.de
