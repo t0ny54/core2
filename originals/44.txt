@@ -663,14 +663,14 @@ nordot.app#%#//scriptlet('abort-current-inline-script', 'document.createElement'
 ! https://github.com/AdguardTeam/AdguardFilters/issues/85641
 modalina.jp#%#//scriptlet('abort-on-property-read', 'AdBlockLimitation')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/116093
-realtime-chart.info#?#td[style^="vertical-align"] div[style^="top:"] div[onclick] > img[src*="/clip_"] + b:contains(/Amazon|楽天市場/)
+realtime-chart.info#$?#td[style^="vertical-align"] div[style^="top:"] div[onclick]:has(> img[src*="/clip_"] + b:contains(/Amazon|楽天市場/)) { pointer-events: none !important; }
 realtime-chart.info##td[style^="vertical-align"] div[style^="top"] [class^="amazoom"][onclick]
 realtime-chart.info##td[style^="vertical-align"] div[style^="top:"] a[onmousedown]
 realtime-chart.info#%#//scriptlet('remove-attr', 'onclick', 'td[style] div[style^="top:1"] > div')
 realtime-chart.info#?#td[style="vertical-align: top"] > div[id] > div[id] > div[id] > div[style="top:1437px"] > div[style="z-index:-1"]:contains(/^広告非表示だと色々と不具合が発生します$/)
 sekai-kabuka.com#$?#table[width="762px"] > tbody > tr > td[class] > div[id][class] > div[style="width: 232px;"]:contains(不具合が) { z-index: -1 !important; }
 sekai-kabuka.com#$#ins.adsbygoogle > div[style="width:728px;height:90px;position:absolute;z-index:999;line-height:1.1;display:flex;justify-content:center;align-items:center;"] { height: 1px !important; overflow: auto !important; }
-realtime-chart.info#$#div[style="top:1441px"] > [style*="font-size:"]:is(b, span, a) { font-size: 0 !important; }
+realtime-chart.info#$#div[style="top:1628px"] > [style*="font-size:"]:is(b, span, a) { font-size: 0 !important; }
 sekai-kabuka.com#$#div[id][class][style^="position:relative;background:#000;"][style*="width:729px;"][style*="height: 90px;"] { height: 1px !important; }
 sekai-kabuka.com#%#//scriptlet('remove-attr', 'onclick', 'div[data-js][style*="background"]', 'stay')
 realtime-chart.info#$?#div[style="height:241px;"] > div[class]:contains(/^広告非表示だと色々と不具合が発生します$/) { font-size: 0 !important; }
@@ -967,7 +967,7 @@ otonasalone.jp,sumaiweb.jp#?#._popIn_infinite_page > a._popIn_recommend_article_
 !
 !
 goodend.xyz#?#.textwidget > p > ins.adsbygoogle:upward(1)
-misskey.io#?#.note > div._margin div[class] > a[href^="https://go.misskey.io/"][target="_blank"][class] > img:upward(2)
+misskey.io#?#._margin[style] + div div[class]:not([tabindex]) > div[class] > a[href*="://go.misskey.io/"][target="_blank"][class] > img + button:upward(3)
 amigo.tennis365.net#?##sitemap_right > div.ul_main > h3:contains(ADリンク):upward(1)
 ameba.jp#?#article.HomeBlogFeed_Article_Card > div.HomeBlogFeed_Article_Ad_Loading:upward(1)
 mixi.jp#?#.feed01 > div.adMain:upward(1)
@@ -1937,6 +1937,8 @@ repeat-drama.info#?#.side_inner > .box:contains(スポンサーリンク)
 !-------JS----------
 !-------------------
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/142720
+misskey.io#%#//scriptlet('json-prune', 'ads.[].imageUrl')
 ! popup
 oppaideippai.net#%#//scriptlet('prevent-window-open')
 ! ads
@@ -2313,7 +2315,6 @@ kuruma-news.jp,magmix.jp,trafficnews.jp$$div[data-history="photo_extra"]
 .jp/shared/system/js/banner/banner_rand_prev.js
 .jp/ufo/$script,third-party
 .jp/Zen?
-.online/?AC=*&IC=$document
 /__sys__inactive_message.js
 /ad/js/lpjs.js
 /ad/js/lpjs2.js
@@ -2348,6 +2349,9 @@ kuruma-news.jp,magmix.jp,trafficnews.jp$$div[data-history="photo_extra"]
 /wp-content/plugins/amazonjs/*
 !
 ! Malware/Phishing
+.com/ae/login.php?openid.pape.max_auth_age=0&openid.return_to=%$document
+||s.asu-kuronekoy*-jp.icu^$document
+/DOCOMO.apk^$document
 /^https?:\/\/www\.(?:[a-z]{2,6}-)?ko[a-z]?[a-z]?yamato[a-z]?[a-z]?-co(?:-[a-z]{2})?\.(?:[-0-9a-z]{2,9}\.){1,2}(?:cn|com)/$document,domain=cn|com
 ://eki-*.top/dist/#/|$document
 -sais*.cn/web/login.jsp|$document
@@ -2378,7 +2382,8 @@ _ap/signin*?_encoding=UTF8&openid.assoc_handle=jpflex&openid.claimed_id=&action=
 ://www-smbc-card-com.*.*.php^$document
 ||ddnsking.com/Personal/member/Login/index.php?oneTimeAccessID=$document
 ://www-biccamera-com.*.com/bc/member/login.php?CSfLogin.jsp$document
-.azutnai-*.icu/ap/signin|$document
+://kakunin.az*.icu/ap/signin|$document
+://support.az*.icu/ap/signin|$document
 /werrx01/?$document
 .com/regist.php?*/1|$document
 ://www3-lifecard-co-jp.*.com/WebDesk/www/index.php|$document
@@ -2391,8 +2396,6 @@ _ap/signin*?_encoding=UTF8&openid.assoc_handle=jpflex&openid.claimed_id=&action=
 ://www-info-view.*.com/all/sign.php|$document
 .icu/eki_ap/signin.php?_encoding=$document
 .su/personal/top/index^$document
-.xyz/Personal/member/wb/Login/Login|$document
-.best/Personal/member/wb/Login/Login|$document
 -visa-co-jp-*.club/customer/%EF%BC%88%E6%A0%AA%EF%BC%89VISA%E3%82%AB%E3%83%BC%E3%83%89%EF%BD%9CVisa%20Secure.php|$document
 /index.php?main_page=product_info&cPath=$document,domain=bar|best|buzz|cyou|fun|life|live|online|shop|site|store|top|xyz
 /index.php?main_page=product_info&products_id=$document,domain=bar|best|buzz|cyou|fun|life|live|online|shop|site|store|top|xyz
@@ -7670,6 +7673,8 @@ avgle.com##.well#ps32-container
 $popup,domain=avgle.com,third-party
 avgle.com##.container > div[style*="overflow: hidden"]
 !
+!+ PLATFORM(ios, ext_android_cb, ext_safari)
+misskey.io##.xF6dY
 !+ PLATFORM(ext_ublock)
 altema.jp##iframe[width="300"][height="250"]
 !+ PLATFORM(ext_ublock)
