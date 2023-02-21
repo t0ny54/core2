@@ -466,6 +466,9 @@
 ! Bad: ||ad.doubleclick.net^ (should be in adservers.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/143424
+!+ PLATFORM(ios, ext_safari)
+||code.piano.io/api/tinypass.min.js$domain=tokyo-sports.co.jp
 ! https://github.com/AdguardTeam/AdguardFilters/issues/143053
 tojav.net#%#//scriptlet('prevent-fetch', 'pagead2.googlesyndication.com')
 tojav.net##div[id][class^="popup"][class$="wrap"]
@@ -663,7 +666,7 @@ nordot.app#%#//scriptlet('abort-current-inline-script', 'document.createElement'
 ! https://github.com/AdguardTeam/AdguardFilters/issues/85641
 modalina.jp#%#//scriptlet('abort-on-property-read', 'AdBlockLimitation')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/116093
-realtime-chart.info#$?#td[style^="vertical-align"] div[style^="top:"] div[onclick]:has(> img[src*="/clip_"] + b:contains(/Amazon|楽天市場/)) { pointer-events: none !important; }
+realtime-chart.info#$?#td[style^="vertical-align"] div[style^="top:"] div[onclick]:has(> img[src*="/clip_"] + b:contains(/^\s?(Amazon|楽天市場)$/)) { pointer-events: none !important; }
 realtime-chart.info##td[style^="vertical-align"] div[style^="top"] [class^="amazoom"][onclick]
 realtime-chart.info##td[style^="vertical-align"] div[style^="top:"] a[onmousedown]
 realtime-chart.info#%#//scriptlet('remove-attr', 'onclick', 'td[style] div[style^="top:1"] > div')
@@ -1834,6 +1837,7 @@ repeat-drama.info#?#.side_inner > .box:contains(スポンサーリンク)
 ##._popIn_recommend_article_ad_reserved
 ##.google-afc-image
 ###BottomAd
+###ad-60days-area
 ###ad-recommend
 ###float-bnr
 ###fluct-pc-sticky-ad
@@ -2349,6 +2353,9 @@ kuruma-news.jp,magmix.jp,trafficnews.jp$$div[data-history="photo_extra"]
 /wp-content/plugins/amazonjs/*
 !
 ! Malware/Phishing
+://www-info-epos.*.com/all/sign.php?authenticated=true&openid%2Fgp%2Fsignin%2F$document
+://amazon-*.com/mobile/signin.php|$document
+-co-jp.*.top/ai/?authenticated=true&openid%2Fgp%2Fsignin%2F$document
 .com/ae/login.php?openid.pape.max_auth_age=0&openid.return_to=%$document
 ||s.asu-kuronekoy*-jp.icu^$document
 /DOCOMO.apk^$document
@@ -2393,7 +2400,6 @@ _ap/signin*?_encoding=UTF8&openid.assoc_handle=jpflex&openid.claimed_id=&action=
 .cn/eorico/login.php|$document
 /Softbank.apk^$document
 /all/login.php?idsmt=*&nextfunck=$document
-://www-info-view.*.com/all/sign.php|$document
 .icu/eki_ap/signin.php?_encoding=$document
 .su/personal/top/index^$document
 -visa-co-jp-*.club/customer/%EF%BC%88%E6%A0%AA%EF%BC%89VISA%E3%82%AB%E3%83%BC%E3%83%89%EF%BD%9CVisa%20Secure.php|$document
@@ -8033,7 +8039,8 @@ point-g.rakuten.co.jp#@#.searchAd
 !
 @@||afi-b.com/assets/dist/img/general/top/img/ad/$image,~third-party
 @@||afi-b.com/assets/img/general/common/$image,domain=affiliate-b.com
-! FP by generic cosmetic rules
+! FP by EasyList generic cosmetic rules
+mamastar.jp#@#.adstop
 ironsaga-msoku.xyz,takushoku.info#@#.ad.widget
 ringo-no-mori.jp#@#.ad-bnr
 arukikata.co.jp#@#.ad_btn
