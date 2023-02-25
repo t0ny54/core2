@@ -241,7 +241,9 @@ cinemablend.com,livescience.com,gamesradar.com,tomshardware.com,pcgamer.com,wind
 sia.ru###right_fixed_block
 ! floating video
 ||player.ivideosmart.com^$domain=myjitsu.jp
+! https://github.com/AdguardTeam/AdguardFilters/issues/143850
 ! https://github.com/AdguardTeam/AdguardFilters/issues/131669
+softpedia.com##iframe[src^="/zds.php"]
 ||softpedia.com/zds.php
 ! msn.com - get Edge extension (elements are in shadow-root)
 msn.com##.banner-container
@@ -3960,8 +3962,6 @@ avito.ru##div[class^="main-banner-root-"]
 ! https://github.com/AdguardTeam/AdguardFilters/issues/80927
 lugatim.com###header-banner-container
 lugatim.com##.side-banner
-! https://github.com/AdguardTeam/AdguardFilters/issues/81462
-||fc2.com/js/blog/headbar_ad_load.js
 ! https://github.com/AdguardTeam/AdguardFilters/issues/81424
 finance.sina.com.cn###sina-pages-u
 ! https://github.com/AdguardTeam/AdguardFilters/issues/80906
@@ -4724,6 +4724,8 @@ theguardian.com##.contributions__adblock
 !
 ! SECTION: Self-promo - Regular rules
 !
+privatter.net##.appreach
+privatter.net#?#.col-lg-4 > strong.small:contains(おすすめ文章作成エディタ)
 gofile.io###adsATF
 firstandgoal.ru##.self-promo
 lemon8-app.com##.nav-bar-line-1
@@ -6401,6 +6403,11 @@ newsweek.com##iframe[src="http://sns.europe.newsweek.com/newsletter?popup=1"]
 !##############################
 ! SECTION: Tweaks - JS
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/143809
+bstlar.com#%#//scriptlet('remove-attr', 'disabled', '.body-page .card-body button.btn-primary.btn-block')
+bstlar.com#%#//scriptlet('remove-class', 'disabled', '.body-page .card-body button.btn-primary.btn-block')
+! https://github.com/AdguardTeam/AdguardFilters/issues/143676
+amritadrino.com#%#//scriptlet('adjust-setInterval', 'wpsafe-generate', '*', '0.02')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/143606
 upapk.io#%#//scriptlet('adjust-setTimeout', 'seconds', '*', '0.02')
 instamod.net#%#//scriptlet('adjust-setInterval', 'Download', '*', '0.02')
