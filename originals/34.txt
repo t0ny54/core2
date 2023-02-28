@@ -13,6 +13,9 @@
 ! Good: $removeparam=utm_id
 ! Bad:  $removeparam=utm_id,domain=example.org (for instance, should be in specific.txt)
 !
+! Tradedoubler
+! https://dev.tradedoubler.com/tracking/advertiser/
+$removeparam=tduid
 ! GLAMI click id
 ! https://help.glami.info/pixel-2.0-release-all-you-need-to-know
 $removeparam=gci
@@ -240,6 +243,8 @@ $removeparam=fb_source
 ! Bad: ||example.org^$xmlhttprequest,redirect=noopvast-3.0 (for instance, should be in specific.txt)
 !
 !
+! https://realestate.yahoo.co.jp/new/mansion/dtl/00145093/?sc_out=mikle_mansion_sumulog_side_dtl
+||realestate.yahoo.co.jp^$removeparam=sc_out
 ! https://github.com/AdguardTeam/AdguardFilters/issues/143623
 ||glami.cz^$removeparam=/ga[ct]id/
 ! https://github.com/AdguardTeam/AdguardFilters/issues/143625
@@ -485,7 +490,6 @@ $removeparam=afid,domain=123chat.jp|kanochat.jp
 ! https://github.com/AdguardTeam/AdguardFilters/issues/125352
 ||wq.jd.com^$removeparam=pvid
 ! https://github.com/AdguardTeam/AdguardFilters/issues/124323
-||redirects.tradedoubler.com^$removeparam=tduid
 ||coolblue.nl^$removeparam=clickref
 ||coolblue.nl^$removeparam=ref
 ||coolblue.nl^$removeparam=PHGref
@@ -1294,6 +1298,8 @@ $removeparam=dclid
 !
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/144144
+@@||tradedoubler.com^$removeparam=tduid
 ! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-4621746
 @@||carrefourpl.snrpage.com^$removeparam=utm_source
 ! https://github.com/AdguardTeam/AdguardFilters/issues/134443
