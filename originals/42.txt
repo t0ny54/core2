@@ -6151,7 +6151,10 @@ livejournal.com#%#//scriptlet("set-constant", "begun_new_callbacks", "undefined"
 ! irecommend.ru
 ||irecommend.ru/*/*/$xmlhttprequest,jsonprune=\$.data.*.attributes
 !
+||ura.news/*/$xmlhttprequest,jsonprune=\$.data.*.attributes
+!
 !#if (!adguard_ext_firefox)
+||tv.yandex.*/*/*/*-$script,replace=/"RtbBidReqID"//
 ||sportmail.ru/-/*/js/cmpld/sport/*/base.js$replace=/SlotView\.mimic/a/
 ||rg.ru/*/*/$xmlhttprequest,replace=/"attributes"/""/
 ||home.imgsmail.ru/resplash/*/j/d-*.js$replace=/o\.default\.radar\("adblock"\)//
@@ -7383,8 +7386,6 @@ unian.net#?#.article-column > div.title-bordered:contains(Новости пар�
 afisha.bigmir.net#?#.b-article-footer > div.b-block_split:has(> header > span.b-block-header__title:contains(Реклама))
 !+ NOT_OPTIMIZED
 pb-news.info,fainaidea.com#?#.td-ss-main-sidebar > aside.widget:contains(/загрузка...|Новости партнера/)
-! livejournal.com
-livejournal.com#?#.cat-widget__col > div.cat-widget__card-wrap:has(> div footer.post-card__footer > ul.card-actions > li.card-actions__item > a[href^="/shop/"]:contains(/Промо|Promo/))
 ! 3dnews.ru
 3dnews.ru#$?##global-wrapper > div#wrapper { top: 0px !important; }
 ! kinopoisk.ru
@@ -11103,8 +11104,17 @@ progorod76.ru,riamobalashiha.ru,sobesednik.com,vz.ru,autoparus.by,ctv.by,hightec
 !
 !
 !
+ura.news##div[id$="_sticky"][style^="height:"]
+ura.news##div[style="height:200px; width:100%;overflow: hidden;"]
+ura.news##div[style^="margin-top: 40px;width: 100%;height: 260px;"]
+ura.news##div[style="width:300px;height:600px;"]
+||player.smotrim.ru/js/A.js
+||m24.ru/js/m.24.adwrap*.js
+||static.wmbcdn.com/uniweb/js/modern/YandexAds.client.*.js
+mamba.ru##div[data-name="search-banner"]
+classicalmusicnews.ru###after-menu
 2ip.ua##.hmi-mini
-shazoo.ru##.HomeFeatured__main > div.mb-4 > a[href^="https://shazoo.ru/click/"][target="_blank"]
+shazoo.ru##a[href^="https://shazoo.ru/click/"]
 hibiny.com##.up-pek-top
 ||hibiny.com/images/peks
 ||androidinsider.ru/landing/honor-x9a/
@@ -11331,7 +11341,7 @@ real-vin.com##.sm-widget
 mirf.ru###inplayer2
 cars.av.by##.break--postrelated
 pluggedin.ru##div[ng-controller="CommentController"]
-||t.lafa.site/pic/yabra.png
+||lafa.site/pic/yabra.png
 devby.io##.article-section__currency-banner
 popcake.tv##.post-container-bottom div.col-md-8 > h5[style="margin-bottom: 0;"]
 2ip.ua##.module_adsense
@@ -16520,7 +16530,7 @@ timeserver.ru##.city_adv
 intertop.ua##.click-bg-banner
 gametech.ru##.clickable_zone
 sportarena.com##.closebtn
-newhotgames.com,itbusiness.com.ua,autotak.ru,geeker.ru,pcminipro.ru,losst.ru,bankstoday.net,fuzzmusic.ru,gubdaily.ru,gooosha.ru,comp-profi.com,limelady.ru##.code-block
+classicalmusicnews.ru,newhotgames.com,itbusiness.com.ua,autotak.ru,geeker.ru,pcminipro.ru,losst.ru,bankstoday.net,fuzzmusic.ru,gubdaily.ru,gooosha.ru,comp-profi.com,limelady.ru##.code-block
 it-tehnik.ru##.code-block[style*="text-align: center;"]
 it-tehnik.ru##.article__content > div > span[class="spanlink"][onclick*="wikium.ru/r/"]
 slivup.biz##.code11
@@ -18847,7 +18857,7 @@ doklad.ru,yadoma.tv##div[id^="ad_"]
 gisclub.tv##div[id^="ad_below_menu_"]
 azfiles.ru,patrioty.org.ua##div[id^="ad_center_"]
 business.ru##div[class^="adfox_"]
-eadaily.com,zakon.kz,svpressa.ru,udf.name,udf.by,baby.ru,pikabu.ru,thequestion.ru##div[id^="adfox_"]
+raenza.ru,eadaily.com,zakon.kz,svpressa.ru,udf.name,udf.by,baby.ru,pikabu.ru,thequestion.ru##div[id^="adfox_"]
 fakty.ua##div[id^="admixer_"] ~ div > div.tit_line
 fakty.ua##div[id^="admixer_"] ~ div.tit_line
 glavpost.ua,meta.ua,newsyou.info##div[id^="adpartner-"]
@@ -21581,6 +21591,7 @@ passion.ru##.sideColumn[style*="width:300px"]
 ||static.fastpic.*/if_*.html
 ||fastpic.*/g/
 ||fastpic.*/*.php|
+fastpic.org##.col-auto[style^="height: 620px;"]
 fastpic.org##.stickyn
 fastpic.ru,fastpic.org##.embed-responsive:not([id])
 fastpic.ru,fastpic.org##.row.bg-white.p-1.rounded.m-2
