@@ -83,14 +83,6 @@
 ! https://github.com/AdguardTeam/AdguardFilters/issues/23113
 ! ||weblio.jp^$third-party
 !
-! TODO: remove once https://github.com/AdguardTeam/AdGuardSDNSFilter/issues/1236 is fixed
-||ad.inter-edu.com^
-||ad.eloan.co.jp^
-||ad.abema.io^
-||kok.eroterest.net^
-||ad-hatena.com^
-||advert.punyu.com^
-||gum.dlbooks.to^
 ! not for DNS
 ||ias.rakuten.co.jp^$third-party,domain=~rakuten--.co.jp
 !
@@ -360,7 +352,6 @@
 ||zucks.net^$third-party
 ||zucks.net.zimg.jp^$third-party
 ||ad-move.jp^$third-party
-||gum.dlbooks.to^
 ||a8.net^$third-party
 ||accesstrade.net^$third-party
 ||agilemedia.jp^
@@ -682,7 +673,7 @@ realtime-chart.info#$?#td[style^="vertical-align"] div[onclick]:has(> img[src*="
 realtime-chart.info#$?#td[style^="vertical-align"] div[onmousedown]:has(> img[src*="/clip_"] + b):not(:has(b td > a[href])) { pointer-events: none !important; }
 realtime-chart.info#%#//scriptlet('remove-attr', 'onclick', 'td[style] div[style^="top:1"] > div')
 sekai-kabuka.com#$?#table[width="762px"] > tbody > tr > td[class] > div[id][class] > div[style="width: 283px;"]:contains(不具合が) { z-index: -1 !important; }
-sekai-kabuka.com#$#ins.adsbygoogle > div[style="width:728px;height:90px;position:absolute;z-index:999;line-height:1.1;display:flex;justify-content:center;align-items:center;"] { height: 1px !important; overflow: auto !important; }
+sekai-kabuka.com#$?#table[width="762px"] table[width="100%"] td[align="center"] > div > div[style$="width:728px;line-height: 1.2;height: 90px;"]:has(> ins.adsbygoogle[style="display:inline-block;width:728px;height:90px;position:absolute"] > iframe#aswift_1) { height: 1px !important; }
 !realtime-chart.info#$#div[style="top:1644px"] > [style*="font-size:"]:is(b, span, a) { font-size: 0 !important; }
 sekai-kabuka.com#$#div[id][class][style^="position:relative;background:#000;"][style*="width:729px;"][style*="height: 90px;"] { height: 1px !important; }
 sekai-kabuka.com#%#//scriptlet('remove-attr', 'onclick', 'div[data-js][style*="background"]', 'stay')
@@ -2361,7 +2352,7 @@ aeions*.top/auth/login.jsp|$document
 .com/ae/login.php?openid.pape.max_auth_age=0&openid.return_to=%$document
 ||s.asu-kuronekoy*-jp.icu^$document
 /DOCOMO.apk^$document
-/^https?:\/\/www\.(?:[a-z]{2,6}-)?ko[a-z]?[a-z]?yamato[a-z]?[a-z]?[-.]co(?:-[a-z]{2})?\.(?:[-0-9a-z]{2,15}\.){1,2}(?:cn|com)/$document,domain=cn|com
+/^https?:\/\/www\.(?:[a-z]{2,6}-){0,2}ko[a-z]{0,2}[my]a?[my]a?t?o?[a-z]{0,2}[-.]co(?:-[a-z]{2})?\.[-0-9a-z]{2,15}\.com.cn\//$document
 ://eki-*.top/dist/#/|$document
 -sais*.cn/web/login.jsp|$document
 ://www1.kurersek*-jp.icu/$document
@@ -2567,6 +2558,10 @@ akege.blog.jp,antena-matome.net,badminton.doorblog.jp,buybuykorea.doorblog.jp,ch
 !
 !
 !
+||153.120.62.146/ad_wp/
+cityheaven.net##div[class^="logojack_button"]
+fujoho.jp##.carousel_ad
+forzastyle.com##.doublead
 anianierosuki.work###side-fixed
 iqossan.com##.elAds
 iqossan.com##.underHeaderAdPC
