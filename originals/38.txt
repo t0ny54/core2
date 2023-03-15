@@ -640,6 +640,7 @@ usatoday.com#@#.ad-slot
 ! SECTION: Anti-adblock - Regular rules
 ! Do not forget about '!#safari_cb_affinity' section for exclusions
 !
+||chromeready.com/wp-content/themes/soledad/js/detector.js
 savevideo.me##div[id^="ads_notice_"]
 savevideo.me##td.max_bl_right > div[style*="background-color:"][style*="13px;"]
 usatoday.com#%#//scriptlet("set-constant", "ads.adBlockDetected", "false")
@@ -677,7 +678,6 @@ besthdwallpaper.com#$#.modal-backdrop { display: none !important; }
 besthdwallpaper.com#$#body.modal-open { overflow: auto !important; }
 astroportal.com#$##plusgate { display: none !important; }
 astroportal.com#$#body { overflow: auto !important; }
-historyofyesterday.com##.jetblocker-wrapper
 thetodaypost.com#$#.-wrapper { display: none !important; }
 thetodaypost.com#$#.-blackout { display: none !important; }
 thetodaypost.com#$#.-blur * { filter: none !important; }
@@ -2894,9 +2894,9 @@ cc-fan.tv,cn-fan.tv,fox-fan.tv,nf-fan.tv#@#.text_ads
 ! aternos.org#%#!function(){window.pbjs={cmd:{push:function(){}},adUnits:function(){}};window.snhb={globalSettings:{},startAuction:function(){}};window.pbjsChunk=()=>{}}();
 ! for apps and ext4.0
 @@||hb.vntsm.io/content.html$domain=aternos.org
-aternos.org#$?#.responsive-sky-scraper { remove: true; }
+aternos.org#$?#.responsive-sky-scraper > * { remove: true; }
 aternos.org#$?#.ad-dfp { remove: true; }
-aternos.org#$#.header-link-exaroton { opacity: 0 !important; pointer-events: none !important; }
+aternos.org#$#.header-link-exaroton > a { opacity: 0 !important; pointer-events: none !important; }
 ||aternos.org/panel/ajax/reportDetection.php?$xmlhttprequest,~third-party
 !#safari_cb_affinity(general)
 @@||aternos.org^$generichide
@@ -3408,6 +3408,10 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 !
 ! SECTION: Popups - Regular rules
 !
+youla.ru#$?##app > div:not([class]) > div[tabindex]:has(> div[data-test-component="Modal"] main div[data-test-component="VasModal"] span:contains(Продайте свой товар быстрее)) { display: none !important; }
+youla.ru#$##app > div:not([class]) > div[tabindex] + div:not([tabindex]):empty { display: none !important; }
+youla.ru#$?#body { overflow: auto !important; padding-right: 0 !important; }
+cnet.com#%#//scriptlet('set-constant', '__NUXT__.state.services.features.shoppingExtensionPopupArticle', 'undefined')
 chess.com#?##board-layout-chessboard > div:has(> div.ui_modal-component > div.ui_modal-body > div.modal-upgrade-game-review-modal)
 kracie.co.jp##.l-floatingbnr
 huobi.com#?#section.page > div.en_layout > div.popup:has(> div.popup-mask + div.popup-box > div.btn:contains(Зарегистрироваться))
@@ -10483,6 +10487,13 @@ jiji.com,edp24.co.uk,technologyreview.com,inews.co.uk,nordbayern.de,thelocal.ch,
 !
 ! SECTION: Subscriptions - Regular rules
 !
+dphotoworld.net##input[value="Мы в Google News"]
+dphotoworld.net##input[value="Читайте нас в Telegram"]
+bb.lv#?#.entry_body > div[style]:has(> a[href^="https://t.me/"][target="_blank"])
+bits.media#?#.article-page > div:has(> p > strong > a[href^="https://t.me/"])
+runews24.ru##a.button_type_link[target="_blank"][href]
+decrypt.co#?#.post-content > div.text-left:has(> form > label[for="article-footer-email"])
+geo.fr##.pmcPushv
 territoris.cat##.widget-advise-bottom-wrapper
 clutchpoints.com#?##__next > div:not([class]) > div[class]:has(> div[class] > div[class] > div[class] > form#sib-form)
 clutchpoints.com#?#aside > div:has(> div[class] > form#sib-form)
@@ -12591,7 +12602,7 @@ operanews.com##div[id$="_panelNewsletterInputs"]
 valorinveste.globo.com##.section-assine-newsletter
 ligazakon.net##.actualsinglepage_promo_social
 moneycontrol.com#?#.page_right_wrapper > div.contact
-rfi.fr##.o-self-promo
+france24.com,rfi.fr##.o-self-promo
 tripeditor.com##.official_mm_form
 careerindia.com##.instant-updates-bottom
 cyberciti.biz#?#.sidebar > div.widget_text:has(a[href^="https://newsletter.cyberciti.biz/subscription"])
