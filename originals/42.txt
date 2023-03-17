@@ -1509,6 +1509,7 @@ ucoz.ru/informer/
 ! Bad: /banner.jpg (should be in general_url.txt)
 ! Bad: ||adssubdomain.legitwebsite.com^ (should be in adservers_firstparty.txt)
 !
+||riamiavid.com^
 ||octolinkcom.me^
 ||clickatdcode.com^
 ||aclicktds.org^$third-party
@@ -9573,6 +9574,7 @@ kadrovik01.com.ua,kom-dir.ru,gd.ru,buhsoft.ru,dirklinik.ru,fd.ru,business.ru,pro
 !
 !
 !
+kino-teatr.ru##div[style^="width:100%;"][align="center"]
 cq.ru##.basic-box > div.ot__header
 info.sibnet.ru##.main-content-right > div.right-page-news-block > div[id]:has(> a[target="_blank"] > img)
 info.sibnet.ru###sibAd_x90_info
@@ -20135,7 +20137,6 @@ fishki.net##body > div[class="loaded"][id] > div[id$="-close"]
 fishki.net##div[id^="yandex_ad_"]
 !
 ! meduza.io
-meduza.global.ssl.fastly.net,meduza.io##.Layout-bannerTop
 meduza.global.ssl.fastly.net,meduza.io##.App-bannerTop
 meduza.global.ssl.fastly.net,meduza.io##div[class^="style__BannerFeed-"]
 !+ NOT_OPTIMIZED
@@ -22549,8 +22550,11 @@ knigipofoto.ru#@#.wrapad
 
 !-------------------------------------------------------------------------------!
 !
-! TODO: remove inclusions below after releasing AdGuard Ukrainian filter
+! TODO: remove inclusions below after releasing 'AdGuard for Safari' and 'Content Blocker for Android'
+! Before deleting, check if enough users were upgraded to the version with the new filter
+!
 ! AdGuard Ukrainian filter
+!#if (adguard_ext_safari || adguard_ext_android_cb)
 !
 ! This section contains the list of advertising networks domains, which are hosted on non advertising sites as subdomains.
 ! Note, that we only put rules that block full subdomains here and not URL parts (there's `general_url.txt` for that).
@@ -24329,3 +24333,4 @@ texts.com.ua#@#.topAD
 ! http://forum.adguard.com/showthread.php?4433
 @@||videoprobki.ua/themes/videoprobki/ext_baners/*.flv
 
+!#endif
