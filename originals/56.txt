@@ -1574,7 +1574,7 @@ mcloud.to,vizcloud.*##+js(ra, data-ad-img|data-ad-target, , stay)
 ||i.imgur.com^$image,domain=mcloud.to|vizcloud.*|vizcloud2.*
 ||soujoobafoo.com^
 /mellowpresence.com^$script
-/\/[A-Z]\/[-0-9a-z]{5,}\.com\/(?:[0-9a-f]{2}\/){3}[0-9a-f]{32}\.js$/$script,1p,match-case
+/\/[A-Z]{1,2}\/[-0-9a-z]{5,}\.com\/(?:[0-9a-f]{2}\/){3}[0-9a-f]{32}\.js$/$script,1p,match-case
 9anime.*##+js(aopw, _pop)
 
 ! https://github.com/uBlockOrigin/uAssets/pull/643
@@ -2005,11 +2005,14 @@ yts.*##+js(aopr, runAdblock)
 yts.*##+js(aopw, _pop)
 yts.*##+js(nowoif)
 yts.*##+js(nostif, "admc")
+yts.*##+js(acs, setTimeout, admc)
+*/script/clock.js$script,1p
 yts.*##[id*="container"][id^="id"]
 yts.*##html:style(overflow: auto !important;)
 yts.*##.vpn-link:upward(1)
 yts.*##.cborz-bordered
 yts.*##.madikf
+||empied.com^
 
 ! https://www.reddit.com/r/uBlockOrigin/comments/7fr9jc/help_with_disabling_the_antiadbock_message_on/
 sarugbymag.co.za##+js(aopr, showAds)
@@ -4788,8 +4791,6 @@ audioz.cc,audioz.es##+js(set, detectAdBlock, noopFunc)
 twitch.tv##+js(nowoif, amazon-adsystem)
 ||amazon-adsystem.com/aax2/apstag.js$script,domain=twitch.tv,important
 ||ddacn6pr5v0tl.cloudfront.net^
-! https://github.com/uBlockOrigin/uAssets/issues/5184
-! twitch.tv##+js(twitch-videoad)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/1977
 imx.to##+js(aopr, ExoLoader.serve)
@@ -4920,11 +4921,6 @@ satcesc.com##+js(nostif, css_class)
 pornoreino.com##+js(aopr, ExoLoader)
 pornoreino.com##+js(aopr, open)
 pornoreino.com##.banner
-
-! https://github.com/uBlockOrigin/uAssets/issues/4931
-@@||adpass.atresmedia.com/*/adjs.js$xhr,domain=atresplayer.com
-@@||atresplayer.com^$ghide
-@@||assets.adobedtm.com^$xhr,domain=atresplayer.com
 
 ! https://github.com/uBlockOrigin/uAssets/issues/2097
 @@||dogefaucet.com^$ghide
@@ -12112,7 +12108,7 @@ fc.lc##+js(nowoif, /^/, 1)
 ! vocalley.com anti-adb
 #@#.ad-area
 #@#.ads_container
-~job.inshokuten.com##.ad-area:not(.text-ad)
+~job.inshokuten.com,~netmile.co.jp##.ad-area:not(.text-ad)
 ##.ads_container:not(.text-ad)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/5496
@@ -13086,8 +13082,13 @@ bing.com#?#.b_algo:has(.b_caption>*:matches-css-before(display:inline-block))
 bing.com##.b_algo:has(.b_textAdTitleLink)
 bing.com##.ins_exp.tds
 bing.com#@#li.b_adBottom
+bing.com#@#.b_ad
 bing.com#@#.b_adLastChild
+bing.com#@#.pa_sb
 bing.com##.b_adLastChild:style(position: absolute !important; top: -9999px !important;)
+bing.com##.b_ad:style(position: absolute !important; top: -9999px !important;)
+bing.com##.pa_sb:style(position: absolute !important; top: -9999px !important;)
+bing.com##.b_restorableLink:remove()
 ! https://github.com/AdguardTeam/AdguardFilters/issues/136118
 bing.com##.tob_calcontainer > .slide:has(.rtb_ad_caritem_mvtr)
 ! https://github.com/uBlockOrigin/uAssets/issues/16791
@@ -18578,11 +18579,11 @@ ludigames.com##+js(nostif, ads)
 ! pixsera
 ! https://github.com/uBlockOrigin/uAssets/issues/7180
 ! https://github.com/uBlockOrigin/uAssets/issues/9123
-imgair.net,imgblaze.net,imgfrost.net,pixsera.net,vestimage.site,imgwia.buzz##+js(nano-sib, timer)
-imgair.net,imgblaze.net,imgfrost.net,pixsera.net,vestimage.site,imgwia.buzz##+js(nowoif, !/prcf.fiyar|themes|pixsense|.jpg/)
-imgair.net,imgblaze.net,imgfrost.net,pixsera.net,vestimage.site,imgwia.buzz##+js(set, hold_click, false)
-imgair.net,imgblaze.net,imgfrost.net,pixsera.net,vestimage.site,imgwia.buzz##div[id][style^="position: fixed; display: block; width: 100%;"]
-*$frame,script,3p,denyallow=googleapis.com,domain=imgair.net|imgblaze.net|imgfrost.net|pixsera.net|vestimage.site|imgwia.buzz
+imgair.net,imgblaze.net,imgfrost.net,pixsera.net,vestimage.site,imgwia.buzz,pixlev.*##+js(nano-sib, timer)
+imgair.net,imgblaze.net,imgfrost.net,pixsera.net,vestimage.site,imgwia.buzz,pixlev.*##+js(nowoif, !/prcf.fiyar|themes|pixsense|.jpg/)
+imgair.net,imgblaze.net,imgfrost.net,pixsera.net,vestimage.site,imgwia.buzz,pixlev.*##+js(set, hold_click, false)
+imgair.net,imgblaze.net,imgfrost.net,pixsera.net,vestimage.site,imgwia.buzz,pixlev.*##div[id][style^="position: fixed; display: block; width: 100%;"]
+*$frame,script,3p,denyallow=googleapis.com,domain=imgair.net|imgblaze.net|imgfrost.net|pixsera.net|vestimage.site|imgwia.buzz|pixlev.*
 /^http:\/\/img[a-z]+\.(?:buzz|site|store|xyz)\/(?!shrinker).*/$script,1p,domain=buzz|site|store|xyz
 /\.net(\/[a-z]{2,4}){2}\.js$/$script,1p,domain=pixsera.net
 /shrinker/js/ionqsnwx1.js$script,1p
