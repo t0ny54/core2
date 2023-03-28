@@ -79,6 +79,8 @@
 ! Bad: example.org###rek (should be in specific.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/146387
+forbes.com#%#//scriptlet("set-constant", "Object.prototype.track", "noopFunc")
 ! https://github.com/AdguardTeam/AdguardFilters/issues/145948
 sportschau.de#%#//scriptlet('set-constant', 'mediaTrackingOff', 'true')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/144897
@@ -447,6 +449,7 @@ prjaga.ru#?##right > div#right_nav > h3:contains(Онлайн статистик
 !||i.snssdk.com/log/*
 !||i.snssdk.com/slardar/sdk.js
 !
+||31830fbc-adbf-11ed-afa1-0242ac120002.site^
 ||15823f12-289e-4189-9e51-e2de1bf1a105.online^
 ||livetrafficfeed.com^
 ||cnnx.link^
@@ -5505,6 +5508,8 @@ nethunt.com/api/v1/track/email/$image
 ! Bad: /banner.jpg (should be in general_url.txt)
 ! Bad: host rules with partial blocking (for example $domain, content type and redirect modifiers)
 !
+! NOTE: Bad rules. To avoid adding them again
+! ||log.suumo.jp^
 !
 ! https://github.com/AdguardTeam/cname-trackers/issues/30
 ! TODO: remove once the issue is resolved
@@ -6723,7 +6728,6 @@ nethunt.com/api/v1/track/email/$image
 ||log.sina.cn^
 ||log.snapdeal.com^
 ||log.strm.yandex.ru^
-!||log.suumo.jp^
 ||log.tbs.qq.com^
 ||log.tf.co.kr^
 ||log.ttbc-hcm.gov.vn^
@@ -36580,7 +36584,7 @@ _tracking.php?b=
 !
 ! Tealium
 ! The site should be carefully checked when you add this rule
-||tags.tiqcdn.com/utag/*/prod/utag.js$domain=radissonhotels.com|post.ch|usnews.com|d1lynpf6ndesae.cloudfront.net|rukrymr.azureedge.net|krymr.com|cnet.com|adidas.co.uk|adidas.nl|adidas.pl|lineadirecta.com|sibreal.org|modernatx.com|louisvuitton.com|simplybusiness.co.uk|uber.com
+||tags.tiqcdn.com/utag/*/prod/utag.js$domain=radissonhotels.com|post.ch|usnews.com|d1lynpf6ndesae.cloudfront.net|rukrymr.azureedge.net|krymr.com|cnet.com|adidas.co.uk|adidas.nl|adidas.pl|lineadirecta.com|sibreal.org|modernatx.com|louisvuitton.com|simplybusiness.co.uk|uber.com|monroeandmain.com
 ||tags.tiqcdn.com/utag/*/utag.sync.js$domain=yousee.dk|sibreal.org
 !
 !
@@ -36616,6 +36620,8 @@ _tracking.php?b=
 /analytics.js$domain=kopeda.com|freexcafe.com|rusvideos.tv|nakubani.ru|lun.com|songsara.net|newsmax.com|bolgehastanesi.com|ewtc.de|newsdig.tbs.co.jp|imore.com|city.kushiro.lg.jp|emeraldbridal.com.au|emarat-news.ae|imobie.jp|tikla.com.tr
 ||assets.adobedtm.com^$domain=mcclatchydc.com|elnuevoherald.com|bellinghamherald.com|sacbee.com|charlotteobserver.com|newsobserver.com|miamiherald.com|ef.ru|algida.com.tr|bmw-motorrad.co.uk|cif.com.tr|clearhaircare.com|domestos.com|dove.com|elidor.com.tr|f1sport.autorevue.cz|geico.com|hellmanns.com.tr|herkessofraya.com|johnsonsbaby.com.tr|lipton.com|lnk.to|lux.com|magnumicecream.com|neutrogena.com.tr|omo.com|rexona.com|samsung.com|sap.com|schwarzkopf.com.tr|signalturkiye.com|msnbc.com|nbcnews.com|kbb.com|eurosport.ru|timgate.it|intermiles.com|oxfordmail.co.uk|spiegel.de|hp.com|deutschepost.de|thebay.com|s.shufoo.net|tsn.ca|tabelog.com|euronews.com|newshub.co.nz
 !
+||sexhd.pics/x/x.js
+||i.tmgrup.com.tr/*/tmdprayercounter/tmdprayercounter*.js
 ||media.fc2.com/blank.gif
 ||daimaoh.co.jp/afimp.php
 ||skalnik.pl/static/*/js/tracking.min.js
@@ -41099,9 +41105,9 @@ cdn-settings.appsflyersdk.com^
 ||int.vlancaa.fun^
 ||tok.vaicore.xyz^
 !
+||collect.analytics.unity3d.com^
 ||accscdn.m.taobao.com^
 ||acs.m.taobao.com^
-||heytapmobi.com^
 ||apsrgeo.amap.com^
 ||confe.dc.oppomobile.com^
 ||conff.dc.oppomobile.com^
@@ -41851,6 +41857,8 @@ cdn-settings.appsflyersdk.com^
 !
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/146678
+@@||googletagmanager.com/gtm.js$domain=thegazette.com
 ! https://github.com/AdguardTeam/AdguardFilters/issues/146517
 @@||googletagmanager.com/gtm.js$domain=nespresso.com
 ! https://github.com/AdguardTeam/AdguardFilters/issues/146530
