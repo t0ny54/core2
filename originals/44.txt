@@ -965,6 +965,8 @@ otonasalone.jp,sumaiweb.jp#?#._popIn_infinite_page > a._popIn_recommend_article_
 !
 !
 !
+asianoneta.blog.jp#?#font:contains(Sponsored Links)
+news-us.org#?#.elementor-heading-title:contains(Sponsored Links)
 blog.jp#?#.plugin-memo > div.side > script[src^="https://ad999.biz"]:upward(2)
 blog.jp#?#.plugin-memo > div.side > script[src^="https://adt.ad-spire.net"]:upward(2)
 i2chmeijin.com#?#.plugin2_outline > div.plugin2_title:contains(amazon)
@@ -2466,6 +2468,7 @@ kuruma-news.jp,magmix.jp,trafficnews.jp$$div[data-history="photo_extra"]
 /wp-content/plugins/amazonjs/*
 !
 ! Malware/Phishing
+.shop/web/pc/login.php|$document
 .top/all/login.php?ie=utf-8&f=$document
 .online/a/eeeekayresrsammicraaajkaschhoilsebadhiyakuchtanahiaayaajturuionmeebbat/$document
 /app/JR.apk|$all
@@ -2488,7 +2491,7 @@ kuruma-news.jp,magmix.jp,trafficnews.jp$$div[data-history="photo_extra"]
 ://www.amazon.*.xyz/ap/signin|$document
 ://anmnou.*.cn/ap/signin|$document
 ://direct.smbcc-co-jp.*.com/ibg/client/home.php|$document
-/^https?:\/\/(?!www)[a-z]{3,5}\.[0-9a-z]{5,10}\.[a-z]{2,6}\/[a-z]{4,15}\/(?=[0-9a-z]{0,9}[A-Z])[0-9A-z]{10}\.html$/$document,match-case,domain=art|cc|club|fun|homes|info|life|one|online|site|top|world|xyz
+/^https?:\/\/(?!www)[a-z]{3,5}\.[0-9a-z]{5,10}\.[a-z]{2,6}\/[a-z]{3,15}\/(?=[0-9a-z]{0,9}[A-Z])[0-9A-z]{10}\.html$/$document,match-case,domain=art|cc|club|fun|homes|info|life|one|online|site|top|world|xyz
 .com/sanjin/client/index.php|$document
 .com/chrome.apk|$document
 .info/apkdownload|$document
@@ -2509,8 +2512,8 @@ _ap/signin*?_encoding=UTF8&openid.assoc_handle=jpflex&openid.claimed_id=&action=
 /ap/signin/openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.co.jp$document,domain=cn|top|xyz
 /Softbank.apk^$document
 /all/login.php?idsmt=*&nextfunck=$document
-/index.php?main_page=product_info&cPath=$document,domain=bar|best|bond|buzz|cfd|cyou|fun|life|live|ltd|monster|online|sa.com|shop|site|store|top|xyz
-/index.php?main_page=product_info&products_id=$document,domain=bar|best|bond|buzz|cfd|cyou|fun|life|live|ltd|monster|online|sa.com|shop|site|store|top|xyz
+/index.php?main_page=product_info&cPath=$document,domain=bar|best|bond|buzz|cfd|cyou|fun|life|live|ltd|monster|online|sa.com|shop|site|store|top|xyz|za.com
+/index.php?main_page=product_info&products_id=$document,domain=bar|best|bond|buzz|cfd|cyou|fun|life|live|ltd|monster|online|sa.com|shop|site|store|top|xyz|za.com
 ://eki-*.*.com/Personal/member/Login/index.php?oneTimeAccessID=$document
 /Softbank%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3.apk^$document
 /%E3%81%82%E3%82%93%E3%81%97%E3%82%93%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3.apk^$document
@@ -2576,6 +2579,9 @@ gundamlog.com###more > iframe[src^="https://richlink.blogsys.jp"]
 !
 !
 !
+||blozoo.info/restool/generate/blogparts/
+pcinformation.info##.osusume-info
+pcinformation.info##.osusume-info-header
 forzaxbox.net###content span[style="font-size:x-small;color:#CCCCCC"]
 forzaxbox.net##.menu_block:first-child
 web.ultra-soccer.jp##div[style*="height:280px;"]
@@ -8175,6 +8181,11 @@ gtoys.blog.fc2.com###adright
 !
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/146864
+asianoneta.blog.jp#@#.side_ad
+! Unbreak Rakuten Super deal/Coupon
+@@||couponad.marketplace.rakuten.co.jp/api/v1/userSearch/$~third-party
+@@||r10s.jp/evt/event/superdeal/js/sd_ads_updater-$domain=rakuten.co.jp
 ! unhide sidebar
 lamire.jp#@#.ad-uni
 ! unblock self-promo
@@ -8482,7 +8493,7 @@ netmile.co.jp#@#.ad-txt
 @@||affiliate-b.com/upload_image/$domain=ponta.gamefactory.jp|warau.jp
 @@||afl.rakuten.co.jp^$image,domain=chobirich.com|moppy.jp|netmile.co.jp
 @@||amazonaws.com/adv-img.zucks.jp/$image,domain=ecnavi.jp
-@@||amazonaws.com/affiliate-img.docomo.ne.jp/banner/$image,domain==chobirich.com|moppy.jp|point.i2i.jp
+@@||amazonaws.com/affiliate-img.docomo.ne.jp/banner/$image,domain=chobirich.com|moppy.jp|point.i2i.jp
 @@||amazonaws.com/img.point.i2i.jp/banner/*/300x250_$image,domain=point.i2i.jp
 @@||amazonaws.com/img.point.i2i.jp/banner/*_300x250.$image,domain=point.i2i.jp
 @@||atown.jp^$image,domain=chobirich.com|dietnavi.com|ecnavi.jp|moppy.jp|netmile.co.jp|point.i2i.jp|ponta.gamefactory.jp|t-mall.tsite.jp
@@ -8492,16 +8503,19 @@ netmile.co.jp#@#.ad-txt
 @@||cosmeland.jp/affiliate/$image,domain=ponta.gamefactory.jp
 @@||cross-a.net^$image,domain=chobirich.com|dietnavi.com|ponta.gamefactory.jp|t-mall.cmnw.jp
 @@||dell.com/images/jp/banners/*_300x250.$image,domain=chobirich.com
-@@||dinos.co.jp/affiliate/$image,domain=t-mall.tsite.jp
+@@||dinos.co.jp/affiliate/$image,domain=moppy.jp|t-mall.tsite.jp
 @@||gpoint.co.jp/images/gpark/bnr/300_250_$~third-party
 @@||gpoint.co.jp/images/*_300x250.$~third-party
 @@||j-a-net.jp^$image,domain=chobirich.com|ecnavi.jp|moppy.jp|netmile.co.jp|point.i2i.jp|ponta.gamefactory.jp|t-mall.cmnw.jp|t-mall.tsite.jp|warau.jp
 @@||moppy.jp/pub/global/pc/banner/gacha/468x60.jpg$~third-party
+@@||pia.jp/uploads5/files/*/300_250.$image,domain=moppy.jp
 @@||point-g.rakuten.co.jp/pg_assets/item/contets/*/300_250_$~third-party
 @@||point-g.rakuten.co.jp/pg_assets/item/contets/*_300x250$image,~third-party
 @@||prf.hn/source/$image,domain=moppy.jp
 @@||r-ad.ne.jp^$subdocument,xmlhttprequest,domain=recruit.co.jp
-@@||tcs-asp.net/imagesender$image,domain=dietnavi.com|ponta.gamefactory.jp
+@@||ryuryumall.jp/af/ls/logo/300_250_$image,domain=moppy.jp
+@@||storage.aeonshop.com/assets/file/pages/img/AD/$domain=moppy.jp
+@@||tcs-asp.net/imagesender$image,domain=dietnavi.com|moppy.jp|ponta.gamefactory.jp
 @@||trafficgate.net/t/b/$image,domain=chobirich.com|ecnavi.jp|moppy.jp|point-g.rakuten.co.jp|ponta.gamefactory.jp|t-mall.tsite.jp|warau.jp
 @@||valuecommerce.com^$image,domain=chobirich.com|dietnavi.com|ecnavi.jp|moppy.jp|netmile.co.jp|point.i2i.jp|ponta.gamefactory.jp|t-mall.tsite.jp
 @@||virusbuster.jp/aff/banner/vb/468_60.gif$image,domain=point.i2i.jp
@@ -8511,6 +8525,7 @@ netmile.co.jp#@#.ad-txt
 @@||afi-b.com/assets/dist/img/general/top/img/ad/$image,~third-party
 @@||afi-b.com/assets/img/general/common/$image,domain=affiliate-b.com
 ! FP by EasyList generic cosmetic rules
+pcinformation.info#@#a[href^="https://click.linksynergy.com/fs-bin/"]
 mamastar.jp#@#.adstop
 ironsaga-msoku.xyz,takushoku.info#@#.ad.widget
 ringo-no-mori.jp#@#.ad-bnr
