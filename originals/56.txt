@@ -718,7 +718,7 @@ bild.de#@#.fullbanner
 bild.de#@#.ads
 bild.de##div:matches-css-before(content:/Anzeige/i)
 bild.de##.ad-wrapper
-bild.de##[style]:has-text(Anzeige):has(iframe):upward(1)
+! bild.de##[style]:has-text(Anzeige):has(iframe):upward(1)
 ! https://github.com/uBlockOrigin/uAssets/issues/8257
 ! https://www.reddit.com/r/uBlockOrigin/comments/jxrzda/
 ||tagger.opecloud.com^$xhr,redirect=noop.txt,domain=bild.de
@@ -8735,8 +8735,8 @@ ani-stream.com##+js(no-fetch-if, damoh.ani-stream.com)
 @@||macbidouille.com^$ghide
 
 ! https://github.com/uBlockOrigin/uAssets/issues/9449
-smallseotools.com##+js(no-fetch-if, /google|adpushup/)
-smallseotools.com##+js(aeld, mouseleave, banner_css)
+smallseotools.com##+js(no-fetch-if, /google|adpushup|adrecover/)
+smallseotools.com##+js(aeld, mouseleave, clientWidth)
 smallseotools.com##.adsbygoogle:style(max-height: 1px !important;)
 *$image,redirect-rule=1x1.gif,domain=smallseotools.com
 ||smallseotools.com/*.gif$image
@@ -8744,8 +8744,8 @@ smallseotools.com##.adsbygoogle:style(max-height: 1px !important;)
 @@||smallseotools.com/webimages/process.gif
 smallseotools.com#@#.b
 smallseotools.com##.m-auto.text-center:has(.adsbygoogle)
-smallseotools.com##span[class="d-block mx-auto my-2 text-center"]
-smallseotools.com##div.side_area > a[onclick="tool_trigger('Grammarly sidebar banner')"]
+smallseotools.com##samp
+smallseotools.com##div.side_area > a[onclick="tool_trigger('Grammarly sidebar carousal')"]
 
 ! https://github.com/uBlockOrigin/uAssets/issues/4102
 peeplink.in##+js(popads-dummy)
@@ -10944,9 +10944,6 @@ coolsoft.altervista.org###block-block-30
 coolsoft.altervista.org###content-right-floatbox
 coolsoft.altervista.org##ins.adsbygoogle
 
-! https://github.com/uBlockOrigin/uAssets/issues/5065
-*$xhr,redirect-rule=nooptext,domain=photopea.com
-
 ! https://github.com/NanoMeow/QuickReports/issues/755
 @@||hanimesubth.com/assets/js/ads.core.js$script,1p
 hanimesubth.com##+js(aeld, load, nextFunction)
@@ -12675,6 +12672,9 @@ siouxcityjournal.com##.tnt-ads-container
 
 ! https://github.com/uBlockOrigin/uAssets/issues/5761
 nsw2u.*##[href^="https://bit.ly/"]
+! https://www.reddit.com/r/uBlockOrigin/comments/126iwtj/
+nsw2u.*##+js(acs, eval, replace)
+nsw2u.*##+js(no-xhr-if, googlesyndication)
 
 ! filesharing.io anti adb
 filesharing.io##+js(aopw, showMsgAb)

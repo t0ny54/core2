@@ -86,6 +86,7 @@
 ! not for DNS
 ||ias.rakuten.co.jp^$third-party,domain=~rakuten--.co.jp
 !
+||ad.owlair.net^
 ||js.medi-8.net^
 ||presco.ai^$third-party
 ||thisstations.com^$all
@@ -706,7 +707,7 @@ realtime-chart.info#$?#td[style^="vertical-align"] div[style*="top"]:matches-att
 ||realtime-chart.info^$subdocument,domain=sekai-kabuka.com
 realtime-chart.info#$?#td[style^="vertical-align"] div[onclick]:has(> img[src*="/clip_"] + b):not(:has(b td > a[href])) { pointer-events: none !important; }
 realtime-chart.info#$?#td[style^="vertical-align"] div[onmousedown]:has(> img[src*="/clip_"] + b):not(:has(b td > a[href])) { pointer-events: none !important; }
-sekai-kabuka.com#$?#table[width="762px"] > tbody > tr > td[class] > div[id][class] > div[style="width: 240px;"]:contains(不具合が) { z-index: -1 !important; }
+sekai-kabuka.com#$?#table[width="762px"] > tbody > tr > td[class] > div[id][class] > div[style="width: 238px;"]:contains(不具合が) { z-index: -1 !important; }
 sekai-kabuka.com#$?#table[width="762px"] table[width="100%"] td[align="center"] > div > div[style$="width:728px;line-height: 1.2;height: 90px;"]:has(> ins.adsbygoogle[style="display:inline-block;width:728px;height:90px;position:absolute"] > iframe#aswift_1) { height: 1px !important; }
 sekai-kabuka.com#$#div[id][class][style^="position:relative;background:#000;"][style*="width:729px;"][style*="height: 90px;"] { height: 1px !important; }
 sekai-kabuka.com#%#//scriptlet('remove-attr', 'onclick', 'div[data-js][style*="background"]', 'stay')
@@ -965,6 +966,8 @@ otonasalone.jp,sumaiweb.jp#?#._popIn_infinite_page > a._popIn_recommend_article_
 !
 !
 !
+izzetmtgnews.com#?##related-entries > h2:has(+ div.ads)
+rakukan.net#?#.module:has(> script[src^="https://js.ad-spire.net/"])
 asianoneta.blog.jp#?#font:contains(Sponsored Links)
 news-us.org#?#.elementor-heading-title:contains(Sponsored Links)
 blog.jp#?#.plugin-memo > div.side > script[src^="https://ad999.biz"]:upward(2)
@@ -1580,7 +1583,7 @@ hlsloader.com#?#section > center > span[style="opacity:0.7;font-size:xx-small"]:
 valorantchannel.livedoor.blog#?#div[class*="column-inner"] > div.plugin-memo:has(> div.sidetitlebody > div.sidetitle:contains(スポンサードリンク))
 nlab.itmedia.co.jp#?##cmsBody > div.inner > p:last-of-type:has(> * > a[href^="https://twitter.com/"][target="_blank"]):contains(作品提供) ~ div.cmsAmazonWrap
 mainichi.jp#?#.featurelist > li > div[id^="ad-"]:upward(1)
-kdrm4.com,yagan.hatenablog.com,gigafile.ltd,taisy0.com,furugi1717.net,nilcollection.net,souda-kansai.com#?#.entry-content > p > ins.adsbygoogle:upward(1)
+mtgoversears.com,kdrm4.com,yagan.hatenablog.com,gigafile.ltd,taisy0.com,furugi1717.net,nilcollection.net,souda-kansai.com#?#.entry-content > p > ins.adsbygoogle:upward(1)
 fnjpnews.com#?#.post-box > div.post-box-contents > ins.adsbygoogle:upward(2)
 sekisei.click#?#.module--free ins.adsbygoogle:upward(.module--free)
 goo.ne.jp#?##NR-sub-in > aside > div.module-frame > div.areamatch:upward(1)
@@ -2468,6 +2471,11 @@ kuruma-news.jp,magmix.jp,trafficnews.jp$$div[data-history="photo_extra"]
 /wp-content/plugins/amazonjs/*
 !
 ! Malware/Phishing
+/member/sendMail.php?direct_user_cd=*&direct_password=$document
+|http://*/j/mmenu.php$document
+.com/pc.php?newsplus/?cardBrand=$document
+.xyz/login|$document
+.com/index/detail.html?sno=*&coll_id=$document
 .shop/web/pc/login.php|$document
 .top/all/login.php?ie=utf-8&f=$document
 .online/a/eeeekayresrsammicraaajkaschhoilsebadhiyakuchtanahiaayaajturuionmeebbat/$document
@@ -2490,7 +2498,7 @@ kuruma-news.jp,magmix.jp,trafficnews.jp$$div[data-history="photo_extra"]
 ://www.amazon.*.cn/ap/signin|$document
 ://www.amazon.*.xyz/ap/signin|$document
 ://anmnou.*.cn/ap/signin|$document
-://direct.smbcc-co-jp.*.com/ibg/client/home.php|$document
+direct.smb*.com/ibg/client/home.php|$document
 /^https?:\/\/(?!www)[a-z]{3,5}\.[0-9a-z]{5,10}\.[a-z]{2,6}\/[a-z]{3,15}\/(?=[0-9a-z]{0,9}[A-Z])[0-9A-z]{10}\.html$/$document,match-case,domain=art|cc|club|fun|homes|info|life|one|online|site|top|world|xyz
 .com/sanjin/client/index.php|$document
 .com/chrome.apk|$document
@@ -2514,7 +2522,7 @@ _ap/signin*?_encoding=UTF8&openid.assoc_handle=jpflex&openid.claimed_id=&action=
 /all/login.php?idsmt=*&nextfunck=$document
 /index.php?main_page=product_info&cPath=$document,domain=bar|best|bond|buzz|cfd|cyou|fun|life|live|ltd|monster|online|sa.com|shop|site|store|top|xyz|za.com
 /index.php?main_page=product_info&products_id=$document,domain=bar|best|bond|buzz|cfd|cyou|fun|life|live|ltd|monster|online|sa.com|shop|site|store|top|xyz|za.com
-://eki-*.*.com/Personal/member/Login/index.php?oneTimeAccessID=$document
+://eki*.*.com/Personal/member/Login/index.php?oneTimeAccessID=$document
 /Softbank%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3.apk^$document
 /%E3%81%82%E3%82%93%E3%81%97%E3%82%93%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3.apk^$document
 /\.(?:cn|icu|top|pro)\/Personal\/member\/Login\/index\.php\?oneTimeAccessID=/$document
@@ -2579,6 +2587,11 @@ gundamlog.com###more > iframe[src^="https://richlink.blogsys.jp"]
 !
 !
 !
+matomame.jp###page_bottom_fixed
+izzetmtgnews.com##a[href="https://www.cardrush-mtg.jp/"] > img
+city.meguro.tokyo.jp##.banner-box
+||blog.seesaa.jp/contents/bmlist.txt
+rakukan.net##div[class^="article__title--ad"]
 ||blozoo.info/restool/generate/blogparts/
 pcinformation.info##.osusume-info
 pcinformation.info##.osusume-info-header
@@ -4577,7 +4590,7 @@ javstore.net##img[title="aaaaa"]
 bamka.info,kaimyou.biz###st_custom_html_widget-14
 bitdays.jp##.adrelated
 japan-secure.com##.ad-top-label
-xn--icktho51ho02a0dc.com,korewaeroi.com,switchsoku.com,sabatech.jp##.widgetSticky
+sagi-site.com,xn--icktho51ho02a0dc.com,korewaeroi.com,switchsoku.com,sabatech.jp##.widgetSticky
 sabatech.jp##iframe[style="width:120px;height:240px;"]
 crefan.jp##.wrapper > div.container > div[align="center"]:not([class]):not([id])
 ||cravelweb.com/wp-content/uploads/*-banner.jpg
