@@ -79,6 +79,8 @@
 ! Bad: example.org###rek (should be in specific.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/147282
+avclub.com,clickhole.com,deadspin.com,gizmodo.com,jalopnik.com,jezebel.com,kotaku.com,lifehacker.com,splinternews.com,theinventory.com,theonion.com,theroot.com,thetakeout.com#%#//scriptlet('set-constant', 'ga', 'noopFunc')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/146571
 auto.ru#%#//scriptlet('set-local-storage-item', '__rtbhouse.lid', '0')
 auto.ru#%#//scriptlet('set-local-storage-item', 'ludca', '0')
@@ -5537,6 +5539,8 @@ nethunt.com/api/v1/track/email/$image
 ! Blocking piwik analytics subdomain(for DNS filtering)
 |piwik.
 !
+||volts.shopping.naver.com^
+||analytics.grape.media^
 ||analytics.karakuri.ai^
 ||cdn-redirector.glopal.com^
 ||storelog.kode.co.kr^
@@ -36634,6 +36638,7 @@ _tracking.php?b=
 /analytics.js$domain=kopeda.com|freexcafe.com|rusvideos.tv|nakubani.ru|lun.com|songsara.net|newsmax.com|bolgehastanesi.com|ewtc.de|newsdig.tbs.co.jp|imore.com|city.kushiro.lg.jp|emeraldbridal.com.au|emarat-news.ae|imobie.jp|tikla.com.tr
 ||assets.adobedtm.com^$domain=mcclatchydc.com|elnuevoherald.com|bellinghamherald.com|sacbee.com|charlotteobserver.com|newsobserver.com|miamiherald.com|ef.ru|algida.com.tr|bmw-motorrad.co.uk|cif.com.tr|clearhaircare.com|domestos.com|dove.com|elidor.com.tr|f1sport.autorevue.cz|geico.com|hellmanns.com.tr|herkessofraya.com|johnsonsbaby.com.tr|lipton.com|lnk.to|lux.com|magnumicecream.com|neutrogena.com.tr|omo.com|rexona.com|samsung.com|sap.com|schwarzkopf.com.tr|signalturkiye.com|msnbc.com|nbcnews.com|kbb.com|eurosport.ru|timgate.it|intermiles.com|oxfordmail.co.uk|spiegel.de|hp.com|deutschepost.de|thebay.com|s.shufoo.net|tsn.ca|tabelog.com|euronews.com|newshub.co.nz
 !
+||hotels.com/cl/*.gif?
 ||platform.loyaltylion.com/analytics/
 ||ok.ru/web-api/pixel?
 ||cdn.shopify.com/s/files/*/ba_tracking.js
@@ -37392,7 +37397,6 @@ hobbylog.jp##.pbancut
 ||nakanune.ru/count/img.php
 kuruma-news.jp##.recommend-container
 ||apis.naver.com/mcollector/
-||volts.shopping.naver.com/pv
 ||webrazzi.com/api/post/stats
 ||skyscanner.*/*/metrics/
 ||skyscanner.*/*/collector
@@ -39865,7 +39869,6 @@ dreamprogs.net##td[width="88"][height="31"]
 ||zara.media01.eu/tm_js.aspx?trackid
 ||zive.cz/Client.Scripts/tracking.js
 ||zonastat.com/installer.html?param=
-||ztat.net/*/adrum.js^
 ||ztat.net/*/webtrekk.min.js^
 ||google.com/log?$redirect=nooptext
 ||yandex.ru/clck/click|
@@ -39994,6 +39997,13 @@ link.gmapp*.net$image
 ! Bad:  ||example.com^$cookie=flat_r_mb (should be in cookies_specific.txt)
 !
 !
+! acstat.com
+$cookie=advcake_utm_webmaster
+$cookie=advcake_utm_partner
+$cookie=advcake_click_id
+$cookie=advcake_session_id
+$cookie=advcake_trackid
+$cookie=advcake_track_url
 ! knotch.com
 $cookie=kn_cs_visitor_id
 ! AT Internet
@@ -41887,6 +41897,14 @@ inapps.appsflyersdk.com^
 !#endif
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/147297
+@@||googletagmanager.com/gtm.js$domain=daily.co.jp
+@@||google-analytics.com/analytics.js$domain=daily.co.jp
+! https://github.com/AdguardTeam/AdguardFilters/issues/147282
+!#if (adguard_ext_safari || adguard_app_ios || adguard_ext_android_cb)
+@@||x.kinja-static.com/assets/packaged-js/trackers.*.js$domain=avclub.com|clickhole.com|deadspin.com|gizmodo.com|jalopnik.com|jezebel.com|kotaku.com|lifehacker.com|splinternews.com|theinventory.com|theonion.com|theroot.com|thetakeout.com
+@@||x.kinja-static.com/assets/packaged-js/runtime~trackers.*.js$domain=avclub.com|clickhole.com|deadspin.com|gizmodo.com|jalopnik.com|jezebel.com|kotaku.com|lifehacker.com|splinternews.com|theinventory.com|theonion.com|theroot.com|thetakeout.com
+!#endif
 ! https://github.com/AdguardTeam/AdguardFilters/issues/146946
 @@||mixpanel.com^$domain=app.writesonic.com
 @@||googletagmanager.com/gtm.js$domain=app.writesonic.com
