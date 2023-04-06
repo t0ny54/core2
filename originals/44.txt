@@ -86,6 +86,7 @@
 ! not for DNS
 ||ias.rakuten.co.jp^$third-party,domain=~rakuten--.co.jp
 !
+||ads.mediams.mb.softbank.jp^
 ||safemy-ios.com^$all
 ||ad.owlair.net^
 ||js.medi-8.net^
@@ -475,6 +476,8 @@
 ! Bad: ||ad.doubleclick.net^ (should be in adservers.txt)
 !
 !
+! densetsuav.blog.2nt.com,gjdsk2012.blog.2nt.com etc. anti-adb
+blog.2nt.com#@#.adspace
 ! https://twitter.com/CASI_TOSHI/status/1638937652375490561
 bridalgown.work,contents-group.work,heisei-housewarming.work,liquidfoundation.work,nailcolor.work,studioglass.work,tapestry.work,teaceremony.work,weddinghall.work#%#//scriptlet("set-constant", "blockId", "0")
 $script,third-party,redirect-rule=noopjs,domain=bridalgown.work|contents-group.work|heisei-housewarming.work|liquidfoundation.work|nailcolor.work|studioglass.work|tapestry.work|teaceremony.work|weddinghall.work
@@ -968,6 +971,10 @@ otonasalone.jp,sumaiweb.jp#?#._popIn_infinite_page > a._popIn_recommend_article_
 !
 !
 !
+newsee-media.com#?#.article-body-after > aside.mb20:has(> div + script[src])
+newsee-media.com#?#.article-body > aside.mb12:has(> div + script[src])
+blog.livedoor.jp#?#.article-body-more table:has(> tbody > tr > td > link[href^="https://pdn.adingo.jp/"])
+blog.livedoor.jp#?#.plugin-memo > div.side > link[href^="https://pdn.adingo.jp/"]:upward(2)
 jisakuhibi.jp#?#.article-body-more > br ~ div[style]:has(> div > a[href^="https://amzn.to/"])
 dietnavi.com#?#.logout_text + div.timesale > ul > li > div > div[id^="div-gpt-"]:upward(3)
 izzetmtgnews.com#?##related-entries > h2:has(+ div.ads)
@@ -2474,6 +2481,7 @@ kuruma-news.jp,magmix.jp,trafficnews.jp$$div[data-history="photo_extra"]
 /wp-content/plugins/amazonjs/*
 !
 ! Malware/Phishing
+.top/sbid_auth/type1/2.0/authorization.phpresponse_type=code&client_id=$document
 -japan.xyz/login|$document
 ||windows.net/greg/JPdex/masharJP/$document
 /bin/loginCamp.php?$document
@@ -2522,7 +2530,7 @@ kuruma-news.jp,magmix.jp,trafficnews.jp$$div[data-history="photo_extra"]
 ://www.amazon.*.xyz/ap/signin|$document
 ://anmnou.*.cn/ap/signin|$document
 direct.smb*.com/ibg/client/home.php|$document
-/^https?:\/\/(?!www)[a-z]{3,5}\.[0-9a-z]{5,10}\.[a-z]{2,6}\/[a-z]{3,15}\/(?=[0-9a-z]{0,9}[A-Z])[0-9A-z]{10}\.html$/$document,match-case,domain=art|cc|club|fun|homes|info|life|one|online|site|top|world|xyz
+/^https?:\/\/(?!www)[a-z]{3,5}\.[0-9a-z]{5,10}\.[a-z]{2,6}\/[a-z]{3,15}\/(?=[0-9a-z]{0,9}[A-Z])[0-9A-z]{10}\.html$/$document,match-case,domain=art|cc|club|fun|homes|info|life|one|online|shop|site|top|world|xyz
 .com/chrome.apk|$document
 .info/apkdownload|$document
 .cn/WebDesk/www/index.php#$document
@@ -2610,6 +2618,26 @@ gundamlog.com###more > iframe[src^="https://richlink.blogsys.jp"]
 !
 !
 !
+community2.fmworld.net##.articleDeleteButtonWrap
+sakuradot.com##.comment_ad_block
+q.hatena.ne.jp###touch-footer-ad-placeholder
+q.hatena.ne.jp##div[id^="touch-"][id$="rectangle"]
+briarpatch.co.jp##.entry-content > div[style="margin-left: auto; margin-right: auto; text-align: center; "]
+briarpatch.co.jp##.sidebar > aside.briar-widget
+sbapp.net##.ads_sd
+sbapp.net##.ads_sd + br
+sbapp.net##.entry-content > ins.adsbygoogle + br
+yakuji.co.jp##.ad-text01
+yakuji.co.jp##.pd
+yakuji.co.jp##.rb
+cocktaillog.com##app-adsense-display-ads
+momi3.net##td[valign="top"][width="635"] > table > tbody > tr:first-child
+momi3.net##table[cellpadding="10"][width="870"] + hr
+momi3.net##a[href^="http://www.dmm.com"] + br + hr
+deli-fuzoku.jp##.mod-bnrWrap:last-child
+||deli-fuzoku.jp/assets/img/user/common/dlsite/
+||deli-fuzoku.jp/assets/img/user/pc/index/bnr_ec.png
+news.ntv.co.jp##.overlay-publicity
 ||52.25.25.125/img.php?adId=$document
 ||d102n5s5h7w3od.cloudfront.net/manga5/banners/$domain=manga-5.com
 manga-5.com##.list_series > li.product:not([id])
@@ -5137,7 +5165,7 @@ ero-gazou.jp,eroiro.info##.add-control
 bluelady.jp,memopanda.com,ero-gazou.jp,eroiro.info##.widget_pc_text
 blog.katsubemakito.net,oppai-doga.info,ichimanabiblog.com,koregasiritai.com,m4ex.com,carrozzeria-cdl.jp,happymackeyblog.com,48idol.*,sanabo.com,yama.minato-yamaguchi.co.jp,freeze-game.com,megabrasil.jp,kisslog2.com,idiom-encyclopedia.com,kamome21.site,tsubuyaki0424.com,monayoblog.com,ma-jann.com,lv73.net,2week.net,oreteki-design.com,mohmongar.net,chiepedia.club,chem-station.com,sirabetter.com,fx-koryaku.com###custom_html-2
 softantenna.com,animemanga33.com,vip-jikkyo.net,setusoku.com,asuneta.com,smhn.info,nonmama-blog.com,carrozzeria-cdl.jp,otonary.net,megabrasil.jp,larksan.wp.xdomain.jp,idiom-encyclopedia.com,studiosero.net,ma-jann.com,lagcapa.org,useful-notes.com,mohmongar.net,chem-station.com###custom_html-3
-blog.katsubemakito.net,myjpop.jspinyin.net,ero-mangacafe.com,carrozzeria-cdl.jp,otonary.net,k-knuckles.jp,freeze-game.com,kamome21.site,studiosero.net,lv73.net,lagcapa.org,mohmongar.net,chem-station.com,48idol.*###custom_html-4
+briarpatch.co.jp,blog.katsubemakito.net,myjpop.jspinyin.net,ero-mangacafe.com,carrozzeria-cdl.jp,otonary.net,k-knuckles.jp,freeze-game.com,kamome21.site,studiosero.net,lv73.net,lagcapa.org,mohmongar.net,chem-station.com,48idol.*###custom_html-4
 blog.katsubemakito.net,pcmanabu.com,3gajeon.net,carrozzeria-cdl.jp,eigo.plus,sanabo.com,anitubu.com,talking-english.net,4thsight.xyz,tohaz.com,kamome21.site,erogamemod.com,kimootoko.net###custom_html-5
 blog.katsubemakito.net,gigast.gigafile.nu,3040english.info,naporitansushi.com,carrozzeria-cdl.jp,detail-infomation.com,eigo.plus,dev.macha795.com,larksan.wp.xdomain.jp,kindou.info,chem-station.com###custom_html-6
 3gajeon.net,3040english.info,otonarisoku.com,nuki-dokoro.com,complesso.jp,studiosero.net,fpsjp.net,tokyolucci.jp###custom_html-7
@@ -8250,6 +8278,7 @@ lamire.jp#@#.ad-uni
 ! https://github.com/AdguardTeam/AdguardFilters/issues/146295 PC view
 mognavi.jp#@#.side_ad
 ! https://github.com/AdguardTeam/AdguardFilters/issues/146098
+@@||img.cf.47news.jp/static/ad/$image
 @@||img.cf.47news.jp/public/bannerAd/$image
 ! https://twitter.com/HFL_fan/status/1632275022197981184
 miitus.jp#@#.new-ad-box
@@ -8482,6 +8511,7 @@ webcartop.jp#@#.single-ads
 ! https://github.com/AdguardTeam/AdguardFilters/issues/107680
 @@||rmp.rakuten.co.jp/js/aa.js$domain=24.rakuten.co.jp
 ! https://github.com/AdguardTeam/AdguardFilters/issues/105095
+||sp.seiga.nicovideo.jp/js/illust/illust.min.js$replace=/if\(h\){/if\(h\){return;/
 @@||res.ads.nicovideo.jp/assets/js/ads2.js$domain=sp.seiga.nicovideo.jp
 ! https://github.com/AdguardTeam/AdguardFilters/issues/98787 fix related posts on mobile
 eromanga-school.com#@#.related-ad-area
