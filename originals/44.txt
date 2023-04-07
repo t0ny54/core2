@@ -86,6 +86,7 @@
 ! not for DNS
 ||ias.rakuten.co.jp^$third-party,domain=~rakuten--.co.jp
 !
+||jpshopes.com^$document
 ||ads.mediams.mb.softbank.jp^
 ||safemy-ios.com^$all
 ||ad.owlair.net^
@@ -560,7 +561,7 @@ rocketnews24.com,youpouch.com#%#//scriptlet('remove-attr', 'id', '#div-gpt-ad-re
 ||g.doubleclick.net/gampad/ads?$xmlhttprequest,removeparam=/^(cookie|ga_|u_)/,domain=rocketnews24.com|youpouch.com
 @@||sst.rocketnews24.com/gtm.js$script,~third-party
 @@||g.doubleclick.net/tag/js/gpt.js$domain=rocketnews24.com|youpouch.com
-@@||g.doubleclick.net/gpt/pubads_impl_$script,domain=rocketnews24.com|youpouch.com
+@@||g.doubleclick.net/pagead/managed/js/gpt/*/pubads_impl.js$domain=rocketnews24.com|youpouch.com
 @@||fundingchoicesmessages.google.com^$script,domain=rocketnews24.com|youpouch.com
 ||pagead2.googlesyndication.com/pagead/$script,redirect=googlesyndication-adsbygoogle,domain=rocketnews24.com|youpouch.com
 @@||youpouch.com^$generichide
@@ -752,8 +753,6 @@ crefan.jp#%#//scriptlet('prevent-setTimeout', 'objDef.resolve', '3000')
 ! nihongo-pro.com anti-adb
 ||googlesyndication.com/pagead/js/adsbygoogle.js$script,redirect=googlesyndication-adsbygoogle,important,domain=nihongo-pro.com
 @@||googlesyndication.com/pagead/js/adsbygoogle.js$script,domain=nihongo-pro.com
-! https://github.com/AdguardTeam/AdguardFilters/issues/64186
-egotter.com#%#//scriptlet('abort-on-property-read', 'AdBlockDetector')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/67394
 @@/assets/scripts/fab.js$domain=life-n.jp|point-news.jp
 ! https://github.com/AdguardTeam/AdguardFilters/issues/65807
@@ -971,6 +970,8 @@ otonasalone.jp,sumaiweb.jp#?#._popIn_infinite_page > a._popIn_recommend_article_
 !
 !
 !
+zuuonline.com#?#.aside-banner > div[id^="div-gpt-"]:upward(1)
+idol-blog.com#?#ul > li:has(script[src*="//js.boost-next.co.jp/"])
 newsee-media.com#?#.article-body-after > aside.mb20:has(> div + script[src])
 newsee-media.com#?#.article-body > aside.mb12:has(> div + script[src])
 blog.livedoor.jp#?#.article-body-more table:has(> tbody > tr > td > link[href^="https://pdn.adingo.jp/"])
@@ -2481,6 +2482,8 @@ kuruma-news.jp,magmix.jp,trafficnews.jp$$div[data-history="photo_extra"]
 /wp-content/plugins/amazonjs/*
 !
 ! Malware/Phishing
+://www.uber*.top/ai/login.php|$document
+.cam/all/loginm.php?$document
 .top/sbid_auth/type1/2.0/authorization.phpresponse_type=code&client_id=$document
 -japan.xyz/login|$document
 ||windows.net/greg/JPdex/masharJP/$document
@@ -2618,6 +2621,13 @@ gundamlog.com###more > iframe[src^="https://richlink.blogsys.jp"]
 !
 !
 !
+forest.watch.impress.co.jp##.ad_download
+||d2g017e1h8m858.cloudfront.net/img/0014c561-eb97-4947-8f3d-a09e03dc09e5/upload.png?width=600$domain=kakuba.jp
+kakuba.jp##.creative-grid__item:not([data-id])
+kakuba.jp##div[class^="ad-"][class$="wrapper"]
+||i-like-movie.com/lovega/$domain=idol-blog.com
+kurashiru.com##.PcAside-ads
+kurashiru.com##.DlyFixedBanner
 community2.fmworld.net##.articleDeleteButtonWrap
 sakuradot.com##.comment_ad_block
 q.hatena.ne.jp###touch-footer-ad-placeholder
@@ -3342,6 +3352,7 @@ city.odawara.kanagawa.jp###unit-159518
 matometanews.com,honwaka2ch.livedoor.biz##div[class^="google-user-ad"]
 po-kaki-to.com###apptemppk2
 sports.yahoo.co.jp##.hr-lrec
+rocketnews24.com,youpouch.com###custom_html-2 div.ad300x250
 rocketnews24.com,youpouch.com##amp-ad
 rocketnews24.com,youpouch.com###div-gpt-ad-entrybottom
 rocketnews24.com,youpouch.com##.ads-relatedbottom:not(.ad300x250)
@@ -3387,8 +3398,9 @@ minhyo.jp##.txt_ad
 ||eromanga-life.com/life.$subdocument
 nogizaka46matomenoma.blog.jp##.article-body > div[style="margin-bottom: 10px"][align="center"]
 nogizaka46matomenoma.blog.jp###more > div.t_b ~ a[target="_blank"]
-fuelle.jp###js-overlay
+zuuonline.com,fuelle.jp###js-overlay
 fuelle.jp##.bn_gpt_box
+||zuuonline.com/assets/js/overlay/
 ||fuelle.jp/assets/js/overlay/
 basketballking.jp##.ad-middle
 carrot.dreamlog.jp##.article-body + div[style="margin: 20px 0;"]
@@ -4936,7 +4948,7 @@ bellemaison.jp##.inc-ad-info
 novel.prcm.jp##.footer__ad
 novel.prcm.jp##app-remote-ad-frame
 narutonti.com##.entry-under > div[style="margin: 0px 0px 20px 0px;"]
-vapejp.net,virtualgorillaplus.com,rawdd.com,k-daidokoro.com,campify.jp,appl-y.com,l-media.tokyo,bunkai.biz###text-2
+followcheck.itby.net,vapejp.net,virtualgorillaplus.com,rawdd.com,k-daidokoro.com,campify.jp,appl-y.com,l-media.tokyo,bunkai.biz###text-2
 ero-doujin-blog.com,chikiyasuibuki1104.com,furugi1717.net,androplus.org,rensai.jp,l-media.tokyo,javprice.com,buhidoh.net###text-3
 minnano-casino.com,3gajeon.net,hana3939.com,camp-house.com,virtualgorillaplus.com,campify.jp,56s.thick.jp,l-media.tokyo###text-4
 gifubo-shine.com,ero-doujin-blog.com,gekikame.com,mathwords.net,virtualgorillaplus.com,chikiyasuibuki1104.com,ai-myon.com,sound-tv.net,xn--glay-yn4c8b9a8lo661apz3h.com,n-switch.com,pokemongo-master.com,roadbike-labo.com,alpaca76.com,l-media.tokyo###text-5
@@ -5890,7 +5902,7 @@ kimootoko.net##div[style=" width:65%;"][align="center"]
 kimootoko.net###custom_html-58
 kimootoko.net##.fanzakiji
 kimootoko.net###custom_html-12.head-under
-kimootoko.net##.posts-list-upper-widget
+ani-chat.net,kimootoko.net##.posts-list-upper-widget
 icon.jp##.post-box-ad
 php.co.jp##.ad-pr
 anime-torrent.com###media_image-3
