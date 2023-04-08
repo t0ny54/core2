@@ -1504,6 +1504,7 @@ ucoz.ru/informer/
 ! Bad: /banner.jpg (should be in general_url.txt)
 ! Bad: ||adssubdomain.legitwebsite.com^ (should be in adservers_firstparty.txt)
 !
+||s2517.com^
 ||bvbypswhds.com^
 ||ads.digitalcaramel.com^
 ||advwomennews.ru^
@@ -6019,6 +6020,7 @@ it-actual.ru#%#//scriptlet('prevent-xhr', 'pagead2.googlesyndication.com')
 !+ PLATFORM(ios, ext_android_cb, ext_safari)
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=it-actual.ru
 ! https://github.com/AdguardTeam/AdguardFilters/issues/145320
+@@||api-video.khl.ru^$generichide
 api-video.khl.ru#%#//scriptlet('prevent-xhr', 'an.yandex.ru')
 ||webcaster.pro/sentry.min.js$domain=api-video.khl.ru
 ||an.yandex.ru/system/context.js$script,xmlhttprequest,redirect=noopjs,domain=api-video.khl.ru
@@ -7589,6 +7591,8 @@ rivnepost.rv.ua,telegraf.in.ua,vlast.kz,mignews.com.ua,sibkray.ru,kursiv.kz,live
 !-------CSS---------
 !-------------------
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/147690
+dumskaya.net#$##nav { padding-top: 0 !important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/103305
 ! Группа компаний Актион
 !#if (!adguard_app_android && !adguard_app_ios)
@@ -7623,8 +7627,9 @@ fishki.net,hronika.info,meta.ua$$script[tag-content="window.AD_DOMAIN_URL_SYS"][
 ! https://github.com/AdguardTeam/AdguardFilters/issues/141785
 !+ NOT_PLATFORM(windows, mac, android)
 e.mail.ru,octavius.mail.ru#%#//scriptlet('trusted-replace-xhr-response', '/\[{"json":{"result":{"status":200\,"body":{"direct".+/', '/\[{"json":{"result":{"status":200\,"body":{"direct":{}}}}}\]/', '/api/v1')
+! https://github.com/AdguardTeam/AdguardFilters/issues/147394
 ! https://github.com/AdguardTeam/AdguardFilters/issues/146771
-pikabu.ru#%#//scriptlet('abort-current-inline-script', 'XMLHttpRequest', 'let hidden =')
+pikabu.ru#%#//scriptlet('abort-current-inline-script', 'XMLHttpRequest', 'window.Ya')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/145290
 sdamgia.ru#%#//scriptlet('abort-on-property-read', 'rotator_changed')
 ! https://forum.adguard.com/index.php?threads/51458/
@@ -9508,6 +9513,7 @@ delo-vcusa.ru,tolknews.ru,gorodche.ru,smartpress.by,raenza.ru,eadaily.com,zakon.
 !
 !
 !
+dumskaya.net#?#body > div.hideprint:has(> div > noindex > a[href^="/ad/"])
 .ru/br/$domain=kushva-online.ru|motorpage.ru
 ua.news##.promo3
 24tv.ua##.nts-video-wrapper
@@ -9605,6 +9611,9 @@ kadrovik01.com.ua,kom-dir.ru,gd.ru,buhsoft.ru,dirklinik.ru,fd.ru,business.ru,pro
 !
 !
 !
+mirf.ru#?#.home_article > div.home_article_item:has(> div[id^="adfox_"])
+7days.ru##.header-7days__branding
+7days.ru##.header-7days__infopanel-sticky.branding
 wonderzine.com##.hype-panel.g-clearfix
 vsedoramy.net##.sectionrol.caroubottom
 vsedoramy.net##.section.caroubottom2
