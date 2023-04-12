@@ -7465,7 +7465,10 @@ docviewer.yandex.ru,docviewer.yandex.by,docviewer.yandex.com,docviewer.yandex.co
 ://yandex.*/news/$replace=/(^\{.*"common":.+"stationaryConnection":.+"commonRtbVisibility".+)|(^.+"rtb":.+visibilitySettings.+)|(^.+"blockId":.+visibilitySettings.+)//,script,other,domain=yandex.by|yandex.kz|yandex.ru
 !
 ! Yandex.Weather
-yandex.by,yandex.com,yandex.com.tr,yandex.fr,yandex.kz,yandex.ru$$script[wildcard="*var initTime*var advStartTime*parent.classList.add*"]
+/^https:\/\/www.yandex.\w+\/(weather|pogoda)\//$script,xmlhttprequest,jsonprune=\$.data.*.attributes,domain=yandex.*
+! TODO: remove next two rules 2 weeks after release AdGuard apps with CL 1.11
+||yandex.*/weather/*/*/$replace=/.renderBanner\(function\(\)\{return/.renderBanner\(function\(\)\{return;/,script,other,xmlhttprequest,domain=yandex.by|yandex.kz|yandex.ru
+||yandex.*/pogoda/*/*/$replace=/(^\{.*"common":.+"stationaryConnection":.+"commonRtbVisibility".+)|(^.+"blockId":.+visibilitySettings.+)//,script,other,xmlhttprequest,domain=yandex.by|yandex.kz|yandex.ru
 !
 !afisha.yandex.by,afisha.yandex.kz,afisha.yandex.ru#%#//scriptlet("abort-on-property-read", "window.IntersectionObserver")
 !+ PLATFORM(windows, mac, android)
@@ -7529,8 +7532,6 @@ livejournal.com#%#//scriptlet("set-constant", "begun_new_callbacks", "undefined"
 ||yandex.*/news/*$replace=/.*\[{"adm":{".*:{"imptrackers":.*//,xmlhttprequest,domain=yandex.by|yandex.com|yandex.fr|yandex.kz|yandex.ru
 //yandex.*/news/*$replace=/^\{\"rtb\":.*//,script,other,domain=yandex.by|yandex.com|yandex.fr|yandex.kz|yandex.ru
 /kinopoisk\.ru\/\w+\/[a-zA-Z0-9_-]+\/[a-zA-Z0-9_-]{100,}/$replace=/"attributes"/""/,script,domain=www.kinopoisk.ru
-||yandex.*/weather/*/*/$replace=/.renderBanner\(function\(\)\{return/.renderBanner\(function\(\)\{return;/,script,other,xmlhttprequest,domain=yandex.by|yandex.kz|yandex.ru
-||yandex.*/pogoda/*/*/$replace=/(^\{.*"common":.+"stationaryConnection":.+"commonRtbVisibility".+)|(^.+"blockId":.+visibilitySettings.+)//,script,other,xmlhttprequest,domain=yandex.by|yandex.kz|yandex.ru
 ||zen.yandex.*/*/*-*-*-*-$replace=/(^\{.*"common":.+"stationaryConnection":.+"commonRtbVisibility".+)|(^.+"blockId":.+visibilitySettings.+)//,script,other,xmlhttprequest,domain=zen.yandex.by|zen.yandex.com|zen.yandex.fr|zen.yandex.kz|zen.yandex.ru
 ||mail.yandex.*$script,replace=/\,ab:e.blocker\,/\,/
 ||mail.yandex.*/*/*/*/*$replace=/.*"adIds":.*"imptrackers":.*//,xmlhttprequest,domain=mail.yandex.by|mail.yandex.kz|mail.yandex.ru|mail.yandex.com|mail.yandex.com.tr
@@ -9513,6 +9514,7 @@ delo-vcusa.ru,tolknews.ru,gorodche.ru,smartpress.by,raenza.ru,eadaily.com,zakon.
 !
 !
 !
+itc.ua##.course-widget-new
 dumskaya.net#?#body > div.hideprint:has(> div > noindex > a[href^="/ad/"])
 .ru/br/$domain=kushva-online.ru|motorpage.ru
 ua.news##.promo3
@@ -9611,6 +9613,10 @@ kadrovik01.com.ua,kom-dir.ru,gd.ru,buhsoft.ru,dirklinik.ru,fd.ru,business.ru,pro
 !
 !
 !
+eg-online.ru##img[src^="/upload/rk/"]
+webznam.ru###alfaweb
+allturkserials.com###text-12
+wotexpress.eu##div[class^="bs-r-"]
 spravportal.ru###scrTopBlock
 spravportal.ru##div[data-abloff]
 xakep.ru##.xakep-ads
@@ -19755,6 +19761,12 @@ liveresult.ru##iframe[src^="https://static.liveresult.ru/files/fonbet/"]
 ||static.liveresult.ru/files/fonbet/
 ||avatars.mds.yandex.net/get-adfox-content/$domain=liveresult.ru
 !
+2ip.ru##li:has(> a[href="https://finevpn.org/"])
+2ip.ru##a[href="https://finevpn.org/"]
+2ip.ru##.ip-links-container > div[class*=" "]:not(.ip-links_speed)
+2ip.io##li:has(> a[href="https://vpn.rent"])
+2ip.io##a[href="https://vpn.rent"]
+2ip.io##a[href^="https://2ip.io/?area=adBanner"]
 2ip.io,2ip.ru##div[id^=div-gpt-ad]
 ||2ip.ru/banners/
 2ip.io,2ip.ru##.ip-links > div.ip-links_item:first-child
@@ -22925,6 +22937,8 @@ i.ua$$script[tag-content="var branding"][max-length="2000"]
 !
 !
 !
+unian.ua##div[style^="min-height: 250px;"]
+unian.ua##div[style^="height:260px;"]
 tsn.ua#?#.l-col > aside.c-section:has(> h4.c-section__title:contains(Новости партнеров))
 tsn.ua#?#.l-row > div.l-col:has(> aside.c-aside__port > div.c-aside div[data-ad])
 rayon.in.ua##.body-typical__slider

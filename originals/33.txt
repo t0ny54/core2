@@ -79,6 +79,8 @@
 ! Bad: example.org###rek (should be in specific.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/147936
+lightrun.com#%#//scriptlet('set-constant', 'gtag', 'noopFunc')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/147672
 biedronka.pl#%#//scriptlet('remove-class', 'async-hide', 'html')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/147282
@@ -91,7 +93,7 @@ forbes.com#%#//scriptlet("set-constant", "Object.prototype.track", "noopFunc")
 ! https://github.com/AdguardTeam/AdguardFilters/issues/145948
 sportschau.de#%#//scriptlet('set-constant', 'mediaTrackingOff', 'true')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/144897
-voici.fr,gala.fr#%#//scriptlet('set-constant', 'DD_RUM.addTiming', 'noopFunc')
+capital.fr,voici.fr,gala.fr#%#//scriptlet('set-constant', 'DD_RUM.addTiming', 'noopFunc')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/143708
 ! Fixes issue with toggling dark/light mode
 9to5google.com,9to5mac.com,9to5toys.com,dronedj.com,electrek.co#%#AG_onLoad(function(){const a=document.createElement("div");document.documentElement.appendChild(a),setTimeout(()=>{a&&a.remove()},100)});
@@ -1461,7 +1463,6 @@ prjaga.ru#?##right > div#right_nav > h3:contains(Онлайн статистик
 ||stats*.videonow.ru^
 ||csbew.com^$third-party
 ||beak.bd.313.nl^
-||collector.appconsent.io^
 ||tracker.durasite.net^
 ||growthrx.in^$third-party
 ||clickcease.com^$third-party
@@ -5547,6 +5548,7 @@ nethunt.com/api/v1/track/email/$image
 ! Blocking piwik analytics subdomain(for DNS filtering)
 |piwik.
 !
+||weblog.woowa.in^
 ||site-azp.slgnt.eu^
 ||pra.praxis.nl^
 ||tracker.samplicio.us^
@@ -35616,6 +35618,9 @@ _tracking.php?b=
 /analytics.js$domain=kopeda.com|freexcafe.com|rusvideos.tv|nakubani.ru|lun.com|songsara.net|newsmax.com|bolgehastanesi.com|ewtc.de|newsdig.tbs.co.jp|imore.com|city.kushiro.lg.jp|emeraldbridal.com.au|emarat-news.ae|imobie.jp|tikla.com.tr
 ||assets.adobedtm.com^$domain=mcclatchydc.com|elnuevoherald.com|bellinghamherald.com|sacbee.com|charlotteobserver.com|newsobserver.com|miamiherald.com|ef.ru|algida.com.tr|bmw-motorrad.co.uk|cif.com.tr|clearhaircare.com|domestos.com|dove.com|elidor.com.tr|f1sport.autorevue.cz|geico.com|hellmanns.com.tr|herkessofraya.com|johnsonsbaby.com.tr|lipton.com|lnk.to|lux.com|magnumicecream.com|neutrogena.com.tr|omo.com|rexona.com|samsung.com|sap.com|schwarzkopf.com.tr|signalturkiye.com|msnbc.com|nbcnews.com|kbb.com|eurosport.ru|timgate.it|intermiles.com|oxfordmail.co.uk|spiegel.de|hp.com|deutschepost.de|thebay.com|s.shufoo.net|tsn.ca|tabelog.com|euronews.com|newshub.co.nz
 !
+||publish.vuukle.com/bq-publish
+||uraaka.com/analytics/
+||fastcmp.com/1px.png?origin=
 ||googletagmanager.com/*=GTM-
 brasil247.com###taboola-mid-article-leia-mais
 ||libcdnjs.com/api/event
@@ -36614,7 +36619,6 @@ bcnretail.com###_popIn_recommend
 topics.nintendo.co.jp##.topics-recommend__headline
 ||kitbag.com/api/track|
 ||static.actu.fr/assets/js/smarttag*.js
-||cdn.lr-ingest.io/logger-1.min.js
 ||sa.openmedia.co/collect?*tid=
 chaos2ch.com###sub div.plugin-memo:last-child
 ||kraken.com/analytics
@@ -40065,6 +40069,7 @@ conversions.appsflyersdk.com^
 gcdsdk.appsflyersdk.com^
 -launches.appsflyersdk.com^
 cdn-settings.appsflyersdk.com^
+dlsdk.appsflyersdk.com^
 ||adrevenue.appsflyer.com^
 ||af-event-logger.appsflyer.com^
 ||api.appsflyer.com^
@@ -40886,6 +40891,14 @@ inapps.appsflyersdk.com^
 !#endif
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/147916
+!+ PLATFORM(ios, ext_safari)
+@@||newscgp.com/prod/prebid/nyp/pb.js$domain=nypost.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/147936
+!#if (adguard_ext_safari || adguard_app_ios || adguard_ext_android_cb)
+@@||googletagmanager.com/gtm.js$domain=lightrun.com
+@@||googletagmanager.com/gtag/js$domain=lightrun.com
+!#endif
 ! https://github.com/AdguardTeam/AdguardFilters/issues/147872
 @@||googletagmanager.com/gtm.js$domain=computerhoy.com
 ! https://github.com/tofukko/filter/issues/83
@@ -41591,9 +41604,6 @@ extrahop.com#%#//scriptlet('prevent-setTimeout', 'ad blocker')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/109426
 !+ PLATFORM(ios, ext_android_cb, ext_safari)
 @@||nytimes.com/ads/parakeet.min.js
-! https://github.com/AdguardTeam/AdguardFilters/issues/112287
-@@||collector.appconsent.io/hello$domain=lefigaro.fr
-@@||collector.appconsent.io/save$domain=lefigaro.fr
 ! https://github.com/AdguardTeam/AdguardFilters/issues/112228
 @@||treasuredata.com/sdk/*/td.min.js$domain=shiseido.co.jp
 ! https://github.com/AdguardTeam/AdguardFilters/issues/112200
@@ -41778,9 +41788,6 @@ ntp.msn.com#@%#navigator.getBattery = undefined;
 @@||googletagmanager.com/gtm.js$domain=cotizadorsalud.mapfre.com.mx
 ! https://github.com/AdguardTeam/AdguardFilters/issues/99983
 @@||wwa.wipe.de/wwa.js$domain=mobil.dasoertliche.de
-! https://github.com/AdguardTeam/AdguardFilters/issues/100280
-@@||collector.appconsent.io/hello$domain=lachainemeteo.com
-@@||collector.appconsent.io/save$domain=lachainemeteo.com
 ! https://github.com/AdguardTeam/AdguardFilters/issues/99391
 @@||gahu.hit.gemius.pl/gplayer.js$domain=mafab.hu
 ! https://github.com/AdguardTeam/AdguardFilters/issues/99718
@@ -41904,9 +41911,6 @@ pizzakiosk.ee#@#img[width="88"][height="31"]
 @@||ups.xplosion.de/ctx?event_id=$domain=tz.de
 ! https://github.com/AdguardTeam/AdguardFilters/issues/95018
 @@||track.ksta.de/cre-*/tracking/call.js
-! https://github.com/AdguardTeam/AdguardFilters/issues/95534
-@@||collector.appconsent.io/save$domain=commentcamarche.net
-@@||collector.appconsent.io/hello$domain=commentcamarche.net
 ! https://github.com/easylist/easylist/pull/9195
 @@||cmn.gyro-n.com/js/gyr.min.js$domain=benesse-style-care.co.jp
 @@||googletagmanager.com/gtm.js$domain=benesse-style-care.co.jp
@@ -42473,9 +42477,6 @@ nnmclub.to#@#img[width="88"][height="31"]
 @@||google-analytics.com/analytics.js$domain=zeelandnet.nl
 @@||google-analytics.com/gtm/js?id=$domain=zeelandnet.nl
 !#endif
-! https://github.com/AdguardTeam/AdguardFilters/issues/65868
-@@||collector.appconsent.io/hello$domain=linternaute.com
-@@||collector.appconsent.io/save$domain=linternaute.com
 ! https://github.com/AdguardTeam/AdguardFilters/issues/65878
 @@||pdrnetwork.112.2o7.net/b/ss/pdrnetworkpdrnetprod/
 ||pdrnetwork.112.2o7.net/b/ss/pdrnetworkpdrnetprod/$image,redirect=2x2-transparent.png,important
