@@ -7469,6 +7469,7 @@ docviewer.yandex.ru,docviewer.yandex.by,docviewer.yandex.com,docviewer.yandex.co
 /^https:\/\/www.yandex.\w+\/(weather|pogoda)\//$script,xmlhttprequest,jsonprune=\$.data.*.attributes,domain=yandex.*
 ! TODO: remove next two rules 2 weeks after release AdGuard apps with CL 1.11
 ||yandex.*/weather/*/*/$replace=/.renderBanner\(function\(\)\{return/.renderBanner\(function\(\)\{return;/,script,other,xmlhttprequest,domain=yandex.by|yandex.kz|yandex.ru
+||yandex.*/pogoda/*/*/$replace=/^.*?"visibilitySettings":\s*\{[^}]*\}.*?(?:"direct":\s*\{[^}]*\})?.*\$//,script,other,xmlhttprequest,domain=yandex.by|yandex.kz|yandex.ru
 !
 !afisha.yandex.by,afisha.yandex.kz,afisha.yandex.ru#%#//scriptlet("abort-on-property-read", "window.IntersectionObserver")
 !+ PLATFORM(windows, mac, android)
@@ -7477,6 +7478,7 @@ docviewer.yandex.ru,docviewer.yandex.by,docviewer.yandex.com,docviewer.yandex.co
 ! Yandex.Maps
 !
 ! Yandex.Mail
+||mail.yandex.*/*/*-*-*-*-$replace=/^.*?"visibilitySettings":\s*\{[^}]*\}.*?(?:"direct":\s*\{[^}]*\})?.*\$//,script,other,important,domain=mail.yandex.by|mail.yandex.kz|mail.yandex.ru|mail.yandex.com|mail.yandex.com.tr
 !
 ! Yandex.TV
 tv.yandex.by,tv.yandex.kz,tv.yandex.ru$$script[tag-content="adblockDetected"][max-length="5000"]
@@ -7522,7 +7524,6 @@ livejournal.com#%#//scriptlet("set-constant", "begun_new_callbacks", "undefined"
 ||sportmail.ru/-/*/js/cmpld/sport/*/base.js$replace=/SlotView\.mimic/a/
 ||rg.ru/*/*/$xmlhttprequest,replace=/"attributes"/""/
 ||home.imgsmail.ru/resplash/*/j/d-*.js$replace=/o\.default\.radar\("adblock"\)//
-||yandex.ru/weather/$script,xmlhttprequest,replace=/^Ya\[\d+\].*//
 ||dzen.ru/*/*/*_$replace=/^.*"blockId\":\s*\"R-A-.*//,script,xmlhttprequest,other
 ||spletnik.ru/_$script,replace=/\/context_adb.*//
 ||echo.msk.ru^$replace=/Ya.*\[{"attributes".*"blockId".*//,script
@@ -7531,12 +7532,28 @@ livejournal.com#%#//scriptlet("set-constant", "begun_new_callbacks", "undefined"
 ||yandex.*/news/*$replace=/.*\[{"adm":{".*:{"imptrackers":.*//,xmlhttprequest,domain=yandex.by|yandex.com|yandex.fr|yandex.kz|yandex.ru
 //yandex.*/news/*$replace=/^\{\"rtb\":.*//,script,other,domain=yandex.by|yandex.com|yandex.fr|yandex.kz|yandex.ru
 /kinopoisk\.ru\/\w+\/[a-zA-Z0-9_-]+\/[a-zA-Z0-9_-]{100,}/$replace=/"attributes"/""/,script,domain=www.kinopoisk.ru
+||zen.yandex.*/*/*-*-*-*-$replace=/^.*?"visibilitySettings":\s*\{[^}]*\}.*?(?:"direct":\s*\{[^}]*\})?.*\$//,script,other,xmlhttprequest,domain=zen.yandex.by|zen.yandex.com|zen.yandex.fr|zen.yandex.kz|zen.yandex.ru
 ||mail.yandex.*$script,replace=/\,ab:e.blocker\,/\,/
 ||mail.yandex.*/*/*/*/*$replace=/.*"adIds":.*"imptrackers":.*//,xmlhttprequest,domain=mail.yandex.by|mail.yandex.kz|mail.yandex.ru|mail.yandex.com|mail.yandex.com.tr
+||mail.yandex.*/*/*-$replace=/(^{"rtb":.*)|^.*?"visibilitySettings":\s*\{[^}]*\}.*?(?:"direct":\s*\{[^}]*\})?.*\$//,script,other,xmlhttprequest,domain=mail.yandex.by|mail.yandex.kz|mail.yandex.ru|mail.yandex.com|mail.yandex.com.tr
+||tv.yandex.*/*/*-*-*-*-$replace=/^.*?"visibilitySettings":\s*\{[^}]*\}.*?(?:"direct":\s*\{[^}]*\})?.*\$//,script,other,xmlhttprequest,domain=tv.yandex.by|tv.yandex.kz|tv.yandex.ru
+||afisha.yandex.*/*/*-*-*-*-$replace=/^.*?"visibilitySettings":\s*\{[^}]*\}.*?(?:"direct":\s*\{[^}]*\})?.*\$//,script,other,xmlhttprequest,domain=afisha.yandex.by|afisha.yandex.kz|afisha.yandex.ru
 ||gismeteo.*/*/*/*_$replace=/"R-A-.*//,script,xmlhttprequest,other
 ||gorodrabot.ru/*/*/*_$replace=/^.*"blockId\":\s*\"R-A-.*//,script,xmlhttprequest,other
 ||24smi.org/*/*/*_$script,replace=/RTB//
 ||24smi.org/*/*/*_$replace=/^.*"blockId\":\s*\"R-A-.*//,script,xmlhttprequest,other
+||avito.ru/*/*/*/$replace=/^.*?"visibilitySettings":\s*\{[^}]*\}.*?(?:"direct":\s*\{[^}]*\})?.*\$//,script,other,xmlhttprequest
+||fb.ru/*/*/*/$replace=/^.*?"visibilitySettings":\s*\{[^}]*\}.*?(?:"direct":\s*\{[^}]*\})?.*\$//,script,other,xmlhttprequest
+||syl.ru/*/*/*/$replace=/^.*?"visibilitySettings":\s*\{[^}]*\}.*?(?:"direct":\s*\{[^}]*\})?.*\$//,script,other,xmlhttprequest
+||auto.ru/*/*-*-$replace=/^.*?"visibilitySettings":\s*\{[^}]*\}.*?(?:"direct":\s*\{[^}]*\})?.*\$//,script,other,xmlhttprequest
+||businessman.ru/*/*/*-$replace=/^.*?"visibilitySettings":\s*\{[^}]*\}.*?(?:"direct":\s*\{[^}]*\})?.*\$//,script,other,xmlhttprequest
+||e1.ru/*/*/*-$replace=/^.*?"visibilitySettings":\s*\{[^}]*\}.*?(?:"direct":\s*\{[^}]*\})?.*\$//,script,other,xmlhttprequest
+||forexpf.ru/*/*/*-$replace=/^.*?"visibilitySettings":\s*\{[^}]*\}.*?(?:"direct":\s*\{[^}]*\})?.*\$//,script,other,xmlhttprequest
+||infoniac.ru/*/*/*-$replace=/^.*?"visibilitySettings":\s*\{[^}]*\}.*?(?:"direct":\s*\{[^}]*\})?.*\$//,script,other,xmlhttprequest
+||kakprosto.ru/*/*/*-$replace=/^.*?"visibilitySettings":\s*\{[^}]*\}.*?(?:"direct":\s*\{[^}]*\})?.*\$//,script,other,xmlhttprequest
+||livejournal.com/*/*/*-$replace=/^.*?"visibilitySettings":\s*\{[^}]*\}.*?(?:"direct":\s*\{[^}]*\})?.*\$//,script,other,xmlhttprequest
+||otzovik.com/*/*/*-$replace=/^.*?"visibilitySettings":\s*\{[^}]*\}.*?(?:"direct":\s*\{[^}]*\})?.*\$//,script,other,xmlhttprequest
+||pikabu.ru/*/*/*-$replace=/^.*?"visibilitySettings":\s*\{[^}]*\}.*?(?:"direct":\s*\{[^}]*\})?.*\$//,script,other,xmlhttprequest
 ||razlozhi.ru/*/*/*/*-$script,replace=/({"rtb":.*)|(.*"blockId":.*"commonRtbVisibility":.*)//
 !#endif
 !
@@ -7611,9 +7628,10 @@ fishki.net,hronika.info,meta.ua$$script[tag-content="window.AD_DOMAIN_URL_SYS"][
 ! https://github.com/AdguardTeam/AdguardFilters/issues/141785
 !+ NOT_PLATFORM(windows, mac, android)
 e.mail.ru,octavius.mail.ru#%#//scriptlet('trusted-replace-xhr-response', '/\[{"json":{"result":{"status":200\,"body":{"direct".+/', '/\[{"json":{"result":{"status":200\,"body":{"direct":{}}}}}\]/', '/api/v1')
+! https://github.com/AdguardTeam/AdguardFilters/issues/148093
 ! https://github.com/AdguardTeam/AdguardFilters/issues/147394
 ! https://github.com/AdguardTeam/AdguardFilters/issues/146771
-pikabu.ru#%#//scriptlet('abort-on-property-read', 'yaContextCb')
+nastroyvse.ru,pikabu.ru#%#//scriptlet('abort-on-property-read', 'yaContextCb')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/145290
 sdamgia.ru#%#//scriptlet('abort-on-property-read', 'rotator_changed')
 ! https://forum.adguard.com/index.php?threads/51458/
@@ -9524,7 +9542,7 @@ sinoptik.com.ru,sinoptik.ua###adsZone
 sinoptik.com.ru,sinoptik.ua###adsZone3
 ||sinst.fwdcdn.com/img/partners/$domain=sinoptik.com.ru|sinoptik.ua
 ! citysites.ua
-44.ua,056.ua,032.ua,04868.com.ua,karelia.news,0629.com.ua,5692.com.ua,01.kg,0154.by,0472.ua,048.ua,0512.com.ua,0522.ua,0532.ua,0552.ua,056.ua,0564.ua,061.ua,06153.com.ua,0642.ua,62.ua,7152.kz,7232.kz,city04.kz,go152.by,go232.by,inaktau.kz,inalmaty.kz,inastana.kz,inatyrau.kz,inkaragandy.kz,inshymkent.kz,kaskelenec.kz,oshto.kg,qapshagai-city.kz,uralskcity.kz#?#.card-wrapper:has(> amp-ad)
+048.ua,44.ua,056.ua,032.ua,04868.com.ua,karelia.news,0629.com.ua,5692.com.ua,01.kg,0154.by,0472.ua,048.ua,0512.com.ua,0522.ua,0532.ua,0552.ua,056.ua,0564.ua,061.ua,06153.com.ua,0642.ua,62.ua,7152.kz,7232.kz,city04.kz,go152.by,go232.by,inaktau.kz,inalmaty.kz,inastana.kz,inatyrau.kz,inkaragandy.kz,inshymkent.kz,kaskelenec.kz,oshto.kg,qapshagai-city.kz,uralskcity.kz#?#.card-wrapper:has(> amp-ad)
 karelia.news,015.by,032.ua,0332.ua,0342.ua,0352.ua,0362.ua,0372.ua,0412.ua,0432.ua,0462.ua,0472.ua,048.ua,04868.com.ua,0512.com.ua,0522.ua,0532.ua,05366.com.ua,0542.ua,0552.ua,056.ua,0564.ua,057.ua,061.ua,06153.com.ua,06239.com.ua,06252.com.ua,06274.com.ua,0629.com.ua,0642.ua,44.ua,5692.com.ua,62.ua,6264.com.ua,8422city.ru,86155city.ru,8634city.ru,go31.ru,goroddomodedovo.ru,labaved.ru##div[class*="banner_box"]
 01.kg,0154.by,0312.ua,032.ua,0332.ua,0342.ua,0352.ua,0362.ua,0372.ua,0382.ua,0412.ua,04141.com.ua,0432.ua,04563.com.ua,04597.com.ua,04598.com.ua,0462.ua,0472.ua,048.ua,04868.com.ua,0512.com.ua,05136.com.ua,0522.ua,0532.ua,05366.com.ua,0542.ua,05447.com.ua,0552.ua,056.ua,0564.ua,0566.com.ua,0569.com.ua,057.ua,061.ua,06153.com.ua,0619.com.ua,0623.com.ua,06236.com.ua,06237.com.ua,06239.com.ua,06242.ua,06252.com.ua,06267.com.ua,06272.com.ua,06274.com.ua,06277.com.ua,0629.com.ua,0642.ua,06452.com.ua,1rnd.ru,3652.ru,3654.ru,3849.com.ua,44.ua,4594.com.ua,5692.com.ua,62.ua,6262.com.ua,6264.com.ua,65.media,7152.kz,7232.kz,8422city.ru,8692.ru,city04.kz,city41.ru,citydomodedovo.ru,go152.by,go212.by,go232.by,go31.ru,go61.ru,go7812.ru,gorod3466.ru,inaktau.kz,inalmaty.kz,inastana.kz,inatyrau.kz,inkaragandy.kz,inshymkent.kz,karelia.news,kaskelenec.kz,oshto.kg,qapshagai-city.kz,uralskcity.kz##.banner-info
 01.kg,0154.by,0312.ua,032.ua,0332.ua,0342.ua,0352.ua,0362.ua,0372.ua,0382.ua,0412.ua,04141.com.ua,0432.ua,04563.com.ua,04597.com.ua,04598.com.ua,0462.ua,0472.ua,048.ua,04868.com.ua,0512.com.ua,05136.com.ua,0522.ua,0532.ua,05366.com.ua,0542.ua,05447.com.ua,0552.ua,056.ua,0564.ua,0566.com.ua,0569.com.ua,057.ua,061.ua,06153.com.ua,0619.com.ua,0623.com.ua,06236.com.ua,06237.com.ua,06239.com.ua,06242.ua,06252.com.ua,06267.com.ua,06272.com.ua,06274.com.ua,06277.com.ua,0629.com.ua,0642.ua,06452.com.ua,1rnd.ru,3652.ru,3654.ru,3849.com.ua,44.ua,4594.com.ua,5692.com.ua,62.ua,6262.com.ua,6264.com.ua,65.media,7152.kz,7232.kz,8422city.ru,8692.ru,city04.kz,city41.ru,citydomodedovo.ru,go152.by,go212.by,go232.by,go31.ru,go61.ru,go7812.ru,gorod3466.ru,inaktau.kz,inalmaty.kz,inastana.kz,inatyrau.kz,inkaragandy.kz,inshymkent.kz,karelia.news,kaskelenec.kz,oshto.kg,qapshagai-city.kz,uralskcity.kz##.card-placeholder
