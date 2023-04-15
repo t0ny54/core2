@@ -5550,6 +5550,10 @@ nethunt.com/api/v1/track/email/$image
 ! Blocking piwik analytics subdomain(for DNS filtering)
 |piwik.
 !
+! TODO: Move to the regular rules if there are no problems before 01.05.23
+||analytics.s3.amazonaws.com^
+||analyticsengine.s3.amazonaws.com^
+!
 ||lake.joongang.co.kr^
 ||dsas.danawa.com^
 ||t.apkpure.net^
@@ -35623,6 +35627,7 @@ _tracking.php?b=
 /analytics.js$domain=kopeda.com|freexcafe.com|rusvideos.tv|nakubani.ru|lun.com|songsara.net|newsmax.com|bolgehastanesi.com|ewtc.de|newsdig.tbs.co.jp|imore.com|city.kushiro.lg.jp|emeraldbridal.com.au|emarat-news.ae|imobie.jp|tikla.com.tr
 ||assets.adobedtm.com^$domain=mcclatchydc.com|elnuevoherald.com|bellinghamherald.com|sacbee.com|charlotteobserver.com|newsobserver.com|miamiherald.com|ef.ru|algida.com.tr|bmw-motorrad.co.uk|cif.com.tr|clearhaircare.com|domestos.com|dove.com|elidor.com.tr|f1sport.autorevue.cz|geico.com|hellmanns.com.tr|herkessofraya.com|johnsonsbaby.com.tr|lipton.com|lnk.to|lux.com|magnumicecream.com|neutrogena.com.tr|omo.com|rexona.com|samsung.com|sap.com|schwarzkopf.com.tr|signalturkiye.com|msnbc.com|nbcnews.com|kbb.com|eurosport.ru|timgate.it|intermiles.com|oxfordmail.co.uk|spiegel.de|hp.com|deutschepost.de|thebay.com|s.shufoo.net|tsn.ca|tabelog.com|euronews.com|newshub.co.nz
 !
+||st.afreecatv.com/api/da_block_api.php
 curazy.com##.sponsor-link-text
 ||navitime.co.jp/*/common/nt_count.js
 ||navitime.co.jp/*/jquery.adcount.js
@@ -35659,7 +35664,6 @@ brasil247.com###taboola-mid-article-leia-mais
 ||rakuten.co.jp/com/js/omniture/
 ||euro.com.pl/log-customer-visit
 ||sexhd.pics/x/x.js
-||i.tmgrup.com.tr/*/tmdprayercounter/tmdprayercounter*.js
 ||media.fc2.com/blank.gif
 ||daimaoh.co.jp/afimp.php
 ||skalnik.pl/static/*/js/tracking.min.js
@@ -36946,7 +36950,6 @@ mag.osdn.jp##div[id^="logly-lift-"]
 ||sf-syn.com/conversion_outbound_tracker$subdocument,domain=sourceforge.net
 ||tv3play.skaties.lv/static/scripts/trackdb/events.gif$image,redirect=1x1-transparent.gif
 ||play.tv3.lt/static/scripts/trackdb/events.gif$image,redirect=1x1-transparent.gif
-||analytics.google.com/g/collect?*&tid=
 ||ssl.kaptcha.com/collect/
 ||r.popin.cc/log.gif
 ||adsystem.dailyissue.co.kr/show/logs.php
@@ -37001,7 +37004,7 @@ news.mynavi.jp##.articleList-attention
 ||estore.jp/beacon/
 ||s.cdin.me/i.php
 ||ui-portal.de/pos-cdn/tracklib/
-||analytics.google.com/g/collect?v=
+||analytics.google.com/g/collect?
 ||google.*/ads/ga-audiences?v=
 ||events.genndi.com/tracker
 ||mcrypto.club/track
@@ -40910,6 +40913,12 @@ inapps.appsflyersdk.com^
 !#endif
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/147807
+||ab.blogs.es/abtest.png?editorialRecommendations$image,redirect=2x2-transparent.png,domain=applesfera.com
+!+ PLATFORM(ios, ext_android_cb, ext_safari)
+@@||ab.blogs.es/abtest.png?editorialRecommendations$domain=applesfera.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/148203
+@@||cdn.clerk.io/clerk.js$domain=apotera.no
 ! https://github.com/AdguardTeam/AdguardFilters/issues/148089
 @@||miclaro.com.gt/assets/analytics$domain=miclaro.com.gt
 @@||tags.bkrtx.com/js/bk-coretag.js^$domain=miclaro.com.gt
