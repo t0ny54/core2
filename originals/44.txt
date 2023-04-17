@@ -86,6 +86,7 @@
 ! not for DNS
 ||ias.rakuten.co.jp^$third-party,domain=~rakuten--.co.jp
 !
+||bestovamk.com^$all
 ||givesthtosb.com^$all
 ||hydrangeao.com^$all
 ||snapdragonox.com^$all
@@ -710,13 +711,13 @@ nordot.app#%#//scriptlet('abort-current-inline-script', 'document.createElement'
 modalina.jp#%#//scriptlet('abort-on-property-read', 'AdBlockLimitation')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/116093
 realtime-chart.info#?#.news_b table[border="0"][cellpadding="5"][style="background:#fff"] > tbody >  tr[bgcolor="#fff"] > td.newsarea[style] > a.wl[href^="https://a.r10.to"]:upward(2)
-realtime-chart.info#$?#div[id] > div_3[id]:has(> div_3[style="top:1636px"]) + div_3 > div_3[style="top:1636px"] > div_3[onclick]:not(:has(td > a))  { pointer-events: none !important; }
-realtime-chart.info#$?#div[id] > div_3[id]:has(> div_3[style="top:1636px"]) + div_3 > div_3[style="top:1636px"] > [style*="font-size:"]:is(b, span, a):not(:has(td > a)) { font-size: 0 !important; pointer-events: none !important; }
+realtime-chart.info#$?#div[id] > [id]:has(> [style="top:1636px"]) + * > [style="top:1636px"] > [onclick]:not(:has(td > a))  { pointer-events: none !important; }
+realtime-chart.info#$?#div[id] > [id]:has(> [style="top:1636px"]) + * > [style="top:1636px"] > [style*="font-size:"]:is(b, span, a):not(:has(td > a)) { font-size: 0 !important; pointer-events: none !important; }
 realtime-chart.info#$?#td[style^="vertical-align"] div[style*="top"]:matches-attr("style"="/^\s*top\s*:\s*3\d{2}\.?\d*px;?\s*/") > a[id][onmousedown] { pointer-events: none !important; }
-realtime-chart.info#$?#td[style^="vertical-align: top"] div_3[onclick*="()"][target="_blank"]:has(div_3[style*="background-image: url\(\"data:image/jpg;"]:matches-attr("style"="/height\s*:\s*[12]\d{2}\.?\d*px/")) { pointer-events: none !important; }
-realtime-chart.info#$?#td[style^="vertical-align"] div_3[style*="top"]:matches-attr("style"="/^\s*top\s*:\s*3\d{2}\.?\d*px;?\s*/") > a[id][onmousedown] { pointer-events: none !important; }
+realtime-chart.info#$?#td[style^="vertical-align: top"] [onclick*="()"][target="_blank"]:has([style*="background-image: url\(\"data:image/jpg;"]:matches-attr("style"="/height\s*:\s*[12]\d{2}\.?\d*px/")) { pointer-events: none !important; }
+realtime-chart.info#$?#td[style^="vertical-align"] [style*="top"]:matches-attr("style"="/^\s*top\s*:\s*3\d{2}\.?\d*px;?\s*/") > a[id][onmousedown] { pointer-events: none !important; }
 ||realtime-chart.info^$subdocument,domain=sekai-kabuka.com
-realtime-chart.info#$?#td[style^="vertical-align"] div_3[onclick]:has(> img[src*="/clip_"] + b):not(:has(b td > a[href])) { pointer-events: none !important; }
+realtime-chart.info#$?#td[style^="vertical-align"] [onclick]:has(> img[src*="/clip_"] + b):not(:has(b td > a[href])) { pointer-events: none !important; }
 sekai-kabuka.com#$?#table[width="762px"] > tbody > tr > td[class] > div[id][class] > div[style="width: 281px;"]:contains(不具合が) { z-index: -1 !important; }
 sekai-kabuka.com#$?#table[width="762px"] table[width="100%"] td[align="center"] > div > div[style$="width:728px;line-height: 1.2;height: 90px;"]:has(> ins.adsbygoogle[style="display:inline-block;width:728px;height:90px;position:absolute"] > iframe#aswift_1) { height: 1px !important; }
 sekai-kabuka.com#$#div[id][class][style^="position:relative;background:#000;"][style*="width:729px;"][style*="height: 90px;"] { height: 1px !important; }
@@ -2510,11 +2511,14 @@ kuruma-news.jp,magmix.jp,trafficnews.jp$$div[data-history="photo_extra"]
 /wp-content/plugins/amazonjs/*
 !
 ! Malware/Phishing
+://www.yodobashi-co.*/login.php?_encoding=UTF8&openid.assoc_handle=jpflex&$document
+/^https:\/\/(?!www)[a-z]{3,}\.[a-z]{8,}\.com\/index\.php\?main_page=product_info&(?:cPath|products_id)=/$document
+||point.soumu.jo.$document,domain=cn|top
 ://www2.etc-.com/$document
 .co.jp.*.top/ai/sign.php?authenticated=true&openid%2Fgp%2Fsignin%2F$document
 .com/ibg/client/l_home_$document
 ://rekutan.co.jp.*.com^$document
-://www.uber*/ai/login.php|$document
+://www.ube*/ai/login.php|$document
 .cam/all/loginm.php?$document
 .top/sbid_auth/type1/2.0/authorization.phpresponse_type=code&client_id=$document
 -japan.xyz/login|$document
@@ -2546,7 +2550,7 @@ kuruma-news.jp,magmix.jp,trafficnews.jp$$div[data-history="photo_extra"]
 /app/JR.apk|$all
 .co.jp.*.xyz/WebPc/$document
 .cyou/login|$document
-/index.php?phone=050-$document
+^phone=050-$document
 /?type=female1|$document
 /?type=female2|$document
 /?type=female3|$document
@@ -8675,6 +8679,7 @@ hs-exp.jp#@##search-ad
 @@||dietnavi.com^*/img/ad/$image,domain=dietnavi.com
 !
 ! unbreak ad sites
+nikke-jp.com#@#.ad_content
 point-g.rakuten.co.jp#@#.searchAd
 netmile.co.jp#@#.ad-area
 netmile.co.jp#@#.ad-txt
