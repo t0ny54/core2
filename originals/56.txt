@@ -1558,11 +1558,6 @@ mcloud.to,vizcloud.*##+js(ra, data-ad-img|data-ad-target, , stay)
 /\/[A-Z]{1,2}\/[-0-9a-z]{5,}\.com\/(?:[0-9a-f]{2}\/){3}[0-9a-f]{32}\.js$/$script,1p,match-case
 9anime.*##+js(aopw, _pop)
 
-! https://github.com/uBlockOrigin/uAssets/pull/643
-s.to,serienstream.*##+js(acis, Date, 'shift')
-s.to,serienstream.*##+js(aeld, , 0x)
-*$popunder,domain=s.to|serienstream.*
-
 youtubedownloader.*##+js(nowoif)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/645
@@ -6969,7 +6964,6 @@ imgrock.*##+js(nano-stb, /.?/, 4000)
 imgrock.*##+js(popads-dummy)
 imgrock.*##+js(popads.net)
 @@||imgrock.*^$ghide
-*$popunder,3p,domain=imgrock.pw
 
 ! https://github.com/uBlockOrigin/uAssets/issues/3152
 imgtorrnt.in##+js(aopr, ExoLoader.serve)
@@ -10475,6 +10469,9 @@ extralinks.*,extramovies.*##[class^="ad_btn"]:upward(center)
 recipesdelite.com##+js(nano-sib, inner)
 recipesdelite.com###btnhide
 recipesdelite.com###btnshow:style(display: block !important;)
+! https://github.com/AdguardTeam/AdguardFilters/issues/145210
+extramovies.*#@#.ad_btn
+extramovies.*##+js(aopw, afStorage)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/4835
 @@||googletagmanager.com/gtm.js$script,domain=ciudad.com.ar
@@ -11802,6 +11799,7 @@ oko.sh##[src^="https://i.imgur.com/"]
 !#if env_firefox
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xhr,domain=oko.sh
 !#endif
+oko.sh##^script:has-text(adb_detected)
 
 ! https://github.com/NanoMeow/QuickReports/issues/1050
 @@||anhdep24.net^$ghide
