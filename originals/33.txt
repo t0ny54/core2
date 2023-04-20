@@ -91,8 +91,6 @@ avclub.com,clickhole.com,deadspin.com,gizmodo.com,jalopnik.com,jezebel.com,kotak
 ! https://github.com/AdguardTeam/AdguardFilters/issues/146571
 auto.ru#%#//scriptlet('set-local-storage-item', '__rtbhouse.lid', '0')
 auto.ru#%#//scriptlet('set-local-storage-item', 'ludca', '0')
-! https://github.com/AdguardTeam/AdguardFilters/issues/146387
-forbes.com#%#//scriptlet("set-constant", "Object.prototype.track", "noopFunc")
 ! https://github.com/AdguardTeam/AdguardFilters/issues/145948
 sportschau.de#%#//scriptlet('set-constant', 'mediaTrackingOff', 'true')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/144897
@@ -1329,7 +1327,7 @@ prjaga.ru#?##right > div#right_nav > h3:contains(Онлайн статистик
 ||ad-spire.net^
 ||investingchannel.com^$third-party
 ||f-counter.net^$third-party
-||moshimo.com^$third-party
+||i.moshimo.com^
 ||counter.monkeybanana3.com^
 ||analytic-client.playful-fairies.com^
 ||eventapi.libring.com^$third-party
@@ -5561,6 +5559,7 @@ nethunt.com/api/v1/track/email/$image
 ||analytics.s3.amazonaws.com^
 ||analyticsengine.s3.amazonaws.com^
 !
+||btrace.qq.com^
 ||prd-collector-anon.ex.co^
 ||l.francetvinfo.fr^
 ||counter.any.run^
@@ -41328,7 +41327,7 @@ _tracking.php?b=
 ! Some sites are broken. The rules are required for apps only.
 .demdex.net/id^$redirect=nooptext,important
 ||omtrdc.net/id^$redirect=nooptext,important
-||omtrdc.net/rest/v*/delivery?client=$replace=/^\{[\s\S]*\}\$/{}/,domain=~kia.com|~pccomponentes.com
+||omtrdc.net/rest/v*/delivery?client=$replace=/^\{[\s\S]*\}\$/{}/,domain=~kia.com|~pccomponentes.com|~acrobat.adobe.com
 ||nd.demdex.net/event?d_mid=$redirect=nooptext,important,domain=9now.com.au
 ||adc.nine.com.au/?token=$redirect=nooptext,important,domain=9now.com.au
 ||googleadservices.com/pagead/conversion_async.js$redirect=noopjs,domain=ffm.to,important
@@ -44163,7 +44162,6 @@ dreamprogs.net##td[width="88"][height="31"]
 ||bravotube.net/b_track.js
 ||brightcove.com/1pix.gif
 ||brille24.de/fileadmin/tracking
-||btrace.qq.com^
 ||cbslocal.com^*/cbs1x1.gif?
 ||cdn-library.net/*&data=anti-abp
 ||cdn.segment.com/analytics.js
@@ -44669,7 +44667,14 @@ link.gmapp*.net$image
 ||theadex.com^$domain=saturn.de|mediamarkt.de
 !+ PLATFORM(ios)
 ||exactag.com^$domain=saturn.de|mediamarkt.de
-
+!
+! Special rules for AdGuard websites' test pages. The only purpose of these
+! rules is to make test pages work so that users could verify that AdGuard
+! is properly working.
+!
+!+ NOT_OPTIMIZED
+adguard.com,adguard.app##.hello_from_adguard_tracking_protection
+!
 !-------------------------------------------------------------------------------!
 !-------------- Fixing filtration errors (false-positive) Cookies --------------!
 !-------------------------------------------------------------------------------!
@@ -46624,6 +46629,8 @@ inapps.appsflyersdk.com^
 !#endif
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/148781
+@@||googletagmanager.com/gtm.js$domain=dzonline.de|wn.de
 ! https://github.com/AdguardTeam/AdguardFilters/issues/148618
 !+ PLATFORM(ios, ext_safari, ext_android_cb)
 @@||tag.aticdn.net/piano-analytics.js$domain=cerbahealthcare.it
