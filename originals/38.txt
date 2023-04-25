@@ -87,6 +87,8 @@
 !   SECTION: Anti-adblock - Yandex direct
 !   NOTE: Yandex
 !
+! Yandex Games
+[$path=/games]yandex.ru#%#//scriptlet('json-prune', 'rtb rtbAuctionInfo')
 ! main page
 yandex.*##._size_big > div.card-wrapersome
 ! turbopages
@@ -103,6 +105,7 @@ afisha.yandex.ru##div[style="width:100%;height:240px;display:block"]
 yandex.ru##div[class*="-R-A-"]
 yandex.ru##.stack > div[class^="sticky-"]
 ! Yandex.Weather
+[$path=/pogoda]yandex.*##div[class*="Advert_fullScreenContainer__"]
 [$path=/weather]yandex.*#%#//scriptlet('abort-on-property-read', 'Object.prototype.renderDirect')
 [$path=/pogoda]yandex.*#%#//scriptlet('abort-on-property-read', 'Object.prototype.renderDirect')
 [$path=/pogoda]yandex.*#%#//scriptlet('prevent-eval-if', 'Id":"R-I')
@@ -660,6 +663,11 @@ usatoday.com#@#.ad-slot
 ! SECTION: Anti-adblock - Regular rules
 ! Do not forget about '!#safari_cb_affinity' section for exclusions
 !
+@@||yandex.ru/ads/system/context.js$xmlhttprequest,domain=sdamgia.ru
+android.com.pl#%#//scriptlet('set-constant', 'hasAdblock', 'false')
+android.com.pl#$#body > div:not([class], [id]) > #AdHeader { display: block !important; }
+android.com.pl#$#body > div:not([class], [id]) > #AdHeader ~ * { display: block !important; }
+android.com.pl##.post__content > div[style^="background-color: var(--clr-danger); color:"][style$="border-radius: var(--border-radius); font-size: 0.9em;"]
 rutube.ru#?#.notification-module__infoNotifications:has(> div[class^="infoNotificationsItem"] span[class^="freyja_char-notification__description"]:contains(Блокировщик рекламы может помешать правильной работе плеера.))
 ||it-actual.ru/wp-content/themes/iconic-one/js/lcr.js
 advancedtomato.com##.donate-container
@@ -1484,7 +1492,7 @@ rocket-league.com#%#//scriptlet("abort-current-inline-script", "document.getElem
 rockfile.eu###hiddensection2
 royaleapi.com##.adblock_message
 rtlnieuws.nl##.adb-warning
-rtxkeeda.com,techyneed.com###alert > #alertmsg
+rtxkeeda.com###alert > #alertmsg
 rubiks-cube-solver.com##.greenWarning
 rudsoft.ucoz.ru##div[id^="bn_"]
 rufilmtv.org##.attention
@@ -3432,6 +3440,9 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 !
 ! SECTION: Popups - Regular rules
 !
+smart-iphone.com##.bfb_textBtnTextBtn
+ok.ru#%#//scriptlet('abort-on-property-read', 'globalAuthLoginPopupCounter')
+adlock.com##.adl__spec__disc__content
 slideshare.net#%#//scriptlet('prevent-addEventListener', 'mouseleave', 'scribd_ad')
 open-minds.it##.fixed-banner
 inspire.com#?#ins-dynamic-modal:has( > div > div > app-login-modal-container form.ng-pristine > .login__form__age)
@@ -4990,7 +5001,6 @@ peterengland.com#%#//scriptlet('set-local-storage-item', 'storeToolTipSeen', '1'
 elama.ru#$#.jquery-modal { display: none!important; }
 elama.ru#$#body { overflow: visible!important; }
 medizinfuchs.de#$#mf-backdrop { display: none!important; }
-medizinfuchs.de#$#mf-dialog { display: none!important; }
 medizinfuchs.de#$#body { overflow: visible!important; padding-right: 0!important; }
 m.soundcloud.com#$#div[class^="Tooltip_TooltipOverlay__"] { display: none !important; }
 m.soundcloud.com#$#body { overflow: auto !important; }
@@ -8925,9 +8935,9 @@ roscontrol.com#$#.promo-remodal-wrapper { display: none !important; }
 roscontrol.com#$#.promo-popup-overlay { display: none !important; }
 roscontrol.com#$#html { overflow: auto!important; }
 ! Sync with the rules in Social filter
-moviestowatch.tv,123moviestv.net,123-movies.vc,attacker.tv,movie4kto.net,theflixer.tv,sflix.se,2kmovie.cc,musichq.net,swatchseries.*,1movieshd.com,fmoviesto.*,solarmovie.pe,cineb.net,myflixerhd.ru,hdtoday.*,yesmovies.mn,divicast.com,seriestv.watch,freemoviesfull.com,dopebox.to,fmovies.hn,fmovies.*,sflix.to,myflixer.to,movies2watch.tv,ev01.to,ummagurau.com,6movies.net,tinyzonetv.to,myflixertv.to,f2movies.to,moviesjoy.*,moviesjoy.*,myflixerhd.ru,soap2day.*,solarmovie.pe,cineb.net#$#body { overflow: auto !important; padding-right: 0 !important; }
-moviestowatch.tv,123moviestv.net,123-movies.vc,attacker.tv,movie4kto.net,theflixer.tv,sflix.se,2kmovie.cc,musichq.net,swatchseries.*,1movieshd.com,fmoviesto.*,solarmovie.pe,cineb.net,myflixerhd.ru,hdtoday.*,yesmovies.mn,divicast.com,seriestv.watch,freemoviesfull.com,dopebox.to,fmovies.hn,fmovies.*,sflix.to,myflixer.to,movies2watch.tv,ev01.to,ummagurau.com,6movies.net,tinyzonetv.to,myflixertv.to,f2movies.to,moviesjoy.*,moviesjoy.*,myflixerhd.ru,soap2day.*,solarmovie.pe,cineb.net#$#.modal-backdrop { display: none !important; }
-moviestowatch.tv,123moviestv.net,123-movies.vc,attacker.tv,movie4kto.net,theflixer.tv,sflix.se,2kmovie.cc,musichq.net,swatchseries.*,1movieshd.com,fmoviesto.*,solarmovie.pe,cineb.net,myflixerhd.ru,hdtoday.*,yesmovies.mn,divicast.com,seriestv.watch,freemoviesfull.com,dopebox.to,fmovies.hn,fmovies.*,sflix.to,myflixer.to,movies2watch.tv,ev01.to,ummagurau.com,6movies.net,tinyzonetv.to,myflixertv.to,f2movies.to,moviesjoy.*,moviesjoy.*,myflixerhd.ru,soap2day.*,solarmovie.pe,cineb.net#$##modalshare { display: none !important; }
+bflix.gg,moviestowatch.tv,123moviestv.net,123-movies.vc,attacker.tv,movie4kto.net,theflixer.tv,sflix.se,2kmovie.cc,musichq.net,swatchseries.*,1movieshd.com,fmoviesto.*,solarmovie.pe,cineb.net,myflixerhd.ru,hdtoday.*,yesmovies.mn,divicast.com,seriestv.watch,freemoviesfull.com,dopebox.to,fmovies.hn,fmovies.*,sflix.to,myflixer.to,movies2watch.tv,ev01.to,ummagurau.com,6movies.net,tinyzonetv.to,myflixertv.to,f2movies.to,moviesjoy.*,moviesjoy.*,myflixerhd.ru,soap2day.*,solarmovie.pe,cineb.net#$#body { overflow: auto !important; padding-right: 0 !important; }
+bflix.gg,moviestowatch.tv,123moviestv.net,123-movies.vc,attacker.tv,movie4kto.net,theflixer.tv,sflix.se,2kmovie.cc,musichq.net,swatchseries.*,1movieshd.com,fmoviesto.*,solarmovie.pe,cineb.net,myflixerhd.ru,hdtoday.*,yesmovies.mn,divicast.com,seriestv.watch,freemoviesfull.com,dopebox.to,fmovies.hn,fmovies.*,sflix.to,myflixer.to,movies2watch.tv,ev01.to,ummagurau.com,6movies.net,tinyzonetv.to,myflixertv.to,f2movies.to,moviesjoy.*,moviesjoy.*,myflixerhd.ru,soap2day.*,solarmovie.pe,cineb.net#$#.modal-backdrop { display: none !important; }
+bflix.gg,moviestowatch.tv,123moviestv.net,123-movies.vc,attacker.tv,movie4kto.net,theflixer.tv,sflix.se,2kmovie.cc,musichq.net,swatchseries.*,1movieshd.com,fmoviesto.*,solarmovie.pe,cineb.net,myflixerhd.ru,hdtoday.*,yesmovies.mn,divicast.com,seriestv.watch,freemoviesfull.com,dopebox.to,fmovies.hn,fmovies.*,sflix.to,myflixer.to,movies2watch.tv,ev01.to,ummagurau.com,6movies.net,tinyzonetv.to,myflixertv.to,f2movies.to,moviesjoy.*,moviesjoy.*,myflixerhd.ru,soap2day.*,solarmovie.pe,cineb.net#$##modalshare { display: none !important; }
 !
 ! https://github.com/uBlockOrigin/uAssets/issues/15883
 coolpc.com.tw,coolpc.tw#%#(function(){window.setTimeout=new Proxy(window.setTimeout,{apply:(a,b,c)=>c&&c[0]&&/SkipMsg\(\)/.test(c[0].toString())&&c[1]?(c[1]=1,Reflect.apply(a,b,c)):Reflect.apply(a,b,c)})})();
@@ -10657,6 +10667,12 @@ jiji.com,edp24.co.uk,technologyreview.com,inews.co.uk,nordbayern.de,thelocal.ch,
 !
 ! SECTION: Subscriptions - Regular rules
 !
+makeship.com##div[class^="ProductInfostyled__SubscribeWrapper-"]
+snigel.com###mailchimp
+mckinsey.com##section[class^="StickySubscriptionFooter"]
+dumskaya.net##div[style^="padding-"] > a[href="https://t.me/dumskayanet"]
+novyny.live##.sidebar-item_social
+rockpapershotgun.com##.footer-newsletter
 skyscanner.*###email-capture-trigger
 re.kufar.by###rec580813437
 re.kufar.by###t-footer
@@ -11922,7 +11938,7 @@ hoy.es#?#body > div > div[id="engagement-top"]:upward(1)
 hoy.es##div[data-animated-modal-bottom]
 crypto.ru#$##modal { display: none !important; }
 crypto.ru#$#html.with--no_scroll { overflow: auto !important; }
-realting.com,nv.ua,crypto.ru##.telegram-subscribe
+malaymail.com,realting.com,nv.ua,crypto.ru##.telegram-subscribe
 vinbazar.com#?#.news_photos > p:has(> a.mesengers)
 nubiapage.com#?#.g1-collection-items > li:has(> aside.g1-newsletter)
 reform.by,reform.news##blockquote.info
@@ -15510,7 +15526,7 @@ verbraucherzentrale.de,verbraucherzentrale.nrw##.newsletter-button
 britannica.com##.newsletter-c
 novmak.com##.newsletter-content
 diatribe.org##.newsletter-featured
-timkadlec.com,braziljournal.com,leroymerlin.ro,sketchbook.com,confianca.com.br,buson.com.br,haberturk.com,mel.fm,washingtonpost.com,belsat.eu,economist.com,gitlab.com##.newsletter-form
+blog.google,timkadlec.com,braziljournal.com,leroymerlin.ro,sketchbook.com,confianca.com.br,buson.com.br,haberturk.com,mel.fm,washingtonpost.com,belsat.eu,economist.com,gitlab.com##.newsletter-form
 infowars.com##.newsletter-inline-widget
 onlinemarketingrockstars.de##.newsletter-inner-post
 highsnobiety.com##.newsletter-interstitial

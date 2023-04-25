@@ -7459,6 +7459,9 @@ docviewer.yandex.ru,docviewer.yandex.by,docviewer.yandex.com,docviewer.yandex.co
 ||docviewer.yandex.ru/sw.js
 !#endif
 !
+! Yandex Games
+||yandex.*/games/$xmlhttprequest,jsonprune=\$..[rtb\, rtbAuctionInfo]
+!
 ! Yandex.Images
 ||yandex.*/images/$script,xmlhttprequest,replace=/^(.*?)"direct"\,(.*?)\$//
 !
@@ -7470,8 +7473,9 @@ docviewer.yandex.ru,docviewer.yandex.by,docviewer.yandex.com,docviewer.yandex.co
 ! Yandex.Weather
 /^https:\/\/www.yandex.\w+\/(weather|pogoda)\//$script,xmlhttprequest,jsonprune=\$.data.*.attributes,domain=yandex.*
 ! TODO: remove next two rules 2 weeks after release AdGuard apps with CL 1.11
-||yandex.*/weather/*/*/$replace=/.renderBanner\(function\(\)\{return/.renderBanner\(function\(\)\{return;/,script,other,xmlhttprequest,domain=yandex.by|yandex.kz|yandex.ru
-||yandex.*/pogoda/*/*/$replace=/^.*?"visibilitySettings":\s*\{[^}]*\}.*?(?:"direct":\s*\{[^}]*\})?.*\$//,script,other,xmlhttprequest,domain=yandex.by|yandex.kz|yandex.ru
+||yandex.*/weather/$script,xmlhttprequest,replace=/(^Ya\[\d+\]\(').*?"directTitle".*('\))\$/\$1\$2/,script,other,xmlhttprequest,domain=yandex.by|yandex.com|yandex.com.tr|yandex.fr|yandex.kz|yandex.ru
+||yandex.*/weather/*/*/$replace=/.renderBanner\(function\(\)\{return/.renderBanner\(function\(\)\{return;/,script,other,xmlhttprequest,domain=yandex.by|yandex.com|yandex.com.tr|yandex.fr|yandex.kz|yandex.ru
+||yandex.*/pogoda/*/*/$replace=/^.*?"visibilitySettings":\s*\{[^}]*\}.*?(?:"direct":\s*\{[^}]*\})?.*\$//,script,other,xmlhttprequest,domain=yandex.by|yandex.com|yandex.com.tr|yandex.fr|yandex.kz|yandex.ru
 !
 !afisha.yandex.by,afisha.yandex.kz,afisha.yandex.ru#%#//scriptlet("abort-on-property-read", "window.IntersectionObserver")
 !+ PLATFORM(windows, mac, android)
@@ -9513,7 +9517,7 @@ ufacitynews.ru,sevastopol.su,zn.ua,pravo.ru,lubertsyriamo.ru,kommersant.ru,dvnov
 ! ##div[id^="unit_"]
 ivbg.ru,progorod76.ru,riamobalashiha.ru,sobesednik.com,vz.ru,autoparus.by,ctv.by,hightech.plus,vkpress.ru,newstula.ru,panoramapro.ru,zpravda.ru,mirtesen.ru,sports.ru,ko.ru,togliatti24.ru,punkt-a.info,psychologies.ru,1yar.tv,fontanka.ru,baltnews.*,sm.news,news.ru,interfax-russia.ru,kursk-izvestia.ru,dp.ru,lentv24.ru,runews24.ru,bfm.ru,starhit.ru,ctnews.ru,kp40.ru,politring.com,ura.news,osnmedia.ru,interfax.by,lifehacker.ru,miasskiy.ru,eadaily.com,golospravdy.eu,govoritmoskva.ru,tayga.info,neg.by,wi-fi.ru,kriminal.net.ua,vesti.ru,province.ru,nashe.ru,rusvesna.su,7info.ru,ntv.ru,365news.biz,life.ru,rb.ru,business.ru,rosbalt.ru,mir24.tv,utro.ru,progorodnn.ru,newsru.com,anekdot.ru,astrakhan-24.ru,bel.ru,belive.ru,chrdk.ru,dni.ru,finam.info,gazeta.ru,gmbox.ru,iz.ru,kaspyinfo.ru,m24.ru,marieclaire.ru,mhealth.ru,mixnews.lv,moika78.ru,nation-news.ru,penzavzglyad.ru,pravda.ru,radioromantika.ru,realty.interfax.ru,riamo.ru,rusplt.ru,russian.rt.com,severpost.ru,snob.ru,sovsport.ru,steaklovers.menu,teleprogramma.pro,topwar.ru,trendymen.ru,tvc.ru,tvzvezda.ru,ua-football.com,ukraina.ru,vesti.uz,vokrugsveta.ru,warhead.su,zakon.kz,zr.ru##div[id^="unit_"]
 ! ##div[id^="adfox_"]
-delo-vcusa.ru,tolknews.ru,gorodche.ru,smartpress.by,raenza.ru,eadaily.com,zakon.kz,svpressa.ru,udf.name,udf.by,baby.ru,pikabu.ru,thequestion.ru##div[id^="adfox_"]
+newsmaker.md,delo-vcusa.ru,tolknews.ru,gorodche.ru,smartpress.by,raenza.ru,eadaily.com,zakon.kz,svpressa.ru,udf.name,udf.by,baby.ru,pikabu.ru,thequestion.ru##div[id^="adfox_"]
 !
 ! For URL shorteners or simple sites with frequently changed ad servers.
 ! Incorrectly blocked domains can be excluded using regex(synchronize this regexp in all filters)
@@ -9629,6 +9633,7 @@ kadrovik01.com.ua,kom-dir.ru,gd.ru,buhsoft.ru,dirklinik.ru,fd.ru,business.ru,pro
 !
 !
 !
+codernet.ru##.page__article-layout-ad
 kp.ru##div[class^="rec-slot"]
 lyrsense.com##.sideAds
 lyrsense.com##div[style*="height:90px;"]
@@ -15856,7 +15861,7 @@ rd-forum.ru##.pageContent > div[class="sectionMain funbox"]
 snowmobile.ru##.pageContent > div[style="padding: 4px 0 0 0; width: 100%; border: 1px solid #a5cae4; border-radius: 4px;"]
 reibert.info##.pageContent > p[align="center"] > a
 flamp.ru##.page__a-block
-12kotov.ru##.page__banner
+codernet.ru,12kotov.ru##.page__banner
 news.allcrimea.net##.page_anons
 filmpro.ru##.page_lcol > div[style^="width:700px;height:200px;"]
 smotrix.com##.panel
