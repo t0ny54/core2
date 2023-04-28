@@ -1,6 +1,6 @@
 ! Title: uBlock₀ filters
 ! Description: Filters optimized for uBlock, to be used along EasyList
-! Expires: 4 days
+! Expires: 6 days
 ! Last modified: %timestamp%
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -2058,6 +2058,8 @@ sxyprn.*##+js(acis, decodeURI, decodeURIComponent)
 sxyprn.*##+js(acis, document.querySelectorAll, popMagic)
 sxyprn.*##+js(acis, vast_urls)
 sxyprn.*##+js(aopr, popns)
+sxyprn.*##+js(acs, document.createElement, /l\.parentNode\.insertBefore\(s/)
+sxyprn.*##+js(aopw, __aaZoneid)
 sxyprn.*##.post_el_wrap > .tdn
 sxyprn.*###vid_container_id > .tdn
 *$frame,script,3p,denyallow=google.com|googleapis.com|gstatic.com|hcaptcha.com|recaptcha.net,domain=sxyprn.*
@@ -8076,8 +8078,6 @@ linkszia.co##.banner
 ||tags.worldglobalssp.xyz^$3p
 ||forexrw7.com^$frame,3p
 ! https://github.com/AdguardTeam/AdguardFilters/issues/139844
-djxmaza.in,proviralhost.com##+js(ra, disabled, #wait1button[disabled], stay)
-djxmaza.in,proviralhost.com##+js(ra, disabled, #wait2button[disabled], stay)
 djxmaza.in,proviralhost.com###wait1button.disabled, #wait2button.disabled:remove-class(disabled)
 djxmaza.in,proviralhost.com###wait1
 proviralhost.com###wait2button:upward(center):style(display: block !important;)
@@ -8085,7 +8085,6 @@ djxmaza.in###wait1button:upward(center) ~ *:not(center)
 proviralhost.com###wait1button ~ *:not(#wait2button, center:has(#wait2button))
 ! https://github.com/uBlockOrigin/uAssets/issues/16383
 *$image,redirect-rule=1x1.gif,domain=djxmaza.in|proviralhost.com|examtadka.com
-djxmaza.in,proviralhost.com,examtadka.com##+js(nobab)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/3748
 business-standard.com##+js(set, adblock, false)
@@ -15505,6 +15504,9 @@ upzone.cc##+js(acis, document.getElementById, undefined)
 /ad.xml$xhr,badfilter
 ! https://github.com/uBlockOrigin/uAssets/issues/15609
 player.pl#@#+js(json-prune, movie.advertising.ad_server)
+! https://github.com/uBlockOrigin/uAssets/issues/17801
+$xhr,redirect-rule=noopjs,domain=player.pl
+player.pl##div.adsbygoogle.prebid.adocean.ado.ad.ads.advert.banner.reklama.linkSponsorowany.adsense.advertisments.reklama-top.adv_container:style(display: block !important)
 
 ! https://github.com/NanoMeow/QuickReports/issues/2318
 @@||jbzd.com.pl^$ghide
@@ -18780,3 +18782,7 @@ techdracula.com##ins.adsbygoogle
 !#include filters-2021.txt
 !#include filters-2022.txt
 !#include filters-2023.txt
+
+!#if env_mobile
+!#include filters-mobile.txt
+!#endif
