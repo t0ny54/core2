@@ -2,7 +2,7 @@
 ! Description:
 !     Filters optimized for uBlock Origin, to unbreak sites broken as
 !     a result of 3rd-party filter lists enabled by default.
-! Expires: 4 days
+! Expires: 5 days
 ! Last modified: %timestamp%
 ! Homepage: https://github.com/uBlockOrigin/uAssets
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
@@ -108,9 +108,6 @@
 
 ! http://www.slideshare.net/aidanajoyce/adblocking-blocking-more-than-ads
 ||ggwebcast.com/*/kaltura/ga/urchin.js$script,redirect=noopjs
-
-! https://github.com/uBlockOrigin/uAssets/issues/34
-@@||premium.soundcloud.com/*/js/tracking.js$script,1p
 
 ! https://github.com/gorhill/uBlock/issues/1803
 @@||static.adf.ly^$image,script,css,domain=q.gs
@@ -900,9 +897,6 @@ go.com#@#.has-ad
 ! https://forums.lanik.us/viewtopic.php?f=64&t=42199
 @@||static.adsnative.com/static/js/render.*.js$script,domain=streamable.com
 
-! https://www.reddit.com/r/uBlockOrigin/comments/9zqzao/playstation_fix_replace/
-@@||hardware.support.eu.playstation.com/assets/js/tracking.js$script,1p
-
 ! https://forums.lanik.us/viewtopic.php?f=64&t=42216
 @@||litix.io/core/$script,domain=velocity.com|motortrend.com
 @@||fusion.ddmcdn.com/app/*/comscore.streaming.$script,domain=velocity.com|motortrend.com
@@ -935,10 +929,6 @@ hdblog.it#@#a[href^="https://www.amazon."][href*="tag="]
 
 ! https://forums.lanik.us/viewtopic.php?f=90&t=42355
 @@||ticketonline.de^$frame,domain=stage-entertainment.de
-
-! https://github.com/uBlockOrigin/uAssets/issues/4350
-@@||dk4ywix.com^$domain=endocrineweb.com
-@@||rebelsubway.com^$domain=endocrineweb.com
 
 ! https://forums.lanik.us/viewtopic.php?p=144333#p144333
 ||marketo.com^$badfilter
@@ -2120,9 +2110,6 @@ recensionihot.com#@#a[href^="https://www.moscarossa.biz/"]
 ! https://mod.reddit.com/mail/all/djas6
 @@||geo-targetly.com/geolocation$3p,script,domain=stache.com
 
-! https://github.com/uBlockOrigin/uAssets/issues/7272
-@@||d235vmrai5heq2.cloudfront.net/js/tracking.js$script,domain=newzenler.com
-
 ! trafic .ro blocked Peter Lowe's
 ||trafic.ro^$badfilter
 ||trafic.ro^$3p
@@ -2555,7 +2542,6 @@ hubblespacetelescope.blogspot.com#@#.vertical-ads
 @@||cdn.dynamicyield.com/api/$script,domain=washingtonexaminer.com
 
 ! https://github.com/uBlockOrigin/uAssets/issues/7781
-@@||subaru.com/guides/*/js/tracking.js$script,1p
 !#if env_chromium
 @@||subaru.com/guides/*/libs/adobe/AppMeasurement.js$script,1p
 !#endif
@@ -4611,7 +4597,7 @@ meaww.com##+js(json-prune, country region ip)
 @@||img.connatix.com/pid-$3p,image
 @@||vid.connatix.com/pid-$3p,xhr
 @@||cds.connatix.com/p/*/elements.ui.$3p,script
-@@||cds.connatix.com/p/*/hls.$3p,script
+@@||cds.connatix.com/*/hls$script,3p
 #@#.wps-player-wrap
 ! https://github.com/uBlockOrigin/uAssets/issues/17646
 @@||img.connatix.com/*.jpg$3p,image,domain=accuweather.com
@@ -4879,3 +4865,26 @@ tiendaenlinea.claro.com.ni##+js(set, Object.prototype.bk_doJSTag, noopFunc)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/17810
 ||cs.co^$badfilter
+
+! https://github.com/uBlockOrigin/uAssets/issues/17824
+/js/tracking.js$badfilter
+||etonline.com/themes/custom/et/js/tracking.js
+||raxcdn.com/app/themes/*/js/tracking.js$script
+/wp-content/*/js/tracking.js$script
+! https://github.com/Smile-SA/elasticsuite/wiki/GDPRCompliance
+/Smile_ElasticsuiteTracker/js/tracking.js$script
+
+! https://github.com/uBlockOrigin/uAssets/issues/17827#issuecomment-1527220609
+/api/tracking/*$badfilter
+/api/tracking/?URL=*&visitor=*&ObjectId=$xhr
+||sentinel.defacto.com.tr/api/Tracking/
+||grammarly.com/api/tracking/
+||xn--pckua2a7gp15o89zb.com/api/tracking.js
+||patreon.com/api/tracking^
+
+! https://github.com/AdguardTeam/AdguardFilters/issues/149499
+delta.com#@#.adv-container
+
+! https://github.com/uBlockOrigin/uAssets/issues/17836
+||shop.motorolasolutions.com/msi-files/libs/dynatrace.js$script,redirect-rule=noopjs,from=shop.motorolasolutions.com
+||shop.motorolasolutions.com/msi-files/page-tags/head/dynatrace-loader.js$script,redirect-rule=noopjs,from=shop.motorolasolutions.com

@@ -79,6 +79,8 @@
 ! Bad: example.org###rek (should be in specific.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/149598
+repubblica.it#%#//scriptlet('prevent-element-src-loading', 'script', 'static.chartbeat.com/js/chartbeat_brightcove_plugin.js')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/148618
 cerbahealthcare.it#%#//scriptlet('set-constant', 'pa', 'emptyObj')
 cerbahealthcare.it#%#//scriptlet('set-constant', 'pa.setConfigurations', 'noopFunc')
@@ -298,6 +300,9 @@ apteka.ru#%#window.yaCounter14913877={ reachGoal: function() {} };
 accountkiller.com#%#window.ga = function(){var a = arguments[5];a&&a.hitCallback&&a.hitCallback();}
 !-------------------
 !-------CSS---------
+! https://github.com/AdguardTeam/AdguardFilters/issues/149568
+ads.spotify.com#$#body.anti-flicker { opacity: 1 !important; }
+!
 infoseek.co.jp#$#.co-Widget[style="min-height: 6000px;"] { min-height: auto !important; }
 adseek.site#$##primary { display: block !important; }
 biteki.com#$?#.slick-slide > div[id] + script:upward(1)  { remove: true; }
@@ -463,7 +468,6 @@ prjaga.ru#?##right > div#right_nav > h3:contains(Онлайн статистик
 !||i.snssdk.com/log/*
 !||i.snssdk.com/slardar/sdk.js
 !
-||collector-*.px-cloud.net^
 ||getlasso.co^$third-party
 ||widget.sparrow.ru^
 ||medipartner.jp^$third-party
@@ -3016,7 +3020,6 @@ prjaga.ru#?##right > div#right_nav > h3:contains(Онлайн статистик
 ||jirafe.com^$third-party
 ||js.medi-8.net^$third-party
 ||jscounter.com^$third-party
-||jsonip.com^$third-party
 ||jstracker.com^$third-party
 ||jump-time.net^$third-party
 ||jumptime.com^$third-party
@@ -5566,6 +5569,7 @@ nethunt.com/api/v1/track/email/$image
 ||analytics.s3.amazonaws.com^
 ||analyticsengine.s3.amazonaws.com^
 !
+||wayfinderanalytics.servicebus.windows.net^
 ||adtima-media.zascdn.me^
 ||px.dmp.zaloapp.com^
 ||shopify-fast-tags.deliverr.com^
@@ -40252,6 +40256,8 @@ _tracking.php?b=
 /analytics.js$domain=kopeda.com|freexcafe.com|rusvideos.tv|nakubani.ru|lun.com|songsara.net|newsmax.com|bolgehastanesi.com|ewtc.de|newsdig.tbs.co.jp|imore.com|city.kushiro.lg.jp|emeraldbridal.com.au|emarat-news.ae|imobie.jp|tikla.com.tr
 ||assets.adobedtm.com^$domain=mcclatchydc.com|elnuevoherald.com|bellinghamherald.com|sacbee.com|charlotteobserver.com|newsobserver.com|miamiherald.com|ef.ru|algida.com.tr|bmw-motorrad.co.uk|cif.com.tr|clearhaircare.com|domestos.com|dove.com|elidor.com.tr|f1sport.autorevue.cz|geico.com|hellmanns.com.tr|herkessofraya.com|johnsonsbaby.com.tr|lipton.com|lnk.to|lux.com|magnumicecream.com|neutrogena.com.tr|omo.com|rexona.com|samsung.com|sap.com|schwarzkopf.com.tr|signalturkiye.com|msnbc.com|nbcnews.com|kbb.com|eurosport.ru|timgate.it|intermiles.com|oxfordmail.co.uk|spiegel.de|hp.com|deutschepost.de|thebay.com|s.shufoo.net|tsn.ca|tabelog.com|euronews.com|newshub.co.nz
 !
+||st.pba.xl.pt/pbasitetracker/pbasitetracker.min.js
+levashove.ru##div[data-column="widget-area-1"]
 ||api.zingnews.vn/*/r?ze=
 ||api.zingnews.vn/*/trackpv/
 ||api.zingnews.vn/*/hit.gif?t=
@@ -44817,6 +44823,7 @@ inapps.appsflyersdk.com^
 ||int.vlancaa.fun^
 ||tok.vaicore.xyz^
 !
+||assets.adobedtm.com^$app=com.aa.android
 ||vik-analytics.moonactive.net^
 ||report.apkpure.net^
 ||report.iheartmedia.gbqofs.io^
@@ -45583,6 +45590,10 @@ inapps.appsflyersdk.com^
 !#endif
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/149568
+||googletagmanager.com/gtm.js$script,redirect=googletagmanager-gtm,domain=ads.spotify.com
+!+ PLATFORM(ios, ext_safari, ext_android_cb)
+@@||googletagmanager.com/gtm.js$domain=ads.spotify.com
 ! https://github.com/AdguardTeam/AdguardFilters/issues/149439
 wikimedia.org#@#img[width="88"][height="31"]
 ! https://github.com/uBlockOrigin/uAssets/issues/17798
@@ -46953,8 +46964,6 @@ demae-can.com#%#//scriptlet('remove-attr', 'data-trm-action|data-trm-category|da
 ! https://github.com/AdguardTeam/AdguardFilters/issues/77565
 @@||cdn.segmentify.com^$domain=pttavm.com
 @@||gandalf.segmentify.com^$domain=pttavm.com
-! https://github.com/AdguardTeam/AdguardFilters/issues/77266
-@@||jsonip.com/?callback=$domain=hotelforex.com
 ! https://forum.adguard.com/index.php?threads/www-viu-com.42285/
 @@||google-analytics.com/analytics.js$domain=viu.com
 ||google-analytics.com/analytics.js$script,redirect=google-analytics,domain=viu.com,important
@@ -48160,8 +48169,6 @@ kizi.com#%#window.google_trackConversion = function() {};
 @@||crwdcntrl.net/*callback=setPIDForPlayer$domain=static.rtl.nl
 ! https://github.com/AdguardTeam/AdguardFilters/issues/16089
 @@||google-analytics.com/analytics.js$domain=karwan.tv
-! https://github.com/AdguardTeam/AdguardFilters/issues/15865
-@@||jsonip.com/?callback=jQuery$domain=pagtel.com.br
 ! https://github.com/AdguardTeam/AdguardFilters/issues/15837
 @@||ee.hit.gemius.pl/gplayer.js$domain=tv3play.tv3.ee
 @@||google-analytics.com/analytics.js$domain=tv3play.tv3.ee
