@@ -207,10 +207,13 @@ gmarket.co.kr#%#//scriptlet("set-constant", "pvprofiler.sendEvt", "noopFunc")
 popin.cc#%#//scriptlet('set-local-storage-item', '_ss_pp_id', '')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/114227
 valleybreeze.com#%#//scriptlet('remove-attr', 'hidden', '#asset-content[hidden]')
+! https://github.com/AdguardTeam/AdguardFilters/issues/150590
 ! https://github.com/AdguardTeam/AdguardFilters/issues/118108
 ! https://github.com/AdguardTeam/AdguardFilters/issues/112998
-ttv.pl,tvn24.pl#%#//scriptlet("set-constant", "gemiusStream", "noopFunc")
-ttv.pl,tvn24.pl#%#(function(){window.__pix2={event:function(){},track:function(){}}})();
+tvnturbo.pl,ttv.pl,tvn24.pl#%#//scriptlet('set-constant', 'gemiusStream', 'noopFunc')
+tvnturbo.pl,ttv.pl,tvn24.pl#%#//scriptlet('set-constant', '__pix2', 'emptyObj')
+tvnturbo.pl,ttv.pl,tvn24.pl#%#//scriptlet('set-constant', '__pix2.event', 'noopFunc')
+tvnturbo.pl,ttv.pl,tvn24.pl#%#//scriptlet('set-constant', '__pix2.track', 'noopFunc')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/109426
 nytimes.com#%#//scriptlet("set-constant", "Navigator.prototype.joinParakeetInterestGroup", "noopFunc")
 ! https://github.com/AdguardTeam/AdguardFilters/issues/110697
@@ -469,6 +472,8 @@ prjaga.ru#?##right > div#right_nav > h3:contains(Онлайн статистик
 !||i.snssdk.com/log/*
 !||i.snssdk.com/slardar/sdk.js
 !
+||stats.sprocketrocket.co^
+||analytics.recruitics.com^
 ||zcode11.me^
 ||mgtmod01.com^$third-party
 ||getlasso.co^$third-party
@@ -855,6 +860,7 @@ prjaga.ru#?##right > div#right_nav > h3:contains(Онлайн статистик
 ||analytics2.awsli.com.br^
 ||pgs.io^$third-party
 ||script-sh.d2cdm.jp^
+||browser-intake-*-datadoghq.com^
 ||browser-intake-datadoghq.com^
 ||cl*.k5a.io^$third-party
 ||analytics.superstructure.ai^
@@ -1518,7 +1524,6 @@ prjaga.ru#?##right > div#right_nav > h3:contains(Онлайн статистик
 ||ga-analytics.com^$third-party
 ||analytics.webads.eu^
 ||erandex.com^$third-party
-||recruitics.com^$third-party
 ||direct-events-collector.spot.im^$third-party
 ||metrics-logger.spot.im^$third-party
 ||adwstats.com^
@@ -40616,7 +40621,7 @@ _tracking.php?b=
 ! TODO: replace `~domain.com` by exclusions after ext4.0 release
 ! https://github.com/AdguardTeam/AdguardForWindows/issues/3973
 ! Probably caused by overriding "dataLayer.push" function
-||google-analytics.com/analytics.js$script,redirect=google-analytics,domain=~olx.*|~banki.ru|~bigc.co.th|~coolermaster.com
+||google-analytics.com/analytics.js$script,redirect=google-analytics,domain=~olx.*|~banki.ru|~bigc.co.th
 ! https://github.com/uBlockOrigin/uAssets/issues/9458
 ||google-analytics.com/ga.js$script,redirect=google-analytics-ga,domain=~daj.jp
 ! https://github.com/AdguardTeam/AdguardFilters/issues/101178 - bethesda.net
@@ -40637,8 +40642,13 @@ _tracking.php?b=
 ||googleadservices.com/pagead/conversion_async.js$redirect=noopjs,domain=ffm.to,important
 !
 /analytics.js$domain=inbox.lv|kopeda.com|freexcafe.com|rusvideos.tv|nakubani.ru|lun.com|songsara.net|newsmax.com|bolgehastanesi.com|ewtc.de|newsdig.tbs.co.jp|imore.com|city.kushiro.lg.jp|emeraldbridal.com.au|emarat-news.ae|imobie.jp|tikla.com.tr|rusvideos.porn
-||assets.adobedtm.com^$domain=mcclatchydc.com|elnuevoherald.com|bellinghamherald.com|sacbee.com|charlotteobserver.com|newsobserver.com|miamiherald.com|ef.ru|algida.com.tr|bmw-motorrad.co.uk|cif.com.tr|clearhaircare.com|domestos.com|dove.com|elidor.com.tr|f1sport.autorevue.cz|geico.com|hellmanns.com.tr|herkessofraya.com|johnsonsbaby.com.tr|lipton.com|lnk.to|lux.com|magnumicecream.com|neutrogena.com.tr|omo.com|rexona.com|samsung.com|sap.com|schwarzkopf.com.tr|signalturkiye.com|msnbc.com|nbcnews.com|kbb.com|eurosport.ru|timgate.it|intermiles.com|oxfordmail.co.uk|spiegel.de|hp.com|deutschepost.de|thebay.com|s.shufoo.net|tsn.ca|tabelog.com|euronews.com|newshub.co.nz|fredmeyer.com
+||assets.adobedtm.com^$domain=mcclatchydc.com|elnuevoherald.com|bellinghamherald.com|sacbee.com|charlotteobserver.com|newsobserver.com|miamiherald.com|ef.ru|algida.com.tr|bmw-motorrad.co.uk|cif.com.tr|clearhaircare.com|domestos.com|dove.com|elidor.com.tr|f1sport.autorevue.cz|geico.com|hellmanns.com.tr|herkessofraya.com|johnsonsbaby.com.tr|lipton.com|lnk.to|lux.com|magnumicecream.com|neutrogena.com.tr|omo.com|rexona.com|samsung.com|sap.com|schwarzkopf.com.tr|signalturkiye.com|msnbc.com|nbcnews.com|kbb.com|eurosport.ru|timgate.it|intermiles.com|oxfordmail.co.uk|spiegel.de|hp.com|deutschepost.de|thebay.com|s.shufoo.net|tsn.ca|tabelog.com|euronews.com|newshub.co.nz|fredmeyer.com|viabcp.com
 !
+||jsv3.recruitics.com^$script
+||nicovideo.jp/api/ria/log.gif
+||login.dognet.sk/scripts/*?visitorId=
+||nsandi.com/sites/all/themes/nsandi/js/webtrends_multitrack.js
+||xozilla.xxx/static/js/analytics.*.js
 ||movieweb.com/strpixel.png
 ||mediadelivery.net/.metrics/
 ||store.lixil.co.jp/*/Amasty_Xsearch/js/widgets/analytics-data-collector.js
@@ -44105,6 +44115,10 @@ $cookie=_parrable_id
 $cookie=permutive-id
 $cookie=permutive-session
 ! Adobe analytics
+! Stores the number of visits by a Unique Visitor
+$cookie=s_invisit
+! Identifies whether the user is arriving at the domain for the first time
+$cookie=s_vnum
 ! https://experienceleague.adobe.com/docs/analytics/implementation/vars/plugins/getnewrepeat.html?lang=en
 $cookie=s_nr
 $cookie=s_lastvisit
@@ -45266,7 +45280,6 @@ inapps.appsflyersdk.com^
 ||dt.beyla.site^
 ||collect.analytics.unity3d.com^
 ||accscdn.m.taobao.com^
-||acs.m.taobao.com^
 ||apsrgeo.amap.com^
 ||confe.dc.oppomobile.com^
 ||conff.dc.oppomobile.com^
@@ -46015,6 +46028,12 @@ inapps.appsflyersdk.com^
 !#endif
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/150480
+@@||google-analytics.com/analytics.js$script,redirect=google-analytics,domain=coolermaster.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/150237
+||cdn.permutive.app/*-web.js$script,redirect=noopjs,domain=theglobeandmail.com
+!+ PLATFORM(ios, ext_safari, ext_android_cb)
+@@||cdn.permutive.app/*-web.js$domain=theglobeandmail.com
 ! https://github.com/AdguardTeam/AdguardFilters/issues/150486
 !+ PLATFORM(ios, ext_safari, ext_android_cb)
 @@||xzeepb2clookuppsta001.blob.core.windows.net/comed/src/js/google-analytics.js$domain=secure1.comed.com
@@ -46738,11 +46757,11 @@ extrahop.com#%#//scriptlet('prevent-setTimeout', 'ad blocker')
 @@||custojusto.pt/smarttag.js
 !+ NOT_PLATFORM(ext_ublock)
 ||custojusto.pt/smarttag.js$script,redirect=ati-smarttag,important
+! https://github.com/AdguardTeam/AdguardFilters/issues/150590
 ! https://github.com/AdguardTeam/AdguardFilters/issues/118108
 ! https://github.com/AdguardTeam/AdguardFilters/issues/112998
-!+ NOT_PLATFORM(windows, mac, android, ext_chromium)
-@@||pix2.services.tvn.pl/pix2.js$domain=tvn24.pl|ttv.pl
 !#if (adguard_app_ios || adguard_ext_android_cb)
+@@||pix2.services.tvn.pl/pix2.js$domain=tvn24.pl|ttv.pl|tvnturbo.pl
 @@||pro.hit.gemius.pl/gstream.js$domain=ttv.pl
 @@||tools.services.tvn.pl/maertsg.js$domain=tvn24.pl
 !#endif

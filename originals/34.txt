@@ -252,6 +252,8 @@ $removeparam=fb_source
 ! Bad: ||example.org^$xmlhttprequest,redirect=noopvast-3.0 (for instance, should be in specific.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/150639
+||tokyo-calendar.jp^$removeparam=ref
 ! https://github.com/AdguardTeam/AdguardFilters/issues/149911
 ||mofos.com$removeparam=ats
 ! https://github.com/AdguardTeam/AdguardFilters/issues/150086
@@ -1178,6 +1180,9 @@ $removeparam=a_aid,domain=expressvpn.com|vpnarea.com
 ! ||amazon.*$removeparam=s - breaks URLs which includes it to sort
 ! https://github.com/AdguardTeam/AdguardFilters/issues/110571 - disable rule if issue happens again: broke adding article to basket when viewing all offers
 !
+! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-5867802
+$removeparam=asc_source,domain=aboutamazon.com|amazon.*|amzn.to
+!
 ||amazon.*$removeparam=linkId
 ||amazon.*$removeparam=adgrpid
 ||amazon.*$removeparam=hvadid
@@ -1411,6 +1416,8 @@ $removeparam=dclid
 ! Deezer
 ! https://github.com/AdguardTeam/AdguardFilters/pull/119475
 ||deezer.com^$removeparam=origin
+! GamesPlanet
+||gamesplanet.com^$removeparam=ref
 !
 ! Special rules for AdGuard websites' test pages. The only purpose of these
 ! rules is to make test pages work so that users could verify that AdGuard
@@ -1419,6 +1426,7 @@ $removeparam=dclid
 !+ NOT_OPTIMIZED
 adguard.com,adguard.app##.hello_from_adguard_tracking_params
 !
+
 !---------------------------------------------------------------------------!
 !-------------- Fixing filtration errors (false-positive) ------------------!
 !---------------------------------------------------------------------------!
