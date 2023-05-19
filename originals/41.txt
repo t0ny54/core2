@@ -98,6 +98,12 @@ instagram.com#?#div[style*="opacity"] > div > div[class]:has(> div[class] > div[
 !
 ! End: Instagram.com
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/151140
+tv.lrytas.lt#%#//scriptlet("remove-class", "jw-flag-floating", "#jw-video-js")
+! https://github.com/AdguardTeam/AdguardFilters/issues/151223
+nereye.com.tr##img[alt="YouTube Kanalı Banner"]
+! https://github.com/AdguardTeam/AdguardFilters/issues/151120
+lrytas.lt#%#//scriptlet('remove-class', 'LEmbedVideo--floating', '.LEmbedVideo.LEmbedVideo--floating')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/149873
 kooora.com#$?##matchesTable div.footballco-container { remove: true; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/150804
@@ -495,6 +501,7 @@ so.toutiao.com##.s-side-list > div.result-content > div[id^="s-dom-"]
 ||widget.golfscape.com^$domain=sport360.com
 ! https://github.com/AdguardTeam/AdguardFilters/issues/118308
 ! embed tv, used on many sites in floating player
+football-tribe.com##.dugout_video_cont
 ||embed.dugout.com^$script,third-party,domain=~sportowefakty.wp.pl|~ultra-soccer.jp
 ! https://github.com/AdguardTeam/AdguardFilters/issues/117432
 cureco.jp##object[width="640"][height="480"]
@@ -562,7 +569,7 @@ event.rakuten.co.jp##.Permission
 oxu.az##article.news + h2.news-share-title
 oxu.az##article.news ~ div.news-share-container
 ! Video recommendations
-||player.gliacloud.com^$domain=9db.jp|techinsight.jp
+||player.gliacloud.com^$domain=9db.jp|techinsight.jp|football-tribe.com
 amazon.co.jp#%#//scriptlet('trusted-click-element', '.atvwebplayersdk-infobar-container div.fu4rd6c.f1cw2swo')
 ||connatix.com^$domain=allmusic.com|fadmagazine.com|favesouthernrecipes.com|hbcugameday.com|on3.com|penna.gr|shadowandact.com|sportsgamblingpodcast.com|tangorin.com|thisismoney.co.uk|urbanbellemag.com|workitdaily.com
 ||player.gliacloud.com^$domain=kinmaweb.jp
@@ -1493,7 +1500,7 @@ kuchnia.wp.pl#?#tr[data-reactid]:not([class]):not([id]) > td[class] > div[class*
 ! TODO: remove the hint below when a new version of the extension for Firefox and Opera will be released, current version is 4.1.53
 ! Related to - https://github.com/AdguardTeam/Scriptlets/issues/266
 !#if (!adguard_ext_firefox && !adguard_ext_opera)
-~1login.wp.pl,~pilot.wp.pl,abczdrowie.pl,dobreprogramy.pl,wp.pl,pudelek.pl#%#//scriptlet("prevent-addEventListener", "openFloatingPlayer", "FloatingPlayer")
+~1login.wp.pl,~pilot.wp.pl,abczdrowie.pl,dobreprogramy.pl,wp.pl,pudelek.pl,pysznosci.pl#%#//scriptlet("prevent-addEventListener", "openFloatingPlayer", "FloatingPlayer")
 ! www.wp.pl - unblock scroll while website is loading
 www.wp.pl#%#//scriptlet("prevent-addEventListener", "wheel", "preventDefault")
 !#endif
@@ -1839,7 +1846,7 @@ genius.com##div[class^="AppleMusicPlayer__"]
 ! https://github.com/AdguardTeam/AdguardFilters/issues/29612
 ltn.com.tw#%#AG_onLoad(function() { $('div[class^="photo picbox 1 photoOn"] > a[href="//draw.ltn.com.tw/slot_v8/"]').closest('div.picbox.\\31').remove(); });
 ! https://github.com/AdguardTeam/AdguardFilters/issues/28313
-shikimori.one,shikimori.org##.about-ads
+shikimori.*##.about-ads
 ! https://github.com/AdguardTeam/AdguardFilters/issues/29802
 last.fm##.nag-bar--language-mismatch-prompt
 ! https://github.com/AdguardTeam/AdguardFilters/issues/29341
@@ -4946,6 +4953,13 @@ theguardian.com##.contributions__adblock
 !
 ! SECTION: Self-promo - Regular rules
 !
+skywardplus.jal.co.jp##.adbnr_related
+skywardplus.jal.co.jp##.ranking.subpage-main-left
+yandex.*##.DistrPopup_motley_dark-green
+wedding.mynavi.jp##.headerBannerCampaign
+wedding.mynavi.jp###js-recommendSlideup
+wedding.mynavi.jp##div[id="1_recommend_divid"]
+cyberghostvpn.com##.table-of-contents-wrapper > div[style="background-color: #f4f5f6; padding: 20px;"]
 yandex.ru###distr-pcode-container
 apteka911.ua##.tab-content > div.div-img-html
 nordvpn.com##.BlogPost__banner-wrapper
