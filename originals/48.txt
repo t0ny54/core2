@@ -442,6 +442,14 @@
 ! Bad: ||ad.doubleclick.net^ (should be in adservers.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/151451
+@@/adview_*_ads_300x250.js$domain=itbaoku.cn
+itbaoku.cn#%#//scriptlet('set-constant', 'killads', 'true')
+! https://github.com/AdguardTeam/AdguardFilters/issues/151435
+vpslog.net#%#//scriptlet('prevent-element-src-loading', 'script', 'placementName')
+/?placementName=$script,redirect=noopjs,domain=vpslog.net
+!+ PLATFORM(ios, ext_android_cb, ext_safari)
+@@||qoaaa.com/*/?placementName=$domain=vpslog.net
 ! https://github.com/AdguardTeam/AdguardFilters/issues/148933
 xbeibeix.com#@#.google-ad
 xbeibeix.com#%#//scriptlet('prevent-setTimeout', '/\.height\(\) == 0|adsbygoogle/')
@@ -803,13 +811,10 @@ game735.com#$#div[id^="gklobl"] { height: 1px!important; }
 @@||www.ruanyifeng.com^$csp=script-src 'self' * 'sha256-0McqMM66/wAVZmxF6zXpjNsb1UMbTl4LXBXdhqPKxws='
 ruanyifeng.com#@#a > img[src*="wangbase.com/blogimg/asset/"]
 ! https://github.com/AdguardTeam/AdguardFilters/issues/46061#issuecomment-601842012
-t66y.com#%#//scriptlet('abort-current-inline-script', '$', 'adhtml')
+t66y.com#%#//scriptlet('prevent-setTimeout', 'tpcHtml')
 !#if (adguard_app_ios || adguard_ext_android_cb)
 t66y.com#@#.tips
 t66y.com#@#.sptable_do_not_remove
-!#endif
-!#if (adguard_app_windows || adguard_app_mac || adguard_app_android || adguard_ext_chromium || adguard_ext_edge)
-t66y.com$$script[tag-content="adhtml"][max-length="10000"]
 !#endif
 !+ PLATFORM(windows, mac, android)
 t66y.com#%#AG_onLoad(function(){var a=document.querySelector(".tpc_content img");if(a){a=a.attributes;for(var c=0;c<a.length;c++)if(a[c].name.match("ess-data")){var b=a[c].name;break}}$("img["+b+"]").each(function(){0<$(this).attr(b).indexOf("sinaimg")&&$(this).attr(b,$(this).attr(b).replace(/https:/,"http:"));$(this).attr("src",$(this).attr(b));$(this).css("cursor","pointer");$(this).click(function(){window.open($(this).attr("src"));return!1})})});
@@ -4733,6 +4738,7 @@ newduba.cn###jq_youxi
 ||dcqs4.com^
 ||ddkep.xyz^
 ||ddlipf.xyz^
+||ddqkqq.com^
 ||denghaishan1.cn^
 ||dertyhsf.xyz^
 ||devofei.xyz^
@@ -4762,6 +4768,7 @@ newduba.cn###jq_youxi
 ||endio.xyz^
 ||eqknlsw.xyz^
 ||evmnlpv.cn^
+||ewandlw.top^
 ||excfig.xyz^
 ||exwxrfz.cn^
 ||exz1t.top^
@@ -4781,6 +4788,7 @@ newduba.cn###jq_youxi
 ||fkading38.xyz^
 ||flpnnqe.xyz^
 ||flyinsky2009.ltd^
+||fmild.xyz^
 ||fnnzr.cn^
 ||fssxyiq.cn^
 ||fthqzxq.cn^
@@ -4879,6 +4887,7 @@ newduba.cn###jq_youxi
 ||jrtwi.xyz^
 ||jrzaht.xyz^
 ||jstimiz.xyz^
+||junkao.club^
 ||justasimple.top^
 ||jvkckeg.cn^
 ||jvmxrug.xyz^
@@ -4962,10 +4971,12 @@ newduba.cn###jq_youxi
 ||nekomasu.ltd^
 ||networkname.xyz^
 ||ningdebus.club^
+||nntsdp.xyz^
 ||nogff.top^
 ||npdkdb.xyz^
 ||nqyz.tw^
 ||nsfdsa.xyz^
+||nuanqipian.pw^
 ||nurahf.xyz^
 ||nvchmkw.cn^
 ||nwandlc.top^
@@ -4976,8 +4987,10 @@ newduba.cn###jq_youxi
 ||on-you.cn^
 ||onlystar.club^
 ||ooexkqj.cn^
+||oofyjik.xyz^
 ||opida.xyz^
 ||originate.ltd^
+||orsrmrx.cn^
 ||otwiss.xyz^
 ||oubqzcg.cn^
 ||p2oh1.xyz^
@@ -5021,6 +5034,7 @@ newduba.cn###jq_youxi
 ||qnmtqq.com^
 ||qpoiwnelc.com^
 ||qqied.xyz^
+||quancuncq.xyz^
 ||qwahk.com^
 ||qwrdj.xyz^
 ||ra1.xyz^
@@ -5183,13 +5197,16 @@ newduba.cn###jq_youxi
 ||xpynqq.com^
 ||xrkyqq.com^
 ||xsbdj6.com^
+||xtpwfb.xyz^
 ||xuanqi.ltd^
 ||xueyugaoyuan.xyz^
 ||xunjie.fun^
 ||xvrvgod.xyz^
 ||xyjcpcb.cn^
+||xyqmy.xyz^
 ||xyzyqq.com^
 ||xzlurd.xyz^
+||y3cdp.top^
 ||yanghetp.com^
 ||yangyuqing.xyz^
 ||yankuoyyds.com^
@@ -5238,13 +5255,16 @@ newduba.cn###jq_youxi
 ||zscgoqt.cn^
 ||zvfaxh.xyz^
 ||zxgko.cn^
-||ddqkqq.com^
-||nuanqipian.pw^
-||junkao.club^
-||oofyjik.xyz^
-||xtpwfb.xyz^
-||fmild.xyz^
-||ewandlw.top^
+||utqzauw.cn^
+||gjmqqq.com^
+||fast416.info^
+||rnajhyd.xyz^
+||fdrxdr.xyz^
+||vxvtzx.xyz^
+||gpqid.xyz^
+||cfx3d.xyz^
+||mssdkrt.xyz^
+||27niao20230506.live^
 ##[class][onclick*=".ununxsxs.top"]
 ##a[href$=".120ydrayy.com"]
 ##a[href$="/1c626.com"]
@@ -21849,7 +21869,7 @@ gohome.com.hk#@#div[id^="div-gpt-ad"]
 @@||ozabc.com^$generichide
 @@||pagead2.googlesyndication.com/pagead/js/*/show_ads_impl$domain=ff14angler.com|logi.im
 @@||pagead2.googlesyndication.com/pagead/js/*/show_ads_impl.js$domain=doitwell.tw
-@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=4spaces.org|aboluowang.com|chaojizhibo.net|chtoen.com|daxiaamu.com|dizhishengcheng.com|doitwell.tw|ekamus.info|eu4cn.com|ff14angler.com|freedidi.com|haoweichi.com|it365.abctool.info|linovelib.com|logi.im|monnsutogatya.com|mpyit.com|numberempire.com|ozabc.com|patch.ali213.net|pc3mag.com|shenfendaquan.com|sistersbedroom.com|sto520.com|vaptcha.com|wenxuecity.com|wuyong.fun|xbeibeix.com|xiebruce.top|xugaoxiang.com|xxxxx520.com|yodu.org
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=23qb.net|4spaces.org|aboluowang.com|chaojizhibo.net|chtoen.com|daxiaamu.com|dizhishengcheng.com|doitwell.tw|ekamus.info|eu4cn.com|ff14angler.com|freedidi.com|haoweichi.com|it365.abctool.info|linovelib.com|logi.im|monnsutogatya.com|mpyit.com|numberempire.com|ozabc.com|patch.ali213.net|pc3mag.com|shenfendaquan.com|sistersbedroom.com|sto520.com|vaptcha.com|wenxuecity.com|wuyong.fun|xbeibeix.com|xiebruce.top|xugaoxiang.com|xxxxx520.com|yodu.org
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xmlhttprequest,domain=duelmeta.com|liout.com|moneysave.info|myqqjd.com|zxmee.com
 @@||pagead2.googlesyndication.com/pagead/js/google_top_exp.js$domain=ebb.io
 @@||pagead2.googlesyndication.com/pagead/show_ads.js$domain=knowlet3389.blogspot.com|knowlet3389.blogspot.hk|knowlet3389.blogspot.jp|knowlet3389.blogspot.tw|mnighthk.net|weithenn.org
@@ -23748,7 +23768,7 @@ fqsousou.com,kengso.com#@#.user-share
 @@/iplookup.$domain=cankaoxiaoxi.com|dongfeng-nissan.com.cn|huomao.com|loldk.com|sina.com.cn
 @@/log/report/*$script,domain=bilibili.com
 @@/sensorsdata-$domain=zkh.com
-@@/sensorsdata.$domain=36kr.com|binance.com|by56.com|canon.com.cn|chuanglan.com|fenbi.com|imooc.com|kuque.com|modian.com|saicskoda.com.cn|shanbay.com|tianyancha.com|xinrenxinshi.com|zzjiasuqi.com
+@@/sensorsdata.$domain=36kr.com|binance.com|by56.com|canon.com.cn|chuanglan.com|fenbi.com|imooc.com|kuque.com|modian.com|saicskoda.com.cn|shanbay.com|tianyancha.com|ttcdw.cn|xinrenxinshi.com|zzjiasuqi.com
 @@/setCookie?$domain=ctrip.com|ctrip.com.hk|pinyin.cn
 @@/urchin.js$domain=on.cc
 @@||10010.com/mall/common/js/fa.js?referer=

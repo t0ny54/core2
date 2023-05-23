@@ -1396,9 +1396,6 @@ animeflv.net#%#window.loadingAds = true;
 ! https://github.com/AdguardTeam/AdguardFilters/issues/15386
 !+ PLATFORM(ext_ff, ext_opera, ios, ext_android_cb, ext_ublock)
 @@||parasitipedia.net^$generichide
-! https://github.com/AdguardTeam/AdguardFilters/issues/15842
-!+ PLATFORM(ios, ext_android_cb)
-@@||alojamiento.biz^$generichide
 ! https://github.com/AdguardTeam/AdguardFilters/issues/15404
 @@||fantasy.li^$generichide
 ! https://github.com/AdguardTeam/AdguardFilters/issues/15630
@@ -2064,6 +2061,10 @@ seriesgato.com#?#.TPlayerNv > li.Button:has(> span:contains(Publicidad))
 !------- JS rules ---------------------!
 !--------------------------------------!
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/151483
+gnula.club#%#//scriptlet('remove-attr', 'href', 'li[onclick^="go_to_player"] > a[target="_blank"][href]')
+! https://github.com/AdguardTeam/AdguardFilters/issues/151449
+elmundo.es#%#//scriptlet('set-constant', 'Object.prototype.adSlot', '')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/149757
 pelisflix2.*#%#//scriptlet('set-cookie-reload', 'adtura', '1')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/146455
@@ -2330,8 +2331,6 @@ redirdx.in#%#document.cookie = "tronador=aproved; path=/";
 redirdx.in#%#//scriptlet("prevent-window-open", "redirdx.in/go/")
 ! https://github.com/AdguardTeam/AdguardFilters/issues/43603#issuecomment-553749336
 hentaihd.xyz#%#AG_onLoad(function() { setTimeout(function() { var el = document.querySelector('div.fluid_initial_play'); if(el) el.click(); }, 300); });
-! https://github.com/AdguardTeam/AdguardFilters/issues/42704
-baixarfilmetorrent.com#%#document.cookie = "ck1=true; path=/"; document.cookie = "ck1_cnt=1; path=/"; document.cookie = "ck2=true; path=/"; document.cookie = "ck2_cnt=1; path=/"; document.cookie = "ck3=true; path=/"; document.cookie = "ck3_cnt=1; path=/";
 ! https://github.com/AdguardTeam/AdguardFilters/issues/41643
 hentai-id.tv#%#AG_onLoad(function(){var a=document.querySelectorAll('a[href*="://ouo.io/"][href*="=http"],a[href*="://ouo.io/"][href*="= http"]');for(var b,c=0;c<a.length;c++)b=a[c].getAttribute("href"),(b=b.split(/^https?:\/\/ouo\.io\/[\S]*?\?.=/))&&a[c].setAttribute("href",b[1])});
 ! https://github.com/AdguardTeam/AdguardFilters/issues/42381
@@ -2518,8 +2517,6 @@ profesionalreview.com#$#body { background-image:none!important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/20163
 lavanguardia.com#$#.lv-publi-box { position: absolute!important; left: -3000px!important; }
 lavanguardia.com#$#.megabanner-adv { position: absolute!important; left: -3000px!important; }
-! https://github.com/AdguardTeam/AdguardFilters/issues/15842
-alojamiento.biz#$#body { overflow: visible!important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/12753
 depor.com#$#.ads-300x300 {position: absolute!important; left: -3000px!important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/9654
@@ -2686,6 +2683,7 @@ tvhistoria.com.br,bebe.abril.com.br,tribunapr.uol.com.br,diariodonordeste.verdes
 ! ##.banner
 rpp.pe,ambito.com,economipedia.com,informador.mx,elinformador.com.co,cronista.com,rionegro.com.ar,diariodecuyo.com.ar,voydeviaje.com.ar,guarda14.com,viapais.com.ar,agazeta.com.br,eleconomista.com.mx,metropolitanafm.com.br,tycsports.com,elespectador.com,bnews.com.br,migalhas.com.br,losandes.com.ar,lavoz.com.ar,mundo.sputniknews.com,omelete.com.br,lapoliticaonline.*,mundotecnologias.com,valenciaplaza.com,veneapp.com,dalealbo.cl,globo.com,defesanet.com.br,mibrujula.com,lyon.kim,26noticias.com.ar,auniao.com,clickpb.com.br,emagister.com,lanacion.com.ar,parana-online.com.br,r7.com,toxico-pc.com,uol.com.br##.banner
 !
+mhscans.com##.c-top-sidebar
 mxcity.mx##.ads_citi
 mxcity.mx###banner-top
 autobild.es##div[class^="wrapper_mega_"]
@@ -2983,7 +2981,7 @@ elpais.com##div[id^="ad-"]
 ||static.elpais.com/dist/resources/js/*/ENP-outbrain.js
 elmundo.es##.ue-c-subscription-ad
 expansion.com,marca.com##.ue-c-ad
-listas.pro###orquidea-slideup
+mhscans.com,listas.pro###orquidea-slideup
 ouniversodatv.com,animerikosuper.blogspot.com###HTML1
 animerikosuper.blogspot.com###HTML260
 mhscans.com,animerikosuper.blogspot.com##div[class^="fixed-"][class$="Sd"]
@@ -3362,7 +3360,6 @@ stardeos.com##.at-addcontent
 stardeos.com##.at-addthumbnail
 stardeos.com##div[class^="left-menu_layout_adsense-"]
 animeactua.com##.jeg_midbar
-olympusscanlation.com###teaser1
 /apu.php?zoneid=$domain=pelisplus.so
 pelisplus.so##body ~ iframe[style*="width:"][style*="opacity:"][style*="z-index:"][style*="position:"]:not([src])
 futemax.gratis##.alertWS
