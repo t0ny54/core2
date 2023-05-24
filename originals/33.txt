@@ -79,6 +79,10 @@
 ! Bad: example.org###rek (should be in specific.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/151568
+! It looks like that website needs 3 elements above "/gpt/tag/js/gpt.js" script to work properly
+! The rule below adds 3 empty script tags to fix this problem
+bbcgoodfood.com#%#AG_onLoad((function(){const t=document.querySelector('script[src*="/gpt/tag/js/gpt.js"]');if(t)for(let e=0;e<3;e++){const e=document.createElement("script");t.parentNode.insertBefore(e,t)}}));
 ! https://github.com/AdguardTeam/AdguardFilters/issues/150486
 secure1.comed.com#%#//scriptlet('set-constant', 'setupGoogleAnalytics', 'noopFunc')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/149598
@@ -5586,6 +5590,8 @@ nethunt.com/api/v1/track/email/$image
 ||analytics.s3.amazonaws.com^
 ||analyticsengine.s3.amazonaws.com^
 !
+||st-5cva8vttppvjafpc7jvj.kodik.biz^
+||tracking.overwolf.com^
 ||d3-umami.up.railway.app^
 ||snoop.minecraft.net^
 ||metrics.svc.conholdate.cloud^
@@ -34592,9 +34598,9 @@ _tracking.php?b=
 ||googleadservices.com/pagead/conversion_async.js$redirect=noopjs,domain=ffm.to,important
 !
 /analytics.js$domain=techcult.com|inbox.lv|kopeda.com|freexcafe.com|rusvideos.tv|nakubani.ru|lun.com|songsara.net|newsmax.com|bolgehastanesi.com|ewtc.de|newsdig.tbs.co.jp|imore.com|city.kushiro.lg.jp|emeraldbridal.com.au|emarat-news.ae|imobie.jp|tikla.com.tr|rusvideos.porn
-||assets.adobedtm.com^$domain=mcclatchydc.com|elnuevoherald.com|bellinghamherald.com|sacbee.com|charlotteobserver.com|newsobserver.com|miamiherald.com|ef.ru|algida.com.tr|bmw-motorrad.co.uk|cif.com.tr|clearhaircare.com|domestos.com|dove.com|elidor.com.tr|f1sport.autorevue.cz|geico.com|hellmanns.com.tr|herkessofraya.com|johnsonsbaby.com.tr|lipton.com|lnk.to|lux.com|magnumicecream.com|neutrogena.com.tr|omo.com|rexona.com|samsung.com|sap.com|schwarzkopf.com.tr|signalturkiye.com|msnbc.com|nbcnews.com|kbb.com|eurosport.ru|timgate.it|intermiles.com|oxfordmail.co.uk|spiegel.de|hp.com|deutschepost.de|thebay.com|s.shufoo.net|tsn.ca|tabelog.com|euronews.com|newshub.co.nz|fredmeyer.com|viabcp.com
+||assets.adobedtm.com^$domain=mcclatchydc.com|elnuevoherald.com|bellinghamherald.com|sacbee.com|charlotteobserver.com|newsobserver.com|miamiherald.com|ef.ru|algida.com.tr|bmw-motorrad.co.uk|cif.com.tr|clearhaircare.com|domestos.com|dove.com|elidor.com.tr|f1sport.autorevue.cz|geico.com|hellmanns.com.tr|herkessofraya.com|johnsonsbaby.com.tr|lipton.com|lnk.to|lux.com|magnumicecream.com|neutrogena.com.tr|omo.com|rexona.com|samsung.com|sap.com|schwarzkopf.com.tr|signalturkiye.com|msnbc.com|nbcnews.com|kbb.com|eurosport.ru|timgate.it|intermiles.com|oxfordmail.co.uk|spiegel.de|hp.com|deutschepost.de|thebay.com|s.shufoo.net|tsn.ca|tabelog.com|euronews.com|newshub.co.nz|fredmeyer.com|viabcp.com|carsales.com.au
 !
-financial-field.com##div[id*="logly-lift-"]
+||kodik.info/stats|
 ||lifo.gr/modules/custom/lifo_statistics/
 comichara.com,movient.net###text-6
 okazuch.site###custom_html-30
@@ -34721,7 +34727,6 @@ rbbtoday.com##.cx-top-news
 ||hotels.com/api/uisprime/track
 ||suggestion.ciceksepeti.com/api/v*/events
 ||linkedin.com/*/track|
-||mark.isbank.com.tr/cdn/automation.js
 ||mparticle.weather.com/webevents/
 ||airlytics-web.airlock.twcmobile.weather.com/eventproxy/track
 ||print24.com/api/*/analytics/
@@ -38090,6 +38095,12 @@ $cookie=_parrable_id
 $cookie=permutive-id
 $cookie=permutive-session
 ! Adobe analytics
+! Used to determine the number of days since the user last visited the website.
+$cookie=s_lv_s
+$cookie=s_lv
+! Measures a visitor’s scroll activity to see how much of a page they view before moving on to another page.
+$cookie=s_tp
+$cookie=s_ppn
 ! Stores the number of visits by a Unique Visitor
 $cookie=s_invisit
 ! Identifies whether the user is arriving at the domain for the first time
@@ -39238,6 +39249,7 @@ inapps.appsflyersdk.com^
 ||int.vlancaa.fun^
 ||tok.vaicore.xyz^
 !
+||logservice1.dbankcloud.cn^
 ||open.oneplus.net^
 ||analytics-api.samsunghealthcn.com^
 ||log.espn.com^
@@ -40023,6 +40035,12 @@ inapps.appsflyersdk.com^
 !#endif
 !
 !
+! https://github.com/uBlockOrigin/uAssets/issues/18190
+@@||datadoghq-browser-agent.com^$script,domain=hungryroot.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/151568
+||bbcgoodfood.com/stitcher-assets/gpt/tag/js/gpt.js$script,redirect=noopjs
+!+ NOT_PLATFORM(windows, mac, android, ext_chromium)
+@@||googletagmanager.com/gtm.js$domain=bbcgoodfood.com
 ! https://github.com/AdguardTeam/AdguardFilters/issues/151300
 @@||googletagmanager.com/gtm.js$domain=outkick.com
 ! https://github.com/uBlockOrigin/uAssets/issues/18043
@@ -41174,8 +41192,6 @@ ntp.msn.com#@%#navigator.getBattery = undefined;
 ! https://github.com/AdguardTeam/AdguardFilters/issues/91087
 !+ NOT_PLATFORM(windows, mac, android, ext_chromium)
 @@||googletagmanager.com/gtm.js$domain=shockwave.com
-! fix history on Firefox
-@@||dsb.yahoo.co.jp/api/v1/stream$xmlhttprequest,domain=gyao.yahoo.co.jp
 ! https://github.com/AdguardTeam/AdguardFilters/issues/90683
 @@||googletagmanager.com/gtag/js?id=$domain=rotana.net
 ||googletagmanager.com/gtag/js?id=$script,other,redirect=noopjs,domain=rotana.net,important
