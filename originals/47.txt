@@ -1010,6 +1010,7 @@ dizipal546.com,dizipal547.com,dizipal548.com,dizipal549.com,dizipal550.com,dizip
 ! Bad: example.org##main > div.ad (should be in specific.txt)
 !
 !
+birgun.net#$?#.home-swiper > div.swiper-wrapper > div.swiper-slide:has(a[href*="&utm_"]) { remove: true; }
 fotomac.com.tr#?#.swiper-wrapper > div.swiper-slide:has(> a[href^="https://tinyurl.com/"])
 fotomac.com.tr#?#.display-none:has(> figure.news-box > figcaption > a[href] > span.txt:contains(Reklam))
 neredekal.com#?#.facility-list-item + div[class^="css-"]:has(> div[class^="css-"] > div[id^="div-gpt-ad-"])
@@ -1926,8 +1927,10 @@ diziall.com#%#//scriptlet("set-constant", "popup", "noopFunc")
 ! https://github.com/AdguardTeam/AdguardFilters/issues/137079
 dizimax2.com,dizimax3.com,dizimax4.com,dizimax5.com,dizimax6.com,dizimax7.com,dizimax8.com,dizimax9.com,dizimax10.com,dizimax11.com,dizimax12.com,dizimax13.com,dizimax14.com,dizimax15.com,dizimax16.com,dizimax17.com,dizimax18.com#$#.swal2-container { display: none !important; }
 dizimax2.com,dizimax3.com,dizimax4.com,dizimax5.com,dizimax6.com,dizimax7.com,dizimax8.com,dizimax9.com,dizimax10.com,dizimax11.com,dizimax12.com,dizimax13.com,dizimax14.com,dizimax15.com,dizimax16.com,dizimax17.com,dizimax18.com#$#body { overflow: auto !important; padding-right: 0 !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/151910
 ! https://github.com/AdguardTeam/AdguardFilters/issues/137075
-dizitime.pro#$##iframe-video { display: block !important; }
+dizitime.*#$#.prevideo { display: none !important; }
+dizitime.*#$##iframe-video { display: block !important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/136393
 yabancidizi.pro#$##preroll_skip_btn { display: block !important; }
 yabancidizi.pro#$#.player { display: block !important; }
@@ -2206,6 +2209,8 @@ sabah.com.tr#$#header.advertControlArea { top: 0!important; }
 !
 ! Unhide the player while ads timeout
 !
+hdmixfilim.com#$#.video-content { display: block !important; }
+hdmixfilim.com#$#.play-that-video { display: none !important; }
 fulltimehdfilmizle.com#$#div#rk-content.center { display: none !important; }
 fulltimehdfilmizle.com#$##cn-content { display: block !important; }
 dizipal.pw#$#.pre-player { display: none !important; }
@@ -2531,7 +2536,7 @@ hdfilmseyircisi.org##a[href^="https://sbrcdn.com/"]
 turkedebiyati.org###stream-item-widget-2
 filmizlew.net###f-uyari2
 filmizlew.net###header-alt
-asyadiziizle.com###content > a[href^="https://www.trendyol.com/magaza/"]
+asyadiziizle.com###content > a
 reytingtv.com##div[class^="fullads"]
 webteizle.*##div[id^="malker-video-"]
 hurriyet.com.tr##.news-content > .cf
@@ -2965,7 +2970,7 @@ yasemin.com##div[id^="dfp-anasayfa-masthead-"]
 pchocasi.com.tr,dusuncekatalogu.com,fullhdfilmcibaba1.com,tatil.net.tr,fullfilmcidayi1.com##.code-block
 ||r.resimlink.com/ZyRYl.jpg
 ||sexfilmleriizle.com/mostvid.mp4
-sinemol.vip,siyahfilmizle.info,erotikizlefilm.com,erotikfilmtube.com##.money--video
+hdmixfilim.com,sinemol.vip,siyahfilmizle.info,erotikizlefilm.com,erotikfilmtube.com##.money--video
 trendyol.com##[class^="search-store-advs"]
 derstarih.com###mcx-12
 derstarih.com###mcx-10
@@ -4747,7 +4752,7 @@ motosiklet.net##.mansetaltisol
 motosiklet.net##.bannerhaberalt
 motosiklet.net##.footerrek
 turkeyforum.com,renaultfanclub.com,turkedebiyati.org,forum.grandepuntotr.com###ad_global_below_navbar
-yabancidizi.pro,dizitime.*##.prevideo
+yabancidizi.pro##.prevideo
 malzemebilimi.net,scroll.com.tr,lafmacun.net##.content-in-ads
 r10.net##.threadList > div.head + form[action] > div.announcements ~ div[class][data-type]
 gazeteyenigun.com.tr###header-advertise
@@ -6846,6 +6851,8 @@ adguard.com,adguard.app##.hello_from_adguard_turkish
 ! Bad:  @@||example.org^$stealth (should be in AdGuard Base - allowlist_stealth.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/151874
+scroll.com.tr#@#a[href*="whatsapp-sohbet"] > img
 ! https://github.com/AdguardTeam/AdguardFilters/issues/151732
 !+ PLATFORM(ios, ext_android_cb, ext_safari)
 @@||go.admost.com/adx/js/admost.js$domain=arsiv.mackolik.com
