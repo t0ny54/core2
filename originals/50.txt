@@ -32,10 +32,6 @@
 ! To counter `2mdn.net` in Peter Lowe's
 @@||s0.2mdn.net/instream/*$domain=cnet.com
 
-! https://twitter.com/ethanveres/status/527122036649639936
-! Fortunately, further connections to `mxpnl.com` are blocked
-@@||cdn.vurb.com/*/mixpanel.
-
 ! Chrome store feedback
 ! To counter `top.mail.ru` in Peter Lowe's
 ||top.mail.ru^$badfilter
@@ -4920,8 +4916,18 @@ sofascore.com##.adUnitBox
 ! too broad
 /mixpanel.$domain=~mixpanel.com,badfilter
 
-! too broad
-/comscore.$badfilter
-
 ! https://linktr.ee/admin/settings breakage
 linktr.ee##+js(set, DD_LOGS, noopFunc)
+
+! https://github.com/uBlockOrigin/uAssets/issues/18336
+/webTracking.$domain=~webtracking.girard-agediss.com,badfilter
+/webtracking.min.js
+||qualzz.com/assets/trackingScript/webtracking.js
+||webtracking.fe.union-investment.de^
+
+! https://github.com/uBlockOrigin/uAssets/issues/9764
+@@||imasdk.googleapis.com/pal/sdkloader/pal.js$script,domain=pluto.tv
+
+! https://github.com/uBlockOrigin/uAssets/issues/18345
+metastats.net##.col-md-6:style(height: 150px !important;)
+metastats.net###page-wrapper > div.row:nth-of-type(1)

@@ -6008,6 +6008,10 @@ electric-house.ru#@#.adsbygoogle
 !
 !
 !
+! reshuolymp.ru
+reshuolymp.ru#%#//scriptlet('adjust-setTimeout', 'function(){return', '20000', '0.00')
+!+ PLATFORM(ios, ext_android_cb, ext_safari)
+@@||yandex.ru/ads/system/context.js$domain=reshuolymp.ru
 ! https://github.com/AdguardTeam/AdguardFilters/issues/150580
 sdamgia.ru#%#//scriptlet('prevent-setTimeout', '===getComputedStyle(', '2000')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/150448
@@ -6066,15 +6070,8 @@ gorodrabot.by#%#//scriptlet("abort-on-property-read", "adfoxAsyncParams")
 @@||cdnneedtv.ru/spor/jquerymin18.js$domain=cdnneedtv.ru
 sweet-tv.net,cdnneedtv.ru#%#//scriptlet('set-constant', 'canRunAds', 'true')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/127220
-!#if (!adguard_app_ios && !adguard_ext_android_cb)
-limehd.tv#%#//scriptlet('set-constant', 'window.ya', 'true')
-limehd.tv#%#//scriptlet('set-constant', 'window.google', 'true')
-limehd.tv#%#//scriptlet('remove-class', 'video-sdk-container--up', '#video-sdk-container', 'stay')
-!#endif
-!#if (adguard_app_ios || adguard_ext_android_cb)
 @@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=limehd.tv
 @@||yandex.ru/ads/system/adsdk.js$domain=limehd.tv
-!#endif
 ! https://github.com/AdguardTeam/AdguardFilters/issues/121820
 ||texnic.ru/jq/san.js
 ! https://github.com/AdguardTeam/AdguardFilters/issues/121171
@@ -6871,8 +6868,12 @@ aqa.ru#@#div[id^="div-gpt-ad"]
 @@||ph4.ru$generichide
 ! https://forum.adguard.com/index.php?threads/21007/
 !
+! rambler with side-projects: afisha.ru, autorambler.ru, championat.com, eda.ru, gazeta.ru, lenta.ru, letidor.ru, moslenta.ru, motor.ru, passion.ru, quto.ru, rambler.ru, rns.online, wmj.ru
 ! rambler replacement script (scriptlet must be in Annoyances filter)
-afisha.ru,letidor.ru,autorambler.ru,wmj.ru,motor.ru,passion.ru,quto.ru,eda.ru,rns.online,championat.com,gazeta.ru,lenta.ru,rambler.ru$$script[wildcard="*function*getYa*"][min-length="20000"][max-length="500000"]
+afisha.ru,autorambler.ru,championat.com,eda.ru,gazeta.ru,lenta.ru,letidor.ru,moslenta.ru,motor.ru,passion.ru,quto.ru,rambler.ru,rns.online,wmj.ru$$script[wildcard="*function*getYa*"][min-length="20000"][max-length="500000"]
+!#if (!adguard_app_windows && !adguard_app_mac && !adguard_app_android)
+||zoomdecorate.rambler.ru^$script,xmlhttprequest,redirect=noopjs,domain=afisha.ru|autorambler.ru|championat.com|eda.ru|gazeta.ru|lenta.ru|letidor.ru|moslenta.ru|motor.ru|passion.ru|quto.ru|rambler.ru|rns.online|wmj.ru
+!#endif
 !
 ! https://github.com/AdguardTeam/AdguardFilters/issues/16182
 !+ NOT_PLATFORM(windows, mac, android)
@@ -9666,6 +9667,11 @@ kadrovik01.com.ua,kom-dir.ru,gd.ru,buhsoft.ru,dirklinik.ru,fd.ru,business.ru,pro
 !
 !
 !
+cyberforum.ru##div[style^="float: right; margin: 0px 0px 10px 10px"]
+||sb.by/test_ads*/
+||sb.by/upload/banners/game2023.jpg
+rg.ru##div[data-mod^="tgb"]
+rg.ru##div[data-mod^="media"]
 ||lk.sampo.ru/splash/js/inner.js
 cian.ru###adfox-stretch-banner
 cian.ru##div[data-name="TgbBottomBannersContainer"]
@@ -13539,7 +13545,6 @@ anvir.net###right > div.module.mod-box.last
 /\/\d+\.js$/$domain=7themes.su
 ficbook.net##.rkl-block
 liveinternet.ru##.myblockbottom
-cybersport.ru##a[href^="https://www.paripartners.ru/"]
 ivi.ru###root > section.pageSection_detailsParameters + section[class]
 realadmin.ru##article > div.grids.money
 runews24.ru##.b-banner-center
@@ -19806,6 +19811,8 @@ liveresult.ru##iframe[src^="https://static.liveresult.ru/files/fonbet/"]
 ||static.liveresult.ru/files/fonbet/
 ||avatars.mds.yandex.net/get-adfox-content/$domain=liveresult.ru
 !
+2ip.io,2ip.ru##.narrow-column > style + div > div
+2ip.io,2ip.ru##.data_item span a[target="_blank"]
 2ip.io,2ip.ru##.page_whois > style + div
 2ip.io,2ip.ru##.data_item  > div > a[target="_blank"]
 2ip.io,2ip.ru##.data_table > div.data_item a.alert-link
@@ -20547,7 +20554,6 @@ youla.ru##.product_item--ad
 ! ivi.ru
 ivi.ru###root > div.promo
 ||region.dfs.ivi.ru^$media,domain=ivi.ru
-||region.dfs.ivi.ru^$media,domain=ivi.ru,redirect=noopmp4-1s,important
 !
 ! otzovik.com
 otzovik.com##.produkt-cobtent div.product-nav-wrap + div[class] ~ div[class]:not([style]):not([class="bottom-row"])
