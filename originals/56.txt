@@ -111,7 +111,8 @@ berliner-zeitung.de##[class^="outbrain"]
 *$script,3p,denyallow=instagram.com|quantcast.com|mrf.io|onnetwork.tv|pahtzh.tech|enetscores.com|jsdelivr.net|jwpcdn.com|fbcdn.net|facebook.net|fastly.net|fastlylb.net|jquery.com|hwcdn.net|hcaptcha.com|recaptcha.net|cloudflare.com|cloudflare.net|google.com|googleapis.com|gstatic.com|consensu.org|agorahtag.tech|aghtag.tech|etop.ro|ziareromania.ro|brid.tv|wall-street.ro|fontawesome.com,domain=ziare.com|cancan.ro|ciao.ro|gandul.ro|prosport.ro|descopera.ro|csid.ro|raziculacrimi.ro|go4games.ro|wall-street.ro|9am.ro
 *$script,3p,denyallow=sirdata.fr|anycast.me|mrf.io|priice.net|consentframework.com|twitter.com|jsdelivr.net|jwpcdn.com|fbcdn.net|facebook.net|fastly.net|fastlylb.net|jquery.com|hwcdn.net|hcaptcha.com|recaptcha.net|cloudflare.com|cloudflare.net|google.com|googleapis.com|gstatic.com|consensu.org,domain=lebigdata.fr|montjeuturf.net
 *$script,3p,denyallow=twitter.com|jsdelivr.net|jwpcdn.com|fbcdn.net|facebook.net|fastly.net|fastlylb.net|jquery.com|hwcdn.net|hcaptcha.com|recaptcha.net|cloudflare.com|cloudflare.net|google.com|googleapis.com|gstatic.com|consensu.org|sharethis.com|tradingview.com,domain=beforeitsnews.com
-*$script,domain=amgreatness.com,3p,denyallow=onesignal.com
+! https://github.com/uBlockOrigin/uAssets/issues/18430
+*$script,domain=amgreatness.com,3p,denyallow=spreaker.com|starfield.ai
 /^https?:\/\/.*\/easylist\/[0-9]{5}/
 *banner$domain=beforeitsnews.com,image
 ||jeengweb.com^$3p
@@ -554,6 +555,8 @@ freethesaurus.com,thefreedictionary.com###sidebar > .widget:not([id]):has(> .hol
 money.cnn.com##section.column:has(> #moneySponsors)
 ! https://github.com/uBlockOrigin/uAssets/issues/15024#issuecomment-1256726575
 ||warnermediacdn.com/csm/*&caid=$xhr,removeparam=caid,domain=cnn.com
+! https://www.reddit.com/r/uBlockOrigin/comments/144h6i5/cnnespanolcnncom_videoad/jngep7z/
+||warnermediacdn.com/csm/*afid=$xhr,removeparam=afid,domain=cnn.com
 ! https://github.com/uBlockOrigin/uAssets/issues/17071
 ||medium.ngtv.io/v2/media/*&ssaiProfile=$xhr,removeparam=ssaiProfile,domain=~cnn.com
 ! cnn top ads
@@ -6603,7 +6606,7 @@ hitomi.la##.container > div[class$="content"] > div[class] > script:upward(1)
 
 ! https://forums.lanik.us/viewtopic.php?p=141036#p141036
 fupa.net##+js(set, jQuery.adblock, 1)
-@@||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=fupa.net
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js,domain=fupa.net
 @@||ad.71i.de/*/loader.js$script,domain=fupa.net
 
 ! https://forums.lanik.us/viewtopic.php?p=141091#p141091
@@ -6991,7 +6994,7 @@ leechpremium.link##+js(no-fetch-if, adsbygoogle)
 *$script,3p,denyallow=bootstrapcdn.com|cloudflare.net|google.com|googleapis.com|gstatic.com|recaptcha.net|tawk.to|jsdelivr.net,domain=leechpremium.link
 ! https://github.com/AdguardTeam/AdguardFilters/issues/123870
 @@||leechpremium.net^$ghide
-@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$script,redirect-rule,domain=leechpremium.net
+leechpremium.net##.adsbygoogle
 
 ! https://github.com/NanoMeow/QuickReports/issues/236
 @@||tsubasa.im^$ghide
@@ -7385,7 +7388,6 @@ duplichecker.com,plagiarismchecker.co,plagiarismdetector.net,searchenginereports
 duplichecker.com,plagiarismchecker.co,plagiarismdetector.net,searchenginereports.net,smallseotools.com##.container > div a[href].set-anchor:upward(.container > div)
 plagiarismdetector.net##+js(aost, adblock)
 smallseotools.com##article
-searchenginereports.net##.advert-slot
 plagiarismdetector.net###second_slot
 plagiarismdetector.net###first_slot
 smallseotools.com##.show.g_popup.fade.modal
@@ -7404,12 +7406,14 @@ searchenginereports.net##.grammarly-overall
 plagiarismchecker.co##form + section#after-ad + div[class][style]
 plagiarismchecker.co##.small_heading + section#top-ad + div[class][style]
 plagiarismchecker.co##div[class][style] > a[rel*="nofollow"]
-searchenginereports.net##[href^="https://goo.gl/"]
-searchenginereports.net##div[id^="me_"]
-||searchenginereports.net/grammarly_images/
+searchenginereports.net##a[href="https://searchenginereports.net/grammarly-url"]
+searchenginereports.net##.clearfix + div[id][style*="width:"]
+searchenginereports.net##div[id^="mnm_s_"]
+||searchenginereports.net/grammarly$image,1p
+||searchenginereports.net/newassets/images/semrush-banner$image,1p
 plagiarismdetector.net##[style]:has([onclick*="open"])
-||plagiarismdetector.net/pd-imgs/Grammarly_Square$image
-||plagiarismdetector.net/pd-imgs/Top_Grammarly_banner$image
+||plagiarismdetector.net/pd-imgs/Grammarly_Square$image,1p
+||plagiarismdetector.net/pd-imgs/Top_Grammarly_banner$image,1p
 
 ! https://github.com/uBlockOrigin/uAssets/issues/4104
 jagran.com##.ads
@@ -8337,10 +8341,6 @@ tudigitale.it##+js(nostif, an_message, 500)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/4613
 ibcomputing.com##+js(nostif, Adblocker, 10000)
-
-! https://github.com/uBlockOrigin/uAssets/pull/10059
-@@||sportdeutschland.tv/assets/*$script,1p
-@@||71i.de/*/loader.js$script,domain=sportdeutschland.tv
 
 ! https://github.com/uBlockOrigin/uAssets/issues/4616
 footballstream.tv,mlbstream.tv,nbastream.tv,nflstream.tv##+js(acs, decodeURI, decodeURIComponent)
@@ -10885,9 +10885,6 @@ javsister.com##.boxzilla-center-container
 tvonlinex.com##+js(nowoif)
 tvonlinex.com##+js(set, clientSide.adbDetect, noopFunc)
 *$script,3p,denyallow=cloudflare.com|google.com|gstatic.com|hcaptcha.com|recaptcha.net,domain=mrdhan.com
-
-! https://github.com/jspenguin2017/uBlockProtector/issues/1066
-lifesurance.info##+js(aopr, showAds)
 
 ! https://github.com/NanoMeow/QuickReports/issues/1336
 varmatin.com##+js(aopw, checkAds)
