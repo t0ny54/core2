@@ -88,8 +88,8 @@
 !   NOTE: Yandex
 !
 ! Yandex.Images
-[$path=/images]yandex.*#%#//scriptlet("set-constant", "Object.prototype.getDirectId", "noopFunc")
-[$path=/images]yandex.*##.SimpleSkeleton[width="100%"][height="300"]
+[$path=/images]ya.ru,yandex.*#%#//scriptlet('json-prune', 'seatbid rtb direct')
+[$path=/images]ya.ru,yandex.*##.Root > div.MastHead
 !
 ! Yandex.Music
 music.yandex.*##.notify > div.deco-tooltip_notify.notify_shown
@@ -2934,8 +2934,8 @@ readmanga.me#@#.text_ads
 !
 ! rp5.ru
 !#if (!adguard_app_ios)
-m.rp5.ru,m.rp5.ua,m.rp5.by,m.rp5.kz,m.rp5.co.uk,m.rp5.md#%#//scriptlet("set-constant", "adFilters", "undefined")
-rp5.ru,rp5.ua,rp5.by,rp5.kz,rp5.co.uk,rp5.md,~m.rp5.ru,~m.rp5.ua,~m.rp5.by,~m.rp5.kz,~m.rp5.co.uk,~m.rp5.md#%#//scriptlet("set-constant", "Object.prototype.cABNoCheck", "undefined")
+m.rp5.ru,m.rp5.by,m.rp5.kz,m.rp5.co.uk,m.rp5.md#%#//scriptlet("set-constant", "adFilters", "undefined")
+rp5.ru,rp5.ua,rp5.by,rp5.kz,rp5.co.uk,rp5.md,~m.rp5.ru,~m.rp5.by,~m.rp5.kz,~m.rp5.co.uk,~m.rp5.md#%#//scriptlet("set-constant", "Object.prototype.cABNoCheck", "undefined")
 !#endif
 !#if (adguard_ext_safari || adguard_app_ios || adguard_ext_android_cb)
 !#safari_cb_affinity(general)
@@ -2948,9 +2948,9 @@ rp5.ru,rp5.ua,rp5.by,rp5.kz,rp5.co.uk,rp5.md#$?##content > div > div[id]:has(> i
 @@||rp5.kz^$generichide
 @@||rp5.md^$generichide
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=rp5.ru|rp5.ua|rp5.by|rp5.kz|rp5.co.uk|rp5.md
-@@||m.rp5.*/mobile/scripts/adtop.js$domain=m.rp5.ru|m.rp5.ua|m.rp5.by|m.rp5.kz|m.rp5.co.uk|rp5.md
-@@||m.rp5.*/mobile/scripts/adblocker.js$domain=m.rp5.ru|m.rp5.ua|m.rp5.by|m.rp5.kz|m.rp5.co.uk|rp5.md
-@@||adservice.google.*/adsid/integrator.js$domain=m.rp5.ru|m.rp5.ua|m.rp5.by|m.rp5.kz|m.rp5.co.uk|rp5.md
+@@||m.rp5.*/mobile/scripts/adtop.js$domain=m.rp5.ru|m.rp5.by|m.rp5.kz|m.rp5.co.uk|rp5.md
+@@||m.rp5.*/mobile/scripts/adblocker.js$domain=m.rp5.ru|m.rp5.by|m.rp5.kz|m.rp5.co.uk|rp5.md
+@@||adservice.google.*/adsid/integrator.js$domain=m.rp5.ru|m.rp5.by|m.rp5.kz|m.rp5.co.uk|rp5.md
 !#safari_cb_affinity
 !#endif
 !
@@ -3402,6 +3402,8 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 !
 ! SECTION: Popups - Regular rules
 !
+price.ua##.site-announcer
+page.auctions.yahoo.co.jp###fltbnr
 vitalhelden.de##div[data-type="popup"]
 webhiden.jp###hidenlink
 litalico-c.jp#%#//scriptlet('set-cookie', 'user_sign_up_modal_closed', 'true')
@@ -8929,7 +8931,7 @@ yandex.*##.main__distr-popup
 yandex.*#?#div[class*=" "] > div[id][class]:has(> div[class*=" "] > div[class] > div[class] > div:contains(Сделать поиск Яндекса основным))
 !
 ! Yandex.Images
-yandex.*###distr-pcode-container
+ya.ru,yandex.*###distr-pcode-container
 !
 ! Yandex.Market
 market.yandex.*##div[data-zone-name="BannerPopup"]
@@ -9643,6 +9645,7 @@ zlavomat.sk#@##credential_picker_container
 .name/?pus=$script,third-party
 .site/?pus=$script,third-party
 !
+||push.msgby.ru^
 ||us-pub.dengage.com^
 ||dobrnovosti.com^
 ||gudros.site^
@@ -10810,6 +10813,12 @@ jiji.com,edp24.co.uk,technologyreview.com,inews.co.uk,nordbayern.de,thelocal.ch,
 !
 ! SECTION: Subscriptions - Regular rules
 !
+hbr.org##.persistent-banner
+technologynetworks.com##p ~ div > .featuredVendors
+technologynetworks.com##.base_subscribe_footer
+price.ua##.media-subscription-block
+uazmi.net##.button-banner
+aeroxplorer.com,fitforfun.de,golem.de##.subscribe-newsletter
 imore.com###newsletter-slice
 playground.ru##.float-teaser
 winaero.com###bbpa
@@ -16023,7 +16032,6 @@ rbc.ru##.subscribe-infographic
 sntch.com##.subscribe-inline-box
 klerk.ru##.subscribe-inside
 gizmodo-com.cdn.ampproject.org##.subscribe-module
-fitforfun.de,golem.de##.subscribe-newsletter
 wired.com##.subscribe-panel-component__newsletter
 jooble.org##.subscribe-place
 theaustralian.com.au##.subscribe-popover
