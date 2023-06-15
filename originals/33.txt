@@ -79,6 +79,8 @@
 ! Bad: example.org###rek (should be in specific.txt)
 !
 !
+! reddit.com - analytics
+reddit.com#%#//scriptlet('set-constant', 'navigator.sendBeacon', 'noopFunc')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/152966
 ! Fixes loading elements in the right sidebar
 livemint.com#%#//scriptlet('set-constant', 'dapTracker', 'emptyObj')
@@ -154,7 +156,9 @@ embed.rtl.hu#%#//scriptlet('set-constant', 'gemiusStream.event', 'noopFunc')
 ! TODO: replace by key removing scriptlet when it will be implemented
 reuters.com#%#//scriptlet('set-local-storage-item', 'ajs_anonymous_id', 'null')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/81513
-m.dcinside.com,upload.dcinside.com#%#//scriptlet('set-cookie', '_ga', 'OK')
+! https://listauthorschat.slack.com/archives/C010N14G4TF/p1686743998780969
+! https://www.reddit.com/r/uBlockOrigin/comments/1495nei/please_provide_advice_on_this_filter/
+m.dcinside.com,upload.dcinside.com#%#//scriptlet('set-cookie-reload', '_ga', 'OK')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/136436
 cbssports.com#%#(()=>{window.admiral=function(d,a,b){if("function"==typeof b)try{b({})}catch(a){}}})();
 ! https://github.com/AdguardTeam/AdguardFilters/issues/134220
@@ -496,6 +500,11 @@ prjaga.ru#?##right > div#right_nav > h3:contains(Онлайн статистик
 !||i.snssdk.com/log/*
 !||i.snssdk.com/slardar/sdk.js
 !
+||talpa-analytics.$third-party
+||dna8twue3dlxq.cloudfront.net^
+||public.profitwell.com^
+||cdn.userleap.com^
+||zhanzhang.toutiao.com^$third-party
 ||ad2iction.com^$third-party
 ||events.flagship.io^
 ||pixel.barion.com^
@@ -5480,6 +5489,9 @@ prjaga.ru#?##right > div#right_nav > h3:contains(Онлайн статистик
 ! note that we don't use || prefixes because mail tracking pixels are often proxied by mail providers
 ! it's problematic that due to how Gmail proxy work, these domains aren't even exposed on the network level
 ! fortunately, extensions can see them (Gmail puts the real URL in the location.hash part of the src)
+!
+! Sendpulse
+.pulse-stat.com$image
 ! change.org
 click.e.change.org$image
 ! Shutterstock
@@ -5617,6 +5629,13 @@ nethunt.com/api/v1/track/email/$image
 ||analytics.s3.amazonaws.com^
 ||analyticsengine.s3.amazonaws.com^
 !
+||evs.sgmt.loom.com^
+||cdn.p.analitik.bik.gov.tr^
+||webstat.ws.126.net^
+||stats.rbc.ua^
+||stats.img2go.com^
+||log.rmp.rakuten.co.jp^
+||events.paramount.tech^
 ||health-metrics-api.setapp.com^
 ||collect.alipay.com^
 ||log.api.useinsider.com^
@@ -37745,6 +37764,7 @@ charlestownwyllie.oaklawnnonantum.com^
 ! ZhugeIO
 /zhugeio.js
 !
+/js/profitwell.js
 /collect/pv?
 /log/pv?id=
 /webtracking.min.js
@@ -38080,7 +38100,7 @@ _analytics.js?
 /partner/transparent_pixel-$image
 /piwik-$domain=~github.com|~matomo.org|~piwik.org|~piwik.pro|~piwikpro.de
 /piwik.$image,script,domain=~matomo.org|~piwik.org|~piwik.pro|~piwikpro.de
-/piwik/js/*$domain=~github.com|~matomo.org|~piwik.org|~piwik.pro
+/piwik/*$domain=~github.com|~matomo.org|~piwik.org|~piwik.pro
 /piwik1.
 /piwik2.js
 /piwik_
@@ -38243,6 +38263,11 @@ _tracking.php?b=
 /analytics.js$domain=resumes.breakdownexpress.com|techcult.com|inbox.lv|kopeda.com|freexcafe.com|rusvideos.tv|nakubani.ru|lun.com|songsara.net|newsmax.com|bolgehastanesi.com|ewtc.de|newsdig.tbs.co.jp|imore.com|city.kushiro.lg.jp|emeraldbridal.com.au|emarat-news.ae|imobie.jp|tikla.com.tr|rusvideos.porn
 ||assets.adobedtm.com^$domain=mcclatchydc.com|elnuevoherald.com|bellinghamherald.com|sacbee.com|charlotteobserver.com|newsobserver.com|miamiherald.com|ef.ru|algida.com.tr|bmw-motorrad.co.uk|cif.com.tr|clearhaircare.com|domestos.com|dove.com|elidor.com.tr|f1sport.autorevue.cz|geico.com|hellmanns.com.tr|herkessofraya.com|johnsonsbaby.com.tr|lipton.com|lnk.to|lux.com|magnumicecream.com|neutrogena.com.tr|omo.com|rexona.com|samsung.com|sap.com|schwarzkopf.com.tr|signalturkiye.com|msnbc.com|nbcnews.com|kbb.com|eurosport.ru|timgate.it|intermiles.com|oxfordmail.co.uk|spiegel.de|hp.com|deutschepost.de|thebay.com|s.shufoo.net|tsn.ca|tabelog.com|euronews.com|newshub.co.nz|fredmeyer.com|viabcp.com|carsales.com.au
 !
+||reddit.com/svc/shreddit/perfMetrics
+||static.ws.126.net/f2e/products/analysis/
+||sport.ua/pixel/$image
+||s3a.pstatp.com/toutiao/push.js
+||api.channel.io/front/v5/channels/*/events
 ||cdon.*/assets/dist/assets-cdonAnalytics.js
 ||articulture.org/_t/
 ||bayshop.com/img/svg/track
@@ -43627,9 +43652,10 @@ inapps.appsflyersdk.com^
 @@||tr.line.me^$app=jp.co.alc.eow
 @@||tr.outbrain.com^$app=jp.co.alc.eow
 ! https://github.com/AdguardTeam/AdguardFilters/issues/81513
+! https://www.reddit.com/r/uBlockOrigin/comments/1495nei/please_provide_advice_on_this_filter/
 !#if (adguard_ext_android_cb)
-@@||google-analytics.com/analytics.js$script,domain=m.dcinside.com|mupload.dcinside.com
-@@||ssl.google-analytics.com/ga.js$script,domain=m.dcinside.com|mupload.dcinside.com
+@@||google-analytics.com/analytics.js$script,domain=m.dcinside.com|upload.dcinside.com
+@@||ssl.google-analytics.com/ga.js$script,domain=m.dcinside.com|upload.dcinside.com
 !#endif
 @@||dcinside.com$cookie=_ga
 ! https://github.com/AdguardTeam/AdguardFilters/issues/43809
