@@ -1588,6 +1588,7 @@ los40.com###adunit
 @@||assets.adobedtm.com/extensions/*/AppMeasurement.min.js$script,domain=los40.com
 ! https://www.reddit.com/r/uBlockOrigin/comments/14anfyg/
 los40.com##+js(set, DTM.trackAsyncPV, noopFunc)
+los40.com##+js(no-fetch-if, googlesyndication)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/3462#issuecomment-547684961
 @@||ipinfo.io/json$xhr,domain=futbollibre.online
@@ -4774,6 +4775,7 @@ pcwelt.de#@#a[href^="https://pvn.saturn.de/"]
 @@||wgplayer.com/*/wgAds.$script,domain=brightygames.com|eminiclip.ro|sisigames.com|yoho.games
 @@||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=brightygames.com|eminiclip.ro|sisigames.com|yoho.games
 brightygames.com,yoho.games##^html > head > meta[property="og:url"]:not([content*="/games/"], [content*="/play/"]):upward(1) > script:has-text(wgplayer)
+sisigames.com##^#index-games:upward(html) > head > script:has-text(wgplayer)
 ! videos
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js,domain=canvids.com
 @@||afv.wgplayer.com/*/wgPlayer.js$script,domain=canvids.com
@@ -4900,10 +4902,6 @@ javgg.net##.home_iframead > iframe:upward(1)
 ! https://github.com/AdguardTeam/AdguardFilters/issues/151657
 tieba.baidu.com##+js(set, passFingerPrint, noopFunc)
 
-! https://github.com/AdguardTeam/AdguardFilters/issues/151815
-@@||googletagmanager.com/gtm.js$script,domain=laptopsdirect.co.uk
-laptopsdirect.co.uk##^html > head > meta[property="og:type"]:not([content="product"]):upward(1) > script:has-text(googletagmanager)
-
 ! https://github.com/AdguardTeam/AdguardFilters/issues/151774
 @@||analytics-*.clickdimensions.com/*/pages/$frame,domain=crm.digital.nhs.uk
 
@@ -4978,6 +4976,3 @@ goku.sx##.st-btn > img:style(margin: auto !important; display: block !important;
 
 ! https://github.com/uBlockOrigin/uAssets/issues/18512
 @@||cdn.pendo.io/agent/static/*$script,domain=recruiting.adp.com
-
-! https://github.com/easylist/easylist/pull/16317#issuecomment-1593693211
-areena.yle.fi##+js(set, window.yleAnalytics, noopFunc)
