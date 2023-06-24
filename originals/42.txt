@@ -1482,6 +1482,7 @@ ucoz.ru/informer/
 ! Bad: /banner.jpg (should be in general_url.txt)
 ! Bad: ||adssubdomain.legitwebsite.com^ (should be in adservers_firstparty.txt)
 !
+||mrgreekroad.com^
 ||clicksfordsm.com^
 ||ynlfpyeifc.com^
 ||videoprodavec.ru^$third-party
@@ -7148,14 +7149,6 @@ qq-new.ru##.xenOverlay
 @@||220vk.com/files/advert.js
 ! https://forum.adguard.com/index.php?threads/10398/
 @@||ok-magazine.ru/sites/all/themes/*/ads.js
-! https://github.com/AdguardTeam/AdguardFilters/issues/13312
-@@||an.yandex.ru/system/context.js$domain=sports.ru
-@@||sports.ru^$generichide
-sports.ru#@#.ad-placement
-sports.ru#@#.imageAds
-@@||tpc.googlesyndication.com/pagead/imgad?id=$domain=sports.ru
-@@||pubads.g.doubleclick.net/gampad/ad?iu=*/Pixel$domain=sports.ru
-@@||pagead2.googlesyndication.com/pagead/imgad$domain=sports.ru
 ! https://github.com/AdguardTeam/AdguardFilters/issues/2749
 @@||sdelatvideo.ru/resources/jsc/ads.js
 ! https://github.com/AdguardTeam/AdguardFilters/issues/2716
@@ -9701,6 +9694,8 @@ kadrovik01.com.ua,kom-dir.ru,gd.ru,buhsoft.ru,dirklinik.ru,fd.ru,business.ru,pro
 !
 !
 !
+||teleport2001.ru/serviceworker-advanced_pwa_js
+snob.ru##.entry__incut__promo-box
 teleport2001.ru##.views-row-banner
 teleport2001.ru##div[id^="block-banner-"]
 sb.by##a[href="http://bard-rybalka.by/"] > img
@@ -20800,7 +20795,10 @@ sports.ru###branding-layout>.page-layout:empty
 ||s5o.ru/storage/simple/ru/edt/ea/bd/3c/ef/rue20c480ea77.jpg
 ||s5o.ru/storage/simple/ru/edt/bd/05/61/db/ruee04afced56.jpg
 ! end of background images
-! Another way to inject clickable links
+||sports.ru^$xmlhttprequest,jsonprune=\$..[direct\, "rtb"]
+sports.ru##.in-read-wrapper
+sports.ru#$?##branding-layout > div.page-layout:not(:has(div)) { remove: true; }
+sports.ru##.js-ad-label
 cyber.sports.ru##.match-summary__betting-bar
 cyber.sports.ru##.match-teaser__betting-bar
 sports.ru##a[rel="nofollow"] > img[data-temp-id]
@@ -20960,7 +20958,7 @@ adme.media#?#main > div:not([data-test-id^="article-list-element-"]):not([data-t
 ! ads in content
 adme.media##div[data-test-id="article-content"] > div[class*=" "]:not([tabindex]):empty
 ! ads in the recommended feed - articles
-adme.media#?#div[data-test-id="article-bottom-recommended"] > div > div > div:not(:has(> a[data-test-id="logo-link"]))
+adme.media#?#div[data-test-id="article-bottom-recommended"] > div > div > div[style="position:relative"] > div > div:has(div:empty + div:empty + div:empty)
 !
 ! Start: vc.ru, dtf.ru, spark.ru
 dtf.ru,vc.ru#?#.feed__chunk > div.l-island-b:has(> a[target="_blank"])

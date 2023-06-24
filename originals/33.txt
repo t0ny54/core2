@@ -504,6 +504,7 @@ prjaga.ru#?##right > div#right_nav > h3:contains(Онлайн статистик
 !||i.snssdk.com/log/*
 !||i.snssdk.com/slardar/sdk.js
 !
+||consentag.eu^$third-party
 ||collect-v*.51.la^
 ||cmp.datasign.co^
 ||ip.momentummedia.com.au^
@@ -5635,6 +5636,7 @@ nethunt.com/api/v1/track/email/$image
 ! Blocking piwik analytics subdomain(for DNS filtering)
 |piwik.
 !
+||t.sports.ru^
 ||analytics.s3.amazonaws.com^
 ||analyticsengine.s3.amazonaws.com^
 ||tags.dxmdp.com^
@@ -63526,6 +63528,8 @@ _tracking.php?b=
 /analytics.js$domain=resumes.breakdownexpress.com|techcult.com|inbox.lv|kopeda.com|freexcafe.com|rusvideos.tv|nakubani.ru|lun.com|songsara.net|newsmax.com|bolgehastanesi.com|ewtc.de|newsdig.tbs.co.jp|imore.com|city.kushiro.lg.jp|emeraldbridal.com.au|emarat-news.ae|imobie.jp|tikla.com.tr|rusvideos.porn
 ||assets.adobedtm.com^$domain=mcclatchydc.com|elnuevoherald.com|bellinghamherald.com|sacbee.com|charlotteobserver.com|newsobserver.com|miamiherald.com|ef.ru|algida.com.tr|bmw-motorrad.co.uk|cif.com.tr|clearhaircare.com|domestos.com|dove.com|elidor.com.tr|f1sport.autorevue.cz|geico.com|hellmanns.com.tr|herkessofraya.com|johnsonsbaby.com.tr|lipton.com|lnk.to|lux.com|magnumicecream.com|neutrogena.com.tr|omo.com|rexona.com|samsung.com|sap.com|schwarzkopf.com.tr|signalturkiye.com|msnbc.com|nbcnews.com|kbb.com|eurosport.ru|timgate.it|intermiles.com|oxfordmail.co.uk|spiegel.de|hp.com|deutschepost.de|thebay.com|s.shufoo.net|tsn.ca|tabelog.com|euronews.com|newshub.co.nz|fredmeyer.com|viabcp.com|carsales.com.au|falabella.com
 !
+||roku.com/api/v*/logger$xmlhttprequest
+||metrics.aktin.*/collect?
 washingtontimes.com##.piano-end-article-reco
 washingtontimes.com##.piano-right-rail-reco
 washingtontimes.com##.piano-in-article-reco
@@ -65205,7 +65209,7 @@ inside-games.jp##.cx-subhead
 ||pornhub.com/video/category_tracker?e=$important
 ||wp-r.github.io/*/assets/js/jquery.iframetracker.js
 business.nikkei.com##.cbCxense
-koneta.nifty.com###custom_html-2
+club.berkovich-zametki.com,koneta.nifty.com###custom_html-2
 ||myhome.nifty.com/smp/js/trackPageview.js
 ||myhome.nifty.com/buy/assets/js/tracking.min.js
 ||myhome.nifty.com/column/js/tracking.js
@@ -67022,6 +67026,12 @@ link.gmapp*.net$image
 ! Bad:  ||example.com^$cookie=flat_r_mb (should be in cookies_specific.txt)
 !
 !
+! consentag.eu Crimtan Holding Limited.
+! Used for targeting
+$cookie=__tmbid
+! Nativo
+! User counter
+$cookie=_ntv_uid
 ! https://rocketium.com/cookie-policy.html
 $cookie=/WZRK_/
 ! Zephr
@@ -67342,6 +67352,8 @@ $cookie=_guid
 $cookie=anj
 !
 ! Google - https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage
+! Initial traffic source tracking using GTM
+$cookie=initialTrafficSource
 ! Used for advertising
 $cookie=__gpi
 ! Used to distinguish users.
@@ -67657,6 +67669,9 @@ $cookie=sp_tgamid.a05e
 ! Salesforce
 ! Collects data on user behaviour and interaction in order to optimize the website and make advertisement on the website more relevant.
 $cookie=BrowserId_sec
+! Used to distinguish users and analyse user behaviour on our website
+$cookie=sfmc_activityid
+$cookie=sfmc_id
 !
 ! Disqus
 ! Internal statistics, used for anonymous visitors (Sigma)
@@ -69037,6 +69052,10 @@ inapps.appsflyersdk.com^
 !#endif
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/154495
+login.coupang.com#%#//scriptlet('prevent-element-src-loading', 'script', 'app-common/js/fingerprint/fingerprint.js')
+!+ PLATFORM(ios, ext_safari, ext_android_cb)
+@@||login.coupang.com/resources/*/app-common/js/fingerprint/fingerprint.js$script
 ! https://github.com/uBlockOrigin/uAssets/issues/18625
 @@||googletagmanager.com/gtag/js$script,domain=panflix.com.br
 ! https://github.com/AdguardTeam/AdguardFilters/issues/153977
@@ -69894,6 +69913,7 @@ extrahop.com#%#//scriptlet('prevent-setTimeout', 'ad blocker')
 @@||sourcepointcmp.bloomberg.*/mms/get_site_data?requestUUID=$domain=bloomberg.*
 ! https://github.com/AdguardTeam/AdguardFilters/issues/111933
 ! https://github.com/AdguardTeam/AdguardFilters/issues/12426
+||googletagmanager.com/gtm.js$script,redirect=googletagmanager-gtm,domain=n11.com,important
 @@||googletagmanager.com/gtm.js$domain=n11.com
 @@||google-analytics.com/analytics.js$domain=m.n11.com
 @@||google-analytics.com/plugins/ua/ec.js$domain=m.n11.com
