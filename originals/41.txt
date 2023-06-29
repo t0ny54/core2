@@ -97,6 +97,8 @@ instagram.com#$?#div[class]:has(> div[class]:first-child > a[href="/explore/peop
 instagram.com#?#div[style*="opacity"] > div > div[class]:has(> div[class] > div[style] > div[style] > div[aria-labelledby] > div[class]:last-child > button)
 ! End: Instagram.com
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/153950
+fontanka.ru##section[data-test="report-news"]
 ! https://github.com/AdguardTeam/AdguardFilters/issues/154778
 scitechdaily.com#%#//scriptlet('set-cookie', 'ezgwcc', '1')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/153721
@@ -3139,6 +3141,9 @@ www.kinopoisk.ru##div[class^="trailer-promo"]
 ! END: Yandex
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/154685
+! Frequently changed domain, but it looks like the tld is ".monster" and the path is always "/(movies|shows)/play/"
+[$path=/\\/(movies|shows)\\/play\\/\\d+-/]monster#%#//scriptlet("prevent-addEventListener", "DOMContentLoaded", "GetCookie('prem_promo_closed')")
 ! https://github.com/AdguardTeam/AdguardFilters/issues/154598
 115.com##.feature-float
 115.com##.sharing-banner
@@ -4765,6 +4770,16 @@ theguardian.com##.contributions__adblock
 !
 ! SECTION: Self-promo - Regular rules
 !
+nicovideo.jp###jsMarqueeContainer
+the-ans.jp##.right-banner > a[href^="https://the-ans.jp/"]
+searchenginejournal.com##aside.widget-wrap
+searchenginejournal.com###nav_bar_g
+m.gaodun.com#?#.detail-content > .know-swiper:has(a[href^="https://www.gaodun.com/cpa/ziliao"])
+epochtimes.com##a[href^="https://donate.epochtimes.com"] > img[alt="Donation"]
+neg.by##.banners > div.side-neg-rek-wrap
+neg.by##.header-neg-rek
+higonavi.net##.adsContent
+pops.vn##img[alt^="banner under"]
 doubtnut.com###btf-container > div.px-2
 juejin.cn##.source-vip
 juejin.cn##.sidebar-bd-entry
@@ -6782,6 +6797,8 @@ newsweek.com##iframe[src="http://sns.europe.newsweek.com/newsletter?popup=1"]
 !##############################
 ! SECTION: Tweaks - JS
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/154877
+terabox.fun#%#(async()=>{if(location.href.includes("/sl/"))try{const t=location.href.split("/").at(-1);if(!t.length)return;const a=await fetch(`https://terabox.fun/shorturl/getoriginurl?&surl_key=${t}`),i=await a.json();i?.data?.origin_url&&i.data.origin_url.startsWith("http")&&location.assign(i.data.origin_url)}catch(t){console.debug(t)}})();
 ! https://github.com/AdguardTeam/AdguardFilters/issues/154791
 insuranceinfos.in#%#//scriptlet('adjust-setInterval', 'timer', '*', '0.001')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/154319

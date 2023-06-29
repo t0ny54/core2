@@ -79,6 +79,9 @@
 ! Bad: example.org###rek (should be in specific.txt)
 !
 !
+! https://github.com/uBlockOrigin/uAssets/issues/18715
+fandom.com#%#//scriptlet('set-constant', 'optimizely', 'emptyObj')
+fandom.com#%#//scriptlet('set-constant', 'optimizely.initialized', 'true')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/153836
 weather.com#%#//scriptlet('set-constant', 'DprSdk', 'emptyObj')
 weather.com#%#//scriptlet('set-constant', 'DprSdk.init', 'noopFunc')
@@ -2721,7 +2724,6 @@ prjaga.ru#?##right > div#right_nav > h3:contains(Онлайн статистик
 ||feedjit.com^$third-party
 ||feedperfect.com^$third-party
 ||ferank.fr^$third-party
-||fetchback.com^$third-party
 ||fiksu.com^$third-party
 ||filitrac.com^$third-party
 ||finalid.com^$third-party
@@ -4339,6 +4341,7 @@ prjaga.ru#?##right > div#right_nav > h3:contains(Онлайн статистик
 ! More info: https://getadmiral.com/products/measure
 ! Add same rules to the Admiral section of Annoyances filter
 !
+||rebelhen.com^$third-party
 ||guardeddirection.com^$third-party
 ||enormousfoot.com^$third-party
 ||rebelswing.com^$third-party
@@ -5620,6 +5623,7 @@ nethunt.com/api/v1/track/email/$image
 ! Blocking piwik analytics subdomain(for DNS filtering)
 |piwik.
 !
+||tag.rmp.rakuten.com^
 ||abt.s3.yandex.net^
 ||uaas.yandex.ru^
 ||monitor.ebay.com^
@@ -6760,7 +6764,6 @@ nethunt.com/api/v1/track/email/$image
 ||geoloc*.geostats.ovh^
 ||geoloc*.geovisite.ovh^
 ||geolocation.performgroup.com^
-||geolocation.stroeerdp.de^
 ||geoservice.curse.com^
 ||geosvc.globalmailer.com^
 ||gfn1.ugap.fr^
@@ -55232,9 +55235,11 @@ _tracking.php?b=
 ||adc.nine.com.au/?token=$redirect=nooptext,important,domain=9now.com.au
 ||googleadservices.com/pagead/conversion_async.js$redirect=noopjs,domain=ffm.to,important
 !
-/analytics.js$domain=tokyometro.jp|resumes.breakdownexpress.com|techcult.com|inbox.lv|kopeda.com|freexcafe.com|rusvideos.tv|nakubani.ru|lun.com|songsara.net|newsmax.com|bolgehastanesi.com|ewtc.de|newsdig.tbs.co.jp|imore.com|city.kushiro.lg.jp|emeraldbridal.com.au|emarat-news.ae|imobie.jp|tikla.com.tr|rusvideos.porn
+/analytics.js$domain=tokyometro.jp|resumes.breakdownexpress.com|techcult.com|inbox.lv|kopeda.com|freexcafe.com|rusvideos.tv|nakubani.ru|lun.com|songsara.net|newsmax.com|bolgehastanesi.com|ewtc.de|newsdig.tbs.co.jp|imore.com|city.kushiro.lg.jp|emeraldbridal.com.au|emarat-news.ae|imobie.jp|tikla.com.tr|rusvideos.porn|jrkyushu.co.jp
 ||assets.adobedtm.com^$domain=mcclatchydc.com|elnuevoherald.com|bellinghamherald.com|sacbee.com|charlotteobserver.com|newsobserver.com|miamiherald.com|ef.ru|algida.com.tr|bmw-motorrad.co.uk|cif.com.tr|clearhaircare.com|domestos.com|dove.com|elidor.com.tr|f1sport.autorevue.cz|geico.com|hellmanns.com.tr|herkessofraya.com|johnsonsbaby.com.tr|lipton.com|lnk.to|lux.com|magnumicecream.com|neutrogena.com.tr|omo.com|rexona.com|samsung.com|sap.com|schwarzkopf.com.tr|signalturkiye.com|msnbc.com|nbcnews.com|kbb.com|eurosport.ru|timgate.it|intermiles.com|oxfordmail.co.uk|spiegel.de|hp.com|deutschepost.de|thebay.com|s.shufoo.net|tsn.ca|tabelog.com|euronews.com|newshub.co.nz|fredmeyer.com|viabcp.com|carsales.com.au|falabella.com|aarp.org
 !
+revuestarlightre.com###custom_html-6
+||cdn.deporvillage.com/tracking-library/
 ||wolfram.com/common/javascript/analytics.js
 ||vost.com.ua/count.js
 ||devicebind.ebay.com/signin/sub/log
@@ -58332,8 +58337,6 @@ dreamprogs.net##td[width="88"][height="31"]
 ||media-imdb.com/*/js/ads/beacon-
 ||media-imdb.com/images/*/imdbads/js/beacon-$script
 ||media-imdb.com/twilight/?
-||mediashop.tv/daten/*/google.js
-||megashara.org/uploads/button/online.png
 ||meinauto.de/js/vendor/criteo/criteo_ld.js
 ||meta.ua/f_new.asp?g=
 ||metrics.amd.com/b/ss/
@@ -59876,7 +59879,6 @@ $app=com.miui.analytics
 !
 ! Swiftkey(Microsoft) Keyboard
 ||telemetry.api.swiftkey.com^
-||telemetry.swiftkey.com^
 !
 ! QuQa.ch for Android
 ||analytics.qoqa.ninja^
@@ -59956,6 +59958,9 @@ inapps.appsflyersdk.com^
 ||int.vlancaa.fun^
 ||tok.vaicore.xyz^
 !
+||track.ktplay.com^
+||preview-collector.scopely.io^
+||collector.scopely.io^
 ||events.swishapps.ai^
 ||telemetry.canva.com^
 ||analytics.picsart.com^
@@ -60750,6 +60755,10 @@ inapps.appsflyersdk.com^
 !#endif
 !
 !
+! https://github.com/uBlockOrigin/uAssets/issues/18713
+vippetcare.com#%#//scriptlet('prevent-fetch', 'www.yext-pixel.com')
+!+ PLATFORM(ios, ext_safari, ext_android_cb)
+@@||yext-pixel.com/store_pagespixel$domain=vippetcare.com
 ! https://github.com/AdguardTeam/AdguardFilters/issues/154831
 @@||accaii.com^$domain=kyuusai2nd.net
 ! https://github.com/AdguardTeam/AdguardFilters/issues/154583
@@ -60761,7 +60770,8 @@ login.coupang.com#%#//scriptlet('prevent-element-src-loading', 'script', 'app-co
 ! https://github.com/uBlockOrigin/uAssets/issues/18625
 @@||googletagmanager.com/gtag/js$script,domain=panflix.com.br
 ! https://github.com/AdguardTeam/AdguardFilters/issues/153977
-@@||bat.bing.com/bat.js$domain=northwell.edu
+@@||googletagmanager.com/gtm.js$domain=northwell.edu
+@@||js-agent.newrelic.com/async-api$domain=northwell.edu
 ! https://github.com/AdguardTeam/AdguardFilters/issues/154231
 @@||shenlongruanjian.com/website/js/fingerprint2.min.js
 ! https://github.com/AdguardTeam/AdguardFilters/issues/154214
@@ -61731,9 +61741,6 @@ ntp.msn.com#@%#navigator.getBattery = undefined;
 @@||googletagmanager.com/gtm.js$domain=stressless.com
 @@||google-analytics.com/analytics.js$domain=stressless.com
 !#endif
-! https://github.com/easylist/easylist/pull/10345
-@@||cdn.petametrics.com^$script,domain=comics.mecha.cc
-@@||query.petametrics.com^$image,xmlhttprequest,domain=comics.mecha.cc
 ! https://github.com/AdguardTeam/AdguardFilters/issues/103244
 @@||googletagmanager.com/gtm.js$domain=thestar.co.uk
 ||googletagmanager.com/gtm.js$script,xmlhttprequest,redirect=googletagmanager-gtm,important,domain=thestar.co.uk
@@ -63549,8 +63556,6 @@ kizi.com#%#window.google_trackConversion = function() {};
 @@||googletagmanager.com/gtm.js$domain=argeweb.nl
 ! https://github.com/AdguardTeam/AdguardFilters/issues/8563
 @@||netto-online.de/jquery/webanalytics/xtcore.js
-! https://github.com/AdguardTeam/AdguardFilters/issues/8975
-@@||geolocation.stroeerdp.de^$domain=t-online.de
 ! https://github.com/AdguardTeam/AdguardFilters/issues/8872
 @@||rtoaster.jp^$domain=attenir.co.jp
 ! https://forum.adguard.com/index.php?threads/blokker-nl.16886/
@@ -64291,7 +64296,6 @@ kizi.com#%#window.google_trackConversion = function() {};
 @@||ping.hellobar.com/?*&_e=click&$image
 @@||piwik.pro/images/
 @@||pix04.revsci.net/E05510/a4/0/0/pcx.js?$domain=video.foxbusiness.com
-@@||pixel.fetchback.com^$subdocument,domain=sears.com
 @@||pixel.quantserve.com/api/segments.json?$domain=ap.org
 @@||pixel.quantserve.com/api/segments.xml?a=$domain=cbs.com|cbsatlanta.com|centurylink.net|comedy.com|eurweb.com|fox5vegas.com|foxcarolina.com|grabnetworks.com|kctv5.com|kpho.com|kptv.com|theimproper.com|thenewsroom.com|tv.com|tvguide.com|wfsb.com|wnem.com|wsmv.com
 @@||pixel.quantserve.com/seg/$script,domain=photos.essence.com
