@@ -3464,9 +3464,10 @@ ilbianconero.com##.no-scroll:style(overflow:auto!important)
 @@||ppl.ibanking-services.com^$cname
 
 ! https://github.com/uBlockOrigin/uAssets/issues/10927
-warscrap.io##+js(set, window.pbjsChunk, noopFunc)
 warscrap.io##.squareAdContainer
 warscrap.io##.main-menu-bottom
+warscrap.io###warscrap-io_336x280
+warscrap.io###warscrap-io_728x90
 
 ! https://github.com/uBlockOrigin/uAssets/issues/10920
 @@||cdn.optimizely.com/datafiles/*.json$xhr,domain=myaccount.amfam.com
@@ -4478,7 +4479,7 @@ itmedia.co.jp###ulCommentWidget[style*="display"]:style(display: block !importan
 @@||wordcounter.icu^$cname
 
 ! https://github.com/uBlockOrigin/uAssets/issues/16827
-@@||cdn.segment.com/analytics.js$script,domain=jacksonguitars.com
+jacksonguitars.com##+js(set, analytics, {})
 
 ! https://github.com/uBlockOrigin/uAssets/issues/16859
 elle.com.tr#@#[id^="div-gpt-ad"]:style(width:1px!important;height:1px!important;min-width:1px!important;min-height:1px!important;margin:0!important;padding:0!important;overflow:hidden!important;opacity:0!important)
@@ -4532,7 +4533,7 @@ elle.com.tr#@#[id^="div-gpt-ad"]:style(width:1px!important;height:1px!important;
 ! https://github.com/uBlockOrigin/uAssets/issues/17646
 @@||img.connatix.com/*.jpg$3p,image,domain=accuweather.com
 ! https://www.thestate.com/sports/college/university-of-south-carolina/usc-baseball/article276291411.html no need connatix
-bellinghamherald.com,bnd.com,bradenton.com,centredaily.com,charlotteobserver.com,flkeysnews.com,fresnobee.com,miamiherald.com##^html:not(:has(video)) > head > script:has-text(connatix.com)
+bellinghamherald.com,bnd.com,bradenton.com,centredaily.com,charlotteobserver.com,flkeysnews.com,fresnobee.com,heraldonline.com,miamiherald.com##^html:not(:has(video)) > head > script:has-text(connatix.com)
 thestate.com##^html > head > script:has-text(connatix.id):upward(1) > script:has-text(window.cnx)
 variety.com##^html > head > link[rel="canonical"]:not([href*="/video/"]):upward(1) > script[src*="connatix"]
 
@@ -4984,10 +4985,6 @@ goku.sx##.st-btn > img:style(margin: auto !important; display: block !important;
 ! https://github.com/uBlockOrigin/uAssets/issues/18713
 ||yext-pixel.com/store_pagespixel^$xhr,redirect=1x1.gif,domain=vippetcare.com
 
-! https://github.com/uBlockOrigin/uAssets/issues/18717
-! https://github.com/uBlockOrigin/uAssets/issues/18724
-@@||ezodn.com/cmp/gvl.json$xhr
-
 ! https://github.com/uBlockOrigin/uAssets/issues/18715
 ||googletagmanager.com/gtm.js$important,domain=fandom.com
 ||cdn.optimizely.com/js/$important,domain=fandom.com
@@ -4996,7 +4993,26 @@ fandom.com##+js(set, optimizely.initialized, true)
 
 ! Wish list button doesn't work (EP and Lowe)
 ! https://www.festool.com/products/new-products/new-products/576894---txs-18-basic
-@@||googletagmanager.com^$script,domain=festool.*|festoolcanada.com|festoolusa.com
+! https://www.festoolcanada.com/products/systainer,-sortainer-and-systainer-port/systainer/577346---sys3-df-m-137
+@@||googletagmanager.com/gtm.js$script,domain=festool.*|festoolcanada.com|festoolusa.com
 
 ! https://github.com/uBlockOrigin/uAssets/issues/18725
 uqload.co#@#+js(abort-current-script, document.createElement, break;case $.)
+
+! https://github.com/uBlockOrigin/uAssets/issues/18720
+@@||areaclienti.generali.it/AreaClienti/plugins/dynatrace-cordova-plugin/$script,1p
+
+! https://github.com/uBlockOrigin/uAssets/issues/18722
+eksisozluk1923.com##.ad-banner:remove()
+
+! Broken by Lowe's list
+! https://github.com/uBlockOrigin/uAssets/issues/18734
+@@||googletagmanager.com/gtm.js$script,domain=aruba.it
+
+! https://github.com/uBlockOrigin/uAssets/issues/18735
+@@||googletagmanager.com/gtm.js$script,domain=pec.it
+
+! EP and Lowe break content loading & customer assistant tool
+@@||inpref.com^$frame,domain=lippu.fi
+@@||inpref.com/messageApi$xhr,domain=lippu.fi
+@@||googletagmanager.com/gtm.js$script,domain=lippu.fi
