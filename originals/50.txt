@@ -2533,6 +2533,8 @@ eslint.org#@#.sponsor-link
 
 ! cname https://github.com/uBlockOrigin/uAssets/issues/7589#issuecomment-687312936
 @@||privacy-mgmt.com^$script,domain=chip.de
+! https://github.com/uBlockOrigin/uAssets/issues/18763
+praxistipps.chip.de#@#a[target][href^="https://x.chip.de/"]:upward(div[id])
 
 ! https://www.yogajournal.com/video broken videos
 @@||uid.mavencoalition.io^$xhr,domain=yogajournal.com
@@ -4417,7 +4419,9 @@ instagram.com#@?#article[role="presentation"] > div[style]:-abp-has(span:-abp-co
 @@||cdn.bluebillywig.com/apps/player/*/admanager$script,domain=digital-photography-school.com
 
 ! https://github.com/uBlockOrigin/uAssets/issues/16571
-@@||cloudfront.net/js/reflektion.js$script,domain=riteaid.com
+@@||googletagmanager.com/gtm.js$script,domain=riteaid.com
+@@||googletagmanager.com/gtag/js?id=G$script,domain=riteaid.com
+riteaid.com##^html > body:not(.catalogsearch-result-index):upward(1) > head > script:has-text(googletagmanager)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/16569
 @@||js.monitor.azure.com/scripts/$script,domain=efilecabinet.net
@@ -4533,7 +4537,7 @@ elle.com.tr#@#[id^="div-gpt-ad"]:style(width:1px!important;height:1px!important;
 ! https://github.com/uBlockOrigin/uAssets/issues/17646
 @@||img.connatix.com/*.jpg$3p,image,domain=accuweather.com
 ! https://www.thestate.com/sports/college/university-of-south-carolina/usc-baseball/article276291411.html no need connatix
-bellinghamherald.com,bnd.com,bradenton.com,centredaily.com,charlotteobserver.com,flkeysnews.com,fresnobee.com,heraldonline.com,heraldsun.com,miamiherald.com##^html:not(:has(video)) > head > script:has-text(connatix.com)
+bellinghamherald.com,bnd.com,bradenton.com,centredaily.com,charlotteobserver.com,flkeysnews.com,fresnobee.com,heraldonline.com,heraldsun.com,idahostatesman.com,miamiherald.com##^html:not(:has(video)) > head > script:has-text(connatix.com)
 thestate.com##^html > head > script:has-text(connatix.id):upward(1) > script:has-text(window.cnx)
 variety.com##^html > head > link[rel="canonical"]:not([href*="/video/"]):upward(1) > script[src*="connatix"]
 
@@ -4755,6 +4759,10 @@ sisigames.com##^#index-games:upward(html) > head > script:has-text(wgplayer)
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js,domain=canvids.com
 @@||afv.wgplayer.com/*/wgPlayer.js$script,domain=canvids.com
 @@||afv.wgplayer.com/*/conf.json$xhr,domain=canvids.com
+
+! yollamedia breakages - games
+@@||portal.cdn.yollamedia.com/storage/$script,domain=pozirk.com
+pozirk.com##^html:not(:has(iframe#game)) > head > script[src*="yollamedia.com"]
 
 ! https://github.com/AdguardTeam/AdguardFilters/issues/143476
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,domain=cargames.com,redirect-rule=google-ima.js
@@ -5014,3 +5022,7 @@ eksisozluk1923.com##.ad-banner:remove()
 
 ! Lowe break content loading & customer assistant tool
 @@||googletagmanager.com/gtm.js$script,domain=lippu.fi
+
+! https://github.com/AdguardTeam/AdguardFilters/issues/155149
+@@||koshien-live.net/*/adtag.xml$xhr,domain=vk.sportsbull.jp
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima.js,domain=vk.sportsbull.jp,important
