@@ -1013,6 +1013,7 @@ dizipal580.com,dizipal581.com,dizipal582.com,dizipal583.com,dizipal584.com,dizip
 ! Bad: example.org##main > div.ad (should be in specific.txt)
 !
 !
+popsci.com.tr#?#.td-main-content-wrap .tdc_zone > .tdc-row:has(> .vc_row.tdc-element-style:only-child > style:first-child + .td-element-style + .vc_column:last-child > .wpb_wrapper > .wpb_wrapper > .td-fix-index > .empower-ad)
 sokgazetesi.com.tr,fotospor.com#?#div[class^="col-"] > div.center:has(> div[style^="margin-bottom:20px;"] > div[id^="div-gpt-ad"])
 apara.com.tr#?#.contentFrame > .container > .row > .col-md-4:has(> .advert)
 aspor.com.tr#?#.page-wrapper > .container > .row > .col-md-12 > .row > .col-md-6:has(> .advers-box)
@@ -1919,6 +1920,8 @@ r10.net#%#document.cookie = 'r10LeftHide=1';
 !------- CSS fixes --------------------!
 !--------------------------------------!
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/155322
+popsci.com.tr#$#.td-pb-row > .tdc-column > .wpb_wrapper { min-height: 0 !important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/154797
 tgrthaber.com.tr#$#div[style*="min-width: 300px;"][style*="min-height: 250px;"][style*="display: flex!important;"] { position: absolute !important; left: -3000px !important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/154336
@@ -2576,7 +2579,7 @@ begonya.com,egehaber.com,voleybolmagazin.com,kadinvekadin.net,savunmasanayist.co
 !
 ! For URL shorteners or simple sites with frequently changed ad servers.
 ! Incorrectly blocked domains can be excluded using regex(synchronize this regexp in all filters)
-/^(?!.*(bootstrapcdn.com|cdn.ampproject.org|cloudflare.com|cdn.staticfile.org|disqus.com|disquscdn.com|dmca.com|ebacdn.com|facebook.net|fastlylb.net|fbcdn.net|fluidplayer.com|fontawesome.com|github.io|google.com|googleapis.com|googletagmanager.com|gstatic.com|jquery.com|jsdelivr.net|jwpcdn.com|jwplatform.com|polyfill.io|recaptcha.net|shrink.pe|twitter.com|ulogin.ru|unpkg.com|userapi.com|vidazoo.com|vk.com|yandex.|yastatic.net|ytimg.com|zencdn.net|player|youtube.com|cackle.me|googleoptimize.com|vuukle.com|chatango.com|twimg.com|google-analytics.com|hcaptcha.com|raincaptcha.com|media-imdb.com|blogger.com|hwcdn.net|instagram.com|wp.com)).*$/$third-party,script,_____,domain=erotik-film.org|pollos.cyou|dizigom.tv|fullindirsene.net|ehliyetsinavsorulari.org
+/^(?!.*(bootstrapcdn.com|cdn.ampproject.org|cloudflare.com|cdn.staticfile.org|disqus.com|disquscdn.com|dmca.com|ebacdn.com|facebook.net|fastlylb.net|fbcdn.net|fluidplayer.com|fontawesome.com|github.io|google.com|googleapis.com|googletagmanager.com|gstatic.com|jquery.com|jsdelivr.net|jwpcdn.com|jwplatform.com|polyfill.io|recaptcha.net|shrink.pe|twitter.com|ulogin.ru|unpkg.com|userapi.com|vidazoo.com|vk.com|yandex.|yastatic.net|ytimg.com|zencdn.net|player|youtube.com|cackle.me|googleoptimize.com|vuukle.com|chatango.com|twimg.com|google-analytics.com|hcaptcha.com|raincaptcha.com|media-imdb.com|blogger.com|hwcdn.net|instagram.com|wp.com|imgsmail.ru)).*$/$third-party,script,_____,domain=erotik-film.org|pollos.cyou|dizigom.tv|fullindirsene.net|ehliyetsinavsorulari.org
 !
 ! canlitribun*.com - frequently changed domains
 canlitribun40.com,canlitribun41.com,canlitribun42.com,canlitribun43.com,canlitribun44.com,canlitribun45.com,canlitribun46.com,canlitribun47.com,canlitribun48.com,canlitribun49.com,canlitribun50.com,canlitribun51.com,canlitribun52.com,canlitribun53.com,canlitribun54.com,canlitribun55.com,canlitribun56.com,canlitribun57.com,canlitribun58.com,canlitribun59.com,canlitribun60.com,canlitribun61.com,canlitribun62.com,canlitribun63.com,canlitribun64.com,canlitribun65.com,canlitribun66.com,canlitribun67.com,canlitribun68.com,canlitribun69.com,canlitribun70.com##.chat_over_reklam
@@ -2589,6 +2592,7 @@ canlitribun40.com,canlitribun41.com,canlitribun42.com,canlitribun43.com,canlitri
 /service/advertchannels?$xmlhttprequest,redirect=nooptext,domain=mardinhaber.com.tr|gidahatti.com|bolugundem.com
 dirilispostasi.com,turkuazgazetesi.net,yenialanya.com,bugunkocaeli.com.tr,cagdaskocaeli.com.tr,mansetaydin.com,seskocaeli.com,kocaelibarisgazetesi.com,kocaelikoz.com,enkocaeli.com##.block-pano > div.us
 !
+popsci.com.tr##.empower-ad
 sokgazetesi.com.tr##div[style="height:262px;"]
 sokgazetesi.com.tr,fotospor.com##div[style="height:330px;"][class^="flex"]
 sokgazetesi.com.tr,fotospor.com##div[style^="margin-bottom:20px;text-align:center;height:262px"]
@@ -5891,7 +5895,7 @@ muzikmp3indir.com###adsupp-div
 aspor.com.tr##.adFirst
 aspor.com.tr##.textFrame > .advert ~ .textlink[banner-zone]
 androidmakale.com###text-17
-memoryhackers.org,mangawt.com,oyunceviri.net,ggmyfriend.com,globalklavye.com,aofsoru.com,androidmakale.com##.adsbygoogle
+diziwatch.net,memoryhackers.org,mangawt.com,oyunceviri.net,ggmyfriend.com,globalklavye.com,aofsoru.com,androidmakale.com##.adsbygoogle
 sozcu.com.tr##.nativeBanner
 sozcu.com.tr##iframe[src^="https://a-ssl.ligatus.com/"]
 medimagazin.com.tr###myModal
