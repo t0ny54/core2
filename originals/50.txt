@@ -16,9 +16,6 @@
 ! all GA plugins.
 @@||google-analytics.com/plugins/$script
 
-! override Peter Lowe's filter
-||adf.ly^$badfilter
-
 ! https://github.com/uBlockOrigin/uAssets/issues/729
 ! https://github.com/NanoMeow/QuickReports/issues/1636
 ||2mdn.net/instream/video/client.js$script,redirect=noopjs,domain=video.foxnews.com
@@ -3132,9 +3129,6 @@ picoworkers.com##+js(fingerprint2)
 ! https://twitter.com/darkpenguin_efb/status/1403355367745097733
 ||googletagmanager.com/gtag/js$script,redirect=noop.js,domain=video.isilive.ca
 
-! https://www.reddit.com/r/uBlockOrigin/comments/nz06ob/site_doesnt_load_images_without_disabling_ublock/
-bestofcomicbooks.com##+js(aeld, load, "undefined")
-
 ! https://forums.lanik.us/viewtopic.php?f=64&t=46125
 #@#a[href^="https://www.sheetmusicplus.com/"][href*="?aff_id="]
 #@#a[href^="https://www.sheetmusicplus.com/?aff_id="]
@@ -3752,6 +3746,7 @@ security-demo.extrahop.com##+js(nostif, ad blocker)
 ! https://github.com/uBlockOrigin/uAssets/issues/12764
 @@||kingarthurbaking.com/sites/default/files/google_tag/$script,1p
 @@||googletagmanager.com/gtm.js$script,domain=kingarthurbaking.com
+kingarthurbaking.com##^html > head > link[rel="canonical"]:not([href*="/recipes/"]):upward(2) script:has-text(googletagmanager)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/12772
 cadenadial.com##+js(aost, History, /(^(?!.*(Function|HTMLDocument).*))/)
@@ -4997,3 +4992,13 @@ eksisozluk1923.com##.ad-banner:remove()
 
 ! https://github.com/uBlockOrigin/uAssets/issues/18800
 /spacer.gif?$image,redirect-rule=1x1.gif
+
+! https://github.com/uBlockOrigin/uAssets/issues/18795
+||googleoptimize.com/optimize.js$domain=grasshopper.com,important
+grasshopper.com##+js(set, google_optimize, {})
+grasshopper.com##+js(set, google_optimize.get, noopFunc)
+
+! https://github.com/uBlockOrigin/uAssets/issues/16742
+||epson.com.cn/common/new/js/tracking_code.js$1p,important
+epson.com.cn##+js(set, _gsq, {})
+epson.com.cn##+js(set, _gsq.push, noopFunc)
