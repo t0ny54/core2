@@ -80,6 +80,7 @@
 ! Bad: ||adssubdomain.legitwebsite.com^ (should be in adservers_firstparty.txt)
 !
 !
+||p97387hj.xyz^
 ||tfcdn.jingmiuyyds.com^$all
 ||vzttq.brfvyrrp.com^$all
 ||sncop.uioozpxq.com^$all
@@ -453,6 +454,9 @@
 ! Bad: ||ad.doubleclick.net^ (should be in adservers.txt)
 !
 !
+! https://github.com/uBlockOrigin/uAssets/issues/18833
+api.guailie.com#%#//scriptlet('set-constant', 'killAdKiller', 'noopFunc')
+api.guailie.com#@#.google-ad
 ! https://github.com/AdguardTeam/AdguardFilters/issues/153296
 huanqiu.com#%#//scriptlet('set-constant', 'AD_SURVEY_Add_AdPos', 'noopFunc')
 huanqiu.com#%#//scriptlet('set-constant', 'AD_SURVEY_Add_AdPos_Simple', 'noopFunc')
@@ -1076,6 +1080,7 @@ nfmovies.com#$?#body > .hidden-xs > div[id]:has(> img[src^="/static/"][onclick*=
 nfmovies.com#$?#div[id^="aaaDiv"] { remove: true; }
 !
 !
+sto520.com#?#.content > div.book > div[style^="text-align"]:has(> ins.adsbygoogle)
 lihkg.com#?##rightPanel > div[class^="_"] > div[class^="_"] > div[class^="_"] > div[data-post-id] + div:not([data-post-id])
 search.bilibili.com#?#.video-list > div.col_3:has(> div.bili-video-card a[href*="//cm.bilibili.com/"])
 sohu.com#?#.news-wrapper > div.news-box.clear:has(> [data-ad-format])
@@ -1506,7 +1511,7 @@ $script,xmlhttprequest,third-party,domain=00ksw.com|01zww.com|0biquge.com|114zw.
 ! Incorrectly blocked domains can be excluded using regex(synchronize this regexp in all filters)
 /^(?!.*(bootstrapcdn.com|cdn.ampproject.org|cloudflare.com|cdn.staticfile.org|disqus.com|disquscdn.com|dmca.com|ebacdn.com|facebook.net|fastlylb.net|fbcdn.net|fluidplayer.com|fontawesome.com|github.io|google.com|googleapis.com|googletagmanager.com|gstatic.com|jquery.com|jsdelivr.net|jwpcdn.com|jwplatform.com|polyfill.io|recaptcha.net|shrink.pe|twitter.com|ulogin.ru|unpkg.com|userapi.com|vidazoo.com|vk.com|yandex.|yastatic.net|ytimg.com|zencdn.net|player|youtube.com|cackle.me|googleoptimize.com|vuukle.com|chatango.com|twimg.com|google-analytics.com|hcaptcha.com|raincaptcha.com|media-imdb.com|blogger.com|hwcdn.net|instagram.com|wp.com|imgsmail.ru)).*$/$third-party,script,_____,domain=manshuxs.com|yemancomic.com|qimiaoxiaoshuo.com|gaofuwu.org|nxpaaq.com|dengbi2.com|92hm.top
 ! Similar to regexp above, but using the denyallow modifier
-$script,third-party,denyallow=bunnycdn.ru|bootstrapcdn.com|cdn.ampproject.org|cloudflare.com|cdn.staticfile.org|disqus.com|disquscdn.com|dmca.com|ebacdn.com|facebook.net|fastlylb.net|fbcdn.net|fluidplayer.com|fontawesome.com|github.io|google.com|googleapis.com|googletagmanager.com|gstatic.com|jquery.com|jsdelivr.net|jwpcdn.com|jwplatform.com|polyfill.io|recaptcha.net|shrink.pe|twitter.com|ulogin.ru|unpkg.com|userapi.com|vidazoo.com|vk.com|yastatic.net|ytimg.com|zencdn.net|youtube.com|cackle.me|googleoptimize.com|vuukle.com|chatango.com|twimg.com|google-analytics.com|hcaptcha.com|raincaptcha.com|media-imdb.com|blogger.com|hwcdn.net|instagram.com|wp.com|fastcomments.com,domain=wap.ishuquge.la|m.91zww.com|592mh.top
+$script,third-party,denyallow=bunnycdn.ru|bootstrapcdn.com|cdn.ampproject.org|cloudflare.com|cdn.staticfile.org|disqus.com|disquscdn.com|dmca.com|ebacdn.com|facebook.net|fastlylb.net|fbcdn.net|fluidplayer.com|fontawesome.com|github.io|google.com|googleapis.com|googletagmanager.com|gstatic.com|jquery.com|jsdelivr.net|jwpcdn.com|jwplatform.com|polyfill.io|recaptcha.net|shrink.pe|twitter.com|ulogin.ru|unpkg.com|userapi.com|vidazoo.com|vk.com|yastatic.net|ytimg.com|zencdn.net|youtube.com|cackle.me|googleoptimize.com|vuukle.com|chatango.com|twimg.com|google-analytics.com|hcaptcha.com|raincaptcha.com|media-imdb.com|blogger.com|hwcdn.net|instagram.com|wp.com|fastcomments.com,domain=wap.ishuquge.la|m.91zww.com|592mh.top|dubuxiaoshuo.com
 !
 !
 !
@@ -4592,6 +4597,7 @@ newduba.cn###jq_youxi
 ##a[href*="?invite_code="] > img[src*=".com"]
 ##a[href*="?register="] > img[src*=".douyinpic.com"]
 ##a[href*="?register="] > img[width="100%"]
+##a[href*="kdocs.cn"] > img[src*=".ax1x.com/"]
 ##a[href="/bbs/"] > img[src*=".bcebos.com"]
 ##a[href="/e/member/register/index.php?tobind=0&groupid=1"]
 ##a[href="/forum/"] > img[src*=".bcebos.com"]
@@ -4626,7 +4632,6 @@ newduba.cn###jq_youxi
 ~mgtv.com##a[target="_blank"] > img[src*="hitv.com"]
 ##a[target="_blank"][onclick*="广告点击"]
 ##body .has-ad
-##A[href*="kdocs.cn"] > IMG[src*=".ax1x.com/"]
 ##body[onload*="u()"] > #x
 ##center > a[target="_blank"] > img[style="padding- bottom:5px;width:960px;height:120px;"]
 ##center > a[target="_blank"] > img[style="padding- bottom:5px;width:960px;height:60px;"]
@@ -4691,6 +4696,8 @@ newduba.cn###jq_youxi
 ||194.59.220.161^
 ||23.234.217.11^
 ||23.234.217.12^
+||3400.org^
+||abrnfctkn.xyz^
 ||baiduisjkbvsjkl.com^
 ||ciadre.fun^
 ||cix0wk.com^
@@ -4698,15 +4705,17 @@ newduba.cn###jq_youxi
 ||dd778899dd.com^
 ||dhkipdsc.xyz^
 ||donchen501.cn^
+||hanwdsii.com^
 ||hfqdipw.cn^
 ||hsadeg.site^
-||hanwdsii.com^
-||abrnfctkn.xyz^
+||plbs9k.icu^
 ||powedw.com^
 ||sq59.cn^
-||tqdctl.xyz^
-||3400.org^
 ||tgbevv.xyz^
+||kahgjjd.com^
+||kgeesh.site^
+||fjsytjs.cn^
+||tqdctl.xyz^
 ||wuye3d.com^
 ||xiaoxiuapp.com^
 ##a[href$="/1c626.com"]
@@ -16181,6 +16190,7 @@ tools.2345.com##._hb-box + .mod
 qq.com##._switchad
 pincong.rocks##.a-a
 gamer.com.tw##.a-mercy-d:not([href*=".gamer."])
+cupfox.app##.a1-box[class^="jsx-"]
 159i.com##.a1.style25
 159i.com##.a1d
 159i.com##.a2.style25
@@ -18924,6 +18934,7 @@ sohu.com##.x-adv-pause-nonlinear-panel
 liaoxuefeng.com##.x-sponsor
 tongxiang.net##.x15sdv.display_3_3
 sina.cn##.xc_da
+bejson.com##.xf2-gg-left
 xinhuanet.com##.xhdf_moreAdv
 bkill.com##.xiangguan-ad
 cr173.com,itmop.com,jisuxz.com##.xiazaiqi

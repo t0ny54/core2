@@ -5583,6 +5583,8 @@ nethunt.com/api/v1/track/email/$image
 ! Blocking piwik analytics subdomain(for DNS filtering)
 |piwik.
 !
+||log.recommend.nicovideo.jp^
+||log.klook.com^
 ||tracking.centerfield.com^
 ||c.security.org^
 ||a.flux.jp^
@@ -7877,7 +7879,6 @@ nethunt.com/api/v1/track/email/$image
 ||xray.mail.ru^
 ||xtag.autotrader.com^
 ||xy33.smallable.com^
-||ya.domain-vip.net^
 ||ybx.yahoo.co.jp^
 ||yield-manager.browsiprod.com^
 ||yieldmo-builds.s3.amazonaws.com^
@@ -53707,8 +53708,9 @@ _tracking.php?b=
 ! TODO: check the allowlist file from time to time to remove unnecessary exceptions
 ! https://github.com/AdguardTeam/Scriptlets/issues/253#issuecomment-1308957501 - do not remove `~id.x5.ru`
 ! https://github.com/AdguardTeam/AdguardFilters/issues/137243
+! https://github.com/AdguardTeam/AdguardFilters/issues/155158
 !+ NOT_PLATFORM(windows, mac, android)
-||mc.yandex.ru/metrika/tag.js$script,redirect=metrika-yandex-tag,domain=~id.x5.ru
+||mc.yandex.ru/metrika/tag.js$script,redirect=metrika-yandex-tag,domain=~id.x5.ru|~aiondb.ru
 ||mc.yandex.ru/metrika/watch.js$script,redirect=metrika-yandex-watch
 ! TODO: replace `~domain.com` by exclusions after ext4.0 release
 ! https://github.com/AdguardTeam/AdguardForWindows/issues/3973
@@ -53739,6 +53741,10 @@ _tracking.php?b=
 /analytics.js$domain=tokyometro.jp|resumes.breakdownexpress.com|techcult.com|inbox.lv|kopeda.com|freexcafe.com|rusvideos.tv|nakubani.ru|lun.com|songsara.net|newsmax.com|bolgehastanesi.com|ewtc.de|newsdig.tbs.co.jp|imore.com|city.kushiro.lg.jp|emeraldbridal.com.au|emarat-news.ae|imobie.jp|tikla.com.tr|rusvideos.porn|jrkyushu.co.jp|amiunique.org
 ||assets.adobedtm.com^$domain=mcclatchydc.com|elnuevoherald.com|bellinghamherald.com|sacbee.com|charlotteobserver.com|newsobserver.com|miamiherald.com|ef.ru|algida.com.tr|bmw-motorrad.co.uk|cif.com.tr|clearhaircare.com|domestos.com|dove.com|elidor.com.tr|f1sport.autorevue.cz|geico.com|hellmanns.com.tr|herkessofraya.com|johnsonsbaby.com.tr|lipton.com|lnk.to|lux.com|magnumicecream.com|neutrogena.com.tr|omo.com|rexona.com|samsung.com|sap.com|schwarzkopf.com.tr|signalturkiye.com|msnbc.com|nbcnews.com|kbb.com|eurosport.ru|timgate.it|intermiles.com|oxfordmail.co.uk|spiegel.de|hp.com|deutschepost.de|thebay.com|s.shufoo.net|tsn.ca|tabelog.com|euronews.com|newshub.co.nz|fredmeyer.com|viabcp.com|carsales.com.au|falabella.com|aarp.org
 !
+||letelegramme.fr/assets/block/analytics/
+||letelegramme.fr/assets/piano/piano-analytics.js
+||zapier.com/api/*/tracking/event
+||zapier.com/api/*/events
 ||cdn-widgetsrepository.yotpo.com/widget-assets/yotpo-pixel/
 ||montgomerycountymd.gov/Common/Scripts/GoogleAnalytics.js
 ||carmazoon24-pu01.ihre-webseite.it/js/logger
@@ -55597,7 +55603,6 @@ animespirit.*###CollapsiblePanel_Statistics
 ||analytics.*.*/*.php
 ||notebookinfo.de/javascript/*/collector.js
 ||bmw-connecteddrive.de/z.gif?x=
-||cdn.merklesearch.com/merkle_track.js
 ||abcotvs.net^*/fban_
 ||z.cdn.turner.com/analytics/cnnvan/jsmd.min.js
 ||newsource-cdn-static.ns.cnn.com/prd/analytics/1.0.1/cnnvan-omniture.min.js
@@ -55610,7 +55615,6 @@ kanobu.ru##a[href^="https://www.liveinternet.ru/click"]
 ||a24.biz/pixel/
 ||preved.tut.by/1px.gif
 ||tp-link.com^*/addHits.html
-||comgood.me/1px/
 ||cdn.branch.io^$domain=underarmour.com
 ||google-analytics.com^$domain=promiflash.de,redirect=nooptext,important
 ||csi.gstatic.com^$domain=promiflash.de,redirect=nooptext,important
@@ -55793,7 +55797,6 @@ tensaigakkou.ru###custom_html-16
 ||myfonts.net/count
 ||youboranqs01.com/ping
 ||news.de/empty.txt
-||ue.nordbayern.de/cre-*/tracking^
 /bcommon/js/trckUtil.min.js$domain=buffed.de|gamesaktuell.de|videogameszone.de|gamezone.de|pcgames.de|pcgameshardware.de
 ||secure.agoda.com/pixel.gif
 ||agoda.com/api/pixel/index?
@@ -55802,7 +55805,6 @@ tensaigakkou.ru###custom_html-16
 ||track.tagesanzeiger.ch/cre*/static/tracking^
 ||injapan.com/rest/*/track?*&callback=
 ||youlead.pl/track?
-||api.code.com.tr/analytics
 ||smp.sankei.co.jp/js/analytics^
 ||tms.marriott.com/error/e.gif
 ||kodik.cc/stats
@@ -55844,7 +55846,6 @@ continentseven.com##.gaoop
 ||veeseo.com/tracking/$third-party
 ||emoment.net/cnt/
 ||sm.batuu.pl/collect?
-||s.batuu.pl/smartlink/collect?
 ||ajanimo.com/wp-content/plugins/mashshare-google-analytics/assets/js/mashga.min.js
 ||vidmoly.me/metric.php?
 ||s.p7s1.io/datalayer/conviva
@@ -55877,7 +55878,7 @@ continentseven.com##.gaoop
 ||cars.com/ajax/activityloggingapi^
 ||ref.dealerinspire.com/visit/*/events^
 ||hsbcglobalcmb.sc.omtrdc.net/id?$redirect=nooptext,important,domain=business.hsbc.uk
-||dpm.demdex.net/id$redirect=nooptext,important,domain=bt.com|nhl.com|business.hsbc.uk
+||dpm.demdex.net/id$redirect=nooptext,important,domain=stuff.co.nz|bt.com|nhl.com|business.hsbc.uk
 ||pix.spot.im/api/*/pixel
 ||bamgrid.com/telemetry
 ||finn.no/clientstats.html
@@ -56061,7 +56062,6 @@ abp?type=js&session$domain=prosieben.de|sat1.de|kabeleins.de|sixx.de|prosiebenma
 ||wpdigital.net/metrics/
 ||alibaba.com/js/beacon_
 ||amazonaws.com/?wsid=
-||api.apisolutions.work/track/$third-party
 ||api.aio.media/stat?
 ||yandeg.ru/count$third-party
 ||yandex.ru/cycounter$third-party
@@ -58462,6 +58462,7 @@ inapps.appsflyersdk.com^
 ||int.vlancaa.fun^
 ||tok.vaicore.xyz^
 !
+||ad-api-log.colopl.jp^
 ||metrics.macys.com^
 ||track.ktplay.com^
 ||preview-collector.scopely.io^
@@ -59253,6 +59254,9 @@ inapps.appsflyersdk.com^
 !#endif
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/155484
+!+ PLATFORM(ios, ext_safari, ext_android_cb)
+@@||srv.tunefindforfans.com/showads/track/srvclk.php?
 ! https://github.com/AdguardTeam/AdguardFilters/issues/155192
 @@||software.seek.intel.com^$document
 ! https://jbbs.shitaraba.net/bbs/read.cgi/internet/25463/1618326670/177
@@ -62620,7 +62624,6 @@ kizi.com#%#window.google_trackConversion = function() {};
 @@||bt.com^*/touchclarity/homepage/omtr_tc.js
 @@||buffalowildwings.com^*/google-analytics.js
 @@||bunchball.net/scripts/cookies/current/NitroCookies.js$domain=mtvema.com
-@@||by.optimost.com^$domain=ft.com
 @@||c.mmcdn.net^*/flash/config/metrics.xml$domain=moshimonsters.com
 @@||cache.nymag.com^*/clickability.js
 @@||canada.com/js/ooyala/comscore.js

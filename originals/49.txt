@@ -203,9 +203,9 @@
 ||adballoon.afreecatv.com^
 ||deapi.afreecatv.com^
 !
+||ir-new-cdn-eu-west-*-hb.rayjump.com^
 ||leadc6.icu^
 ||pangolin16.sgsnssdk.com^
-||sf16-scmcdn-sg.ibytedtos.com^
 ||tnc16-*.byteoversea.com^
 ||i18n-pglstatp.com^
 ||ads.adadapted.com^
@@ -1167,6 +1167,7 @@ turbopages.org##.page__result > div[class*="type_native"]
 ! Bad: example.org##main > div.ad (should be in specific.txt)
 !
 !
+express.co.uk#$?##taboola-mid-article-thumbnails-outstream { remove: true; }
 express.co.uk#$?#div[data-type="article-body"] .text-description > p ~ div { remove: true; }
 delish.com#?#section > div[class]:has(> div[id^="gpt-ad-"])
 m.cifraclub.com.br#?#pre > button[type]:contains(Remover anúncio)
@@ -1765,6 +1766,10 @@ sasisa.ru#%#AG_onLoad(function() { window.Umobi = function() {}; });
 !-------CSS---------
 !-------------------
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/155199
+driveplaza.com#$#.js-adHead { display: none !important; }
+driveplaza.com#$#header.l-header { top: 0 !important; }
+driveplaza.com#$##main-content { margin-top: -50px !important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/154985
 pogomap.info#$##map { bottom: 0 !important; }
 pogomap.info#$##logobarclose { display: none !important; }
@@ -2880,7 +2885,13 @@ xataka.com.mx,shikiho.toyokeizai.net,newsee-media.com,rank1-media.com,m.proporn.
 !
 ! Start specific
 !
+games.nme-jp.com##header.sp
+gpfans.com##div[id^="snackban"]
+gpfans.com##.topbanmobile
+gpfans.com###snack_mpu
+shuba.life##.c-aside--30x25
 m.hkgolden.com###page-1 > div[data-role="reply"] + div[class^="jss"]:not([data-id])
+cleantechnica.com#?#.zox-post-body > center:has(> a[href^="https://www.paypal.com/donate/"][target="_blank"])
 cleantechnica.com#?#.zox-post-body > p:has(> a[rel^="nofollow sponsored"][target="_blank"] > span.mrf-detailsMedia)
 cleantechnica.com##.wp-caption > a[rel^="nofollow sponsored"][target="_blank"]
 mangabtt.com##img[src$="/images/chapter/top.jpg"]
