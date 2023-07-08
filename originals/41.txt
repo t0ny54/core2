@@ -768,8 +768,8 @@ qanda.ai##img + div[class^="Picture__Cover-"]
 reports.adguard.app,reports.adguard.com##.flash-wrapper-wrap
 ! adguard.app, adguard.com - social links in comment section
 adguard.app,adguard.com##.blog-comments__social
-! adguard-vpn.com, adguard.com - common rule for all annoyances on the site
-adguard-vpn.net,adguard-vpn.com,adguard.app,adguard.com##.annoyance
+! adguard-dns.io, adguard-vpn.com, adguard.com - common rule for all annoyances on the site
+adguard-dns.io,adguard-vpn.net,adguard-vpn.com,adguard.app,adguard.com##.annoyance
 ! native-ad PRs
 j-town.net##.advertisement-list
 j-town.net##aside.section_content > div.section_title > h2.pr-list
@@ -4788,6 +4788,16 @@ theguardian.com##.contributions__adblock
 !
 ! SECTION: Self-promo - Regular rules
 !
+techno-edge.net##.sidebox-membership
+techno-edge.net##.main-membership
+max.book118.com##.vip-re
+max.book118.com##.sidebar-vip
+asiro.co.jp##.banner-box__column-cta
+ctinews.com#?#.promote-items > li:has(> a[href="https://deep.ctinews.com/app-cti117"])
+ctinews.com#?#.promote-items > li:has(> a[href="https://deep.ctinews.com/app-cti117"]) ~ li
+deviantart.com#?#div[role="complementary"] a[href="https://www.deviantart.com/core-membership"]:upward(3)
+deviantart.com#?#div[data-hook="deviation_meta"] ~ div[class] > a[href="https://www.deviantart.com/core-membership"]:upward(1)
+deviantart.com#?#header[data-hook="top_nav"] + div[class] > div[class] > div[class]:has(> a[href="https://www.deviantart.com/core-membership"])
 proton.me##.animate-enter-top
 ablesci.com#?#.layui-col-md4 > div.fly-panel:has(> div[style^="text-align: center;"] > a.able-link)
 pinktower.com##body > div[style="width:100%;text-align:right"] > a[href="https://pink-chan-store.myshopify.com/"]
@@ -6832,6 +6842,10 @@ newsweek.com##iframe[src="http://sns.europe.newsweek.com/newsletter?popup=1"]
 !##############################
 ! SECTION: Tweaks - JS
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/155761
+app.trangchu.news#%#//scriptlet("set-constant", "count", "0")
+! https://github.com/AdguardTeam/AdguardFilters/issues/155763
+maqal360.com,diudemy.com#%#//scriptlet('adjust-setTimeout', 'div_form')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/154877
 terabox.fun#%#(async()=>{if(location.href.includes("/sl/"))try{const t=location.href.split("/").at(-1);if(!t.length)return;const a=await fetch(`https://terabox.fun/shorturl/getoriginurl?&surl_key=${t}`),i=await a.json();i?.data?.origin_url&&i.data.origin_url.startsWith("http")&&location.assign(i.data.origin_url)}catch(t){console.debug(t)}})();
 ! https://github.com/AdguardTeam/AdguardFilters/issues/154791
@@ -6926,7 +6940,6 @@ getmodsapk.com#%#//scriptlet('adjust-setInterval', 'download', '*', '0.02')
 diudemy.com#%#//scriptlet('adjust-setInterval', '_0x', '*', '0.02')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/144131
 mdn.lol#%#//scriptlet('set-constant', 'document.hasFocus', 'trueFunc')
-mdn.lol#%#//scriptlet('adjust-setInterval', '/innerHTML|count/', '*', '0.02')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/143809
 bstlar.com#%#//scriptlet('remove-attr', 'disabled', '.body-page .card-body button.btn-primary.btn-block')
 bstlar.com#%#//scriptlet('remove-class', 'disabled', '.body-page .card-body button.btn-primary.btn-block')
