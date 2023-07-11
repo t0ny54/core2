@@ -1,9 +1,9 @@
 ![Adblock Plus 2.0]
-! Checksum: 0ZE2wGRU54n23eMS0TkhGw
+! Checksum: HJRSm3wmozzZJA2nvbI8aA
 ! Title: AdGuard Mobile Ads filter (Optimized)
 ! Description: Filter for all known mobile ad networks. Useful for mobile devices.
-! Version: 2.0.42.82
-! TimeUpdated: 2023-07-10T02:30:18+00:00
+! Version: 2.0.42.88
+! TimeUpdated: 2023-07-10T17:02:08+00:00
 ! Expires: 4 days (update frequency)
 ||dad-api.dcard.tw^
 ||ad-splash-tracking.hktvmall.com^
@@ -81,6 +81,7 @@
 ||reqde.afreecatv.com^
 ||adballoon.afreecatv.com^
 ||deapi.afreecatv.com^
+||tivan.naver.com^
 ||veta.naver.com^
 ||mradx.net^
 ||ir-new-cdn-eu-west-*-hb.rayjump.com^
@@ -921,6 +922,9 @@ yandex.*#$?#:matches-path(/q)body.page_qArticleRoute div#page > div[class]:first
 turbopages.org##div[class*="type_adfox"]
 turbopages.org##.turbo-advert
 turbopages.org##.page__result > div[class*="type_native"]
+wetter.com#?#div[class^="sc-"]:has(> div.ad-container)
+wetter.com#?#.som-wrapper:has(> div[data-slotname])
+wetter.com#?#.clickperformance-wrapper:has(> .ad-flex)
 housebeautiful.com#?#section > div[class*="css-"]:has(> div#gpt-ad-vertical-bottom)
 express.co.uk#$?##taboola-mid-article-thumbnails-outstream { remove: true; }
 express.co.uk#$?#div[data-type="article-body"] .text-description > div { remove: true; }
@@ -1365,6 +1369,7 @@ m.tnaflix.com##+js(set-constant, organicPop, undefined)
 m.drtuber.com##+js(abort-on-property-read, mobileAdvPop)
 pornhd.com##+js(abort-on-property-read, popUnderUrl)
 sasisa.ru##+js(set-constant, Umobi, noopFunc)
+wetter.com#$#main > section + div[class] + div[class] { min-height: auto !important; }
 driveplaza.com#$#.js-adHead { display: none !important; }
 driveplaza.com#$#header.l-header { top: 0 !important; }
 driveplaza.com#$##main-content { margin-top: -50px !important; }
@@ -1790,14 +1795,17 @@ amp.marca.com,gamesradar.com,laptopmag.com,livescience.com,musicradar.com,pcgame
 ign.com,gazeteduvar.com.tr,innpoland.pl,wired.com,sports.ru,manager-magazin.de,amp.macwelt.de,amp.fitforfun.de,tomsguide.com,nordbayern.de,dallasnews.com,kansascity.com,futurezone.de,fr.de,spox.com,ran.de,stern.de,ruhr24.de,golem.de,berliner-zeitung.de,news.de,abendzeitung-muenchen.de,inside-digital.de,boerse.de,emtb-news.de,caravaning.de,areadvd.de,familie.de,derwesten.de,finanzen.net,o2.pl,onet.pl,whathifi.com,amp.n-tv.de,dni.ru,independent.co.uk,komputerswiat.pl,dobreprogramy.pl,amp.pcwelt.de,tomshardware.com,techbook.de,forbes.com,auto-swiat.pl,dialog.ua,mobile.reuters.com,spiegel.de,amp.welt.de,forum.xda-developers.com,sueddeutsche.de,amp.usatoday.com,m.gadgets.ndtv.com##amp-ad
 scmp.com,theinventory.com,avclub.com,clickhole.com,deadspin.com,gizmodo.com,jalopnik.com,jezebel.com,kotaku.com,lifehacker.com,splinternews.com,theinventory.com,theonion.com,theroot.com,thetakeout.com##.inline-ad-container
 memo.onl.jp,daily-sun.com,home.kingsoft.jp,berkem.ru,pixiv.net,cartoonpornvideos.com,m.economictimes.com,beethovenmaster.com,m.mistrzowie.org,m.ura.news,up.ymgt.xyz,google.de,www-bento-de.cdn.ampproject.org,m-economictimes-com.cdn.ampproject.org,m.winfuture.de##.ads
-xataka.com.mx,shikiho.toyokeizai.net,newsee-media.com,rank1-media.com,m.proporn.com,rakuraku-info.jp,sugoren.com,dailynewsonline.jp,yakuji.co.jp,asahi.com,m.winporn.com,slate.com,sankei.com,gameranbu.jp,seiga.nicovideo.jp,m.arukikata.co.jp,setn.com,hateblo.jp,hatenablog.com,hatenablog.jp,hatenadiary.com,hatenadiary.jp,hatenadiary.org,syosetu.org##.ad
+macwelt.de,pcwelt.de,xataka.com.mx,shikiho.toyokeizai.net,newsee-media.com,rank1-media.com,m.proporn.com,rakuraku-info.jp,sugoren.com,dailynewsonline.jp,yakuji.co.jp,asahi.com,m.winporn.com,slate.com,sankei.com,gameranbu.jp,seiga.nicovideo.jp,m.arukikata.co.jp,setn.com,hateblo.jp,hatenablog.com,hatenablog.jp,hatenadiary.com,hatenadiary.jp,hatenadiary.org,syosetu.org##.ad
+dailydot.com###bottombar-textarea + div.col-lg-4
+mentalfloss.com##main > [data-target="ad"] + figure[class] > div[class]
 housebeautiful.com##.standard-article-vertical-ad
 book.asahi.com##.module-top-ad
 deviantart.com##.juPu7
 deviantart.com##._3_7sD
 games.nme-jp.com##header.sp
 gpfans.com##div[id^="snackban"]
-gpfans.com##.topbanmobile
+gpfans.com##.article div.topbanmobile.mobileshow
+gpfans.com##div[style^="margin:10px auto 10px auto;"][style$="min-height: 250px;"]
 gpfans.com###snack_mpu
 shuba.life##.c-aside--30x25
 m.hkgolden.com###page-1 > div[data-role="reply"] + div[class^="jss"]:not([data-id])
