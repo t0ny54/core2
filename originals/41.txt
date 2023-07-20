@@ -89,14 +89,23 @@
 youtube.com#%#AG_onLoad(function() {var a = new MutationObserver(function() {if (document.querySelector('yt-upsell-dialog-renderer')) {var b = document.querySelector('.ytd-popup-container[popup-size="UPSELL_DIALOG_RENDERER_POPUP_SIZE_LARGE"] #dismiss-button:not(.dismissed), .upsell-dialog-lightbox .upsell-dialog-dismiss-button button:not(.dismissed)');setTimeout(function() {b&&b.click()}, 3E2)}});a.observe(document, {childList: !0,subtree: !0});setTimeout(function() {a.disconnect()}, 3E3)});
 !
 ! Start: Instagram.com
+!
 !   Suggested people:
 !       in feed or right sidebar
 ! https://github.com/AdguardTeam/AdguardFilters/issues/143571#issuecomment-1458956078
 instagram.com#$?#div[class]:has(> div[class]:first-child > a[href="/explore/people/"]) { position: absolute !important; left: -3000px !important; }
 !       notification area
 instagram.com#?#div[style*="opacity"] > div > div[class]:has(> div[class] > div[style] > div[style] > div[aria-labelledby] > div[class]:last-child > button)
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/156358
+! Block invisible overlay, that prevent saving images
+instagram.com##._aagw:empty
+!
 ! End: Instagram.com
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/156919
+virtualbrest.ru#?#div[style] > div[align="center"]:has(> nobr > a[href="https://vk.com/virtualbrestby"])
+virtualbrest.ru#?#td > noindex:has(> table > tbody > tr > td > p > a[href="https://tx.me/virtualbrestnews"])
 ! https://github.com/AdguardTeam/AdguardFilters/issues/156542
 ||pregchan.com/randomBanner.js
 ! https://github.com/AdguardTeam/AdguardFilters/issues/155602
@@ -165,10 +174,11 @@ hindustantimes.com##.alsoReadSectionAppend
 ! https://github.com/AdguardTeam/AdguardFilters/issues/149849
 kongregate.com###overlay
 kongregate.com##.kred_purchase
+! https://github.com/AdguardTeam/AdguardFilters/issues/156703
 ! https://github.com/AdguardTeam/AdguardFilters/issues/154274
 ! https://github.com/AdguardTeam/AdguardFilters/issues/150352
-tezfiles.com,fboom.me##.banner-firefox-warning
-tezfiles.com,fboom.me#%#//scriptlet('set-constant', 'document.hasStorageAccess', 'undefined')
+k2s.cc,tezfiles.com,fboom.me##.banner-firefox-warning
+k2s.cc,tezfiles.com,fboom.me#%#//scriptlet('set-constant', 'document.hasStorageAccess', 'undefined')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/150190
 netprizyvu.ru##.ebala
 netprizyvu.ru#?#.currentnews__subtitle > noindex:has(> span:contains(РАСПРОСТРАНЕН ИНОСТРАННЫМ АГЕНТОМ))
@@ -3157,6 +3167,9 @@ www.kinopoisk.ru##div[class^="trailer-promo"]
 ! END: Yandex
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/156877
+!+ PLATFORM(android, ios)
+finance.yahoo.co.jp#?#div[aria-live="polite"] > ul > li[class] > section[class] > div[class] > a[href] > div[class] > small[class]:contains(/^Yahoo!/):upward(div[aria-live="polite"] > ul > li[class])
 ! https://github.com/AdguardTeam/AdguardFilters/issues/155795
 clearvpn.com##.articleSideBanner
 ! https://github.com/AdguardTeam/AdguardFilters/issues/155615
@@ -3167,7 +3180,7 @@ tumadouga.jp##.index_banner_space_01
 tuma.jp##.index_banner_space_05
 ! https://github.com/AdguardTeam/AdguardFilters/issues/154685
 ! Frequently changed domain, but it looks like the tld is ".monster" and the path is always "/(movies|shows)/play/"
-[$path=/\\/(movies|shows)\\/play\\//]monster#%#//scriptlet("prevent-addEventListener", "DOMContentLoaded", "GetCookie('prem_promo_closed')")
+[$path=/\\/(movies|shows)\\/play\\//]monster#%#//scriptlet("prevent-addEventListener", "DOMContentLoaded", "/prem_promo_closed|initPremNotification/")
 ! https://github.com/AdguardTeam/AdguardFilters/issues/154598
 115.com##.feature-float
 115.com##.sharing-banner
@@ -4795,6 +4808,12 @@ theguardian.com##.contributions__adblock
 !
 ! SECTION: Self-promo - Regular rules
 !
+||content.invisioncic.com/Mmalware/*_728x90
+forums.malwarebytes.com##.ipsMmalware.ipsSpacer_both
+2gis.ru##a[href="https://otello.2gis.ru/?utm_source=2gis-mapbutton"]
+nv.ua##.magazine-subscribe
+4sysops.com###custom_html-18
+||4sysops.com/img/WindowsServer2022Bookad.html^$subdocument
 forbes.com.au###block-6
 bazar.ua##.vw-stats-info-promo
 xn--68j8axdn0370d2i2c.com#?#.post > table:has(> tbody > tr > td > a[href^="https://ieagent.jp/"])
