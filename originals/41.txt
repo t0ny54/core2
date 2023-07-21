@@ -4808,6 +4808,7 @@ theguardian.com##.contributions__adblock
 !
 ! SECTION: Self-promo - Regular rules
 !
+the-village.com.ua#?#div[data-ui-id="post"] > div.stk-grid:has( a[target="_blank"]:contains(Donate))
 ||content.invisioncic.com/Mmalware/*_728x90
 forums.malwarebytes.com##.ipsMmalware.ipsSpacer_both
 2gis.ru##a[href="https://otello.2gis.ru/?utm_source=2gis-mapbutton"]
@@ -6904,6 +6905,11 @@ newsweek.com##iframe[src="http://sns.europe.newsweek.com/newsletter?popup=1"]
 !##############################
 ! SECTION: Tweaks - JS
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/156634
+bloginkz.com#%#//scriptlet('adjust-setInterval', 'timer', '', '0.02')
+bloginkz.com#%#//scriptlet('remove-attr', 'disabled', '#captcha_container + button.btn')
+! https://github.com/AdguardTeam/AdguardFilters/issues/156768
+sabah.com.tr#%#//scriptlet('set-attr', '.player > div[data-videoid]', 'data-autoplay', '0')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/156791
 plog.com.br#%#//scriptlet('adjust-setInterval', 'countdown', '*', '0.001')
 ! https://github.com/uBlockOrigin/uAssets/issues/16317
@@ -6927,7 +6933,9 @@ pling.com#%#//scriptlet('adjust-setTimeout', 'Download', '*', '0.001')
 app.trangchu.news#%#//scriptlet("set-constant", "count", "0")
 ! https://github.com/AdguardTeam/AdguardFilters/issues/155763
 maqal360.com,diudemy.com#%#//scriptlet('adjust-setTimeout', 'div_form')
+! https://github.com/AdguardTeam/AdguardFilters/issues/156959
 ! https://github.com/AdguardTeam/AdguardFilters/issues/154877
+hotmediahub.com#%#(async()=>{if(location.href.includes("?slid="))try{const t=new URLSearchParams(location.search).get("slid");if(!t||!t.length)return;const a=await fetch(`https://hotmediahub.com/shorturl/getoriginurl?&surl_key=${t}`),i=await a.json();i?.data?.origin_url&&i.data.origin_url.startsWith("http")&&location.assign(i.data.origin_url)}catch(t){console.debug(t)}})();
 terabox.fun#%#(async()=>{if(location.href.includes("/sl/"))try{const t=location.href.split("/").at(-1);if(!t.length)return;const a=await fetch(`https://terabox.fun/shorturl/getoriginurl?&surl_key=${t}`),i=await a.json();i?.data?.origin_url&&i.data.origin_url.startsWith("http")&&location.assign(i.data.origin_url)}catch(t){console.debug(t)}})();
 ! https://github.com/AdguardTeam/AdguardFilters/issues/154791
 insuranceinfos.in#%#//scriptlet('adjust-setInterval', 'timer', '*', '0.001')
