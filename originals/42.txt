@@ -7138,7 +7138,7 @@ $cookie=/[0-9a-f]{32}/,domain=games-pc.top|rustorka.com|rustorka.top|rustorka.ne
 $removeheader=location,domain=zannn.top|innal.top
 games-pc.top,rustorka.com,rustorka.top,rustorka.net,rustorkacom.lib,naylo.top,zannn.top,innal.top$$script[tag-content="dimisa"]
 games-pc.top,rustorka.com,rustorka.top,rustorka.net,rustorkacom.lib,naylo.top,zannn.top,innal.top#$##e7af0de8b4 { height: 16px !important; }
-games-pc.top,rustorka.com,rustorka.top,rustorka.net,rustorkacom.lib,naylo.top,zannn.top,innal.top#%#//scriptlet("prevent-setTimeout", "tick")
+games-pc.top,rustorka.com,rustorka.top,rustorka.net,rustorkacom.lib,naylo.top,zannn.top,innal.top#%#//scriptlet('abort-on-property-write', 'dimisastop')
 !+ PLATFORM(ios, ext_android_cb)
 @@||aj*.online^$domain=games-pc.top|rustorka.com|rustorka.top|rustorka.net|rustorkacom.lib|naylo.top|zannn.top|innal.top,xmlhttprequest,script
 !
@@ -7472,6 +7472,10 @@ otzovik.com$$script[wildcard="*function*blockId*"][min-length="1000"][max-length
 !
 ! START: Yandex
 !
+!
+! ad on chrome://newtab
+!+ PLATFORM(windows, mac)
+||yandex.ru/*/*?ntp-sandwich*content=chromenewtab&statPath=chromenewtab
 !
 ! ya.ru - main page
 ya.ru##.banner
@@ -9742,6 +9746,7 @@ kadrovik01.com.ua,kom-dir.ru,gd.ru,buhsoft.ru,dirklinik.ru,fd.ru,business.ru,pro
 !
 !
 !
+2ip.ru##.ip-icon-x-eye
 device4game.ru###pages-2 > h3
 redheadsound.studio##.link-mess
 simhost.org##.dle_b_brand
@@ -22543,12 +22548,14 @@ ps4.in.ua#$#.adsbygoogle { height: 1px!important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/48882#issuecomment-584208221
 1plus1.video#%#//scriptlet('prevent-fetch', 'pagead2.googlesyndication.com')
 ||1plus1.video/static/player/js/ovva.$script,replace=/\.abMessage\(\)//
-@@||pubads.g.doubleclick.net/gampad/ads?*1plus1.video$domain=imasdk.googleapis.com
 @@||1plus1.video/static/pubads.ad^
 @@||player.adtelligent.com/prebid/wrapper_*.js|$domain=1plus1.video
 @@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=1plus1.video|1plus1.ua
 @@||gaua.hit.gemius.pl/gemiuslib.js$domain=1plus1.video|1plus1.ua
+||pubads.g.doubleclick.net/gampad/ads?*1plus1.video$xmlhttprequest,domain=imasdk.googleapis.com,redirect=noopvast-3.0
 ||gaua.hit.gemius.pl/gemiuslib.js$script,xmlhttprequest,redirect=noopjs,domain=1plus1.video|1plus1.ua,important
+!+ PLATFORM(ios, ext_android_cb, ext_safari)
+@@||pubads.g.doubleclick.net/gampad/ads?*1plus1.video
 ! https://github.com/AdguardTeam/AdguardFilters/issues/89348
 @@||unian.net/static/pubads.ad
 @@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=unian.net|unian.ua
@@ -23073,7 +23080,6 @@ forum.finance.ua##div[id^="banner-zone-block-"]
 epravda.com.ua##div[class^="banner_right"]
 ||fbc.ua/wp-content/uploads/2020/07/banner_KMZ.jpg
 vesti.ua##.mainBlockAdsBckgd
-24tv.ua##div[id^="mobileBrandingPlace"]
 ivona.ua##.banner-section
 gameinside.ua##a[href^="http://bit.ly/"] > img
 gameinside.ua##body > a[target="_blank"]
