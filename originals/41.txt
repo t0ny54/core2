@@ -260,8 +260,14 @@ espinof.com###dailymotion-pip-large-viewport
 geo.fr###dailymotion-pip-large-viewport
 ! https://github.com/AdguardTeam/AdguardFilters/issues/146471
 ozap.com###dailymotion-pip-large-viewport
-! kotaku.com and partner sites - unrelated video in article
-avclub.com,clickhole.com,deadspin.com,gizmodo.com,jalopnik.com,jezebel.com,kotaku.com,lifehacker.com,splinternews.com,theinventory.com,theonion.com,theroot.com,thetakeout.com#?#.js_post-content > div > div:has(> .instream-native-video)
+!
+! G/O Media / g-omedia.com and similar
+clickhole.com,lifehacker.com,splinternews.com,avclub.com,deadspin.com,gizmodo.com,jalopnik.com,jezebel.com,kotaku.com,qz.com,theinventory.com,theonion.com,theroot.com,thetakeout.com#?#.js_post-content > div > div:has(> .instream-native-video)
+! https://github.com/AdguardTeam/AdguardFilters/issues/123138#issuecomment-1171536858
+clickhole.com,lifehacker.com,splinternews.com,avclub.com,deadspin.com,gizmodo.com,jalopnik.com,jezebel.com,kotaku.com,qz.com,theinventory.com,theonion.com,theroot.com,thetakeout.com##.sidebar-sticky-children
+clickhole.com,lifehacker.com,splinternews.com,avclub.com,deadspin.com,gizmodo.com,jalopnik.com,jezebel.com,kotaku.com,qz.com,theinventory.com,theonion.com,theroot.com,thetakeout.com###js_moreFromNetwork
+clickhole.com,lifehacker.com,splinternews.com,avclub.com,deadspin.com,gizmodo.com,jalopnik.com,jezebel.com,kotaku.com,qz.com,theinventory.com,theonion.com,theroot.com,thetakeout.com##.js_moreFromNetwork
+!
 ! https://github.com/AdguardTeam/AdguardFilters/issues/145956
 bessarabiainform.com##a[target="_blank"] > img[src$="-removebg.png"]
 ! https://github.com/AdguardTeam/AdguardFilters/issues/145866
@@ -493,10 +499,6 @@ gamestar.de#?#.box-reload > .media:not(:has(> *)):not(:contains(/[a-zA-Z0-9]/))
 gamestar.de#?#.box-reload > .media:not(:has(> *)):not(:contains(/[a-zA-Z0-9]/)) + hr
 ! https://github.com/AdguardTeam/AdguardFilters/issues/124405
 wcnc.com#$#.video__docker_state_docked { position: static !important; }
-! https://github.com/AdguardTeam/AdguardFilters/issues/123138#issuecomment-1171536858
-avclub.com,clickhole.com,deadspin.com,gizmodo.com,jalopnik.com,jezebel.com,kotaku.com,lifehacker.com,splinternews.com,theinventory.com,theonion.com,theroot.com,thetakeout.com##.sidebar-sticky-children
-avclub.com,clickhole.com,deadspin.com,gizmodo.com,jalopnik.com,jezebel.com,kotaku.com,lifehacker.com,splinternews.com,theinventory.com,theonion.com,theroot.com,thetakeout.com###js_moreFromNetwork
-avclub.com,clickhole.com,deadspin.com,gizmodo.com,jalopnik.com,jezebel.com,kotaku.com,lifehacker.com,splinternews.com,theinventory.com,theonion.com,theroot.com,thetakeout.com##.js_moreFromNetwork
 ! https://github.com/AdguardTeam/AdguardFilters/issues/123176
 public.fr###dailymotion-pip-large-viewport
 ! https://github.com/AdguardTeam/AdguardFilters/issues/123018
@@ -515,8 +517,6 @@ watchmaster.com#$#body { overflow: visible !important; padding-right: 0 !importa
 9gag.com##.signup-side-banner
 9gag.com##.comment-signup-banner
 9gag.com##.signup-list-banner
-! kotaku.com - annoying non-related video in article
-kotaku.com#?#.js_post-content > div[class]:has(> .instream-native-video)
 ! https://github.com/AdguardTeam/AdguardFilters/issues/120604
 vivi.tv##.c-addHome
 ! https://github.com/AdguardTeam/AdguardFilters/issues/121185
@@ -1403,8 +1403,6 @@ wired.com#?##app-root > .page--article > div[class="row"]:has(> .consumer-market
 npr.org,heise.de##.newsletter-subscription
 ! https://github.com/AdguardTeam/AdguardFilters/issues/66750
 vc.ru,dtf.ru##.special-job-teaser
-! https://github.com/AdguardTeam/AdguardFilters/issues/66900
-qz.com##a[href^="/subscribe"] ~ div[class] > form._938a8
 ! https://github.com/AdguardTeam/AdguardFilters/issues/66601
 nytimes.com##div[data-testid="inline-message"]
 ! https://github.com/AdguardTeam/AdguardFilters/issues/66594
@@ -4808,6 +4806,11 @@ theguardian.com##.contributions__adblock
 !
 ! SECTION: Self-promo - Regular rules
 !
+||deviantart.com/*/?realEstateId=
+eltiempo.com##.banner-club-vivamos
+nifty.com#?#div[class^="Setsuzoku_ourServicesDList"] > dl > dt:has(> span:contains(ニフティのサービス))
+nifty.com##dd[class^="Setsuzoku_servicePromo"]
+myhome.nifty.com##.box > a[href$="HeaderBanner"]
 englishclass101.com##.r101-banner--c
 ||tvbaw-na.s3.us-west-1.amazonaws.com/wallpaper/viet_live
 bannedbook.org###header_1_2
@@ -6940,7 +6943,12 @@ app.trangchu.news#%#//scriptlet("set-constant", "count", "0")
 maqal360.com,diudemy.com#%#//scriptlet('adjust-setTimeout', 'div_form')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/156959
 ! https://github.com/AdguardTeam/AdguardFilters/issues/154877
+hotmediahub.com#%#//scriptlet('adjust-setTimeout', 'value', '*', '0.001')
+hotmediahub.com#%#//scriptlet('adjust-setInterval', 'clearInterval', '*', '0.001')
+hotmediahub.com#%#//scriptlet('set-local-storage-item', 'wap_short_link_middle_page_remain_showTime', '2')
+hotmediahub.com#%#//scriptlet('trusted-click-element', '.ad-content-box > div.btn.active')
 hotmediahub.com#%#(async()=>{if(location.href.includes("?slid="))try{const t=new URLSearchParams(location.search).get("slid");if(!t||!t.length)return;const a=await fetch(`https://hotmediahub.com/shorturl/getoriginurl?&surl_key=${t}`),i=await a.json();i?.data?.origin_url&&i.data.origin_url.startsWith("http")&&location.assign(i.data.origin_url)}catch(t){console.debug(t)}})();
+terabox.fun#%#(async()=>{if(location.href.includes("/slmiddlepage/"))try{const t=location.href.split("/").at(-1);if(!t.length)return;const a=await fetch(`https://terabox.fun/api/shortlink/getoriginurl?&encrypt_surl_key=${t}`),i=await a.json();i?.data?.origin_url&&i.data.origin_url.startsWith("http")&&location.assign(i.data.origin_url)}catch(t){console.debug(t)}})();
 terabox.fun#%#(async()=>{if(location.href.includes("/sl/"))try{const t=location.href.split("/").at(-1);if(!t.length)return;const a=await fetch(`https://terabox.fun/shorturl/getoriginurl?&surl_key=${t}`),i=await a.json();i?.data?.origin_url&&i.data.origin_url.startsWith("http")&&location.assign(i.data.origin_url)}catch(t){console.debug(t)}})();
 ! https://github.com/AdguardTeam/AdguardFilters/issues/154791
 insuranceinfos.in#%#//scriptlet('adjust-setInterval', 'timer', '*', '0.001')
@@ -8627,7 +8635,7 @@ pabrikarang.com,allaboutshaving.kr,animeindia.in,codedosa.com,my-expert.ru#$#.un
 fmkorea.com#$##bd_capture { background: none!important; }
 page.kakao.com#$#div[id="epubViewerBody"][class^="css-"] { -webkit-touch-callout: default!important; -moz-user-select: auto!important; -webkit-user-select: auto!important; -ms-user-select: auto!important; -o-user-select: auto!important; user-select: auto!important; -khtml-user-select: auto!important; }
 cafe.daum.net#$#body * { -webkit-touch-callout: default!important; -moz-user-select: auto!important; -webkit-user-select: auto!important; -ms-user-select: auto!important; -o-user-select: auto!important; user-select: auto!important; -khtml-user-select: auto!important; }
-shoneekapoor.com,extrememanual.net,kakaowebtoon.com,cafe.daum.net,webtoon.kakao.com,page.kakao.com#$#body { -webkit-touch-callout: default!important; -moz-user-select: auto!important; -webkit-user-select: auto!important; -ms-user-select: auto!important; -o-user-select: auto!important; user-select: auto!important; -khtml-user-select: auto!important; }
+gamejksokuhou.com,shoneekapoor.com,extrememanual.net,kakaowebtoon.com,cafe.daum.net,webtoon.kakao.com,page.kakao.com#$#body { -webkit-touch-callout: default!important; -moz-user-select: auto!important; -webkit-user-select: auto!important; -ms-user-select: auto!important; -o-user-select: auto!important; user-select: auto!important; -khtml-user-select: auto!important; }
 bestxiaomiproducts.com,moviesrush.in#$?#body style:contains(::selection) { remove: true; }
 novel.naver.com#$#body { user-select: auto !important; }
 healthfeed.co.kr,cafe.naver.com#$#body[style*="user-select: none;"] { user-select: auto !important; }
