@@ -231,14 +231,10 @@ drive2.ru#?#.js-page > div > div[class="x-box x-box--mh o-f"]:has(> script)
 ! Ads in the feed
 dzen.ru#$?#.feed__item > article._with_big_card_height._dzen-feed._carousel:contains(/[реклама]{7,10}/) { remove: true; }
 dzen.ru##body .card-wrapersome
+!+ NOT_PLATFORM(windows, mac, android)
 dzen.ru#%#//scriptlet('set-constant', 'Object.prototype.registerPlacement', 'undefined')
-!+ NOT_PLATFORM(android, ios)
+!+ NOT_PLATFORM(windows, mac, android, ios)
 dzen.ru#?#.feed > div[class^="feed__row"] > div[class^="feed"] div[class^="article-bottom-single-"]:empty:upward(.feed > div[class^="feed__row"])
-!+ PLATFORM(android, ios)
-dzen.ru#?#.touch-feed > div.feed-item > article.card-wrapper div[class^="article-bottom-single-"]:empty:upward(.touch-feed > div.feed-item)
-!
-! dzen.ru - video
-dzen.ru##div[class*="videoCardAd-"]
 !
 [$path]mail.ru#%#//scriptlet('json-prune', '[].slot')
 !
@@ -640,7 +636,6 @@ reddit.com,reddittorjg6rue252oqsxryoxengawnmo46qy4kyii5wtqnwfj4ooad.onion#@#.Sid
 ||overconfidentfood.com^$third-party
 ||strangesink.com^$third-party
 ||honorableland.com^
-||courier-js.dallasnews.com/dist/courier.min.js
 ||squirrelhands.com^$third-party
 ||causecherry.com^$third-party
 ||hocgeese.com^$third-party
@@ -934,9 +929,9 @@ newscon.net###adblock-warning
 9anime.to#$#.widget.crop { height: 7px!important; visibility: hidden!important; }
 aadvantageeshopping.com##.mn_adBlockWarning
 aamulehti.fi#$#.ad-div.mainos.rectangle-ad.ALMACR-container { display: block!important; }
-menteinformatica.it,mebhocam.com,abazero.com#$#.mfp-bg { display: none!important; }
-menteinformatica.it,mebhocam.com,abazero.com#$#.mfp-wrap { display: none!important; }
-menteinformatica.it,mebhocam.com,abazero.com#$#html { overflow: visible!important; }
+tuttocalciofemminile.com,menteinformatica.it,mebhocam.com,abazero.com#$#.mfp-bg { display: none!important; }
+tuttocalciofemminile.com,menteinformatica.it,mebhocam.com,abazero.com#$#.mfp-wrap { display: none!important; }
+tuttocalciofemminile.com,menteinformatica.it,mebhocam.com,abazero.com#$#html { overflow: visible!important; }
 agotcitadel.boards.net#$#body > div[id$="-overlay"] { display: none!important; }
 agotcitadel.boards.net#$#body { overflow: visible!important; position: initial!important; }
 alcpu.com##div[id$="ad-blocked"]
@@ -3449,6 +3444,8 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 !
 ! SECTION: Popups - Regular rules
 !
+downloaddevtools.com##.alert-warning
+zapier.com#?##mainContent div[class^="css-"] > div[class^="css-"]:has(> div[data-testid="signup-popup"])
 telegraph.co.uk##.martech-general-sticky-footer__wrapper
 sinparty.com#%#//scriptlet('remove-class', 'stuck', '.video-page__player > div.sinparty-player > div')
 iflscience.com#$#.info-links-sticky { display: none !important; }
@@ -5727,7 +5724,7 @@ aarp.org###siteBannerText
 haufe-akademie.de###modal-exit-intent
 bbva.es##div[id$="stickybannerdesktop"]
 4living.ru##.new-banner
-aajtak.in##.rhs-fixwhtsapp
+businesstoday.in,aajtak.in##.rhs-fixwhtsapp
 justdial.com###best_deal_div
 justdial.com##.b-modal.__b-popup1__
 bauking.de##.exit-intent-wrap
@@ -9834,6 +9831,7 @@ zlavomat.sk#@##credential_picker_container
 .name/?pus=$script,third-party
 .site/?pus=$script,third-party
 !
+||vokayatus.com^
 ||migineg.com^
 ||adkela-push.com^
 ||push.msgby.ru^
@@ -10275,6 +10273,7 @@ macwelt.de,pcwelt.de#%#//scriptlet("set-constant", "firebase.messaging", "noopFu
 !
 ! SECTION: Push notifications - Regular rules
 !
+||aptekiplus.ru/_nuxt/popup-attention
 ||push.autosaratov.ru^
 ||ps2-bios.com/*/larapush_script_*.js
 ||cdnjs.cloudflare.com/ajax/libs/pushy/^$domain=news.ebc.net.tw
@@ -11029,6 +11028,14 @@ jiji.com,edp24.co.uk,technologyreview.com,nordbayern.de,thelocal.ch,morgenpost.d
 !
 ! SECTION: Subscriptions - Regular rules
 !
+elconfidencial.com##.tp-sticky iframe[id^="offer_"]
+businessinsider.com##.homepageNewsletter
+patriotpost.us##div[id^="v-subscribe-"]
+wsj.com###cx-membership-tile
+visitukraine.today##.page-text_main-wrapp-help
+zapier.com#?#ul[class^="css-"] > li:has(> div[class^="css-"] > div[data-testid="subscribe-card"])
+zapier.com#?##mainContent > div[class^="css-"]:has(> div[data-testid="subscribe-mini"])
+lance.com.br##div[class^="styles_outerContainerNewsletter"]
 sinparty.com#$#.app-modal__overlay { display: none !important; }
 sinparty.com#$#body.is-locked { overflow: auto !important; touch-action: auto !important; }
 autosaratov.ru##.banner-zen
@@ -11073,7 +11080,7 @@ papyrus.com##py-mail-form
 airbike.pl,libertymotostore.com#?#div:not([class]) div[class]:has(> form[autocomplete="off"] button[aria-label="subscribe"])
 mercola.com#$?##bcr_divLimited > div.limited-visibility:has(> div.modal-wrapper > div.modal-rr-container) { display: none !important; }
 mercola.com#$#body { overflow: auto !important; }
-mrproblogger.com##.smartmag-widget-newsletter
+themezon.net,mrproblogger.com##.smartmag-widget-newsletter
 shop.mango.com###newsletterSubscriptionModalLoad
 boundingintocomics.com##.cb-post-large
 guidingtech.com##.home-form
@@ -14060,7 +14067,7 @@ koffer.com#$##overlay { display: none!important; }
 koffer.com#$#body { overflow: visible!important; }
 rosenthal.de##.o-content-container--newsletter-teaser
 footboom.com##.news-social
-vost.pw,animevost.am,smotret-anime-365.ru,animevost.site,animevost.online,animevost.net,animevost.org,animerost.org,animevost.am,agorov.org#?#div[id^="moduleLeft"]:has(> div.interDub > div > a[href="https://vk.animegost.org"])
+vost.pw,animevost.am,smotret-anime-365.ru,animevost.online,animevost.net,animevost.org,animerost.org,animevost.am,agorov.org#?#div[id^="moduleLeft"]:has(> div.interDub > div > a[href="https://vk.animegost.org"])
 linuxsecurity.com##.newsletter-subscribe-module
 hema.com#$#.emailoptin-modal { display: none !important; }
 ||remember.de/modules/tronet/tronewsletterpopup/
@@ -14475,7 +14482,7 @@ psycom.net##.qsm-page > div.quiz_section[class*="question-section-id-"] + div.qu
 psycom.net###psycom-sidebar-signup
 4living.ru###subscfix
 businesstoday.in,indiatoday.in,aajtak.in##.newsltter-iframe
-aajtak.in##.daily-news-letter
+businesstoday.in,aajtak.in##.daily-news-letter
 slivy.news#?#.gridlove-sidebar > div.widget:has(> div.textwidget a[href="https://t.me/zheltyeslivy"])
 finder.com##.form-signup
 filmcompanion.in##.email-subscribe-wrapper-fcn
