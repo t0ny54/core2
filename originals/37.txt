@@ -84,6 +84,7 @@
 !#######################################################
 ! SECTION: Cookies - General element hiding
 !
+##.dc-cookie-consent
 ##.cookies-reminder-v2
 ##.cookies-reminder
 ##.cc_disclaimer_box
@@ -2285,6 +2286,14 @@ freundin.de,utopia.de,mein-schoener-garten.de,eveningnews24.co.uk,rollingstone.d
 !
 ! NOTE: Regular rules
 !
+bing.com##.bnp_cookie_banner
+shop.braun.de##.stickyOptanonCookieButton
+0815.at,0815.eu#$#html { overflow: auto !important; }
+0815.at,0815.eu#$#.offcanvas.is-left { display: none !important; }
+0815.at,0815.eu#$#.offcanvas ~ div.modal-backdrop { display: none !important; }
+||assets.tumblr.com/pop/vendor/cmp/cmp-
+lyst.com#?#body.lyst-app > div.ReactModalPortal:has(.ReactModal__Content img[alt="Cookies"])
+therange.co.uk###cookie_terms
 ||gemma.by/catalog/view/javascript/lightcookie/bar.js
 ||static.serlogal.com/imosver/js/cookieblock-
 xcite.com.sa#?#header > div.w-full:has(> div.grid > div > span > a[href="/privacy"])
@@ -6981,7 +6990,7 @@ kvk.nl#$#body { overflow: auto !important; }
 sub100.com.br##.cookies-policy-container
 puratos.co.jp#$##cookieBannerModal { display: none !important; }
 bmbwf.gv.at,sozialministerium.at###cookiebanner-wrapper
-omelete.com.br###lgpd-wrapper
+theenemy.com.br,omelete.com.br###lgpd-wrapper
 navita.co.jp,nikkeimm.co.jp##.c-cookiePolicy
 studentenwerk-wuerzburg.de,medatixx.de###gb-consent-management
 careers.msxi.com,carlsberg.com,nbacareers.nba.com,humanitas.it,jobs.sap.com##.ukCookiePolicy
@@ -8211,6 +8220,7 @@ alexfitness.ru###cookies_confirm
 aruba.com##.CookiePopup
 educative.io##div[class^="ContainerWrapper-"] > .opacity-100.border-primary-lightP1
 cypress.com###complianceoverlay
+nytimes.com###complianceOverlay
 armorgames.com###cc-alert
 buzz.ie#$#body.noscroll { overflow: visible !important; }
 buzz.ie#$#html.noscroll { overflow: visible !important; }
@@ -8988,7 +8998,6 @@ nspk.ru##.footer-personal-data
 turkishcargo.com.tr##.warning-bar
 sabanci.com###warning-bar
 openrice.com##.facebook-floating-container
-tr.braun.com,kizlararasinda.com,prima.com.tr##.dc-cookie-consent
 vgchartz.com,video.foxbusiness.com##.notification-banner
 braintreepayments.com###gdprComponent
 magzter.com##.cookies__notification
@@ -12999,6 +13008,7 @@ privacy.lecker.de#%#AG_onLoad(function(){if(!document.cookie.includes("euconsent
 privacy.madame.de#%#AG_onLoad(function(){if(!document.cookie.includes("euconsent-v2")){var g=new MutationObserver(function(){setTimeout(function(){var b=document.querySelector('button.no-children[path="\[0,2,1\]"]');b&&b.click();},300);setTimeout(function(){var c=document.querySelector('div[title="Berechtigte Interessen"]'); c&&c.click();},300);setTimeout(function(){var d=document.querySelectorAll('label[aria-checked="true"] > .off'); d.forEach(function(d){d.click();});},800); var f=document.querySelector('button.no-children[path="\[0,3,0\]"]'); setTimeout(function(){f&&f.click();},1000);});g.observe(document,{childList:!0,subtree:!0});setTimeout(function(){g.disconnect()},3E4)}});
 consent.unilad.com,consent.ladbible.com,consent.gamingbible.co.uk,consent.unilad.co.uk#%#AG_onLoad(function(){if(window.location.href.includes("consentUUID")){var g=new MutationObserver(function(){var b=document.querySelector('button[title*="Accept" i]');b&&(g.disconnect(),b.click())});g.observe(document,{childList:!0,subtree:!0});setTimeout(function(){g.disconnect()},1E4)}});
 !
+eboo.lu#%#document.cookie="PostAnalytics=inactive; path=/;";
 6play.fr#%#//scriptlet('trusted-click-element', 'button#didomi-notice-disagree-button')
 iqbroker.com#%#//scriptlet('set-local-storage-item', 'cookie_usage_accepted', '1')
 all3dp.com#%#//scriptlet('trusted-set-cookie', 'PUR_SUBSCRIPTION', 'PREMIUM')
@@ -13419,7 +13429,6 @@ bk-licht.eu,shirtlabor.de,vanlaack.com#%#//scriptlet("set-cookie", "cookie-prefe
 infoworld.com#%#AG_onLoad(function(){if(-1===document.cookie.indexOf('euconsent-v2')){var a=new MutationObserver(function(){var b=document.querySelector('button.last-focusable-el');b&&b.click();});a.observe(document,{childList:!0,subtree:!0});setTimeout(function(){a.disconnect()},1E4)}});
 boohooman.com#%#document.cookie="dw_cookies_accepted=D; path=/;";
 filmweb.pl#%#//scriptlet("set-constant", "rodo.waitForConsent", "noopPromiseResolve")
-filmweb.pl#%#//scriptlet("set-constant", "rodo.canProfileVisitor", "noopPromiseReject")
 filmweb.pl#%#//scriptlet("set-constant", "rodo.validateStoragePurpose", "noopPromiseResolve")
 filmweb.pl#%#//scriptlet("set-constant", "consentManagerIsOn", "false")
 filmweb.pl#%#//scriptlet("set-constant", "rodo.checkIsDidomiConsent", "noopFunc")
@@ -14345,6 +14354,10 @@ adguard.info,adguard.com,adguard.app##.hello_from_adguard_annoyances_cookies
 !
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/157473
+eboo.lu#@#.cookies-dialog
+! https://github.com/AdguardTeam/AdguardFilters/issues/157407
+@@||cdn.ampproject.org/*/amp-consent*.js$domain=amarujala.com
 ! https://github.com/AdguardTeam/AdguardFilters/issues/157078
 @@||api.usercentrics.eu/settings/$domain=lootboy.de
 @@||app.usercentrics.eu/browser-ui/$script,domain=lootboy.de
