@@ -2539,12 +2539,14 @@ amateurbusters.com#?#.sb_area > .sb_area_headline:contains(Urlaub)
 !--------------------------------------!
 !
 ! VAST video ads - e. g. https://github.com/AdguardTeam/AdguardFilters/issues/135687
+!+ NOT_PLATFORM(ios, ext_android_cb)
 stern.de,desired.de,pcgames.de,t-online.de,vox.de,spieletipps.de,wetter.de,golem.de,autobild.de,buffed.de,gamesaktuell.de,kino.de,pcgameshardware.de,videogameszone.de,familie.de,tvnow.de,welt.de#%#//scriptlet('prevent-xhr', '.damoh.')
 !
 ! infranken.de - removing amazon link, so the incredients are visible in a recipe
 infranken.de#%#//scriptlet('remove-attr', 'href', 'a[rel*="sponsored"]')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/154072
 prosieben.de#%#//scriptlet('set-constant', 'Object.prototype.checkAdProxyAvailability', 'noopFunc')
+! https://github.com/AdguardTeam/AdguardFilters/issues/157906
 ! 20min.ch - fixes video player
 20min.ch#%#(()=>{window.TATM=window.TATM||{},TATM.init=()=>{},TATM.initAdUnits=()=>{},TATM.pageReady=()=>{},TATM.getVast=function(n){return new Promise((n=>{n()}))},TATM.push=function(n){if("function"==typeof n)try{n()}catch(n){console.debug(n)}};})();
 ! https://github.com/AdguardTeam/AdguardFilters/issues/148783
@@ -2658,8 +2660,10 @@ bs.to#%#(function(){var b=window.setTimeout;window.setTimeout=function(a,c){if(!
 bs.to#%#(function() { window.open_ = window.open; var w_open = window.open, regex = /rotumal\.com|ecpms\.net|megdexchange\.com/; window.open = function(a, b) { if (typeof a !== 'string' || !regex.test(a)) { w_open(a, b); } }; })();
 ! krone.at - ad reinjection
 krone.at#%#//scriptlet("set-constant", "googletag.impl.pubads.callbackProxy1", "undefined")
+! https://github.com/AdguardTeam/AdguardFilters/issues/157812
 ! https://github.com/AdguardTeam/AdguardFilters/issues/94953
 ! https://github.com/AdguardTeam/AdguardFilters/issues/66639
+!+ NOT_PLATFORM(ios, ext_android_cb)
 tvnow.de#%#//scriptlet("set-constant", "cbcAdvertisingAdapter.smartClientCoreFacade.config.adReinsertion.homad.enabled", "false")
 ! https://github.com/AdguardTeam/AdguardFilters/issues/8761
 esslinger-zeitung.de#%#AG_onLoad(function() { document.getElementsByClassName("nfy-mediagal-slider-ad")[0].parentNode.parentNode.remove(); });
@@ -2924,6 +2928,7 @@ spiegel.de###Inhalt .relative > .relative > div[class] > section[class="clear-bo
 ||getjad.io/prebid/$script,important,domain=gamepro.de|gamestar.de|moviepilot.de
 ||getjad.io/library/$script,important,domain=gamepro.de|gamestar.de|moviepilot.de
 !#endif
+! https://github.com/AdguardTeam/AdguardFilters/issues/157906
 ! 20min.ch - video player is fixed by JS rule, so advertisement script can be blocked
 !+ PLATFORM(windows, mac, android, ext_chromium)
 ||tdn.da-services.ch/current/20min_durable.js$domain=20min.ch,important
@@ -10294,6 +10299,9 @@ mobile.de##.dsp-placeholder
 bolzano-bozen.it##.dt
 metropolico.org##.e_adv
 euractiv.de##.ea-gat-slot-wrapper
+ebike-news.de##.ebn-billboard
+ebike-news.de##.ebn-billboard-mobil
+ebike-news.de##.ebn-incontent-1
 der-rissener.de##.ed-element
 laborjournal.de##.ed_d
 l-mag.de##.editorial-teaser
