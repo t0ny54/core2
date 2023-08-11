@@ -1173,10 +1173,12 @@ turbopages.org##.page__result > div[class*="type_native"]
 ! Bad: example.org##main > div.ad (should be in specific.txt)
 !
 !
+fujixweekly.com#$?#span[data-ez-ph-id] { display: none !important; }
+giga.de#?#.alice-teaser-list-item:has(> div[id^="giga.de_gruen_startseite_teaser"]:only-child)
+amp2.wiwo.de#?#body > div > div.container:has(> amp-embed[type="outbrain"])
 dexerto.com#?#main.isolate div[data-cy="Container"]:has(> div.col-span-full > div.flex > div.flex > div.top-0 > div[data-ad-unit-id])
 linkedin.com#?#ol.feed-container > li.feed-item:has(> article[data-is-sponsored])
 m.hkgolden.com#?#div[id^="page"] > div[data-role="reply"] + div[class]:not([data-role]):has(div[data-role="ad"])
-m.hkgolden.com#$#html > body[data-app-lightbox] { overflow: auto !important; }
 m.hkgolden.com#$?#body > div[role="dialog"]:has(> div[class]:only-child > div[data-role="ad"]) { remove: true; }
 deccanherald.com#?##topbar > .hide-desktop + div[class] > div[class]:only-child:has(> div[class] > span:contains(/^ADVERTISEMENT$/))
 vikna.tv#?#main > section:has(> div.promo-sidebar> div[id^="div-gpt-ad-"])
@@ -1542,7 +1544,6 @@ dailynkjp.com#$?##im_interstitial_panel { remove: true; }
 mobile.donanimhaber.com#?#div[style^="width: 100%; float: left; position: relative;"] > div[style*="margin: 10px auto; text-align: center; width: 320px; height: 100px;"]:has(> div[id^="div-gpt-ad-"])
 m.economictimes.com#?#.newsList > div[class*=" "]:has(> div > div > a[onclick])
 nbcmontana.com,mynews4.com,nbc16.com,turnto10.com,news4sanantonio.com,nbc24.com,mycbs4.com,wtov9.com,mynbc15.com#?#div[class^="heroLayout_left__"] > ul[class^="heroLayout_heroSecondary__"] > li[class="teaserItem"]:has(> div > [class*="largeRectangleAd_container__"])
-obozrevatel.com#?#div[style^="position:"][style*="relative"]:has(> [src^="https://i.obozrevatel.com/banners/"])
 bunshun.jp#?#aside[role="complementary"] > .block > .block-header > span.title:contains(/^SPECIAL$/)
 yahoo.com#?##YDC-Stream > ul.Wow\(bw\) > .js-stream-content > .controller:has(> [class*="smartphone_"] > a[href^="https://beap.gemini.yahoo.com/"][rel="noopener noreferrer"])
 gematsu.com#?##sidebar > #section:contains(Advertisement)
@@ -1655,6 +1656,8 @@ rambler.ru#?#main > div[class] ~ div[class] > div[class] div[class] > a[href^="h
 !-------JS----------
 !-------------------
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/158207
+quiz-facts.com#%#//scriptlet('prevent-addEventListener', 'DOMContentLoaded', 'interstitial-popup')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/157682
 m.efuxs.com#%#//scriptlet('set-constant', 'add_h2023', 'noopFunc')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/157812
@@ -1805,6 +1808,8 @@ sasisa.ru#%#AG_onLoad(function() { window.Umobi = function() {}; });
 !-------CSS---------
 !-------------------
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/158575
+m.hkgolden.com#$#html > body[data-app-lightbox] { overflow: auto !important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/157914
 gismeteo.ru#$#label[data-title="Объясняем.рф"] { display: none !important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/157986
@@ -2949,6 +2954,14 @@ transfermarkt.de,iyf.tv,macwelt.de,pcwelt.de,xataka.com.mx,shikiho.toyokeizai.ne
 !
 ! SECTION: Regular rules
 !
+gametechwiki.com##.mw-body-content > p
+giga.de###content-block-01F9V7JV1FJ57J4N0HJZQ9MMH7
+businessinsider.in##.amp-flying-carpet-wrapper
+businessinsider.in##.leaderboard-scrollable-btf-cont
+quiz-facts.com##.content-network-space
+amp2.wiwo.de##div[id^="iqadtile"]
+businessinsider.in##.mrec-hp-scrollable-cont
+on3.com##.adhesion
 dexerto.com##div[data-cy="HomepageAdWrapper"]
 premierguitar.com##body div.a_promo
 premierguitar.com##body div.wrapper__interscroller
@@ -3004,8 +3017,8 @@ jagranjosh.com##.stickyTop
 jagranjosh.com##.btf
 gadget.phileweb.com##div.sp__singleBanner
 english.tupaki.com##body #detail_1
-insideevs.uol.com.br,motor1.uol.com.br,rideapart.com,insideevs.com##.apInarticleSmallRes
-insideevs.uol.com.br,motor1.uol.com.br,rideapart.com,insideevs.com###container_3rd_party_service
+motor1.com,insideevs.uol.com.br,motor1.uol.com.br,rideapart.com,insideevs.com##.apInarticleSmallRes
+motor1.com,insideevs.uol.com.br,motor1.uol.com.br,rideapart.com,insideevs.com###container_3rd_party_service
 superluchas.com###AbovePostPlacementWrapper
 superluchas.com##.custom-html
 ||blogterest.net/regular/?i=$subdocument
@@ -4179,7 +4192,7 @@ minkou.jp##.mod-ad-wrap
 koe-koe.com###chumoku_ad
 koe-koe.com###third_ad
 koe-koe.com##.ad_list
-koe-koe.com##div[style$="width:300px;min-height:260px;"]
+koe-koe.com##div[style*="width:300px;min-height:2"]
 eroita.net##.spadv
 smbiz.asahi.com,game.asahi.com##.ad-sp-side-rect
 ||a.adtng.com/get/$xmlhttprequest,redirect=noopvast-2.0,important,domain=mydaddy.cc
@@ -5103,7 +5116,6 @@ irecommend.ru##.adfox_block
 sammobile.com##body > header.navbar-fixed-top + div.container-fluid
 kztarif.ru##.stadck-content
 amazon.de##.sbx-mobile
-obozrevatel.com##.googleBannerStickyWrap
 m.jpnn.com##amp-iframe[src*="-adnow.com/"]
 m.seonews.ru##.detail-banner-wrapper
 beritasatu.com##.flying_carpet-box
@@ -5176,6 +5188,7 @@ aol.com,fossbytes.com##div[class^="AdChoiceContainer"]
 m.crank-in.net##.__uz__third_party_ad
 ||c.mipcdn.com/*/*.js$domain=m.manhuafen.com
 lemonde.fr##.friend.ops--inline
+supleks.jp###footer-banner
 supleks.jp##div[class*="_"][data-height]
 supleks.jp###shop-body > #btn-post + div[style]
 glavcom.ua##amp-iframe[src^="https://go.rcvlink.com/"]
@@ -5782,8 +5795,6 @@ fangraphs.com##div[id^="ra-mobile-unit-"]
 korrespondent.net##amp-iframe[src^="https://recreativ.ru/"]
 pravda.com.ua,korrespondent.net##amp-iframe[src*=".lun.ua/"]
 spiegel.de,www-spiegel-de.cdn.ampproject.org##.ampads
-obozrevatel.com##div.banner-premium
-obozrevatel.com##.banner-300x250[data-slot="mobile_news"]
 cnn.com###social-share_gig_containerParent .PartnerZone
 mobile.donanimhaber.com##body > div[style="float: left;width:100%;"] > div[style="margin:10px auto; text-align:center; width:300px; height:250px;"]
 techrum.vn###revive_banner_mobile_div
@@ -5794,7 +5805,6 @@ yahoo.com##.stream-sm-ad
 zerohedge.com##iframe[src^="//www.dianomi.com"]
 swedroid.se##div[id$="_ad_mobile"]
 swedroid.se##div[id^="swedroid_mobil"] > iframe
-obozrevatel.com##amp-iframe.branding
 m.takvim.com.tr,m.sabah.com.tr##.promo
 /:\/\/[A-Za-z0-9]+.ru\/[A-Za-z0-9]{20,25}.js/$domain=music-radio.ru
 dnpr.com.ua,dp.ua,dialog.ua##amp-iframe[src^="https://m.mixadvert.com/"]
