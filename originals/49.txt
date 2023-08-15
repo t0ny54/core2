@@ -1173,6 +1173,8 @@ turbopages.org##.page__result > div[class*="type_native"]
 ! Bad: example.org##main > div.ad (should be in specific.txt)
 !
 !
+radio.net#?##stationpage-holder > div:has(div[id^="RAD_M_station_incontent-"])
+sueddeutsche.de#?#article > div[data-manual-remove="true"]:has(> div[id^="iqadt"])
 seikeidouga.blog.jp#?##ad
 fujixweekly.com#$?#span[data-ez-ph-id] { display: none !important; }
 giga.de#?#.alice-teaser-list-item:has(> div[id^="giga.de_gruen_startseite_teaser"]:only-child)
@@ -1199,7 +1201,7 @@ e1.ru#?##app > div[class] > div[class]:has(> div[class] > a + div > svg[width="6
 bicycling.com#?#section > div[class]:has(> .ad-container)
 zockify.de#?#.embed-responsive:has(> .embed-responsive-item > .vm-placement)
 tagesspiegel.de#?#article div:has(> div[id^="iqadtile"])
-cosmopolitan.com,thepioneerwoman.com,roadandtrack.com,womansday.com,harpersbazaar.com,countryliving.com,womenshealthmag.com,autoweek.com#?#section > div[class*="css-"]:has(> div[id^="gpt-ad"])
+bestproducts.com,cosmopolitan.com,thepioneerwoman.com,roadandtrack.com,womansday.com,harpersbazaar.com,countryliving.com,womenshealthmag.com,autoweek.com#?#section > div[class*="css-"]:has(> div[id^="gpt-ad"])
 elle.com,elledecor.com,runnersworld.com#?#div[class*="css-"]:has(> div.ad-container)
 tmailweb.com#?#.row > div[class^="col-"]:has(> div.d-none > ins.adsbygoogle)
 popularmechanics.com#?#section > div[class*=" "]:has(> div[class]:first-child + .ad-container:last-child)
@@ -1687,9 +1689,9 @@ m.proporn.com#%#//scriptlet("set-cookie", "no_postitial_content", "1")
 ! https://github.com/AdguardTeam/AdguardFilters/issues/136216
 timesnownews.com#%#//scriptlet('hide-in-shadow-dom', '.aftAd')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/134894
-pornhub.com,pornhub.org,pornhub.net,pornhubthbh7ap3u.onion#%#//scriptlet('set-constant', 'abp1', '0')
+pornhub.com,pornhub.org,pornhub.net#%#//scriptlet('set-constant', 'abp1', '0')
 ! https://forum.adguard.com/index.php?threads/12443/
-pornhub.com,pornhubthbh7ap3u.onion#%#AG_onLoad(function() { if (typeof redirect !== 'function') return; var str = redirect.toString(); var m = str.match(/\'(\/view.*)\'/); if (m.length != 2) return; var link = m[1]; window.location.href = m[1]; });
+pornhub.com#%#AG_onLoad(function() { if (typeof redirect !== 'function') return; var str = redirect.toString(); var m = str.match(/\'(\/view.*)\'/); if (m.length != 2) return; var link = m[1]; window.location.href = m[1]; });
 ! https://github.com/AdguardTeam/AdguardFilters/issues/130689
 tech.hindustantimes.com#%#//scriptlet('hide-in-shadow-dom', '.ampAds')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/129754
@@ -1809,6 +1811,8 @@ sasisa.ru#%#AG_onLoad(function() { window.Umobi = function() {}; });
 !-------CSS---------
 !-------------------
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/158759
+kinobar.vip#$?#.has-brand { margin-top: 0 !important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/158575
 m.hkgolden.com#$#html > body[data-app-lightbox] { overflow: auto !important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/157914
@@ -2797,7 +2801,7 @@ timesofindia.indiatimes.com#@#style[type="text/css"] + div[class]:not([id]):not(
 ! https://github.com/AdguardTeam/AdguardFilters/issues/3755
 @@||m.haberturk.com/adscbg/mdet.js
 ! https://github.com/AdguardTeam/AdguardFilters/issues/3616
-pornhub.com,pornhubthbh7ap3u.onion#@#div > [style*="width: 100%;"]:first-child
+pornhub.com#@#div > [style*="width: 100%;"]:first-child
 ! https://forum.adguard.com/index.php?threads/16921/
 m.veporn.net#@#.advertisment
 m.veporn.net#@##topAds
@@ -2955,6 +2959,8 @@ transfermarkt.de,iyf.tv,macwelt.de,pcwelt.de,xataka.com.mx,shikiho.toyokeizai.ne
 !
 ! SECTION: Regular rules
 !
+happymag.tv###site-leader
+autobild.es##div[class^="ad-catfish"]
 mb.jorudan.co.jp##.area > div[height="50"][style="height:50px !important;"]
 gametechwiki.com##.mw-body-content > p
 giga.de###content-block-01F9V7JV1FJ57J4N0HJZQ9MMH7
@@ -3307,7 +3313,7 @@ cityheaven.net##.adm-layoutshift-loading
 m.ura.news##div[class$="placeholder"]
 search.yahoo.co.jp##.TSg_Ad
 citimuzik.com##div[class*="ai-viewport-"]
-nknews.jp###im_overelay
+nknews.jp###im_overlay
 nknews.jp###im_panel_b
 thehindu.com##.flooting-ad
 nishinippon.co.jp##.c-ad-header
@@ -3397,7 +3403,6 @@ minkara.carview.co.jp##.mileage-list > li[style="padding: 0;"]
 myhomebook.de##.article__content > p > iframe[src^="https://embed.contentverticals.de"]
 cookdoor.jp##.main_bnr_area
 phoneia.com##.widget_custom_html
-dizikorea.com##.mst_ad
 techraptor.net##.detail-page-lb1-ad
 erologz.com##.bann
 erologz.com##.sifra
@@ -6401,7 +6406,7 @@ babycenter.de###topAdContainerMobile
 rg.ru###yandex_ads_hor_pda
 mobil.pcwelt.de,apkmirror.com##.OUTBRAIN
 4g.co.uk##.ad4
-news18.com,m.economictimes.com,m.haberler.com,redtube.com,redtube.net,pornhub.com,pornhub.org,pornhub.net,pornhubthbh7ap3u.onion##.adContainer
+news18.com,m.economictimes.com,m.haberler.com,redtube.com,redtube.net,pornhub.com,pornhub.org,pornhub.net##.adContainer
 bhaskar.com,divyabhaskar.co.in,fashion101.in##.ad_320
 m.delfi.lt##.ad_atop
 seclub.org##.ad_block
