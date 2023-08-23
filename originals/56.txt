@@ -33,7 +33,6 @@ youtube.com,youtubekids.com,youtube-nocookie.com##+js(json-prune, playerResponse
 youtube.com,youtubekids.com,youtube-nocookie.com##+js(set, ytInitialPlayerResponse.playerAds, undefined)
 youtube.com,youtubekids.com,youtube-nocookie.com##+js(set, ytInitialPlayerResponse.adPlacements, undefined)
 youtube.com,youtubekids.com,youtube-nocookie.com##+js(set, ytInitialPlayerResponse.adSlots, undefined)
-youtube.com,youtubekids.com,youtube-nocookie.com##+js(set, playerResponse.adSlots, undefined)
 youtube.com,youtubekids.com,youtube-nocookie.com##+js(set, playerResponse.adPlacements, undefined)
 !#if ext_devbuild
 youtube.com,youtubekids.com,youtube-nocookie.com#@#+js(json-prune, playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots, playabilityStatus.liveStreamability)
@@ -440,8 +439,10 @@ facebook.com,facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion##div
 facebook.com,facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion##div[aria-posinset]:has(a[aria-label="広告"])
 facebook.com,facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion##div[aria-posinset] :is(h3, h4) span > a[href]:not([href^="/groups/"]):not([href*="section_header_type"]):matches-attr(href="/__cft__\[0\]=[-\w]{270,}/"):upward(div[aria-posinset])
 facebook.com,facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion##div[aria-describedby]:not([aria-posinset]) :is(h3, h4) span > a[href]:not([href^="/groups/"]):not([href*="section_header_type"]):matches-attr(href="/__cft__\[0\]=[-\w]{270,}/"):upward(div[aria-describedby])
-facebook.com,facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion###watch_feed div:not([class]) > div:not([class]) div[class] span[class] > a span[aria-labelledby]:has(span[class]:has-text(/^S$/)):has(span[class]:has-text(/^p$/)):has(span[class]:has-text(/^d$/)):upward(div:not([class]) > div:not([class]))
+facebook.com,facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion###watch_feed div:not([class]) > div:not([class]) div[class] span[class] > a span[aria-labelledby]:has(> span[style="display: flex;"] > span[class]:has-text(/^S$/)):has(> span[style="display: flex;"] > span[class]:has-text(/^p$/)):has(> span[style="display: flex;"] > span[class]:has-text(/^d$/)):upward(div:not([class]) > div:not([class]))
 facebook.com,facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion###watch_feed div:not([class]) > div:not([class]) div[class] span[class] > a[aria-label="広告"]:upward(div:not([class]) > div:not([class]))
+facebook.com,facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion###watch_feed div:not([class]) > div:not([class]) div[class] [class] > a[href*="utm_source=facebook"] span[class] > span[class][style*="-webkit-line-clamp"]:has-text(広告):upward(div:not([class]) > div:not([class]))
+
 !facebook.com,facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion##div[role="feed"] > div[class]:has([data-ad-preview])
 m.facebook.com,touch.facebook.com##.m[data-type="vscroller"] > :is(.bg-s2, .bg-s3):has(+ :is(.bg-s2, .bg-s3) + :is(.bg-s2, .bg-s3):has(> .m > .m .nb[style*="clip-path:inset(0 0 0 0 round 4px)"] > [style*="margin-top:1px;"][style*="margin-left:1px;"]))
 m.facebook.com,touch.facebook.com##.m[data-type="vscroller"] > :is(.bg-s2, .bg-s3):has(+ :is(.bg-s2, .bg-s3):has(> .m > .m .nb[style*="clip-path:inset(0 0 0 0 round 4px)"] > [style*="margin-top:1px;"][style*="margin-left:1px;"]))
@@ -11067,9 +11068,11 @@ gamefront.com##+js(nano-stb, , 10000)
 
 ! https://github.com/uBlockOrigin/uAssets/issues/6339
 ! https://github.com/uBlockOrigin/uAssets/issues/8700
+! https://github.com/uBlockOrigin/uAssets/issues/19428
 !#if env_chromium
 washingtonpost.com##+js(acs, Promise, 'overlay')
 washingtonpost.com##+js(acs, document.createElement, 'overlay')
+washingtonpost.com##+js(rmnt, script, adblock)
 !#endif
 washingtonpost.com##^script:has-text(_0x)
 washingtonpost.com##.remainder-content .db-ns.dn
@@ -11229,30 +11232,6 @@ www.amazon.co.jp,www.amazon.com##+js(xml-prune, xpath(//*[name()="Period"][.//*[
 ! https://github.com/NanoMeow/QuickReports/issues/1570
 @@||novelgo.id^$ghide
 novelgo.id##ins.adsbygoogle
-
-! https://www.reddit.com/r/uBlockOrigin/comments/ci5vky/antiadblocker_dailymailcouk/
-! https://github.com/uBlockOrigin/uAssets/issues/512
-! https://github.com/gorhill/uBO-Extra/issues/112
-! https://github.com/uBlockOrigin/uAssets/issues/6464
-! https://github.com/uBlockOrigin/uAssets/issues/17713
-dailymail.co.uk##+js(aopr, Notification)
-dailymail.co.uk##+js(acs, document.addEventListener, adverts)
-! dailymail.co.uk##+js(set, atob, trueFunc)
-||dailymail.co.uk/static/mol-adverts/demo/
-! https://github.com/NanoMeow/QuickReports/issues/1616
-dailymail.co.uk##.pufftext > .sponsored:upward(3)
-dailymail.co.uk##.pufftext:has-text(/SPONSORED/):upward(2)
-dailymail.co.uk##.mol-ads-label-container
-! https://github.com/NanoMeow/QuickReports/issues/4042
-games.dailymail.co.uk##+js(nano-sib)
-@@||cdn.arkadiumhosted.com/advertisement/*-ads.js$script,domain=games.dailymail.co.uk
-games.dailymail.co.uk##+js(rpnt, script, "isAdBlockerEnabled":true, "isAdBlockerEnabled":false)
-games.dailymail.co.uk##display-ad-component, [class^="DisplayAd"], .ark-ad-message:style(visibility: collapse !important)
-games.dailymail.co.uk##div.RightRail__displayAdRight___1U1Q7llw
-games.dailymail.co.uk##.GameTemplate__displayAdTop___3kN-G-hd
-! https://www.reddit.com/r/uBlockOrigin/comments/135ix4x/
-||dailymail.co.uk/feeds/commercial/topVideos.json
-||dailymail.co.uk/*/client/sync/fpc?$image
 
 ! https://github.com/NanoMeow/QuickReports/issues/1576
 lyricsongation.com##+js(nobab)
