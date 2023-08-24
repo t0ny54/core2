@@ -7053,12 +7053,15 @@ $cookie=/blcrm|bltsr|zmFQeXtI|JPIqApiY|computer/,domain=dzen.ru|baby.ru|business
 dzen.ru#%#//scriptlet('remove-cookie', '/blcrm|bltsr|zmFQeXtI|JPIqApiY|computer/')
 !
 ! Dzen main page
+dzen.ru##div[class^="currency-rates_"] + div[class^="geo-and-currency-widget_"]
+dzen.ru#?#div[class*="_yandexSearchContainer-"] ~ div[class][id] > div[id] > div:has(> div > a[href^="https://yandex.ru/an/"])
 [$path=/^\/$|\/\?/]dzen.ru###ya-dist
 dzen.ru##div[class^="dzen-desktop__link_bro-"]
 dzen.ru##div[class^="dzen-desktop__teaser-"]
 [$path=/a/]dzen.ru##div[class*="_position_"][class$="_direct"]
 !
 ! Dzen News
+dzen.ru#?#div[aria-label="Лента Дзена"] article.card-wrapper:has(div[class^="feed-single-desktop-floors-v2__title-eI"]:empty)
 dzen.ru##.news-app__content div[class*="__column_myTarget mg-grid__item"] div[class*="__loader "]
 [$path=/pogoda]dzen.ru##.adv_type_rtb
 !
@@ -7079,8 +7082,9 @@ dzen.ru##.card-rtb-one-column-stub
 [$path=/media]dzen.ru##div[class$="__ad-content"]
 !
 ! Dzen Video
-dzen.ru##div[class*="videoCardAd-"]
-dzen.ru##._is-header-after-player > div[class$="-content__description"] ~ div[class*="__videoCard"]
+dzen.ru##._is-header-after-player > div[class$="-content__description"] ~ div > div[id^="D-A-"]
+dzen.ru##div[class$="-recommended"] div[id^="R-I-"]
+dzen.ru##.viewer-layout__sidebar div[id^="D-A-"]
 ! ad in the zen videos
 ||strm.yandex.*/get/$xmlhttprequest,redirect=noopvast-3.0,domain=dzen.ru
 [$path=/video]dzen.ru##div[class$="sidebar__item"] div[class*="-sidebar__ad"]
@@ -7520,6 +7524,7 @@ yandex.*##.card-header-media-view__list > div.card-header-media-view__advert-wra
 yandex.*#?#.business-card-title-view__actions > div.business-card-title-view__advert
 yandex.*#?#.business-card-title-view__actions > div.business-card-title-view__advert + div.business-card-title-view__call-to-action
 [$path=/maps]yandex.*#?#.business-card-view__overview > div.business-card-view__section > div.business-card-view__offers:upward(1)
+[$path=/maps]yandex.*##.promo-button
 !
 ! Yandex.Pogoda
 ||yandex-pogoda.static-storage.net/*/*/*$script,replace=/adblock//
@@ -9781,6 +9786,10 @@ kadrovik01.com.ua,kom-dir.ru,gd.ru,buhsoft.ru,dirklinik.ru,fd.ru,business.ru,pro
 !
 !
 !
+||genshin.ru/wp-content/uploads/2023/05/bg_genshin2-min.png
+genshin.ru##.td-banner-wrap-full
+forbes.kz#?#.nav__elements > li.nav__element:has(> a[href^="/redirect?"])
+mixnews.lv##div[id^="advads-"]
 synthira.ru##.ahuelguardd
 pogoda.onliner.by##div[class$="_fixed-height"]
 freesoft.ru##.listing-new__item
@@ -20575,6 +20584,7 @@ gamer-info.com###games-db-main-listblock > a[class="gmv2-it"] + div[class]
 !
 !
 ! START: mail.ru
+e.mail.ru##.letter-list-item-adv
 lady.mail.ru##.ph-whiteline ~ div#portal-menu ~ span > div
 otvet.mail.ru##div[class*="adv-slot-"]
 mail.ru##div[data-testid="grid-header"] > div.toolbar
@@ -22577,9 +22587,6 @@ sinoptik.ua$$script[tag-content="SIN.AdsLoader.adBlockDetector()"][max-length="1
 !
 ! https://github.com/AdguardTeam/AdguardFilters/issues/68143
 budport.com.ua##body > div[style*="text-align:center"][style*="z-index:9999"]
-! https://github.com/AdguardTeam/AdguardFilters/issues/53023
-ps4.in.ua#@#.adsbygoogle
-ps4.in.ua#$#.adsbygoogle { height: 1px!important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/102060
 !+ NOT_PLATFORM(windows, mac, android)
 @@||pubads.g.doubleclick.net/gampad/ads?sz=640x360&ad_rule=0&iu=%2F82479101%2FTsn.ua%2FPREroll-1_Cut&cust_params=$domain=imasdk.googleapis.com
@@ -22629,8 +22636,6 @@ hitline.org.ua##.bantop
 @@||green-way.com.ua/themes/greenway/assets/javascript/ads.js
 ! https://github.com/AdguardTeam/AdguardFilters/issues/36576
 @@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=gnatkovsky.com.ua
-gnatkovsky.com.ua#@#.adsbygoogle
-gnatkovsky.com.ua#$#.adsbygoogle { height: 1px!important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/32068
 @@||cdnjs.cloudflare.com/ajax/libs/fuckadblock/3.2.1/fuckadblock.min.js$domain=bankomap.com.ua
 ! https://github.com/AdguardTeam/AdguardFilters/issues/30987
@@ -22643,9 +22648,6 @@ investgazeta.ua###please2
 ! https://github.com/AdguardTeam/AdguardFilters/issues/16133
 gaming.co.ua##body > div[id][class][style*="z-index: 9999"]
 gaming.co.ua##body > div[id][class][style*="z-index: 9999"] + div[class][style*="z-index: 9999"]
-! https://github.com/AdguardTeam/AdguardFilters/issues/11927
-biblprog.org.ua#@#.adsbygoogle
-biblprog.org.ua#$#.adsbygoogle { height: 1px!important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/10295
 ! simpsonsua.com.ua,simpsonsua.tv
 ||franecki.net^$domain=tortuga.wtf,redirect=nooptext,important
@@ -24267,7 +24269,6 @@ price.ua#@#iframe[name^="google_ads_iframe"]
 ! https://github.com/AdguardTeam/AdguardFilters/issues/69680
 @@||ua-vast.adtelligent.com/vmap?aid=$xmlhttprequest,domain=inter.ua
 ! news.online.ua - broken bottom images
-news.online.ua#@#.adsbygoogle
 @@||domicad.com.ua/uploads/banner/kolona%20ua.gif
 ! https://github.com/AdguardTeam/AdguardFilters/issues/49541
 @@||pridefood.com.ua/images/adv*.jpg
