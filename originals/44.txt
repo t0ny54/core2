@@ -513,6 +513,7 @@ pointi.jp#%#//scriptlet('abort-on-property-read', 'adBlockDetected')
 ! anti-adb script
 ||minorasu.basf.co.jp/shared/scripts/vendor/piano/tag_prod.js
 ! https://github.com/AdguardTeam/AdguardFilters/issues/138364
+egotter.com#%#//scriptlet('set-constant', 'adBlockerDetected', 'false')
 egotter.com#$#.adsense-container { height: 1px !important; }
 egotter.com#@#.adsense-container
 egotter.com#@#ins.adsbygoogle
@@ -1029,6 +1030,7 @@ otonasalone.jp,sumaiweb.jp#?#._popIn_infinite_page > a._popIn_recommend_article_
 !
 !
 !
+taittsuu.com#?##posts > div.post-wrap > a[href*="_ad_"][target="_blank"]:upward(1)
 diskgarage.com#?##cm_sidebar > div[style="margin:0px 0px 10px;"]:has(> a[onclick][target="_blank"])
 sakidori.co#?#.articleBody > div.media_frame:has(> a[data-category="affiliate"][href^="https://www.amazon.co.jp/"])
 web.playerapp.tokyo#?#div[class] > aside:has(> div[id^="gpt-ad-"])
@@ -2379,6 +2381,8 @@ nijinchu.com#?#article > div.entry_content > h3:contains(おすすめ商品)
 !-------JS----------
 !-------------------
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/160020
+japaneseasmr.top#%#//scriptlet('prevent-window-open')
 ! skip ad
 portal.game.sycasualgames.com#%#//scriptlet('adjust-setInterval', 'timerId', '1000')
 ! ex. https://fm.sekkaku.net/mail/1303202134/
@@ -2877,6 +2881,7 @@ kuruma-news.jp,magmix.jp,trafficnews.jp$$div[data-history="photo_extra"]
 /wp-content/plugins/amazonjs/*
 !
 ! Malware/Phishing
+://jp-hotline-*.amazonaws.com/$document
 ://direct.*.is/index?token=$document
 ://smbc-*.shop/$document
 ://*.*.xyz/jp.html^$document
@@ -2986,7 +2991,7 @@ _ap/signin*?_encoding=UTF8&openid.assoc_handle=jpflex&openid.claimed_id=&action=
 !
 ! For URL shorteners or simple sites with frequently changed ad servers.
 ! Incorrectly blocked domains can be excluded using regex(synchronize this regexp in all filters)
-/^(?!.*(sharecast.ws|bunnycdn.ru|bootstrapcdn.com|cdn.ampproject.org|cloudflare.com|cdn.staticfile.org|disqus.com|disquscdn.com|dmca.com|ebacdn.com|facebook.net|fastlylb.net|fbcdn.net|fluidplayer.com|fontawesome.com|github.io|google.com|googleapis.com|googletagmanager.com|gstatic.com|jquery.com|jsdelivr.net|jwpcdn.com|jwplatform.com|polyfill.io|recaptcha.net|shrink.pe|twitter.com|ulogin.ru|unpkg.com|userapi.com|vidazoo.com|vk.com|yandex.|yastatic.net|ytimg.com|zencdn.net|player|youtube.com|cackle.me|googleoptimize.com|vuukle.com|chatango.com|twimg.com|google-analytics.com|hcaptcha.com|raincaptcha.com|media-imdb.com|blogger.com|hwcdn.net|instagram.com|wp.com|imgsmail.ru)).*$/$third-party,script,_____,domain=doki1001.com|wiki.ja-jp.nina.az|uraaka-joshi.com
+/^(?!.*(statically.io|sharecast.ws|bunnycdn.ru|bootstrapcdn.com|cdn.ampproject.org|cloudflare.com|cdn.staticfile.org|disqus.com|disquscdn.com|dmca.com|ebacdn.com|facebook.net|fastlylb.net|fbcdn.net|fluidplayer.com|fontawesome.com|github.io|google.com|googleapis.com|googletagmanager.com|gstatic.com|jquery.com|jsdelivr.net|jwpcdn.com|jwplatform.com|polyfill.io|recaptcha.net|shrink.pe|twitter.com|ulogin.ru|unpkg.com|userapi.com|vidazoo.com|vk.com|yandex.|yastatic.net|ytimg.com|zencdn.net|player|youtube.com|cackle.me|googleoptimize.com|vuukle.com|chatango.com|twimg.com|google-analytics.com|hcaptcha.com|raincaptcha.com|media-imdb.com|blogger.com|hwcdn.net|instagram.com|wp.com|imgsmail.ru)).*$/$third-party,script,_____,domain=doki1001.com|wiki.ja-jp.nina.az|uraaka-joshi.com
 !
 ! ###banner
 iyasiya.com,adacomi.com,pref.shimane.lg.jp,pref.osaka.lg.jp,illust-ai.com,nan-net.com,radiolife.com,keimei.ne.jp,5ch.net,bbspink.com,crank-in.net###banner
@@ -3036,6 +3041,9 @@ gundamlog.com###more > iframe[src^="https://richlink.blogsys.jp"]
 !
 !
 !
+momon-ga.com###main > div[style^="max-width: 1000px; width:"]
+momon-ga.com###main > div.home-h
+gizmodo.jp###gz-recommendedBottom-outerAd
 knb.ne.jp##.site-bottom-flux
 knb.ne.jp##.site-top-banner
 tv.yahoo.co.jp##.adNm
@@ -6718,6 +6726,7 @@ www.ne.jp##td[width="100%"][valign="top"][nowrap][bgcolor="#B0BCFF"] > div[align
 akb48rompen.com##.autopagerize_page_element > b
 sutekinakijo.com,akb48rompen.com##.left-container > div.plugin-memo:last-child
 /\/bnr_side_(kiso3|octopass)\.jpg/$domain=proengineer.internous.co.jp
+wiki3.jp###wiki_menu > div.uk-sticky-placeholder
 ||wiki3.jp/assets/image/yomoyama_advertisement.png
 twisave.com##.tweet-list > div[style="text-align: center; padding: 20px; margin-bottom: 20px; background-color: #EEE; positino: relative;"]
 twisave.com##div[style="padding-top: 15px; margin-bottom: 15px; height: 60px; text-align: center"]

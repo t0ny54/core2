@@ -1,9 +1,9 @@
 ![Adblock Plus 2.0]
-! Checksum: T1O/a6cJo6xM62YlPCuskQ
+! Checksum: 2AXLIKRS9F+b1PX3UQacSA
 ! Title: AdGuard Mobile Ads filter (Optimized)
 ! Description: Filter for all known mobile ad networks. Useful for mobile devices.
-! Version: 2.0.44.75
-! TimeUpdated: 2023-08-24T11:30:20+00:00
+! Version: 2.0.44.77
+! TimeUpdated: 2023-08-25T13:02:18+00:00
 ! Expires: 4 days (update frequency)
 ||dad-api.dcard.tw^
 ||ad-splash-tracking.hktvmall.com^
@@ -932,6 +932,9 @@ yandex.*#$?#:matches-path(/q)body.page_qArticleRoute div#page > div[class]:first
 turbopages.org##div[class*="type_adfox"]
 turbopages.org##.turbo-advert
 turbopages.org##.page__result > div[class*="type_native"]
+hog.mobi#?#.content__info:has(> ul.info__list > li.info__item > div.info__link > div#video_view_mobile_under_player-adv)
+hog.mobi#?#.content__body > section.related-view:has(> div[id$="-adv"])
+hog.mobi#?#.content__body > div.content__info:has(> ul.info__list > li.info__item > h3.info__title.info__title:contains(Sponsored by))
 fontanka.ru#?#header > div[class] > div[class]:has(> div[data-test="widget-cms-block"])
 sexu.site#?#.info__item:has(> .info__link > div[id$="_player-adv"])
 notebookcheck.net#?#.nbc-right-float-inline:has(> div[id^="adngin-"])
@@ -1376,6 +1379,8 @@ m.efuxs.com##+js(set-constant, add_h2023, noopFunc)
 uraaka.com##+js(addEventListener-defuser, touchmove, preventDefault)
 ura.news##+js(abort-on-property-read, yaContextCb)
 gameinn.jp##+js(abort-current-script, navigator.userAgent, /document\.write[\s\S]*?BANNER_/)
+m.proporn.com##+js(set-cookie, playcnt, 1)
+m.proporn.com##+js(set-cookie, no_postitial_content, 1)
 pornhub.com,pornhub.org,pornhub.net##+js(set-constant, abp1, 0)
 m.viptube.com##+js(set-constant, player.postitialTimeout, 0)
 thestudentroom.co.uk##+js(remove-class, fixed_ad, #header.fixed_ad)
@@ -1391,13 +1396,17 @@ m.sunporno.com##+js(abort-current-script, $, exoMobilePop)
 news.mynavi.jp##+js(addEventListener-defuser, /^(?:scroll|touchmove|wheel)$/, preventDefault)
 mudainodocument.com##+js(addEventListener-defuser, /^(?:mousewheel|touchmove)$/)
 m.nuvid.*##+js(set-constant, player.postitialTimeout, 0)
+m.nuvid.*##+js(set-cookie, no_postitial_video, 1)
 m.nuvid.*##+js(abort-on-property-read, mobileAdvPop)
 liquipedia.net##+js(remove-class, mobile-sticky-ad-is-active, body)
+vivud.com##+js(set-cookie, rich_media, 1)
 idaprikol.ru##+js(remove-attr, data-universal-link, body)
 mediafire.com##+js(set-constant, InfCustomSTAMobileFunc, noopFunc)
 m.hd21.com##+js(set-constant, player.postitialTimeout, 0)
+m.hd21.com##+js(set-cookie, no_postitial_video, 1)
 m.hd21.com##+js(abort-on-property-read, mobileAdvPop)
 straitstimes.com##+js(abort-current-script, bindPostitial)
+m.economictimes.com##+js(set-cookie, inter, 1)
 supleks.jp##+js(abort-current-script, document.getElementsByClassName, adBlocked)
 moneycontrol.com##+js(set-constant, initializeInterstitial, noopFunc)
 m.iyf.tv##+js(nano-setInterval-booster, isPeriodic, , 0.02)
@@ -4761,13 +4770,6 @@ mail.yahoo.com##a[href*="beap.gemini.yahoo.com/bmclk"]
 mail.yahoo.com##form[name="showFolderForm"] > div.mb
 m.rp5.by,m.rp5.kz,m.rp5.ru##div[onclick*="/reClickAdvert.php?key="]
 gizchina.com,01net.com,ghacks.net,sagligabiradim.com##.mrf-adv
-||momon-ga.com/*/pickup1.js
-||momon-ga.com/*/pickup2.js
-momon-ga.com###lite_link > .list-box
-momon-ga.com##.section-box > .plugin-blogroll
-momon-ga.com##.article-body-more > .post-footer
-momon-ga.com##.content > div[style="margin-bottom:12px;"]
-momon-ga.com##.container-inner > div[style="margin-bottom:12px;"]
 digit.in##.footerCatfishAdArea
 digit.in##iframe[src^="/blockarticledetailad/"][title="Advertisement"]
 thesaurus.weblio.jp##.adThesaurus

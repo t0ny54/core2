@@ -1762,6 +1762,8 @@ teleboy.ch#@#.adWrapper
 ! Bad: example.org##main > div.ad (should be in specific.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/159998
+android-hilfe.de#?#.js-replyNewMessageContainer > .message--post:not([data-author]):has(> .message-inner > .message-cell--user .message-name > a.username:contains(/^Anzeige$/))
 ! https://github.com/AdguardTeam/AdguardFilters/issues/159553
 finanzen.net#?#.page-content__item:has(> div[class^="fin-ob-"])
 ! https://github.com/AdguardTeam/AdguardFilters/issues/158876
@@ -2708,6 +2710,12 @@ menshealth.de#%#function google_ad_request_done() {};
 !--------------------------------------!
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/159998
+! https://github.com/AdguardTeam/CoreLibs/issues/1800
+!#if (adguard_app_windows || adguard_app_mac || adguard_app_android)
+android-hilfe.de#$#.message-main { height: auto !important; }
+android-hilfe.de#$#.p-body-sidebar .block-container { height: auto !important; }
+!#endif
 ! https://github.com/AdguardTeam/AdguardFilters/issues/158944
 chip.de#$#section.Chapter.wrapper-safe[style^="min-height:"] { min-height: auto !important; }
 ! xnxx-sexfilme.com preroll ad
@@ -3037,6 +3045,9 @@ formel1.de,krautundrueben.de,motorsport-total.com,traktorpool.de,fnweb.de,laborj
 !
 !
 !
+android-hilfe.de##.billboard-ad-top
+android-hilfe.de##div[style="float: left;padding-right:0px;padding-top:0px;min-height:255px;min-width:300px;"]
+||email.t-online.de/res/*/frame/anzeige_hor.gif
 dazn.com##div[class^="AdBanner_adBannerWrapper_"]
 vox.de##.voxde-billboard-format
 vox.de##.rtli-master-morecontent__teaser--gujteaser
@@ -7927,6 +7938,8 @@ wetter.com#@#div[id^="div-gpt-"]
 ||vulkanbet.pro^$popup
 ||vulkanbetting.biz^$popup
 $stylesheet,subdocument,third-party,xmlhttprequest,domain=canna-power.to|canna.to
+/as1.php$domain=boerse.ai|boerse.am|boerse.im|boerse.kz|boerse.sx|boerse.tw
+/b.php$domain=boerse.ai|boerse.am|boerse.im|boerse.kz|boerse.sx|boerse.tw
 ^what=zone^$domain=ww3.cad.de|ww4.cad.de
 |http://$subdocument,third-party,domain=bonimail.de
 ||112-magazin.de/images/banners/
@@ -7979,6 +7992,8 @@ $stylesheet,subdocument,third-party,xmlhttprequest,domain=canna-power.to|canna.t
 ||aktuell-kl.de/images/banners/
 ||akustik-gitarre.com/uploads/tx_ricrotation/
 ||algarve-entdecker.com/wp-content/uploads/*/xbanner-
+||alles-mahlsdorf.de/wp-content/uploads/*-Banner-
+||alles-mahlsdorf.de/wp-content/uploads/*-werbung-
 ||allround-pc.com/com$image
 ||altesrad.net/phpBB3/images/banner/
 ||amazonaws.com/bnp_657x209_$domain=finanzen.net
@@ -8088,8 +8103,6 @@ $stylesheet,subdocument,third-party,xmlhttprequest,domain=canna-power.to|canna.t
 ||bluray-disc.de/images/banner/
 ||boerse-online.de/images/Postbank-75x25.png
 ||boerse-social.com/media/Content/Partner/
-||boerse.im/as1.php
-||boerse.im/b.php
 ||boersennews.de/images/smartbroker/
 ||bolzano-bozen.it/images/banner/
 ||bolzano-bozen.it/images/logo/
@@ -10033,6 +10046,7 @@ kauf6.com##.advertisments
 speedweek.com##.advheader
 smartdroid.de##.advorp1
 erf.de,greenbyte.ch,rtl.de##.adwrapper
+rtl.de##.adwrapper--mobile
 guteporno.com##.aff-inhalt-geil-spalte
 fitbook.de,myhomebook.de,stylebook.de,techbook.de,travelbook.de##.affiliate-amex
 einsteiger-keyboard.de##.affiliate-button
@@ -10245,6 +10259,7 @@ fairaudio.de##.candy-top
 filmlaune.de##.card-streaming-btns
 neuwagen.de##.cardealers
 anzeigervomrottal.ch##.carousel
+alles-mahlsdorf.de##.category-werbung-kopfzeile
 all-electronics.de,automobil-produktion.de,automotiveit.eu,chemietechnik.de,fertigung.de,fluid.de,instandhaltung.de,ke-next.de,kgk-rubberpoint.de,ki-portal.de,neue-verpackung.de,pharma-food.de,plastverarbeiter.de,produktion.de,technik-einkauf.de,werkzeug-formenbau.de##.ce_banneradbox
 e-formel.de##.ce_plista
 technik-einkauf.de##.ce_promotionbox
@@ -11608,6 +11623,7 @@ t-online.de##section[data-stage-layout^="custom_nativendo_"]
 stol.it#?##ContainerFull:-abp-has(a:-abp-contains(Anzeige))
 abendzeitung-muenchen.de#?#article[class^="teaser nummer-"]:-abp-has(span.specialfeature)
 all-electronics.de,automotiveit.eu,produktion.de#?#.ce_topicbox:-abp-has(.label-ad-highlight)
+alles-mahlsdorf.de#?#.elementor-section:-abp-has(h2.elementor-heading-title:-abp-contains(Werbung))
 android-hilfe.de#?#article.message--post:-abp-has(span.username:-abp-contains(Anzeige))
 apfeltalk.de#?#div.wpb_text_column:-abp-has(h5:-abp-contains(Werbung))
 apfeltalk.de#?#div.wpb_text_column:-abp-has(h6:-abp-contains(Werbung))
