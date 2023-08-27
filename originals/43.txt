@@ -2712,6 +2712,7 @@ menshealth.de#%#function google_ad_request_done() {};
 !
 ! https://github.com/AdguardTeam/AdguardFilters/issues/159998
 ! https://github.com/AdguardTeam/CoreLibs/issues/1800
+! TODO: remove when/if it will be fixed in CoreLibs
 !#if (adguard_app_windows || adguard_app_mac || adguard_app_android)
 android-hilfe.de#$#.message-main { height: auto !important; }
 android-hilfe.de#$#.p-body-sidebar .block-container { height: auto !important; }
@@ -6195,6 +6196,12 @@ tagesspiegel.de###urban-teaser1
 ! Good: ||example.org/video-links$replace=/vast":/vast_":/
 ! Bad:  ||example.org/video-links (should be in specific.txt)
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/159998
+! https://github.com/AdguardTeam/CoreLibs/issues/1800
+! TODO: remove when/if it will be fixed in CoreLibs
+!#if (adguard_app_windows || adguard_app_mac || adguard_app_android)
+||android-hilfe.de^$replace=/<head\/><link/<head><link/,document
+!#endif
 ! https://github.com/AdguardTeam/AdguardFilters/issues/158739
 ||videos.giga.de/homad/giga-ssl.json$replace=/"enabled":true\,/"enabled":false\,/i
 ! https://github.com/AdguardTeam/AdguardFilters/issues/154072
@@ -8469,6 +8476,7 @@ $stylesheet,subdocument,third-party,xmlhttprequest,domain=canna-power.to|canna.t
 ||ibooks.to/wp-content/uploads/*/ffree.png
 ||ibooks.to/wp-content/uploads/*/goforblock.png
 ||ibooks.to/wp-content/uploads/*/offdd728.png
+||ibooks.to^*.php|$script
 ||idealo.de/banner/
 ||images-amazon.com/images/*/marquee/
 ||images-amazon.com/images/*/marqueestatic/
@@ -9295,6 +9303,7 @@ connextra.com##iframe[src^="https://ssl.connextra.com"]
 ||delamar.de/out/$popup
 ||sexei.net/go.html$popup
 ||sptopf.de/tshp/RE?ID=$popup,domain=t-online.de
+||warez.cx^$popup,domain=ibooks.to
 dtb.de###AD
 nd-aktuell.de###Ads
 mazda-forum.info###BelowRectangle
@@ -9702,6 +9711,7 @@ bundesliga-streams.net###nwmlay
 nydus.org###ny_banner
 nydus.org###nyba
 nydus.org###nybanner
+nydus.org###nydus_org_970x300_billboard_responsive
 autoexperience.de,flugzeugforum.de,gs-forum.eu,uhrforum.de,xbox-passion.de###oc24-div
 elektrikforen.de###oc24_container_top
 yasni.de###offer
@@ -9819,6 +9829,7 @@ queer.de###startrechts
 11889.com###sticky-aside
 11880.com###sticky-aside-placeholder
 finanzen.net###sticky-superbanner
+nydus.org###stickyaside
 studis-online.de###ston-billboard
 studis-online.de###ston-footer-ad
 eu-vertretung.de###stream-item-widget-2
@@ -10289,6 +10300,7 @@ raptastisch.net##.code-block-14
 borncity.com##.code-block-16
 borncity.com,buenasideas.de##.code-block-2
 borncity.com##.code-block-3
+ibooks.to##.code-block-3[style]
 borncity.com,deinhandy.de##.code-block-4
 borncity.com##.code-block-5
 borncity.com##.code-block-6
@@ -11256,6 +11268,7 @@ blick.ch##aside[id^="appnexus-placement"]
 weristdeinfreund.de##aside[id^="banner"]
 ww3.cad.de##body > table[width="100%"][border="0"]:first-child
 ddl-warez.cc##button[onclick*="/af.php"]
+ibooks.to##button[type="submit"]
 abload.de##center > table > tbody > tr > td[valign="bottom"][align="center"][style="width: 100%;"]
 winfuture.de##div[align="center"][style="min-height: 320px;"]
 3dchip.de##div[align="center"][width="468px"] > table[height="60"][cellspacing="0"][cellpadding="0"][border="0"][align="center"]
@@ -11742,6 +11755,8 @@ motorradonline.de#?#.v-A_-topteaser__rotationbox__item:-abp-has(.v-A_-teaser__ta
 motorsport-total.com#?#.teaser_container.teaser-htmlcode.relative.row:-abp-has(.f1de-container-title:-abp-contains(Die besten Leasing-Deals))
 mountainbike-magazin.de#?#.v-A_-white__tile:-abp-has(.v-A_-teaser__tag--ad)
 nur-positive-nachrichten.de#?#.moduletable.text-center:-abp-has(.bildunterschrift:-abp-contains(Anzeige))
+nydus.org#?#div.ui-tabs:-abp-has(#nydus_org_300x600_desktop_1)
+nydus.org#?#div:-abp-has(> #nydus_org_970x300_billboard_responsive)
 o-sport.de#?#.card-body:-abp-contains(Sponsoren)
 onvista.de#?#.flex-layout:-abp-has(div[class^="ArticleTeaser_ov-article-teaser__onvistaCustomer_"])
 onvista.de#?#.outer-spacing--xxlarge-top:-abp-contains(Werbung von)
