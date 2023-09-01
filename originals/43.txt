@@ -1762,7 +1762,8 @@ teleboy.ch#@#.adWrapper
 ! Good: example.org#?#main > div.row:has(> div.ad)
 ! Bad: example.org##main > div.ad (should be in specific.txt)
 !
-!
+! infranken.de - left-over in article
+infranken.de##img[data-cmp-src^="https://ir-de.amazon-adsystem.com"]
 ! https://github.com/AdguardTeam/AdguardFilters/issues/159998
 android-hilfe.de#?#.js-replyNewMessageContainer > .message--post:not([data-author]):has(> .message-inner > .message-cell--user .message-name > a.username:contains(/^Anzeige$/))
 ! https://github.com/AdguardTeam/AdguardFilters/issues/159553
@@ -1773,7 +1774,7 @@ finanzen.net#?#.page-content__item:has(> div[class^="fin-ob-"])
 giga.de#?#article:has(.alice-teaser-intro > .deal)
 ! macwelt.de, pcwelt.de - ad on main site
 macwelt.de,pcwelt.de#?#article.item:has(> div > .item-text > .item-text-inner > .item-eyebrow-sponsored-by-text)
-macwelt.de,pcwelt.de#?#article.item:has(> .item-inner > .item-text > .item-text-inner > .item-eyebrow)
+macwelt.de,pcwelt.de#?#article.item:has(> .item-inner > .item-text > .item-text-inner > .item-eyebrow:contains(Anzeige))
 ! menshealth.de - ads in articles and main page
 menshealth.de#?#a[is-digitarista-widget]:has( > .flex > .va-teaser-rating-item__text > div > .va-adhint)
 menshealth.de#?#.va-sidecol > div[class] > div[class]:has(> div > div[id^="div-gpt-ad"])
@@ -2512,6 +2513,7 @@ pcgames.de#?#.column > .module:has(> div[class] > div[class] > .item > span > a[
 ! https://github.com/AdguardTeam/AdguardFilters/issues/8048
 wallstreet-online.de#?#.extract > strong:contains(Anzeige)
 !
+rtde.site#?#.Section-root:has(> div.Section-container > div.Section-block > div[id^="adfox_"])
 flz.de#?#.swiper-wrapper > div.swiper-slide:has(> div.preview-slider__preview-holder > div[app-media-preview])
 deutschlandkurier.de#?#.vc_column > div.wpb_wrapper > div.td_block_wrap:has(> a[href^="https://www.afd.de/"])
 deutschlandkurier.de#?#.vc_column > div.wpb_wrapper > div.td_block_wrap:has(> div.td-fix-index:contains(Anzeige))
@@ -3047,6 +3049,8 @@ formel1.de,krautundrueben.de,motorsport-total.com,traktorpool.de,fnweb.de,laborj
 !
 !
 !
+||yastatic.net/pcode/adfox/loader.js$domain=rtde.site
+rtde.site##.ArticleView-taboola
 winfuture.de###news_content > a[href*="redirect"]
 webfail.com##div[style="min-height:250px;"]
 android-hilfe.de##.billboard-ad-footer
@@ -3559,8 +3563,6 @@ geo.de,stern.de##.page__ad-element
 netmoms.de##.news-teaser--sponsored
 helles-koepfchen.de##.topAdCol
 helles-koepfchen.de##div[style^="margin-bottom:30px;"][style*="width: 100%;"]
-noz.de##.search-results > .open
-noz.de##.search-results > .open + .article__teaser__separator
 focus.de##div[class^="cls_hor_prnt_"]
 t-online.de##.oEmbed_container div[data-testid="commercial-indication"]
 t-online.de##.oEmbed_container div[data-testid="commercial-indication"] ~ div[data-testid="produktbox-wrapper"]
