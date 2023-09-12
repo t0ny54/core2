@@ -1,9 +1,9 @@
 ![Adblock Plus 2.0]
-! Checksum: +Zsa0gTlnQY4/6WP1zDmmA
+! Checksum: N1HfPNS3ZDco4WPDHOdyEA
 ! Title: AdGuard German filter (Optimized)
 ! Description: EasyList Germany + AdGuard German filter. Filter list that specifically removes ads on websites in German language.
-! Version: 2.0.37.58
-! TimeUpdated: 2023-09-09T15:31:59+00:00
+! Version: 2.0.37.61
+! TimeUpdated: 2023-09-11T11:32:06+00:00
 ! Expires: 4 days (update frequency)
 ||quartermedia-ad-service.net^
 ||ad.dl.mainpost.de^
@@ -473,6 +473,8 @@ t-online.de#@#div[class^="Tsshopst"]
 essen-und-trinken.de##+js(no-setTimeout-if, s.call(null), 10)
 /^https:\/\/www\.essen-und-trinken\.de\/[a-z]{10,}\.js$/$script,~third-party,match-case
 schnittmuster-datenbank.de##+js(abort-on-property-read, adsBlocked)
+gamezoom.net##+js(no-fetch-if, ads.gamezoom.net)
+gamezoom.net##+js(set-constant, loadAntiWerber, noopFunc)
 deutschekanale.com,riuria.beauty##+js(no-fetch-if, /doubleclick\.net|imasdk\.googleapis\.com/)
 ||imasdk.googleapis.com^$xmlhttprequest,redirect=noop.txt,domain=deutschekanale.com|riuria.beauty
 gartenfreunde.de##+js(set-constant, ezDetectAardvark, noopFunc)
@@ -591,6 +593,7 @@ gannikus.com#@#.an-advert-banner
 willhaben.at#@#div[id^="advert"]
 @@||extrem-bodybuilding.de^$generichide
 ||amateurfilm-forum.de/wcf/js/ABDetector.class.js
+@@||gan.wavecdn.net/js/video_kostenlosspielen_net.js^$domain=kostenlosspielen.net
 @@||imasdk.googleapis.com/js/sdkloader/ima3.js^$domain=games.cdn.famobi.com
 @@||chinamobilemag.de^$generichide
 @@||tmssl.akamaized.net//ads/ads.js
@@ -613,6 +616,7 @@ willhaben.at#@#div[id^="advert"]
 @@||www.googleadservices.com^$image,script,third-party,domain=lustich.de
 @@||connect.facebook.net^$image,script,third-party,domain=lustich.de
 teleboy.ch#@#.adWrapper
+mein-mmo.de#?#.article:has(> section > .content > .mmo-custom-label-wrapper > span[data-type="sponsored"])
 woxikon.de#?#.synonyms-list-inner > div.synonyms-full-width:has(> div.ads-wrapper)
 woxikon.de###content > div.row:has(> div[class^="col"] > div.ads-sticky-container)
 infranken.de##img[data-cmp-src^="https://ir-de.amazon-adsystem.com"]
@@ -942,6 +946,7 @@ derwesten.de,eurosport.de,ingenieur.de,heise.de,ww-kurier.de,1prospekte.de,stadt
 cleverdialer.de,sueddeutsche.de,geo.de,northdata.de,losungencodycross.com,game-dna.de,spieletipps.de,heise.de,netdoktor.de,aachener-zeitung.de,wissen.de##.ad-container
 winfuture.de,netzwelt.de,quoka.de,farmeramania.de,bravofly.de,computerbild.de,digitalfernsehen.de,hl-live.de,chinamobilemag.de,focus.de,pcwelt.de##.adsbygoogle
 formel1.de,krautundrueben.de,motorsport-total.com,traktorpool.de,fnweb.de,laborjournal.de,tarnkappe.info,deraktionaer.tv,food-tiger.de,morgenweb.de##.billboard
+livestreamde.com##div[style="height:300px; margin-bottom: 20px !important;"]
 woxikon.de##.ads-sticky-container
 kino.de##a[data-smb-track*="werblich"]
 kabeleins.de,sat1.de,sixx.de,prosieben.de##div[data-testid="display-ad"]
@@ -1141,6 +1146,7 @@ heizsparer.de##.vidheight
 heizsparer.de##.flbheight
 myboerse.bz##.body_wrapper > center
 tagesspiegel.de##main div[class^="Wd"]
+siegener-zeitung.de###piano-sticky-template-article-siz
 bluray-disc.de###adv-banner-r
 ||gfx.videobuster.de/theme.php/*/promotions/
 kochbar.de##div[class$="adslot"]
@@ -1359,6 +1365,7 @@ kochbar.de##.kb-teaser-list-item[data-ranking="ad"]
 kochbar.de##section[data-area*="_Empfehlungen-"] .rtli-large-5 > .kb-ad
 stylebook.de##.article__content > #inpage
 infranken.de##a[data-trackingname="button_shopping"]
+bild.de##.article-body > .article-mtl
 bild.de##aside[data-type="ad"]
 t3n.de##.outbrain-wrapper-outer
 golem.de##.iqadlinetop
@@ -2019,6 +2026,7 @@ songtexte.com##.row > .boxless
 heise.de###bannerzone
 motorsport-total.com##.anzeige_teas_rect
 ||ich-tanke.de/bilder/partner/
+spielkarussell.de##.banner-template
 spielkarussell.de##.banner-static-game
 ||andreas-unterberger.at/mediafiles/werbung
 whocallsme.com###phoneTop
@@ -2233,6 +2241,7 @@ rtl.de#@#.rtlde-medium-rectangle
 /bilder/werbung_
 /cms/werbung/*
 /grafik/ads/*
+/hier_werben.
 /images/werbung.
 /images/werbung/*
 /img/werbung/*
@@ -2318,6 +2327,7 @@ _werbung.pl
 ###oms_gpt_superbanner
 ###reklame
 ###reklame-rechts-mitte
+###reklame-rechts-oben
 ###startwerbung
 ###t_werbung
 ###topwerbung
@@ -2377,6 +2387,7 @@ _werbung.pl
 ##.werbung-container
 ##.werbung-label
 ##.werbung-leiste
+##.werbung-rechts
 ##.werbung-rectangle
 ##.werbung-skyscraper
 ##.werbung-skyscraper2
@@ -2524,6 +2535,7 @@ wetter.com#@#div[id^="div-gpt-"]
 ||finative.cloud^$third-party
 ||fotoscaseras.top^$third-party
 ||gbucket.ch^$third-party
+||goldbach.com^$third-party
 ||green-ads.net^$third-party
 ||h5v.eu^$third-party
 ||heias.com^$third-party
@@ -2659,6 +2671,7 @@ wetter.com#@#div[id^="div-gpt-"]
 ||ggbetcasino.de^$popup
 ||katfile.com^$popup,domain=ddl-warez.cc
 ||pre.xkontakt18.com/campaign?$popup
+||pre.xlust24.com^$popup
 ||start.sexpartnercommunity.com^$popup
 ||tracking.s24.com^$popup,third-party
 ||vulkanbet.pro^$popup
@@ -2748,6 +2761,7 @@ $stylesheet,subdocument,third-party,xmlhttprequest,domain=canna-power.to|canna.t
 ||etcg.de/sponsor/
 ||evz.ch/fileadmin/EVZ/Sponsoren/
 ||f95.de/media/res/_rel/logos/sponsoren/
+||fairytail-tube.org^*/amz/
 ||faz.net/f6/ad/
 ||fc-carlzeiss-jena.de/fileadmin/fcc-daten/*-partner-
 ||fc-carlzeiss-jena.de/fileadmin/images/sponsoren/
@@ -3321,6 +3335,7 @@ abendblatt.de,adz.ro,ak-kurier.de,architektenwelt.com,azonline.de,beruhmte-zitat
 ak-kurier.de##.ad + .uk-panel
 immobilienscout24.de##.ad-banner
 gebraucht-kaufen.de,mixed.de,raetsel-hilfe.de,spieletipps.de,swissmom.ch,tt.com,watchtime.net,zeit.de##.ad-container
+hallo-minden.de##.ad-info
 finanztreff.de##.ad02p
 futurezone.at,journalonko.de,kress.de,promiflash.de##.adContainer
 11freunde.de##.ad_below-nav
@@ -3391,6 +3406,7 @@ sumikai.com##.b
 fcaugsburg.de##.b-logo-listing
 hardwareschotte.de##.ba-fullsize
 1001spiele.de,3gewinntspiele.com,6navi.ch,akustik-gitarre.com,anixehd.tv,bankkaufmann.com,buchmarkt.de,deavita.com,flugblattangebote.at,fruchtportal.de,fussballgucken.info,goldseiten.de,hcb.net,jobagent.ch,juve.de,kartenspielen.de,knobelspiele.com,komoedie-steinstrasse.de,kradblatt.de,laufen.de,m.gota.ch,macerkopf.de,mein-wahres-ich.de,melodieundrhythmus.com,modhoster.de,nordicsports.de,pfaffenhofen-today.de,pixelio.de,prospektangebote.de,regionews.at,rockland.de,salue.de,sexnews.ch,snanews.de,spieleklassiker.com,suedtirol.de,svs1916.de,wimmelbildspiele.de##.banner
+spielkarussell.de##.banner-btf-side-rectangle
 skipper-bootshandel.de,tvtoday.de##.banner-container
 woz.ch##.banner-full
 wochenblatt.cc##.banner-header-left
@@ -3406,8 +3422,10 @@ fickverein.com##.banner3box
 eishockeynews.de##.bannerContent
 moviejones.de##.bannerInfo
 cherry.ch,lust24.ch##.bannerListPremium
+sg-flensburg-handewitt.de##.bannerWrap
 erotikforum.at##.bannerWrapper
 bluray-disc.de,der-farang.com##.banner_container
+lerntippsammlung.de##.banner_rechts
 112-magazin.de,bassprofessor.info,griechenland.net,hifistatement.net,highway-magazin.de,hitradio.com.na,kajak-magazin.com,kl-aktuell.de,loz-news.de,mef-line.de,motorradundreisen.de,naturundtherapie.at,osttirol-online.at,pc-experience.de,radio-oberland.de,sonic-seducer.de,speyer-report.de,spielbox.de,teneriffa-heute.net,tennistraveller.net,tvbb.de,wahrschauer.net##.bannergroup
 diebildschirmzeitung.de##.banneritem
 lokalkompass.de##.bannerslot-centered
@@ -3446,6 +3464,7 @@ scfreiburg.com,sgf1903.de##.c-sponsors-list
 focus.de##.cad
 focus.de##.cad_native
 1000ps.at##.cadbox
+filmlaune.de##.card-streaming-btns
 alles-mahlsdorf.de##.category-werbung-kopfzeile
 all-electronics.de,automobil-produktion.de,automotiveit.eu,chemietechnik.de,fertigung.de,fluid.de,instandhaltung.de,ke-next.de,kgk-rubberpoint.de,ki-portal.de,neue-verpackung.de,pharma-food.de,plastverarbeiter.de,produktion.de,technik-einkauf.de,werkzeug-formenbau.de##.ce_banneradbox
 utopia.de##.channel-logo-desc
@@ -3515,6 +3534,7 @@ immobilienscout24.de##.expose-ad-placeholder
 ff-bz.com##.ff-ba
 autoextrem.de,skodacommunity.de,usp-forum.de##.fh-inside-post
 autoextrem.de##.fh-sidebar
+zeitpunkt.ch##.field--name-field-werbebild
 tvinfo.de##.floatLeft[style="padding:10px;"]
 freiburger-nachrichten.ch##.fn-edp-section__slider
 seo-suedwest.de##.fnet-banner
@@ -3618,7 +3638,6 @@ lokalo.de##.media_image-30
 lokalo.de##.media_image-32
 fuersie.de,grazia-magazin.de,idee-fuer-mich.de,jolie.de,leben-und-erziehen.de,maedchen.de,ok-magazin.de,petra.de,vital.de##.mediumrectangle
 ligaportal.at##.medrec
-hardwareluxx.de##.message--post:not([data-author])
 lite-magazin.de##.metaslider
 schweizer-illustrierte.ch##.ministage-channel-sponsor-paragraph
 abendblatt.de##.mj-pf-widget
@@ -3667,6 +3686,7 @@ gmx.net,web.de##.partner-links
 herthabsc.com##.partner-main-footer
 eintracht.com##.partner-wrapper
 esports.ch,hannover96.de,p-stadtkultur.de,sihf.ch##.partners
+fla.de##.pbph
 otto.de##.pdp_reco-sponsored
 heise.de##.perf-cls-reduc-leaderboard
 heise.de##.perf-cls-reduc-rectangle
@@ -4013,10 +4033,10 @@ blitzrechner.de##div[onclick^="ga('send', 'event', 'Ad',"]
 android-hilfe.de##div[style$=";min-height:250px;min-width:300px;"]
 android-hilfe.de##div[style$=";min-height:250px;min-width:310px;"]
 custombike.de##div[style*="width: 300px; height: 300px;"]
+lerntippsammlung.de##div[style*="width:300px;height:250px;"]
 oekotest.de##div[style="clear:both; display:block; min-height: 300px;"]
 oekotest.de##div[style="clear:both; display:block; min-height: 640px;"]
 chip.de##div[style="display: block;"] > a[href^="https://x.chip.de/intern/dl/?"]
-hardwareluxx.de##div[style="float: right; clear: both; padding-left: 1rem; margin-top: -1rem; margin-right: -9rem; padding-bottom: 0.25rem;"]
 wirtschaftslexikon24.com##div[style="float:left;clear:left;height:620px;width:180px;padding-top:15px;"]
 pixelio.de##div[style="float:right; width: 300px; height: 250px"]
 reiseuhu.de##div[style="height: 600px !important; max-width: 320px; margin: 15px auto;"]
