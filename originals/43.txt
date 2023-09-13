@@ -2565,7 +2565,10 @@ amateurbusters.com#?#.sb_area > .sb_area_headline:contains(Urlaub)
 !
 ! VAST video ads - e. g. https://github.com/AdguardTeam/AdguardFilters/issues/135687
 !+ NOT_PLATFORM(ios, ext_android_cb)
-kicker.de,stern.de,desired.de,pcgames.de,t-online.de,vox.de,spieletipps.de,wetter.de,golem.de,autobild.de,buffed.de,gamesaktuell.de,kino.de,pcgameshardware.de,videogameszone.de,familie.de,plus.rtl.de,welt.de#%#//scriptlet('prevent-xhr', '.damoh.')
+kicker.de,stern.de,desired.de,pcgames.de,t-online.de,vox.de,spieletipps.de,wetter.de,golem.de,autobild.de,buffed.de,gamesaktuell.de,kino.de,pcgameshardware.de,videogameszone.de,familie.de,welt.de#%#//scriptlet('prevent-xhr', '.damoh.')
+! new version (both rules are working on their own)
+plus.rtl.de#%#//scriptlet('trusted-replace-xhr-response', 'true', 'false', 'homadClientConfig-plusrtlde.json')
+plus.rtl.de#%#//scriptlet('abort-on-stack-trace', 'Object.prototype.adReinsertion', 'createSdk')
 !
 ! infranken.de - removing amazon link, so the incredients are visible in a recipe
 infranken.de#%#//scriptlet('remove-attr', 'href', 'a[rel*="sponsored"]')
@@ -3060,6 +3063,12 @@ formel1.de,krautundrueben.de,motorsport-total.com,traktorpool.de,fnweb.de,laborj
 !
 !
 !
+bild.de##.article-text-link--ad
+berliner-kurier.de##div[data-testid="article-billboard-advertisement"]
+berliner-kurier.de##div[class^="traffective_"]
+berliner-kurier.de##div[class^="outbrain_"]
+berliner-kurier.de##div[data-placeholder*="Anzeige"]
+berliner-kurier.de##div[data-testid^="ad-slot"] + div[data-testid^="separator"]
 livestreamde.com##div[style="height:300px; margin-bottom: 20px !important;"]
 woxikon.de##.ads-sticky-container
 kino.de##a[data-smb-track*="werblich"]
@@ -9964,7 +9973,6 @@ au-ja.de##.ADVBOX
 preissuchmaschine.de##.AFS_ADD
 onvista.de##.ANZEIGE
 finanzfrage.net,gutefrage.net,praxistipps.focus.de##.Ad
-chip.de##.Ad-hor-height:not([id^="advertisment-"])
 finanznachrichten.de##.Ad_FinativeHome
 finanznachrichten.de##.Ad_ImageTeaser
 finanznachrichten.de##.Ad_SmartAd
