@@ -366,7 +366,7 @@ spiegel.de#@#div[id*="/spon_dt/"]:not(#google_ads_iframe_\/6032\/spon_dt\/homepa
 !#endif
 ! divided to 2 directives. Second - without `adguard_ext_safari`
 ! https://github.com/AdguardTeam/AdGuardForSafari/issues/484
-!#if (adguard_app_ios || adguard_ext_android_cb || adguard_ext_edge || adguard_ext_firefox || adguard_ext_opera)
+!#if (adguard_app_ios || adguard_ext_android_cb || adguard_ext_firefox)
 !+ NOT_OPTIMIZED
 @@||4fansites.de^$generichide
 !+ NOT_OPTIMIZED
@@ -407,8 +407,6 @@ spiegel.de#@#div[id*="/spon_dt/"]:not(#google_ads_iframe_\/6032\/spon_dt\/homepa
 @@||brigitte.de^$generichide
 !+ NOT_OPTIMIZED
 @@||buffed.de^$generichide
-!+ NOT_OPTIMIZED
-@@||businessinsider.de^$generichide
 !+ NOT_OPTIMIZED
 @@||caravaning.de^$generichide
 !+ NOT_OPTIMIZED
@@ -1202,6 +1200,7 @@ raidrush.net#%#//scriptlet("prevent-setTimeout", "window.getComputedStyle(el)")
 ! https://github.com/AdguardTeam/AdguardFilters/issues/142943
 ! https://github.com/AdguardTeam/AdguardFilters/issues/73994
 cryptstream.de,2ix2com.de,2ix2-alternative.de,2ix2tv.de,tv24livestream2.de,tv24livestream1.de,tv24livestream.de,mysqlcryptnow.de,mysql2dumpcrypt.de,nydus.org###abmm
+cryptstream.de,2ix2com.de,2ix2-alternative.de,2ix2tv.de,tv24livestream2.de,tv24livestream1.de,tv24livestream.de,mysqlcryptnow.de,mysql2dumpcrypt.de,nydus.org#?##abmm
 nydus.org###ab
 nydus.org#$##wrapfabtest { height: 1px !important; }
 cryptstream.de,2ix2com.de,2ix2-alternative.de,2ix2tv.de,tv24livestream2.de,tv24livestream1.de,tv24livestream.de,mysqlcryptnow.de,mysql2dumpcrypt.de,nydus.org#%#//scriptlet('prevent-setTimeout', '/ab==|window\.getComputedStyle\(el\)/')
@@ -1767,6 +1766,9 @@ teleboy.ch#@#.adWrapper
 ! Good: example.org#?#main > div.row:has(> div.ad)
 ! Bad: example.org##main > div.ad (should be in specific.txt)
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/161299
+nydus.org#?##r600sky
+nydus.org#?##fplayer > div[id^="nbn"]
 ! mein-mmo.de - ads main page
 mein-mmo.de#?#.article:has(> section > .content > .mmo-custom-label-wrapper > span[data-type="sponsored"])
 ! https://github.com/AdguardTeam/AdguardFilters/issues/160976
@@ -4159,12 +4161,9 @@ golem.de##.list-articles > li[class*="li-hb-"]
 hausbau-forum.de##.samItem
 mopo.de##img[referrerpolicy="unsafe-url"][src^="/image/"]
 mopo.de##body > div[style*="margin: 0 0 0 160px;"]
-nydus.org###ny_bill
-nydus.org###ny_banner
-nydus.org###right160x600
-nydus.org##div[style="text-align:center;margin:0 auto;clear:both;"]
-nydus.org##div[style="height:90px;overflow:hidden;text-align:center;"]
-||raidrush.net/ticker/rr_ticker_rand.php?
+nydus.org###r600sky
+nydus.org###fplayer > div[id^="nbn"]
+||raidrush.net/ticker/rr_ticker*.php?
 wetter.com##.advert-notice
 n-tv.de##.ob_embed
 schalke04.de##body .module-advertising
