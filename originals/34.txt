@@ -283,6 +283,10 @@ $removeparam=fb_source
 ! Bad: ||example.org^$xmlhttprequest,redirect=noopvast-3.0 (for instance, should be in specific.txt)
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/162037
+||tutanota.com^$removeparam=t-src
+! donga.com - click an article at its main homepage. https://www.donga.com/
+||donga.com^$removeparam=ref
 ! https://github.com/AdguardTeam/AdguardFilters/issues/162001
 ||t.adcell.com/*?$removeparam=subId
 ||track.webgains.com/click.html?$removeparam=clickref
@@ -1432,9 +1436,6 @@ $removeparam=igshid,domain=instagram.com|threads.net
 ! https://github.com/AdguardTeam/AdguardFilters/issues/89345
 ||play.google.*^$removeparam=referrer
 ! Google Search
-! https://github.com/AdguardTeam/CoreLibs/issues/1464
-! Probably a bug
-!#if (!adguard_app_windows && !adguard_app_mac && !adguard_app_android)
 ! ||www.google.com/url?$removeparam=ved
 ! ||google.*/search$removeparam=ved
 ! Breaks codepage in Google Search https://yugioh-wiki.net/index.php
@@ -1451,7 +1452,7 @@ $removeparam=igshid,domain=instagram.com|threads.net
 ||google.*/search$removeparam=sourceid
 ||google.*/search$removeparam=ei
 ||google.*/search$removeparam=gs_lcp
-!#endif
+||google.*/search$removeparam=gs_lcrp
 !
 ! eBay tracking parameters
 ||www.ebay.$removeparam=_trkparms
