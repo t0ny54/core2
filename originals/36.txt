@@ -2301,6 +2301,9 @@ consent.yorkshirepost.co.uk,stuttgarter-nachrichten.de,consent.formula1.com,sp-s
 !
 ! NOTE: Regular rules
 !
+everyeye.it#%#//scriptlet('trusted-click-element', '#onetrust-accept-btn-handler')
+fahrplan.oebb.at#%#//scriptlet('trusted-click-element', '#CookieBtnWrapper .lyr_atomText, div[data-cookie-content="functional"] > input', '#HFS_CookieSelectChoice', '500')
+ioi.dk#%#//scriptlet('trusted-click-element', '#updateButton + .coi-banner__accept')
 bing.com###thp_notf_div
 ||gdpr.api.bcdn.jp^
 whitebit.com###cookies-notification
@@ -14647,10 +14650,18 @@ adguard.info,adguard.com,adguard.app##.hello_from_adguard_annoyances_cookies
 !
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/162358
+@@||cdn.cookielaw.org/scripttemplates/otSDKStub.js$domain=everyeye.it
+everyeye.it#@##onetrust-consent-sdk
+! ioi.dk - cannot play embedded youtube videos
+@@||policy.app.cookieinformation.com/uc.js$domain=ioi.dk
+@@||policy.app.cookieinformation.com/*/ioi.dk
+@@||policy.app.cookieinformation.com/cookiesharingiframe.html$domain=ioi.dk
+ioi.dk#@##CookieConsent
 ! https://github.com/AdguardTeam/AdguardFilters/issues/162167
 @@||policy.app.cookieinformation.com/uc.js$domain=comparaja.pt
 ! ifabrik.de - broken images
-@@||ifabrik.de/typo3conf/ext/ifab_cookie_consent/Resources/Public/JavaScript/Frontend/sc-cookie.min.js$domain=ifabrik.de
+@@||ifabrik.de/typo3conf/ext/ifab_cookie_consent/Resources/Public/JavaScript/Frontend/sc-cookie.min.js
 ! https://github.com/AdguardTeam/AdguardFilters/issues/162132
 support.enpass.io#@##cookie-status-widget-holder
 ! https://github.com/AdguardTeam/AdguardFilters/issues/162099
@@ -21451,6 +21462,7 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 !
 ! SECTION: Popups - generic rules
 !
+##.gliaplayer-container
 ##.ays-fpl-modal
 ##.fix_swell_banner
 ###wpd-bubble-wrapper
@@ -24664,7 +24676,7 @@ sapatinhodeluxo.com.br###dcx-modal-newsletter
 profile.ru##.cell__promo
 unstoppabledomains.com##main > div[style="margin-bottom: 64px;"] + div[class^="jss"]
 careerkarma.com###fast-track-modal-window
-tv.golfnetwork.co.jp##.code-mc-container-panel
+seikei-online.jp,tv.golfnetwork.co.jp##.code-mc-container-panel
 tv.golfnetwork.co.jp#%#//scriptlet('prevent-addEventListener', 'load', 'setVideoTop')
 chaturbate.com##body > div.tooltip.modern
 gogoanime.mom##div[class^="notice-"]
@@ -38729,6 +38741,8 @@ instagram.com##._aagw:empty
 !
 ! End: Instagram.com
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/162346
+dailyknicks.com##.fs-daily
 ! https://github.com/AdguardTeam/AdguardFilters/issues/162169
 jewishboston.com##.newsletter-article-wrap
 ! https://github.com/AdguardTeam/AdguardFilters/issues/161509
@@ -39303,9 +39317,8 @@ event.rakuten.co.jp##.Permission
 oxu.az##article.news + h2.news-share-title
 oxu.az##article.news ~ div.news-share-container
 ! Video recommendations
-||player.gliacloud.com^$domain=9db.jp|techinsight.jp|football-tribe.com|efight.jp
-||connatix.com^$domain=allmusic.com|fadmagazine.com|favesouthernrecipes.com|hbcugameday.com|on3.com|penna.gr|shadowandact.com|sportsgamblingpodcast.com|tangorin.com|thisismoney.co.uk|urbanbellemag.com|workitdaily.com
-||player.gliacloud.com^$domain=kinmaweb.jp
+||player.gliacloud.com^$third-party
+##.gliaplayer-container
 fudge.jp##.ratio-wrapper
 blogto.com##.fire_video_style
 roomie.jp,gizmodo.jp##fw-storyblock
@@ -47959,6 +47972,7 @@ blog.livedoor.jp##div[id^="shitarss_title_"]
 !
 ! NOTE: Blogroll specific rules
 !
+||vippers.jp/2ch-c_iframe_
 gameinn.jp##.wp-rss-template-container
 gameinn.jp#?#.article-under-box > p.sidetop_p:has(+ .wp-rss-template-container)
 benri.com##.CTPXTBL
