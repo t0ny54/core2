@@ -103,6 +103,8 @@ instagram.com##._aagw:empty
 !
 ! End: Instagram.com
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/162365
+fanyi.youdao.com##.banner
 ! https://github.com/AdguardTeam/AdguardFilters/issues/162346
 dailyknicks.com##.fs-daily
 ! https://github.com/AdguardTeam/AdguardFilters/issues/162169
@@ -3188,7 +3190,8 @@ ya.ru##.search3__inner > div.link-bro
 disk.yandex.by,disk.yandex.com,disk.yandex.com.tr,disk.yandex.fr,disk.yandex.kz,disk.yandex.ru,yadi.sk#$#html { overflow: auto !important; padding-right: 0 !important; }
 disk.yandex.by,disk.yandex.com,disk.yandex.com.tr,disk.yandex.fr,disk.yandex.kz,disk.yandex.ru,yadi.sk#$#body { overflow: auto !important; padding-right: 0 !important; }
 disk.yandex.by,disk.yandex.com,disk.yandex.com.tr,disk.yandex.fr,disk.yandex.kz,disk.yandex.ru,yadi.sk#$#body[style="padding-right: 0px; overflow: hidden;"] > div[class*="Fullscreen_root_"] { display: none !important; }
-disk.yandex.by,disk.yandex.com,disk.yandex.com.tr,disk.yandex.fr,disk.yandex.kz,disk.yandex.ru,yadi.sk##.InfoSpace_discount
+disk.yandex.*#$#.InfoSpace_discount > div.InfoSpace__Footer > div.InfoSpace__Text ~ * { display: none !important; }
+disk.yandex.*#%#//scriptlet('remove-attr', 'href', '.InfoSpace_discount[href^="https://360.yandex."][href*="/premium-plans?"]')
 !
 ! Yandex.Pogoda
 yandex.*##.meteum-promo
@@ -3226,6 +3229,7 @@ mail.yandex.*##div[class^="DisableAdsButton"]
 !
 rasp.yandex.*##.TravelHotelsBanner
 ! Yandex.Search
+[$path=/search]ya.ru,yandex.*##.HeaderDesktopActions-Distribution
 ya.ru,yandex.*##.AliceFabPromo
 !
 ! Yandex.TV
@@ -3237,6 +3241,8 @@ www.kinopoisk.ru##div[class^="trailer-promo"]
 ! END: Yandex
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/162413
+houzz.com##.browse-row-card.browse-row-find-pro[data-extra-info*="ad_type"]
 ! https://github.com/AdguardTeam/AdguardFilters/issues/162085
 dmarket.com#%#//scriptlet('set-cookie', 'promoBannerShow', '0')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/161968
@@ -4244,7 +4250,7 @@ digit.in##.navbar-holder > .Center-block > .avg_height
 ||cdn.duden.de/public_files/*/DO_Plus-banner-boxer.mp4
 duden.de##a[href^="https://lp.duden.de/"][href*="&utm_content=banner_boxer"] > video
 ! https://github.com/AdguardTeam/AdguardFilters/issues/97106
-e.mail.ru,octavius.mail.ru##octavius-notify-quota-rotation
+e.mail.ru,octavius.mail.ru##div[data-test-id^="subscriptions_v"]
 !+ NOT_PLATFORM(ios, ext_android_cb)
 ||limg.imgsmail.ru/informers/vk-slides/
 e.mail.ru,octavius.mail.ru#$?#html { --vkui--octavius_size_headline_height--regular: 36px !important; }
@@ -4892,6 +4898,8 @@ theguardian.com##.contributions__adblock
 !
 ! SECTION: Self-promo - Regular rules
 !
+uchi.ru##.wrapper > div.banner
+uchi.ru##main div.template_v2__content + div.template_v2__sidebar
 biglobe.ne.jp##.h_bar
 ||backgrounds.wetransfer.net^
 gab.com#?#.sticky-inner-wrapper > div > aside[class^="_"]:has(> div[class] > div[class] > div[class] > h2[class]:contains(/^(Upgrade to|Dissenter Shop)/))
@@ -6604,6 +6612,10 @@ eiga.com##.header-pure-banner
 !##############################
 ! SECTION: Tweaks - CSS
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/97016
+00m.in#$##url { display: block !important; }
+00m.in#$##attention { display: none !important; }
+00m.in#$##h4title { display: none !important; }
 ! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-6862552
 cdrab.com,offerinfo.net#$##wpsafe-link { display: block !important; }
 cdrab.com,offerinfo.net#$##wpsafe-generate { display: block !important; }
