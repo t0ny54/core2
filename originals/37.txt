@@ -2309,6 +2309,11 @@ cmp.dpgmedia.be,consent.yorkshirepost.co.uk,stuttgarter-nachrichten.de,consent.f
 !
 ! NOTE: Regular rules
 !
+kia.co.me###cookiesOverlay
+signinapp.com##.cookie-banner + div.bg-black
+blablacar.com.tr###root > .eejIlc
+tstheerastourfilm.com##div[class^="cookies__cookiesContainer"]
+agroclima.climatempo.com.br##.styles__Wrapper-huphx
 aptekirls.ru##.attention-modal
 temu.com#%#//scriptlet('trusted-click-element', 'button[type="button"][class*="primary"]')
 unieurospa.com###uni-cookie-policy
@@ -2855,7 +2860,7 @@ capcut.com##.lv_cookie_banner-wrapper
 petsathome.com##.onetrust
 scenegroup.co##.sgw--cookie-notice
 selekt.online###informacjaOCiasteczkach
-larian.com##.ciastko
+baldursgate3.game,larian.com##.ciastko
 app.exampro.co###cc-window
 dic.pixiv.net###gdpr-notify-header
 visitsweden.com,visitsweden.de##div[class^="Cookiebar_"]
@@ -10589,7 +10594,6 @@ argenta.be#$#.cookie-popup { display: none!important; }
 argenta.be#$#.modal--activeNoScroll { position: unset!important; }
 filmon.com##body > #design-switcher
 policja.gov.pl,policja.pl,bip.kprm.gov.pl##body > .JSWrapper
-siparis.mcdonalds.com.tr##body > .alert-dismissible.notification[role="alert"]
 fullscreen.com##body > .banner
 iobit.com##body > .float-bar
 charlotteobserver.com##body > .modal-banner[style^="color:"]
@@ -10927,7 +10931,7 @@ forbes.com###teconsent
 classicalradio.com,radiotunes.com###terms-message-region
 myspace.com###termsOfService
 fansale.de###thirdPartyCookiesLayer
-anadoluetap.com,bursagaz.com,mcdonalds.com.tr###toggle-notification
+anadoluetap.com,bursagaz.com###toggle-notification
 thawte.com###toolbar
 pcoutlet.pl###topInfoContainer0
 acom.pl,lantre.pl,maxsklep.pl,technikalia.pl###topInfoContainer1
@@ -13212,6 +13216,10 @@ gpblog.com#%#//scriptlet('trusted-click-element', 'button[mode="secondary"]')
 gpblog.com#%#//scriptlet('trusted-click-element', '.qc-cmp2-header-links > button[mode="link"]:first-child')
 gpblog.com#%#//scriptlet('trusted-click-element', 'div[class^="qc-cmp2-buttons-"] > button[mode="primary"]')
 !
+centrumxp.pl#%#//scriptlet('prevent-setTimeout', 'c(!0)', '10000')
+centrumxp.pl#%#//scriptlet('set-local-storage-item', 'technical', 'true')
+centrumxp.pl#%#//scriptlet('set-local-storage-item', 'marketing', 'false')
+centrumxp.pl#%#//scriptlet('set-local-storage-item', 'analytics', 'false')
 support.enpass.io#%#//scriptlet('remove-attr', 'inert')
 jaysjournal.com,leboncoin.fr,engadget.com,reignoftroy.com,actu.fr,elconfidencial.com,rtl.lu#%#//scriptlet('trusted-click-element', '#didomi-notice-agree-button')
 geopop.it,fanpage.it#%#//scriptlet('trusted-click-element', '.gdpr-btn.small-right, .thirdlayer .gdpr-btn-lbl')
@@ -13292,6 +13300,7 @@ privacy.lecker.de#%#AG_onLoad(function(){if(!document.cookie.includes("euconsent
 privacy.madame.de#%#AG_onLoad(function(){if(!document.cookie.includes("euconsent-v2")){var g=new MutationObserver(function(){setTimeout(function(){var b=document.querySelector('button.no-children[path="\[0,2,1\]"]');b&&b.click();},300);setTimeout(function(){var c=document.querySelector('div[title="Berechtigte Interessen"]'); c&&c.click();},300);setTimeout(function(){var d=document.querySelectorAll('label[aria-checked="true"] > .off'); d.forEach(function(d){d.click();});},800); var f=document.querySelector('button.no-children[path="\[0,3,0\]"]'); setTimeout(function(){f&&f.click();},1000);});g.observe(document,{childList:!0,subtree:!0});setTimeout(function(){g.disconnect()},3E4)}});
 consent.ladbible.com,consent.gamingbible.co.uk,consent.unilad.co.uk#%#AG_onLoad(function(){if(window.location.href.includes("consentUUID")){var g=new MutationObserver(function(){var b=document.querySelector('button[title*="Accept" i]');b&&(g.disconnect(),b.click())});g.observe(document,{childList:!0,subtree:!0});setTimeout(function(){g.disconnect()},1E4)}});
 !
+blablacar.com.tr#%#//scriptlet('set-cookie', '_cookies_v2', '1')
 slovenskenovice.si#%#//scriptlet('trusted-set-cookie', 'ALLOW_COOKIES', 'druzabni')
 maisesports.com.br#%#//scriptlet('set-local-storage-item', '@maisesport:cookies', 'true')
 wetransfer.com#%#//scriptlet('trusted-click-element', '.welcome__button--decline, .transfer__button')
@@ -14647,14 +14656,18 @@ adguard.info,adguard.com,adguard.app##.hello_from_adguard_annoyances_cookies
 !
 !
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/162293
+@@||westerndigital-privacy.my.onetrust.com^$domain=westerndigital.com
+! https://github.com/uBlockOrigin/uAssets/issues/19877
+funnycase.pl#@#.consent-container
 ! required cookie not shown
 @@||cdn.privacy-mgmt.com/unified/wrapperMessagingWithoutDetection.js$domain=news.sky.com|reelrundown.com|owlcation.com|tomsguide.com
 @@||cdn.privacy-mgmt.com/mms/$domain=inside-digital.de|tomsguide.com
 @@||cdn.privacy-mgmt.com/unified/*/ccpa.*.bundle.js$domain=tomsguide.com
 ! https://github.com/AdguardTeam/AdguardFilters/issues/162542
 ! Fixes video player
-@@||sdk.privacy-center.org/*/loader.js$domain=gmenhq.com|jaysjournal.com
-@@||sdk.privacy-center.org/sdk/*.js$domain=gmenhq.com|jaysjournal.com
+@@||sdk.privacy-center.org/*/loader.js$domain=gmenhq.com|jaysjournal.com|aroundthefoghorn.com
+@@||sdk.privacy-center.org/sdk/*.js$domain=gmenhq.com|jaysjournal.com|aroundthefoghorn.com
 ! https://github.com/AdguardTeam/AdguardFilters/issues/162532
 @@||cdn.optad360.net/cmp/$domain=cursorinfo.co.il
 ! https://github.com/AdguardTeam/AdguardFilters/issues/162389
