@@ -80,6 +80,7 @@
 ! Bad: ||adssubdomain.legitwebsite.com^ (should be in adservers_firstparty.txt)
 !
 !
+||winaffiliates1.com^$third-party
 ||flarby.com^
 ||pigeoon.com^$third-party
 ||peppaping.xyz^
@@ -771,8 +772,10 @@ osxinfo.net#%#//scriptlet("abort-current-inline-script", "$", "!document.getElem
 ! https://github.com/AdguardTeam/AdguardFilters/issues/49271
 turkdenizcileri.com,bilgalem.blogspot.com,okulsoru.com#%#//scriptlet("set-constant", "koddostu_com_adblock_yok", "null")
 turkdenizcileri.com,bilgalem.blogspot.com,okulsoru.com$$script[tag-content="adblock"][max-length="300"]
+! https://github.com/AdguardTeam/AdguardFilters/issues/162830
 ! https://github.com/AdguardTeam/AdguardFilters/issues/160080
 ! https://github.com/AdguardTeam/AdguardFilters/issues/48825
+tekniknot.com#%#//scriptlet('abort-current-inline-script', 'document.createElement', 'adsbygoogle.js')
 tekniknot.com#%#//scriptlet('prevent-fetch', '/pagead2\.googlesyndication\.com|static\.ads-twitter\.com/')
 tekniknot.com#%#//scriptlet('prevent-addEventListener', 'load', '/BlockContent|\.onerror|\.catch/')
 !#if (adguard_ext_safari || adguard_app_ios || adguard_ext_android_cb)
@@ -1277,6 +1280,8 @@ technopat.net#%#(function() { var w_open = window.open, regex = /goo.gl/; window
 ! END: Clickunders
 !
 !
+! https://github.com/uBlockOrigin/uAssets/issues/19921
+dizipia.com#%#//scriptlet('abort-on-property-write', 'popURL')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/161599
 erosfilmizle.org#%#//scriptlet('prevent-window-open')
 ! https://github.com/AdguardTeam/AdguardFilters/issues/161110
@@ -2228,6 +2233,12 @@ bilgenc.com,teknodiot.com,ruyashoujo.com,pchocasi.com.tr,dusuncekatalogu.com,tat
 /service/advertchannels?$xmlhttprequest,redirect=nooptext,domain=mardinhaber.com.tr|gidahatti.com|bolugundem.com
 dirilispostasi.com,turkuazgazetesi.net,yenialanya.com,bugunkocaeli.com.tr,cagdaskocaeli.com.tr,mansetaydin.com,seskocaeli.com,kocaelibarisgazetesi.com,kocaelikoz.com,enkocaeli.com##.block-pano > div.us
 !
+||dizipia.com/dizip.js
+||dizimag.org/uploads/megapari.mp4
+||dizipia.com/uploads/*.gif
+||dizipia.com/uploads/1win1000.jpg
+dizipia.com##.rek-wrap
+dizipia.com##[data-time]
 showtv.com.tr##main div[class*="pageskin-"]
 beinsports.com.tr##.ad-fixture-standing-masthead-banner
 ||tafdi4.com/*.mp4
@@ -4622,7 +4633,7 @@ haber61.net##a[href^="https://www.haber61.net/banner.php"]
 haberler.com##div[id="300x600_"]
 antalyam.com##.zozo_ads_widget
 antalyam.com##.newser-artical-bottom-ads
-filmzal.co,asilmedia.org,sende.biz,forum.gamer.com.tr,istanbul.com###banner
+filmzal.co,sende.biz,forum.gamer.com.tr,istanbul.com###banner
 belge.com.tr##.haberdetayReklam
 insaattrendy.com###header-inner .container > .navbar-header + a[href][target="_blank"] > img
 insaattrendy.com##.block-content-inner > .row > #body_div_diger > a[href][target="_blank"] > img

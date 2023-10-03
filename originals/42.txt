@@ -7044,10 +7044,12 @@ dzen.ru##.viewer-layout__sidebar div[id^="D-A-"]
 @@||ad.mail.ru/static/admanhtml/rbadman-html5.min.js$domain=dzen.ru
 !
 ! Common rules
+!#if (adguard_app_windows || adguard_app_mac || adguard_app_android)
 ||imgsmail.ru/octavius/*/app*.bundle.js$replace=/if\(i\.ENABLE_SMOKESCREEN/if\(\!i\.ENABLE_SMOKESCREEN/
 ://mail.ru^$~script,~xmlhttprequest,replace=/a=mr.mimicEnabled?/a=mr.mimic_Enabled?/
 ||mail.ru/*/fast-slot.js$replace=/&&t.mimic.setup.broker//
 ||mail.ru^$~script,~xmlhttprequest,replace=/broker:/_broker:/
+!#endif
 !
 ! kino.mail.ru
 @@||ad.mail.ru/i*.gif$domain=kino.mail.ru
@@ -9744,9 +9746,9 @@ kadrovik01.com.ua,kom-dir.ru,gd.ru,buhsoft.ru,dirklinik.ru,fd.ru,business.ru,pro
 !
 !
 !
+forbes.ru#?#main div[class] > div[class]:has(> div[class] > aside > div[id^="adfox_"])
 ||yastatic.net/vas-bundles/
 kino-teatr.ru#?#.content_block:has(> div.block_okkko)
-forbes.ru#?#div[data-article] > div[class] > div[class]:has(> div[class] > aside > div[id^="adfox_"])
 aptekirls.ru###top-b
 aptekirls.ru###top-banner-info
 ||aptekirls.ru/images/banners/$image
@@ -9817,7 +9819,6 @@ tvmag.ru##a[href*=".tricolor.tv"] > img
 atorus.ru###block-headerads
 korsars.pro##a[href^="https://bit.ly/"] > img
 fontanka.ru##div[style*="--creative-height:"]
-forbes.ru#?#div[data-article="0"] > div[class] > div[class]:has(> div[class] > aside > [id^="adfox_"])
 kniga-online.com##.adv
 serialfan.net##.dle_b_help
 notepadonline.ru##.adbox
@@ -9873,7 +9874,6 @@ football.by###fonbet
 football.by##a[href="https://betonmobile.by/betera-android-app"]
 mlyn.by##body .adv-blocks__block
 citydog.by,citydog.io#$?#.contentCol > div.article.desktop:has(> div.banner240x400 > div[id^="div-gpt-ad"]) { remove: true; }
-forbes.ru#?#div[style^="grid-"] > div[style^="grid-"]:has(> div[style] > aside > div[id^="adfox_"])
 forbes.ru##div[data-type="ad"]
 forbes.ru##div[style="min-height: 224px;"]
 forbes.ru#?#ul > li:has(div[class] > aside > div[id^="adfox_"])
@@ -11566,7 +11566,7 @@ nsp.ru##app-article-banner
 lennytab.com##label[style^="color:white;position:fixed;"]
 popcornnews.ru##div[style="padding: 20px 0; background-color: #f4f4f4;"]
 ||the-hole.tv/ads?
-flicksbar.top##.topAdPad
+flicksbar.lol,flicksbar.top##.topAdPad
 ||torrent-mass.ru/dow.png
 torontovka.com##.header-partnership
 torontovka.com##tor-banner-block
@@ -22809,6 +22809,7 @@ i.ua$$script[tag-content="var branding"][max-length="2000"]
 !
 !
 !
+compendium.com.ua##.cp-banner-catfish
 novy.tv##.ppb-scene-container
 fitomarket.com.ua###coolbanner0
 mezha.media##.banner-link
