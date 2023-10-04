@@ -148,8 +148,12 @@ auto.ru#%#//scriptlet('abort-on-property-read', 'Object.prototype.RenderMarks')
 ! END: Yandex
 !
 !
+!#if (!adguard_app_windows && !adguard_app_mac && !adguard_app_android)
+! comedy-radio.ru
+comedy-radio.ru#%#//scriptlet('abort-on-property-read', 'Object.prototype.renderDirect')
 ! relax-fm.ru
 relax-fm.ru#%#//scriptlet('abort-on-property-read', 'Object.prototype.renderDirect')
+!#endif
 ! otzovik
 otzovik.com##td[colspan] > div[style^="background-color: #ffd2ca;"]
 otzovik.com#%#//scriptlet('prevent-eval-if', 'xored')
@@ -1312,7 +1316,7 @@ inoreader.com#%#//scriptlet("set-constant", "cr", "0")
 inoreader.com#%#//scriptlet("set-constant", "gn", "true")
 insidermonkey.com#%#//scriptlet('prevent-fetch', 'pagead2.googlesyndication.com')
 internet-law.ru###fab-enabled
-tuttoandroid.net,psy.pl,koty.pl,intibia.com#%#//scriptlet('prevent-fetch', 'www3.doubleclick.net')
+maxroll.gg,tuttoandroid.net,psy.pl,koty.pl,intibia.com#%#//scriptlet('prevent-fetch', 'www3.doubleclick.net')
 investing.com#%#//scriptlet("set-constant", "window.google_ad_status", "1")
 investmani.ru#$#.adsbygoogle { height: 1px!important; }
 investmentwatchblog.com###custom_html-22
@@ -3440,6 +3444,7 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 !
 ! SECTION: Popups - Regular rules
 !
+my.chinaz.com##.vipbtm
 consumerreports.org###mtRoundupPaywallPopup
 helloyishi.com.tw#%#//scriptlet('set-cookie', 'discover-disable-sitewide-article', 'true')
 lesechos.fr#?#article div[class^="sc-"]:has(> div > a[href^="https://abonnement.lesechos.fr/"] + button)
@@ -4042,8 +4047,7 @@ swarmapp.com#$##modalOverlay { display: none !important; }
 swarmapp.com#$##modalDialogBox:has(#signupForSwarmRichModal) { display: none !important; }
 swarmapp.com#$#body { overflow: auto !important; }
 sp.pictlink.com##.area-login-floating
-knowledgehut.com#$#div[id^="headlessui-dialog"] { display: none !important; }
-knowledgehut.com#$#html { overflow: auto !important; }
+knowledgehut.com#?#.absolute > div > .fixed:has(> div[class^="ExitPopup__PopupContainer"])
 knowledgehut.com##div[class^="FooterSticky__"]
 stackoverflow.com###overlay-header
 tvguide.com##.c-avLazyStickyVideo div.c-avLazyStickyVideo-sticky
@@ -11225,6 +11229,13 @@ newscientist.com,jiji.com,edp24.co.uk,technologyreview.com,nordbayern.de,theloca
 !
 ! SECTION: Subscriptions - Regular rules
 !
+expert.it#%#//scriptlet('set-cookie', '__expert.modal.campaign.welcome2023', 'true')
+officelife.media###unisender-subscribe-form
+knowledgehut.com##div[class^="slug___StyledDiv"] > div.my-6 + div.bg-white
+metro.co.uk#$#body { overflow: auto !important; }
+metro.co.uk#$#.metro-newsletter-overlay { display: none !important; }
+medianews4u.com##.theiaStickySidebar > #text-2
+medianews4u.com#?#.theiaStickySidebar > .jeg_wrapper > .wpb_text_column:has(> .wpb_wrapper > .mc4wp-form)
 consumerreports.org##.cda-gnav > div[class^="pre-prime-day-deals"]
 newsnow.co.uk##.email-signup
 noicompriamoauto.it##.signup-wrapper
