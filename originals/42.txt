@@ -1219,7 +1219,6 @@ ucoz.ru/informer/
 ##.advert-horizontal
 ##.advert__banner
 ~browsershots.org##.advert_list
-~change.org,~tonprenom.com##.advertise
 ~inboxdollars.com,~gazeteyenigun.com.tr,~andkon.com,~masseurporn.com,~wired.com##.advertisement:not(body)
 ##.advertiser
 ~macwelt.de,~redmondpie.com##.advertisment
@@ -6008,8 +6007,7 @@ newsyou.info,4mama.ua,autoua.net,censor.net,eurointegration.com.ua,gagadget.com,
 ! NOTE: Ads replacement (piguiqproxy.com etc.) end ⬆️
 ! !SECTION: Ads replacement (piguiqproxy.com etc.)
 !
-! https://github.com/AdguardTeam/AdguardFilters/issues/163312
-cosme-world.net#@#.advertise
+
 !
 ! First of all, this section has common rules that prevent most known ad block detections. In that case domain should be added to the common rules.
 ! The section contains the list of the rules are against all kinds of ads reinjection or ad-blocking circumvention scripts. If such a script does not cripple the website, we add rules to the Annoyances filter.
@@ -8154,6 +8152,8 @@ disk.yandex.*#%#//scriptlet('remove-class', 'has-fullscreen-banner','.public__ro
 !------- CSS -----------
 !-----------------------
 !
+! https://github.com/AdguardTeam/AdguardFilters/issues/163800
+zoneofgames.ru#$#body { padding-top: 0 !important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/162448
 botanichka.ru#$#body.td-background-link { cursor: auto !important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/158165
@@ -9757,6 +9757,8 @@ kadrovik01.com.ua,kom-dir.ru,gd.ru,buhsoft.ru,dirklinik.ru,fd.ru,business.ru,pro
 !
 !
 !
+pb.wtf##a[href^="https://gamesell.icu/"] > img
+pb.wtf#?##topocs_maine > tbody[id^="post_"]:has(> tr > td > div > div.post_pp > span > div[style] > a[href^="https://gamesell.icu/"])
 podolyaka.su#?##content > div[id]:has(> div[class] > div:contains(Реклама))
 podolyaka.su#$#.wrp { margin-top: 0 !important; }
 apad2.top##.post_wrap > center#rkn > center
@@ -21315,8 +21317,6 @@ mirum.gr#@#.banner-head
 japannews.yomiuri.co.jp#@#.sp_search
 ! https://github.com/AdguardTeam/AdguardFilters/issues/137302
 zddoc.ru#@#.adrotate_widgets
-! https://github.com/AdguardTeam/AdguardFilters/issues/135562
-kaotic.com#@#.advertise
 ! https://github.com/AdguardTeam/AdguardFilters/issues/135571
 @@||films-torrent.ru/templates/reborn_films2/img/ads1.png$domain=films-torrent.ru
 ! https://github.com/AdguardTeam/AdguardFilters/issues/134684
@@ -22843,7 +22843,7 @@ i.ua$$script[tag-content="var branding"][max-length="2000"]
 !
 !
 compendium.com.ua##.cp-banner-catfish
-novy.tv##.ppb-scene-container
+novy.tv###bidmatic-playerContainer div.ppb-wrapper
 fitomarket.com.ua###coolbanner0
 mezha.media##.banner-link
 tabloid.pravda.com.ua#?#article > div.block_post .banner__text:contains(Реклама)
