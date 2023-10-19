@@ -511,6 +511,7 @@ reddit.com,reddittorjg6rue252oqsxryoxengawnmo46qy4kyii5wtqnwfj4ooad.onion#@#.Sid
 ! Add same rules to the Admiral section of Tracking Protection filter
 ! LINK: SpywareFilter/sections/tracking_servers.txt#admiral
 !
+||delicatecascade.com^$third-party
 ||dreamycanyon.com^$third-party
 ||whimsicalgrove.com^$third-party
 ||cozyhillside.com^$third-party
@@ -728,7 +729,7 @@ clicknupload.red,clicknupload.xyz#@#.AdsBox
 tvdigital.de#@#.AdSense
 email.t-online.de#@#.werbung
 @@||free-proxy.cz/js/showads.js
-clickndownload.org#@#.AdsBox
+up-4ever.net,clickndownload.org#@#.AdsBox
 vk.com#@#div[data-ad-view]
 @@||static.classistatic.de/adv/js/nf/adblock_detector.js
 officialcharts.com#@#.header-ad
@@ -741,6 +742,7 @@ economictimes.indiatimes.com#@#.ad_block
 ! SECTION: Anti-adblock - Regular rules
 ! Do not forget about '!#safari_cb_affinity' section for exclusions
 !
+xenvn.com#%#//scriptlet('prevent-addEventListener', 'load', 'XV.ad_block')
 collegepolltracker.com##.noticeBarAdBlocker
 ||es.memedroid.com/js/ads*.js
 ||homebank.free.fr/inc/js-adblocker-old.js
@@ -2098,6 +2100,17 @@ ivi.ru#%#document.cookie = "adbNotice=1";
 ivi.ru#%#AG_onLoad(function() { document.cookie = "adbNotice=1"; });
 creativeuncut.com###abox-s_i
 creativeuncut.com###g_abox
+! Youtube
+!#if (!adguard_app_windows && !adguard_app_mac && !adguard_app_android)
+! For the closable popup
+youtube.com#?#ytd-enforcement-message-view-model:has(> div.ytd-enforcement-message-view-model)
+youtube.com#$#tp-yt-iron-overlay-backdrop { display: none !important; }
+youtube.com#$?#tp-yt-paper-dialog:has(> ytd-enforcement-message-view-model > div.ytd-enforcement-message-view-model) { remove: true; }
+! For the overlay
+youtube.com#$#ytd-watch-flexy[player-unavailable] #player-container-outer.ytd-watch-flexy { visibility: visible !important; }
+youtube.com#$#yt-playability-error-supported-renderers { display: none !important; }
+!#endif
+!
 !+ NOT_OPTIMIZED
 stereogum.com#$##sg-ad-block-notice { display: none !important; }
 !+ NOT_OPTIMIZED
@@ -3471,6 +3484,8 @@ sanalkurs.net###toast-container > .toast-error[aria-live="assertive"]
 !
 ! SECTION: Popups - Regular rules
 !
+video.fc2.com##div[style^="position: fixed; transition: right 1s ease-out 0s; bottom: 165px; padding: 0px; margin: 0px; border: none; z-index: 999;"]
+google.ad,google.ae,google.al,google.am,google.as,google.at,google.az,google.ba,google.be,google.bf,google.bg,google.bi,google.bj,google.bs,google.bt,google.by,google.ca,google.cat,google.cd,google.cf,google.cg,google.ch,google.ci,google.cl,google.cm,google.cn,google.co.ao,google.co.bw,google.co.ck,google.co.cr,google.co.id,google.co.il,google.co.in,google.co.jp,google.co.ke,google.co.kr,google.co.ls,google.co.ma,google.co.mz,google.co.nz,google.co.th,google.co.tz,google.co.ug,google.co.uk,google.co.uz,google.co.ve,google.co.vi,google.co.za,google.co.zm,google.co.zw,google.com,google.com.af,google.com.ag,google.com.ai,google.com.ar,google.com.au,google.com.bd,google.com.bh,google.com.bn,google.com.bo,google.com.br,google.com.bz,google.com.co,google.com.cu,google.com.cy,google.com.do,google.com.ec,google.com.eg,google.com.et,google.com.fj,google.com.gh,google.com.gi,google.com.gt,google.com.hk,google.com.jm,google.com.kh,google.com.kw,google.com.lb,google.com.ly,google.com.mm,google.com.mt,google.com.mx,google.com.my,google.com.na,google.com.nf,google.com.ng,google.com.ni,google.com.np,google.com.om,google.com.pa,google.com.pe,google.com.pg,google.com.ph,google.com.pk,google.com.pr,google.com.py,google.com.qa,google.com.sa,google.com.sb,google.com.sg,google.com.sl,google.com.sv,google.com.tj,google.com.tr,google.com.tw,google.com.ua,google.com.uy,google.com.vc,google.com.vn,google.cv,google.cz,google.de,google.dj,google.dk,google.dm,google.dz,google.ee,google.es,google.fi,google.fm,google.fr,google.ga,google.ge,google.gg,google.gl,google.gm,google.gp,google.gr,google.gy,google.hn,google.hr,google.ht,google.hu,google.ie,google.im,google.iq,google.is,google.it,google.je,google.jo,google.kg,google.ki,google.kz,google.la,google.li,google.lk,google.lt,google.lu,google.lv,google.md,google.me,google.mg,google.mk,google.ml,google.mn,google.ms,google.mu,google.mv,google.mw,google.ne,google.nl,google.no,google.nr,google.nu,google.pl,google.pn,google.ps,google.pt,google.ro,google.rs,google.ru,google.rw,google.sc,google.se,google.sh,google.si,google.sk,google.sm,google.sn,google.so,google.sr,google.st,google.td,google.tg,google.tk,google.tl,google.tm,google.tn,google.to,google.tt,google.vg,google.vu,google.ws###oFNiHe
 adnkronos.com###overlay-empty
 adnkronos.com###pop-related
 timeweb.com##body #myReviews__bottom-left-container
@@ -11199,6 +11214,7 @@ pipedream.com#@##credential_picker_container
 ! Genegic rules
 ! SECTION: Subscriptions - Generic
 !
+##.w-newsletter-in_article
 ##.smartmag-widget-newsletter
 ##.newsletter-slice
 ##.newsletter-inbodyContent-slice
@@ -11285,6 +11301,13 @@ newscientist.com,jiji.com,edp24.co.uk,technologyreview.com,nordbayern.de,theloca
 !
 ! SECTION: Subscriptions - Regular rules
 !
+video.fc2.com##.noLoginSticker
+news.dtkt.ua##.weekly-news
+news.dtkt.ua###trial-subscribe-widget
+bendodson.com###thanks
+newsweek.com##.promo-link
+prosleduetmedia.com##.wpcf7
+onlinepngtools.com,onlinetools.com#%#//scriptlet('set-cookie', 'discountPrice', 'true')
 4sysops.com#?#.article-content > div[style]:has(> iframe[src="/img/NewsletterEnd.html"])
 cyberdaily.au#?#.grid-item > .b-sideSub:has(> .b-sideSub__form)
 cyberdaily.au#?#.b-article-wrapper__right__wrapper > .b-module:has(> .b-sideSub > .b-sideSub__form)
@@ -11391,7 +11414,6 @@ news.northwestern.edu###main-content > #sticky
 earthsky.org##.earth-widget
 thealpenanews.com###newsletter_article
 shrm.org##.hr-daily-newsletter
-cbr.com,howtogeek.com##.w-newsletter-in_article
 howtogeek.com###signin-banner-container
 timesofindia.indiatimes.com#?#div[data-mod="sidebar"] > div[class*=" "]:has(.et_subscription_container_entertainment)
 gizchina.it#?#.mrf-detailsBody > nav:has(> a[href^="https://t.me/gizdeals"])
